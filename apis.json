@@ -1,0 +1,54 @@
+{
+    "name": "Microsoft",
+    "description": "At Microsoft our mission and values are to help people and businesses throughout the world realize their full potential.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/2668-microsoft.jpg",
+    "tags": [
+        "computers",
+        "have api",
+        "operating system",
+        "telecommunications"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/microsoft\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Microsoft",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/2668-microsoft.jpg",
+            "humanURL": "http:\/\/www.microsoft.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/microsoft-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/microsoft-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/microsoft"
+        },
+        {
+            "type": "Transparency Report",
+            "url": "https:\/\/www.microsoft.com\/about\/csr\/transparencyhub\/"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/microsoft"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/www.microsoft.com\/"
+        }
+    ]
+}
