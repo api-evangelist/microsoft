@@ -1,0 +1,163 @@
+name: Microsoft APIs
+description: Collection of Microsoft's primary APIs and developer resources
+image: https://www.microsoft.com/favicon.ico
+url: https://www.microsoft.com
+created: '2024'
+modified: '2024'
+apis:
+- name: Microsoft Graph API
+  description: Unified API endpoint for accessing Microsoft 365, Windows, and Enterprise Mobility + Security services
+  image: https://learn.microsoft.com/en-us/graph/images/microsoft-graph.png
+  humanURL: https://developer.microsoft.com/en-us/graph
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Office 365
+  - Azure AD
+  - OneDrive
+  - Outlook
+  - Teams
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/overview
+  - type: OpenAPI
+    url: https://learn.microsoft.com/en-us/graph/api/overview
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/graph/auth/
+  - type: SDKs
+    url: https://learn.microsoft.com/en-us/graph/sdks/sdks-overview
+  - type: Graph Explorer
+    url: https://developer.microsoft.com/en-us/graph/graph-explorer
+- name: Azure REST API
+  description: REST APIs for managing Azure resources and services
+  humanURL: https://learn.microsoft.com/en-us/rest/api/azure/
+  baseURL: https://management.azure.com
+  tags:
+  - Cloud
+  - Infrastructure
+  - Azure
+  - Resources
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/azure/
+  - type: API Reference
+    url: https://learn.microsoft.com/en-us/rest/api/?view=Azure
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/azure/active-directory/develop/
+  - type: SDKs
+    url: https://azure.microsoft.com/en-us/downloads/
+- name: Azure OpenAI Service API
+  description: Access to OpenAI's powerful language models through Azure
+  humanURL: https://azure.microsoft.com/en-us/products/ai-services/openai-service
+  baseURL: https://{resource-name}.openai.azure.com
+  tags:
+  - AI
+  - Machine Learning
+  - GPT
+  - OpenAI
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/ai-services/openai/
+  - type: API Reference
+    url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
+  - type: Quickstart
+    url: https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart
+- name: Azure Cognitive Services API
+  description: APIs for vision, speech, language, and decision-making AI capabilities
+  humanURL: https://azure.microsoft.com/en-us/products/ai-services/
+  baseURL: https://{region}.api.cognitive.microsoft.com
+  tags:
+  - AI
+  - Computer Vision
+  - Speech
+  - Language
+  - Machine Learning
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/ai-services/
+  - type: API Reference
+    url: https://learn.microsoft.com/en-us/rest/api/cognitiveservices/
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
+- name: Microsoft Teams API
+  description: Build apps and bots for Microsoft Teams
+  humanURL: https://developer.microsoft.com/en-us/microsoft-teams
+  baseURL: https://graph.microsoft.com/v1.0/teams
+  tags:
+  - Collaboration
+  - Chat
+  - Teams
+  - Messaging
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/
+  - type: API Reference
+    url: https://learn.microsoft.com/en-us/graph/teams-concept-overview
+  - type: App Templates
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
+- name: OneDrive API
+  description: Access and manage files stored in OneDrive and SharePoint
+  humanURL: https://developer.microsoft.com/en-us/onedrive
+  baseURL: https://graph.microsoft.com/v1.0/me/drive
+  tags:
+  - Storage
+  - Files
+  - OneDrive
+  - SharePoint
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/onedrive/developer/
+  - type: API Reference
+    url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
+  - type: Samples
+    url: https://github.com/OneDrive/samples
+- name: Power Platform API
+  description: APIs for Power Apps, Power Automate, and Power BI
+  humanURL: https://learn.microsoft.com/en-us/power-platform/
+  baseURL: https://api.powerplatform.com
+  tags:
+  - Low Code
+  - Automation
+  - Business Intelligence
+  - Power Apps
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview
+  - type: Power Apps API
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
+  - type: Power Automate API
+    url: https://learn.microsoft.com/en-us/power-automate/web-api
+- name: Bing Search APIs
+  description: Integrate Bing search capabilities into applications
+  humanURL: https://www.microsoft.com/en-us/bing/apis/bing-web-search-api
+  baseURL: https://api.bing.microsoft.com/v7.0
+  tags:
+  - Search
+  - Web Search
+  - Image Search
+  - Bing
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/bing/search-apis/
+  - type: API Reference
+    url: https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/endpoints
+  - type: Pricing
+    url: https://www.microsoft.com/en-us/bing/apis/pricing
+maintainers:
+- name: Microsoft
+  email: support@microsoft.com
+  url: https://support.microsoft.com
+common:
+- type: Developer Portal
+  url: https://developer.microsoft.com/
+- type: Azure Portal
+  url: https://portal.azure.com
+- type: Status Page
+  url: https://status.azure.com/
+- type: Support
+  url: https://support.microsoft.com/
+- type: Privacy Policy
+  url: https://privacy.microsoft.com/
+- type: Terms of Service
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: GitHub
+  url: https://github.com/microsoft
