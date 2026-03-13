@@ -1,0 +1,454 @@
+openapi: 3.1.0
+info:
+  title: Azure REST API
+  description: >-
+    REST APIs for managing Azure resources and services including subscriptions,
+    resource groups, and deployments through the Azure Resource Manager.
+  version: '2024-03-01'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Azure REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/azure/
+servers:
+  - url: https://management.azure.com
+    description: Azure Resource Manager Production
+tags:
+  - name: Subscriptions
+    description: Manage Azure subscriptions
+  - name: Resource Groups
+    description: Manage Azure resource groups
+  - name: Resources
+    description: Manage Azure resources
+  - name: Deployments
+    description: Manage ARM template deployments
+security:
+  - oauth2: []
+paths:
+  /subscriptions:
+    get:
+      operationId: listSubscriptions
+      summary: List subscriptions
+      description: >-
+        Gets all subscriptions for a tenant.
+      tags:
+        - Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: List of subscriptions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionListResult'
+        '401':
+          description: Unauthorized
+  /subscriptions/{subscriptionId}:
+    get:
+      operationId: getSubscription
+      summary: Get a subscription
+      description: >-
+        Gets details about a specified subscription.
+      tags:
+        - Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Subscription details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subscription not found
+  /subscriptions/{subscriptionId}/resourcegroups:
+    get:
+      operationId: listResourceGroups
+      summary: List resource groups
+      description: >-
+        Gets all the resource groups for a subscription.
+      tags:
+        - Resource Groups
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/apiVersion'
+        - $ref: '#/components/parameters/filterParam'
+        - $ref: '#/components/parameters/topParam'
+      responses:
+        '200':
+          description: List of resource groups
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroupListResult'
+        '401':
+          description: Unauthorized
+  /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}:
+    get:
+      operationId: getResourceGroup
+      summary: Get a resource group
+      description: >-
+        Gets a resource group.
+      tags:
+        - Resource Groups
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/resourceGroupName'
+        - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Resource group details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroup'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource group not found
+    put:
+      operationId: createOrUpdateResourceGroup
+      summary: Create or update a resource group
+      description: >-
+        Creates or updates a resource group.
+      tags:
+        - Resource Groups
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/resourceGroupName'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceGroup'
+      responses:
+        '200':
+          description: Resource group updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroup'
+        '201':
+          description: Resource group created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroup'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteResourceGroup
+      summary: Delete a resource group
+      description: >-
+        Deletes a resource group and all of its resources.
+      tags:
+        - Resource Groups
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/resourceGroupName'
+        - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Resource group deleted
+        '202':
+          description: Accepted - deletion in progress
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource group not found
+  /subscriptions/{subscriptionId}/resources:
+    get:
+      operationId: listResources
+      summary: List all resources in a subscription
+      description: >-
+        Get all the resources in a subscription.
+      tags:
+        - Resources
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/apiVersion'
+        - $ref: '#/components/parameters/filterParam'
+        - $ref: '#/components/parameters/topParam'
+      responses:
+        '200':
+          description: List of resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceListResult'
+        '401':
+          description: Unauthorized
+  /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}:
+    put:
+      operationId: createOrUpdateDeployment
+      summary: Create or update a deployment
+      description: >-
+        Deploy resources to a resource group using an ARM template.
+      tags:
+        - Deployments
+      parameters:
+        - $ref: '#/components/parameters/subscriptionId'
+        - $ref: '#/components/parameters/resourceGroupName'
+        - name: deploymentName
+          in: path
+          required: true
+          description: The name of the deployment
+          schema:
+            type: string
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Deployment'
+      responses:
+        '200':
+          description: Deployment updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentExtended'
+        '201':
+          description: Deployment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentExtended'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager
+  parameters:
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The name of the resource group
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    filterParam:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    topParam:
+      name: $top
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+  schemas:
+    SubscriptionListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        nextLink:
+          type: string
+          description: URL to get the next set of results
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Fully qualified resource ID
+        subscriptionId:
+          type: string
+          description: The subscription ID
+        displayName:
+          type: string
+          description: The subscription display name
+        state:
+          type: string
+          enum:
+            - Enabled
+            - Warned
+            - PastDue
+            - Disabled
+            - Deleted
+          description: The subscription state
+        tenantId:
+          type: string
+          description: The subscription tenant ID
+        subscriptionPolicies:
+          type: object
+          properties:
+            locationPlacementId:
+              type: string
+            quotaId:
+              type: string
+            spendingLimit:
+              type: string
+              enum:
+                - 'On'
+                - 'Off'
+                - CurrentPeriodOff
+    ResourceGroupListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceGroup'
+        nextLink:
+          type: string
+    ResourceGroup:
+      type: object
+      required:
+        - location
+      properties:
+        id:
+          type: string
+          description: Resource group ID
+          readOnly: true
+        name:
+          type: string
+          description: Resource group name
+          readOnly: true
+        type:
+          type: string
+          description: Resource type
+          readOnly: true
+        location:
+          type: string
+          description: Resource group location
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          description: Resource group tags
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+              description: The provisioning state
+              readOnly: true
+    ResourceListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericResource'
+        nextLink:
+          type: string
+    GenericResource:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Resource ID
+        name:
+          type: string
+          description: Resource name
+        type:
+          type: string
+          description: Resource type
+        location:
+          type: string
+          description: Resource location
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        sku:
+          type: object
+          properties:
+            name:
+              type: string
+            tier:
+              type: string
+            size:
+              type: string
+        kind:
+          type: string
+    Deployment:
+      type: object
+      required:
+        - properties
+      properties:
+        properties:
+          type: object
+          required:
+            - mode
+          properties:
+            template:
+              type: object
+              description: The template content
+            templateLink:
+              type: object
+              properties:
+                uri:
+                  type: string
+                contentVersion:
+                  type: string
+            parameters:
+              type: object
+              description: Deployment parameters
+            mode:
+              type: string
+              enum:
+                - Incremental
+                - Complete
+              description: The deployment mode
+    DeploymentExtended:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            correlationId:
+              type: string

@@ -1,0 +1,351 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Intune API
+  description: >-
+    APIs for managing devices, apps, and compliance policies through Microsoft
+    Graph for enterprise mobility and endpoint management.
+  version: '1.0'
+  contact:
+    name: Microsoft Intune Support
+    url: https://learn.microsoft.com/en-us/graph/intune-concept-overview
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Intune Graph API Overview
+  url: https://learn.microsoft.com/en-us/graph/intune-concept-overview
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0
+tags:
+  - name: Managed Devices
+    description: Manage enrolled devices
+  - name: Device Compliance
+    description: Manage compliance policies
+  - name: Mobile Apps
+    description: Manage mobile applications
+  - name: Device Configuration
+    description: Manage device configuration profiles
+security:
+  - oauth2: []
+paths:
+  /deviceManagement/managedDevices:
+    get:
+      operationId: listManagedDevices
+      summary: List managed devices
+      description: List properties and relationships of managed device objects.
+      tags:
+        - Managed Devices
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of managed devices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ManagedDevice'
+        '401':
+          description: Unauthorized
+  /deviceManagement/managedDevices/{managedDeviceId}:
+    get:
+      operationId: getManagedDevice
+      summary: Get a managed device
+      description: Read properties of a managed device object.
+      tags:
+        - Managed Devices
+      parameters:
+        - name: managedDeviceId
+          in: path
+          required: true
+          description: Managed device unique identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Managed device details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagedDevice'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /deviceManagement/managedDevices/{managedDeviceId}/wipe:
+    post:
+      operationId: wipeManagedDevice
+      summary: Wipe a managed device
+      description: Wipe a device, removing all data and resetting to factory defaults.
+      tags:
+        - Managed Devices
+      parameters:
+        - name: managedDeviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Wipe initiated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /deviceManagement/managedDevices/{managedDeviceId}/retire:
+    post:
+      operationId: retireManagedDevice
+      summary: Retire a managed device
+      description: Retire a device, removing managed data while keeping personal data.
+      tags:
+        - Managed Devices
+      parameters:
+        - name: managedDeviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Retire initiated
+        '401':
+          description: Unauthorized
+  /deviceManagement/deviceCompliancePolicies:
+    get:
+      operationId: listCompliancePolicies
+      summary: List compliance policies
+      description: List properties and relationships of device compliance policy objects.
+      tags:
+        - Device Compliance
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of compliance policies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeviceCompliancePolicy'
+        '401':
+          description: Unauthorized
+  /deviceAppManagement/mobileApps:
+    get:
+      operationId: listMobileApps
+      summary: List mobile apps
+      description: List properties and relationships of mobile app objects.
+      tags:
+        - Mobile Apps
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of mobile apps
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MobileApp'
+        '401':
+          description: Unauthorized
+  /deviceManagement/deviceConfigurations:
+    get:
+      operationId: listDeviceConfigurations
+      summary: List device configurations
+      description: List properties and relationships of device configuration objects.
+      tags:
+        - Device Configuration
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of device configurations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeviceConfiguration'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            DeviceManagementManagedDevices.Read.All: Read managed devices
+            DeviceManagementManagedDevices.ReadWrite.All: Read and write managed devices
+            DeviceManagementApps.Read.All: Read mobile apps
+            DeviceManagementConfiguration.Read.All: Read device configurations
+  parameters:
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+  schemas:
+    ManagedDevice:
+      type: object
+      properties:
+        id:
+          type: string
+        deviceName:
+          type: string
+        managedDeviceOwnerType:
+          type: string
+          enum:
+            - unknown
+            - company
+            - personal
+        operatingSystem:
+          type: string
+        osVersion:
+          type: string
+        complianceState:
+          type: string
+          enum:
+            - unknown
+            - compliant
+            - noncompliant
+            - conflict
+            - error
+            - inGracePeriod
+            - configManager
+        model:
+          type: string
+        manufacturer:
+          type: string
+        serialNumber:
+          type: string
+        userPrincipalName:
+          type: string
+        userDisplayName:
+          type: string
+        emailAddress:
+          type: string
+        lastSyncDateTime:
+          type: string
+          format: date-time
+        enrolledDateTime:
+          type: string
+          format: date-time
+        managementAgent:
+          type: string
+          enum:
+            - eas
+            - mdm
+            - easMdm
+            - intuneClient
+            - easIntuneClient
+            - configurationManagerClient
+            - unknown
+        isEncrypted:
+          type: boolean
+        isSupervised:
+          type: boolean
+        jailBroken:
+          type: string
+    DeviceCompliancePolicy:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+        version:
+          type: integer
+    MobileApp:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        publisher:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+        isFeatured:
+          type: boolean
+        publishingState:
+          type: string
+          enum:
+            - notPublished
+            - processing
+            - published
+    DeviceConfiguration:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+        version:
+          type: integer

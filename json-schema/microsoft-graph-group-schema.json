@@ -1,0 +1,288 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://learn.microsoft.com/en-us/graph/schemas/microsoft/group.json",
+  "title": "Microsoft Graph Group",
+  "description": "Represents a Microsoft Entra group, which can be a Microsoft 365 group, security group, or mail-enabled security group. Inherits from directoryObject. This is an open type that allows additional properties beyond those documented.",
+  "type": "object",
+  "required": ["displayName", "mailEnabled", "mailNickname", "securityEnabled"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the group (GUID). Inherited from directoryObject.",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The display name for the group. Required when creating and cannot be cleared during updates.",
+      "maxLength": 256
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "An optional description for the group"
+    },
+    "mail": {
+      "type": ["string", "null"],
+      "format": "email",
+      "description": "The SMTP address for the group",
+      "readOnly": true
+    },
+    "mailEnabled": {
+      "type": "boolean",
+      "description": "Specifies whether the group is mail-enabled"
+    },
+    "mailNickname": {
+      "type": "string",
+      "description": "The mail alias for the group, unique for Microsoft 365 groups in the organization",
+      "maxLength": 64
+    },
+    "securityEnabled": {
+      "type": "boolean",
+      "description": "Specifies whether the group is a security group"
+    },
+    "groupTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specifies the group type and its membership. If the collection contains 'Unified', the group is a Microsoft 365 group; if it includes 'DynamicMembership', the group has dynamic membership."
+    },
+    "visibility": {
+      "type": ["string", "null"],
+      "enum": [null, "Public", "Private", "HiddenMembership"],
+      "description": "Specifies the group join policy and group content visibility"
+    },
+    "classification": {
+      "type": ["string", "null"],
+      "description": "Describes a classification for the group (such as low, medium, or high business impact)"
+    },
+    "theme": {
+      "type": ["string", "null"],
+      "enum": [null, "Teal", "Purple", "Green", "Blue", "Pink", "Orange", "Red"],
+      "description": "Specifies a Microsoft 365 group's color theme"
+    },
+    "createdDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp of when the group was created in ISO 8601 format and UTC",
+      "readOnly": true
+    },
+    "deletedDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time the group was deleted",
+      "readOnly": true
+    },
+    "renewedDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp of when the group was last renewed",
+      "readOnly": true
+    },
+    "expirationDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp of when the group is set to expire",
+      "readOnly": true
+    },
+    "membershipRule": {
+      "type": ["string", "null"],
+      "description": "The rule that determines members for this group if the group is a dynamic group"
+    },
+    "membershipRuleProcessingState": {
+      "type": ["string", "null"],
+      "enum": [null, "On", "Paused"],
+      "description": "Indicates whether dynamic membership processing is on or paused"
+    },
+    "isAssignableToRole": {
+      "type": ["boolean", "null"],
+      "description": "Indicates whether this group can be assigned to a Microsoft Entra role"
+    },
+    "isArchived": {
+      "type": ["boolean", "null"],
+      "description": "When a group is associated with a team, this determines whether the team is in read-only mode"
+    },
+    "isManagementRestricted": {
+      "type": ["boolean", "null"],
+      "description": "Indicates whether the group is a member of a restricted management administrative unit",
+      "readOnly": true
+    },
+    "preferredDataLocation": {
+      "type": ["string", "null"],
+      "description": "The preferred data location for the Microsoft 365 group"
+    },
+    "preferredLanguage": {
+      "type": ["string", "null"],
+      "description": "The preferred language for a Microsoft 365 group in ISO 639-1 format"
+    },
+    "proxyAddresses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Email addresses for the group that direct to the same group mailbox",
+      "readOnly": true
+    },
+    "securityIdentifier": {
+      "type": ["string", "null"],
+      "description": "Security identifier of the group, used in Windows scenarios",
+      "readOnly": true
+    },
+    "uniqueName": {
+      "type": ["string", "null"],
+      "description": "The unique identifier that can be assigned to a group and used as an alternate key",
+      "readOnly": true
+    },
+    "onPremisesDomainName": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises domain FQDN",
+      "readOnly": true
+    },
+    "onPremisesLastSyncDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Indicates the last time at which the group was synced with the on-premises directory",
+      "readOnly": true
+    },
+    "onPremisesNetBiosName": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises netBios name",
+      "readOnly": true
+    },
+    "onPremisesSamAccountName": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises SAM account name",
+      "readOnly": true
+    },
+    "onPremisesSecurityIdentifier": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises security identifier (SID) for the group",
+      "readOnly": true
+    },
+    "onPremisesSyncEnabled": {
+      "type": ["boolean", "null"],
+      "description": "True if this group is synced from an on-premises directory",
+      "readOnly": true
+    },
+    "onPremisesProvisioningErrors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OnPremisesProvisioningError"
+      },
+      "description": "Errors when using Microsoft synchronization product during provisioning"
+    },
+    "allowExternalSenders": {
+      "type": ["boolean", "null"],
+      "description": "Indicates if people external to the organization can send messages to the group"
+    },
+    "autoSubscribeNewMembers": {
+      "type": ["boolean", "null"],
+      "description": "Indicates if new members added to the group are auto-subscribed to receive email notifications"
+    },
+    "hideFromAddressLists": {
+      "type": ["boolean", "null"],
+      "description": "True if the group is not displayed in certain parts of the Outlook UI"
+    },
+    "hideFromOutlookClients": {
+      "type": ["boolean", "null"],
+      "description": "True if the group is not displayed in Outlook clients"
+    },
+    "isSubscribedByMail": {
+      "type": ["boolean", "null"],
+      "description": "Indicates whether the signed-in user is subscribed to receive email conversations"
+    },
+    "hasMembersWithLicenseErrors": {
+      "type": ["boolean", "null"],
+      "description": "Indicates whether there are members in this group that have license errors",
+      "readOnly": true
+    },
+    "unseenCount": {
+      "type": ["integer", "null"],
+      "description": "Count of conversations that received new posts since the signed-in user last visited the group"
+    },
+    "resourceBehaviorOptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specifies the group behaviors that can be set during creation"
+    },
+    "resourceProvisioningOptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specifies the group resources associated with the Microsoft 365 group"
+    },
+    "assignedLicenses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AssignedLicense"
+      },
+      "description": "The licenses that are assigned to the group",
+      "readOnly": true
+    },
+    "assignedLabels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AssignedLabel"
+      },
+      "description": "The list of sensitivity label pairs associated with a Microsoft 365 group"
+    }
+  },
+  "$defs": {
+    "OnPremisesProvisioningError": {
+      "type": "object",
+      "description": "Represents errors during synchronization from on-premises directory",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Category of the provisioning error"
+        },
+        "occurredDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time at which the error occurred"
+        },
+        "propertyCausingError": {
+          "type": "string",
+          "description": "Name of the directory property causing the error"
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the property causing the error"
+        }
+      }
+    },
+    "AssignedLicense": {
+      "type": "object",
+      "description": "Represents a license assigned to a group",
+      "properties": {
+        "skuId": {
+          "type": "string",
+          "description": "The unique identifier for the SKU"
+        },
+        "disabledPlans": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A collection of the unique identifiers for disabled plans"
+        }
+      }
+    },
+    "AssignedLabel": {
+      "type": "object",
+      "description": "Represents a sensitivity label assigned to a Microsoft 365 group",
+      "properties": {
+        "labelId": {
+          "type": "string",
+          "description": "The unique identifier of the label"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the label"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,558 @@
+openapi: 3.1.0
+info:
+  title: Azure DevOps REST API
+  description: >-
+    REST APIs for managing Azure DevOps Services including projects, Git
+    repositories, pipelines, builds, and work items.
+  version: '7.2'
+  contact:
+    name: Azure DevOps Support
+    url: https://learn.microsoft.com/en-us/rest/api/azure/devops/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Azure DevOps REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/azure/devops/
+servers:
+  - url: https://dev.azure.com/{organization}
+    description: Azure DevOps Services
+    variables:
+      organization:
+        default: your-org
+        description: Your Azure DevOps organization name
+tags:
+  - name: Projects
+    description: Manage team projects
+  - name: Git
+    description: Manage Git repositories
+  - name: Pipelines
+    description: Manage build and release pipelines
+  - name: Work Items
+    description: Manage work items and queries
+security:
+  - basicAuth: []
+  - oauth2: []
+paths:
+  /_apis/projects:
+    get:
+      operationId: listProjects
+      summary: List projects
+      description: Get all projects in the organization.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/apiVersion'
+        - name: $top
+          in: query
+          description: Maximum number of projects to return
+          schema:
+            type: integer
+        - name: $skip
+          in: query
+          description: Number of projects to skip
+          schema:
+            type: integer
+        - name: stateFilter
+          in: query
+          description: Filter on team project state
+          schema:
+            type: string
+            enum:
+              - all
+              - createPending
+              - deleted
+              - deleting
+              - new
+              - unchanged
+              - wellFormed
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createProject
+      summary: Create a project
+      description: Queue a project creation operation.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      responses:
+        '202':
+          description: Project creation queued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationReference'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /_apis/projects/{projectId}:
+    get:
+      operationId: getProject
+      summary: Get a project
+      description: Get project with the specified id or name.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+  /{project}/_apis/git/repositories:
+    get:
+      operationId: listRepositories
+      summary: List repositories
+      description: Retrieve git repositories for a project.
+      tags:
+        - Git
+      parameters:
+        - $ref: '#/components/parameters/project'
+        - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: List of repositories
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepositoryCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createRepository
+      summary: Create a repository
+      description: Create a git repository in a team project.
+      tags:
+        - Git
+      parameters:
+        - $ref: '#/components/parameters/project'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Repository created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /{project}/_apis/pipelines:
+    get:
+      operationId: listPipelines
+      summary: List pipelines
+      description: Get a list of pipelines for a project.
+      tags:
+        - Pipelines
+      parameters:
+        - $ref: '#/components/parameters/project'
+        - $ref: '#/components/parameters/apiVersion'
+        - name: $top
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of pipelines
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineCollection'
+        '401':
+          description: Unauthorized
+  /{project}/_apis/pipelines/{pipelineId}/runs:
+    post:
+      operationId: runPipeline
+      summary: Run a pipeline
+      description: Runs a pipeline.
+      tags:
+        - Pipelines
+      parameters:
+        - $ref: '#/components/parameters/project'
+        - name: pipelineId
+          in: path
+          required: true
+          description: Pipeline ID
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resources:
+                  type: object
+                  properties:
+                    repositories:
+                      type: object
+                      properties:
+                        self:
+                          type: object
+                          properties:
+                            refName:
+                              type: string
+      responses:
+        '200':
+          description: Pipeline run started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineRun'
+        '401':
+          description: Unauthorized
+  /{project}/_apis/wit/workitems/${type}:
+    post:
+      operationId: createWorkItem
+      summary: Create a work item
+      description: Creates a single work item.
+      tags:
+        - Work Items
+      parameters:
+        - $ref: '#/components/parameters/project'
+        - name: type
+          in: path
+          required: true
+          description: Work item type (e.g., Bug, Task, User Story)
+          schema:
+            type: string
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                    enum:
+                      - add
+                      - replace
+                      - remove
+                      - test
+                  path:
+                    type: string
+                  value:
+                    type: string
+      responses:
+        '200':
+          description: Work item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItem'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /{project}/_apis/wit/workitems/{id}:
+    get:
+      operationId: getWorkItem
+      summary: Get a work item
+      description: Returns a single work item.
+      tags:
+        - Work Items
+      parameters:
+        - $ref: '#/components/parameters/project'
+        - name: id
+          in: path
+          required: true
+          description: Work item ID
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/apiVersion'
+        - name: $expand
+          in: query
+          description: Expand work item relationships
+          schema:
+            type: string
+            enum:
+              - None
+              - Relations
+              - Fields
+              - Links
+              - All
+      responses:
+        '200':
+          description: Work item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Work item not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Personal Access Token (PAT) as password with empty username
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.vssps.visualstudio.com/oauth2/authorize
+          tokenUrl: https://app.vssps.visualstudio.com/oauth2/token
+          scopes:
+            vso.project: Read projects
+            vso.code: Read source code
+            vso.build_execute: Execute builds
+            vso.work_write: Read and write work items
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: '7.2-preview.4'
+  schemas:
+    ProjectCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        state:
+          type: string
+          enum:
+            - all
+            - createPending
+            - deleted
+            - deleting
+            - new
+            - unchanged
+            - wellFormed
+        visibility:
+          type: string
+          enum:
+            - private
+            - public
+        lastUpdateTime:
+          type: string
+          format: date-time
+    CreateProjectRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+            - private
+            - public
+        capabilities:
+          type: object
+          properties:
+            versioncontrol:
+              type: object
+              properties:
+                sourceControlType:
+                  type: string
+                  enum:
+                    - Git
+                    - Tfvc
+            processTemplate:
+              type: object
+              properties:
+                templateTypeId:
+                  type: string
+    OperationReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        url:
+          type: string
+    RepositoryCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+    Repository:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+        defaultBranch:
+          type: string
+        size:
+          type: integer
+          format: int64
+        remoteUrl:
+          type: string
+        webUrl:
+          type: string
+        project:
+          $ref: '#/components/schemas/Project'
+    PipelineCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pipeline'
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string
+        folder:
+          type: string
+        revision:
+          type: integer
+    PipelineRun:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+            - canceling
+            - completed
+            - inProgress
+            - unknown
+        result:
+          type: string
+          enum:
+            - canceled
+            - failed
+            - succeeded
+            - unknown
+        createdDate:
+          type: string
+          format: date-time
+        finishedDate:
+          type: string
+          format: date-time
+        url:
+          type: string
+        pipeline:
+          $ref: '#/components/schemas/Pipeline'
+    WorkItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        rev:
+          type: integer
+        fields:
+          type: object
+          properties:
+            System.Title:
+              type: string
+            System.State:
+              type: string
+            System.WorkItemType:
+              type: string
+            System.AssignedTo:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                uniqueName:
+                  type: string
+            System.Description:
+              type: string
+            System.CreatedDate:
+              type: string
+              format: date-time
+            System.ChangedDate:
+              type: string
+              format: date-time
+        url:
+          type: string

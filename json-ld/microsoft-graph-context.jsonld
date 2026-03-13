@@ -1,0 +1,224 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "msgraph": "https://graph.microsoft.com/v1.0/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+
+    "User": {
+      "@id": "msgraph:User",
+      "@context": {
+        "displayName": "schema:name",
+        "givenName": "schema:givenName",
+        "surname": "schema:familyName",
+        "mail": "schema:email",
+        "userPrincipalName": "msgraph:userPrincipalName",
+        "jobTitle": "schema:jobTitle",
+        "department": "msgraph:department",
+        "officeLocation": "schema:workLocation",
+        "companyName": "schema:worksFor",
+        "businessPhones": "schema:telephone",
+        "mobilePhone": "vcard:cell",
+        "city": "vcard:locality",
+        "state": "vcard:region",
+        "country": "vcard:country-name",
+        "postalCode": "vcard:postal-code",
+        "streetAddress": "vcard:street-address",
+        "employeeId": "msgraph:employeeId",
+        "employeeType": "msgraph:employeeType",
+        "accountEnabled": {
+          "@id": "msgraph:accountEnabled",
+          "@type": "xsd:boolean"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastPasswordChangeDateTime": {
+          "@id": "msgraph:lastPasswordChangeDateTime",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Group": {
+      "@id": "msgraph:Group",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "mail": "schema:email",
+        "mailEnabled": {
+          "@id": "msgraph:mailEnabled",
+          "@type": "xsd:boolean"
+        },
+        "mailNickname": "msgraph:mailNickname",
+        "securityEnabled": {
+          "@id": "msgraph:securityEnabled",
+          "@type": "xsd:boolean"
+        },
+        "visibility": "msgraph:visibility",
+        "classification": "msgraph:classification",
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "expirationDateTime": {
+          "@id": "msgraph:expirationDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "isAssignableToRole": {
+          "@id": "msgraph:isAssignableToRole",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "Message": {
+      "@id": "msgraph:Message",
+      "@context": {
+        "subject": "schema:name",
+        "bodyPreview": "schema:description",
+        "from": "schema:sender",
+        "toRecipients": "schema:recipient",
+        "importance": "msgraph:importance",
+        "isRead": {
+          "@id": "msgraph:isRead",
+          "@type": "xsd:boolean"
+        },
+        "isDraft": {
+          "@id": "msgraph:isDraft",
+          "@type": "xsd:boolean"
+        },
+        "hasAttachments": {
+          "@id": "msgraph:hasAttachments",
+          "@type": "xsd:boolean"
+        },
+        "receivedDateTime": {
+          "@id": "schema:dateReceived",
+          "@type": "xsd:dateTime"
+        },
+        "sentDateTime": {
+          "@id": "schema:dateSent",
+          "@type": "xsd:dateTime"
+        },
+        "conversationId": "msgraph:conversationId"
+      }
+    },
+
+    "Event": {
+      "@id": "msgraph:Event",
+      "@context": {
+        "subject": "schema:name",
+        "start": {
+          "@id": "schema:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "end": {
+          "@id": "schema:endDate",
+          "@type": "xsd:dateTime"
+        },
+        "location": "schema:location",
+        "organizer": "schema:organizer",
+        "attendees": "schema:attendee",
+        "isAllDay": {
+          "@id": "msgraph:isAllDay",
+          "@type": "xsd:boolean"
+        },
+        "isCancelled": {
+          "@id": "msgraph:isCancelled",
+          "@type": "xsd:boolean"
+        },
+        "showAs": "msgraph:showAs",
+        "sensitivity": "msgraph:sensitivity",
+        "importance": "msgraph:importance",
+        "isOnlineMeeting": {
+          "@id": "msgraph:isOnlineMeeting",
+          "@type": "xsd:boolean"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "DriveItem": {
+      "@id": "msgraph:DriveItem",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "size": {
+          "@id": "schema:contentSize",
+          "@type": "xsd:integer"
+        },
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastModifiedDateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Team": {
+      "@id": "msgraph:Team",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "visibility": "msgraph:visibility",
+        "isArchived": {
+          "@id": "msgraph:isArchived",
+          "@type": "xsd:boolean"
+        },
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Channel": {
+      "@id": "msgraph:Channel",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "membershipType": "msgraph:membershipType",
+        "email": "schema:email",
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Application": {
+      "@id": "msgraph:Application",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "appId": "msgraph:appId",
+        "signInAudience": "msgraph:signInAudience",
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

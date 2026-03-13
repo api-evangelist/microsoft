@@ -1,0 +1,572 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Outlook API
+  description: >-
+    APIs for integrating with Outlook mail, calendar, and contacts through
+    Microsoft Graph including reading, sending, and organizing messages.
+  version: '1.0'
+  contact:
+    name: Outlook Developer Support
+    url: https://developer.microsoft.com/en-us/outlook
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Outlook Mail API Documentation
+  url: https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview
+servers:
+  - url: https://graph.microsoft.com/v1.0/me
+    description: Microsoft Graph v1.0 (current user context)
+tags:
+  - name: Mail
+    description: Manage mail messages and folders
+  - name: Calendar
+    description: Manage calendar events
+  - name: Contacts
+    description: Manage personal contacts
+security:
+  - oauth2: []
+paths:
+  /messages:
+    get:
+      operationId: listMessages
+      summary: List messages
+      description: Get the messages in the signed-in user's mailbox.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/search'
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageCollection'
+        '401':
+          description: Unauthorized
+  /messages/{messageId}:
+    get:
+      operationId: getMessage
+      summary: Get a message
+      description: Retrieve a specific message.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Message details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Message not found
+    patch:
+      operationId: updateMessage
+      summary: Update a message
+      description: Update the properties of a message.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isRead:
+                  type: boolean
+                categories:
+                  type: array
+                  items:
+                    type: string
+                importance:
+                  type: string
+                  enum:
+                    - low
+                    - normal
+                    - high
+      responses:
+        '200':
+          description: Message updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteMessage
+      summary: Delete a message
+      description: Delete a message and move it to the Deleted Items folder.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+      responses:
+        '204':
+          description: Message deleted
+        '401':
+          description: Unauthorized
+  /sendMail:
+    post:
+      operationId: sendMail
+      summary: Send mail
+      description: >-
+        Send the message specified in the request body. The message is saved
+        in the Sent Items folder by default.
+      tags:
+        - Mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMailRequest'
+      responses:
+        '202':
+          description: Mail sent
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /mailFolders:
+    get:
+      operationId: listMailFolders
+      summary: List mail folders
+      description: Get the mail folder collection under the root folder.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of mail folders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MailFolder'
+        '401':
+          description: Unauthorized
+  /events:
+    get:
+      operationId: listEvents
+      summary: List calendar events
+      description: Get events from the user's default calendar.
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createEvent
+      summary: Create a calendar event
+      description: Create an event in the user's default calendar.
+      tags:
+        - Calendar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEventRequest'
+      responses:
+        '201':
+          description: Event created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /contacts:
+    get:
+      operationId: listContacts
+      summary: List contacts
+      description: Get contacts from the user's default contacts folder.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of contacts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Contact'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createContact
+      summary: Create a contact
+      description: Create a new contact in the user's default contacts folder.
+      tags:
+        - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '201':
+          description: Contact created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Contacts.Read: Read user contacts
+            Contacts.ReadWrite: Read and write user contacts
+  parameters:
+    messageId:
+      name: messageId
+      in: path
+      required: true
+      description: Message unique identifier
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    skip:
+      name: $skip
+      in: query
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      schema:
+        type: string
+  schemas:
+    MessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+        subject:
+          type: string
+        bodyPreview:
+          type: string
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum: [text, html]
+            content:
+              type: string
+        from:
+          $ref: '#/components/schemas/Recipient'
+        toRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+        ccRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+        receivedDateTime:
+          type: string
+          format: date-time
+        sentDateTime:
+          type: string
+          format: date-time
+        isRead:
+          type: boolean
+        isDraft:
+          type: boolean
+        hasAttachments:
+          type: boolean
+        importance:
+          type: string
+          enum: [low, normal, high]
+        categories:
+          type: array
+          items:
+            type: string
+    Recipient:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+            address:
+              type: string
+              format: email
+    SendMailRequest:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: object
+          properties:
+            subject:
+              type: string
+            body:
+              type: object
+              properties:
+                contentType:
+                  type: string
+                  enum: [text, html]
+                content:
+                  type: string
+            toRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient'
+            ccRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient'
+        saveToSentItems:
+          type: boolean
+          default: true
+    MailFolder:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        totalItemCount:
+          type: integer
+        unreadItemCount:
+          type: integer
+        parentFolderId:
+          type: string
+    EventCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+        subject:
+          type: string
+        start:
+          type: object
+          properties:
+            dateTime:
+              type: string
+              format: date-time
+            timeZone:
+              type: string
+        end:
+          type: object
+          properties:
+            dateTime:
+              type: string
+              format: date-time
+            timeZone:
+              type: string
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+        organizer:
+          $ref: '#/components/schemas/Recipient'
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+              type:
+                type: string
+                enum: [required, optional, resource]
+              status:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    enum: [none, organizer, tentativelyAccepted, accepted, declined, notResponded]
+        isAllDay:
+          type: boolean
+        isCancelled:
+          type: boolean
+        showAs:
+          type: string
+          enum: [free, tentative, busy, oof, workingElsewhere, unknown]
+    CreateEventRequest:
+      type: object
+      required:
+        - subject
+        - start
+        - end
+      properties:
+        subject:
+          type: string
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+            content:
+              type: string
+        start:
+          type: object
+          properties:
+            dateTime:
+              type: string
+            timeZone:
+              type: string
+        end:
+          type: object
+          properties:
+            dateTime:
+              type: string
+            timeZone:
+              type: string
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+              type:
+                type: string
+        isOnlineMeeting:
+          type: boolean
+    Contact:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        givenName:
+          type: string
+        surname:
+          type: string
+        emailAddresses:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              address:
+                type: string
+        businessPhones:
+          type: array
+          items:
+            type: string
+        mobilePhone:
+          type: string
+        companyName:
+          type: string
+        jobTitle:
+          type: string

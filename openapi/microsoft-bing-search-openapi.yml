@@ -1,0 +1,367 @@
+openapi: 3.1.0
+info:
+  title: Bing Search APIs
+  description: >-
+    Integrate Bing search capabilities into applications including web search,
+    image search, news search, and video search.
+  version: '7.0'
+  contact:
+    name: Bing Search APIs Support
+    url: https://www.microsoft.com/en-us/bing/apis/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Bing Search APIs Documentation
+  url: https://learn.microsoft.com/en-us/bing/search-apis/
+servers:
+  - url: https://api.bing.microsoft.com/v7.0
+    description: Bing Search API v7
+tags:
+  - name: Web Search
+    description: Search the web for relevant results
+  - name: Image Search
+    description: Search for images
+  - name: News Search
+    description: Search for news articles
+  - name: Video Search
+    description: Search for videos
+security:
+  - apiKey: []
+paths:
+  /search:
+    get:
+      operationId: webSearch
+      summary: Web search
+      description: >-
+        Returns relevant web pages, images, videos, news, and more for a
+        given search query.
+      tags:
+        - Web Search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: The search query string
+          schema:
+            type: string
+        - name: count
+          in: query
+          description: Number of results to return (1-50)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+        - name: offset
+          in: query
+          description: Zero-based offset for pagination
+          schema:
+            type: integer
+            default: 0
+        - name: mkt
+          in: query
+          description: Market code (e.g., en-US)
+          schema:
+            type: string
+        - name: safeSearch
+          in: query
+          description: Filter adult content
+          schema:
+            type: string
+            enum:
+              - 'Off'
+              - Moderate
+              - Strict
+            default: Moderate
+        - name: responseFilter
+          in: query
+          description: Comma-delimited list of answer types to include
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebSearchResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+  /images/search:
+    get:
+      operationId: imageSearch
+      summary: Image search
+      description: Returns images relevant to the given search query.
+      tags:
+        - Image Search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: The search query string
+          schema:
+            type: string
+        - name: count
+          in: query
+          description: Number of images to return
+          schema:
+            type: integer
+            default: 35
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: mkt
+          in: query
+          schema:
+            type: string
+        - name: size
+          in: query
+          description: Filter images by size
+          schema:
+            type: string
+            enum:
+              - All
+              - Small
+              - Medium
+              - Large
+              - Wallpaper
+        - name: imageType
+          in: query
+          description: Filter images by type
+          schema:
+            type: string
+            enum:
+              - AnimatedGif
+              - Clipart
+              - Line
+              - Photo
+              - Shopping
+              - Transparent
+      responses:
+        '200':
+          description: Image search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSearchResponse'
+        '401':
+          description: Unauthorized
+  /news/search:
+    get:
+      operationId: newsSearch
+      summary: News search
+      description: Returns news articles relevant to the given search query.
+      tags:
+        - News Search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: The search query string
+          schema:
+            type: string
+        - name: count
+          in: query
+          schema:
+            type: integer
+            default: 10
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: mkt
+          in: query
+          schema:
+            type: string
+        - name: freshness
+          in: query
+          description: Filter by article freshness
+          schema:
+            type: string
+            enum:
+              - Day
+              - Week
+              - Month
+      responses:
+        '200':
+          description: News search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsSearchResponse'
+        '401':
+          description: Unauthorized
+  /videos/search:
+    get:
+      operationId: videoSearch
+      summary: Video search
+      description: Returns videos relevant to the given search query.
+      tags:
+        - Video Search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: The search query string
+          schema:
+            type: string
+        - name: count
+          in: query
+          schema:
+            type: integer
+            default: 35
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: mkt
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Video search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VideoSearchResponse'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Bing Search API subscription key
+  schemas:
+    WebSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        queryContext:
+          type: object
+          properties:
+            originalQuery:
+              type: string
+        webPages:
+          type: object
+          properties:
+            totalEstimatedMatches:
+              type: integer
+            value:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  snippet:
+                    type: string
+                  dateLastCrawled:
+                    type: string
+                    format: date-time
+        rankingResponse:
+          type: object
+    ImageSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        totalEstimatedMatches:
+          type: integer
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              contentUrl:
+                type: string
+              thumbnailUrl:
+                type: string
+              hostPageUrl:
+                type: string
+              width:
+                type: integer
+              height:
+                type: integer
+              encodingFormat:
+                type: string
+    NewsSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        totalEstimatedMatches:
+          type: integer
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+              description:
+                type: string
+              datePublished:
+                type: string
+                format: date-time
+              provider:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _type:
+                      type: string
+                    name:
+                      type: string
+              category:
+                type: string
+    VideoSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        totalEstimatedMatches:
+          type: integer
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              contentUrl:
+                type: string
+              thumbnailUrl:
+                type: string
+              hostPageUrl:
+                type: string
+              duration:
+                type: string
+              datePublished:
+                type: string
+                format: date-time
+              publisher:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+              viewCount:
+                type: integer

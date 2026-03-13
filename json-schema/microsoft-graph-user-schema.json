@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://learn.microsoft.com/en-us/graph/schemas/microsoft/user.json",
+  "title": "Microsoft Graph User",
+  "description": "Represents a Microsoft Entra user account. Inherits from directoryObject. Contains properties for identity, contact information, organizational role, and account settings managed through Microsoft Graph API.",
+  "type": "object",
+  "required": ["displayName", "userPrincipalName"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the user (GUID). Inherited from directoryObject.",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Name displayed in the address book, usually the combination of first name, middle initial, and last name",
+      "maxLength": 256
+    },
+    "givenName": {
+      "type": ["string", "null"],
+      "description": "The given name (first name) of the user",
+      "maxLength": 64
+    },
+    "surname": {
+      "type": ["string", "null"],
+      "description": "The user's last name (family name)",
+      "maxLength": 64
+    },
+    "mail": {
+      "type": ["string", "null"],
+      "format": "email",
+      "description": "The SMTP address for the user"
+    },
+    "userPrincipalName": {
+      "type": "string",
+      "description": "The user principal name (UPN) in internet-style login format based on RFC 822"
+    },
+    "mailNickname": {
+      "type": ["string", "null"],
+      "description": "The mail alias for the user",
+      "maxLength": 64
+    },
+    "jobTitle": {
+      "type": ["string", "null"],
+      "description": "The user's job title",
+      "maxLength": 128
+    },
+    "department": {
+      "type": ["string", "null"],
+      "description": "The name of the department in which the user works",
+      "maxLength": 64
+    },
+    "officeLocation": {
+      "type": ["string", "null"],
+      "description": "The office location in the user's place of business"
+    },
+    "companyName": {
+      "type": ["string", "null"],
+      "description": "The company name associated with the user",
+      "maxLength": 64
+    },
+    "businessPhones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Telephone numbers for the user"
+    },
+    "mobilePhone": {
+      "type": ["string", "null"],
+      "description": "The primary cellular telephone number for the user",
+      "maxLength": 64
+    },
+    "faxNumber": {
+      "type": ["string", "null"],
+      "description": "The fax number of the user"
+    },
+    "streetAddress": {
+      "type": ["string", "null"],
+      "description": "The street address of the user's place of business",
+      "maxLength": 1024
+    },
+    "city": {
+      "type": ["string", "null"],
+      "description": "The city where the user is located",
+      "maxLength": 128
+    },
+    "state": {
+      "type": ["string", "null"],
+      "description": "The state or province in the user's address",
+      "maxLength": 128
+    },
+    "postalCode": {
+      "type": ["string", "null"],
+      "description": "The postal code for the user's postal address",
+      "maxLength": 40
+    },
+    "country": {
+      "type": ["string", "null"],
+      "description": "The country or region where the user is located",
+      "maxLength": 128
+    },
+    "usageLocation": {
+      "type": ["string", "null"],
+      "description": "A two-letter country code (ISO 3166) required for users assigned licenses",
+      "minLength": 2,
+      "maxLength": 2
+    },
+    "preferredLanguage": {
+      "type": ["string", "null"],
+      "description": "The preferred language for the user in ISO 639-1 format (e.g., en-US)"
+    },
+    "accountEnabled": {
+      "type": ["boolean", "null"],
+      "description": "True if the account is enabled; otherwise, false"
+    },
+    "employeeId": {
+      "type": ["string", "null"],
+      "description": "The employee identifier assigned to the user by the organization",
+      "maxLength": 16
+    },
+    "employeeType": {
+      "type": ["string", "null"],
+      "description": "Captures enterprise worker type (e.g., Employee, Contractor, Consultant, Vendor)"
+    },
+    "employeeHireDate": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time when the user was hired or will start work"
+    },
+    "employeeOrgData": {
+      "$ref": "#/$defs/EmployeeOrgData"
+    },
+    "ageGroup": {
+      "type": ["string", "null"],
+      "enum": [null, "Minor", "NotAdult", "Adult"],
+      "description": "Sets the age group of the user"
+    },
+    "consentProvidedForMinor": {
+      "type": ["string", "null"],
+      "enum": [null, "Granted", "Denied", "NotRequired"],
+      "description": "Whether consent was obtained for minors"
+    },
+    "legalAgeGroupClassification": {
+      "type": ["string", "null"],
+      "enum": [null, "Undefined", "MinorWithOutParentalConsent", "MinorWithParentalConsent", "MinorNoParentalConsentRequired", "NotAdult", "Adult"],
+      "description": "Legal age group classification used by enterprise applications",
+      "readOnly": true
+    },
+    "createdDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time the user was created in ISO 8601 format and UTC",
+      "readOnly": true
+    },
+    "deletedDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The date and time the user was deleted",
+      "readOnly": true
+    },
+    "lastPasswordChangeDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The time when the user last changed their password",
+      "readOnly": true
+    },
+    "identities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ObjectIdentity"
+      },
+      "description": "Represents the identities that can be used to sign in to this user account"
+    },
+    "imAddresses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The instant message VoIP SIP addresses for the user",
+      "readOnly": true
+    },
+    "proxyAddresses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Email addresses that direct to the same mailbox",
+      "readOnly": true
+    },
+    "assignedLicenses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AssignedLicense"
+      },
+      "description": "The licenses assigned to the user, including inherited group-based licenses"
+    },
+    "assignedPlans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AssignedPlan"
+      },
+      "description": "The plans assigned to the user",
+      "readOnly": true
+    },
+    "onPremisesSyncEnabled": {
+      "type": ["boolean", "null"],
+      "description": "True if the object is synced from an on-premises directory",
+      "readOnly": true
+    },
+    "onPremisesDistinguishedName": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises Active Directory distinguished name",
+      "readOnly": true
+    },
+    "onPremisesDomainName": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises domain FQDN",
+      "readOnly": true
+    },
+    "onPremisesLastSyncDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Last time the object was synced with the on-premises directory",
+      "readOnly": true
+    },
+    "onPremisesSamAccountName": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises SAM account name",
+      "readOnly": true
+    },
+    "onPremisesSecurityIdentifier": {
+      "type": ["string", "null"],
+      "description": "Contains the on-premises security identifier (SID)",
+      "readOnly": true
+    },
+    "passwordPolicies": {
+      "type": ["string", "null"],
+      "description": "Specifies password policies for the user"
+    },
+    "passwordProfile": {
+      "$ref": "#/$defs/PasswordProfile"
+    },
+    "mySite": {
+      "type": ["string", "null"],
+      "description": "The URL for the user's personal site"
+    },
+    "aboutMe": {
+      "type": ["string", "null"],
+      "description": "A freeform text entry field for the user to describe themselves"
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list for the user to describe their interests"
+    },
+    "birthday": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "The birthday of the user in ISO 8601 format and UTC"
+    },
+    "externalUserState": {
+      "type": ["string", "null"],
+      "enum": [null, "PendingAcceptance", "Accepted"],
+      "description": "For a guest invited to the tenant, this represents the invitation status"
+    },
+    "creationType": {
+      "type": ["string", "null"],
+      "description": "Indicates how the user account was created",
+      "readOnly": true
+    },
+    "isResourceAccount": {
+      "type": ["boolean", "null"],
+      "description": "Reserved for future use"
+    }
+  },
+  "$defs": {
+    "EmployeeOrgData": {
+      "type": ["object", "null"],
+      "description": "Represents organization data associated with a user",
+      "properties": {
+        "division": {
+          "type": ["string", "null"],
+          "description": "The name of the division in which the user works"
+        },
+        "costCenter": {
+          "type": ["string", "null"],
+          "description": "The cost center associated with the user"
+        }
+      }
+    },
+    "ObjectIdentity": {
+      "type": "object",
+      "description": "Represents an identity used to sign in to a user account",
+      "properties": {
+        "signInType": {
+          "type": "string",
+          "description": "Specifies the user sign-in type (e.g., emailAddress, userName, federated)"
+        },
+        "issuer": {
+          "type": "string",
+          "description": "Specifies the issuer of the identity"
+        },
+        "issuerAssignedId": {
+          "type": "string",
+          "description": "Specifies the unique identifier assigned to the user by the issuer"
+        }
+      }
+    },
+    "AssignedLicense": {
+      "type": "object",
+      "description": "Represents a license assigned to a user",
+      "properties": {
+        "skuId": {
+          "type": "string",
+          "description": "The unique identifier for the SKU"
+        },
+        "disabledPlans": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A collection of the unique identifiers for disabled plans"
+        }
+      }
+    },
+    "AssignedPlan": {
+      "type": "object",
+      "description": "Represents a plan assigned to a user",
+      "properties": {
+        "assignedDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time at which the plan was assigned"
+        },
+        "capabilityStatus": {
+          "type": "string",
+          "enum": ["Enabled", "Warning", "Suspended", "Deleted", "LockedOut"],
+          "description": "Condition of the capability assignment"
+        },
+        "service": {
+          "type": "string",
+          "description": "The name of the service"
+        },
+        "servicePlanId": {
+          "type": "string",
+          "description": "A GUID that identifies the service plan"
+        }
+      }
+    },
+    "PasswordProfile": {
+      "type": ["object", "null"],
+      "description": "Contains the password profile associated with a user",
+      "properties": {
+        "forceChangePasswordNextSignIn": {
+          "type": "boolean",
+          "description": "If true, at next sign-in the user must change their password"
+        },
+        "forceChangePasswordNextSignInWithMfa": {
+          "type": "boolean",
+          "description": "If true, at next sign-in the user must perform MFA before changing their password"
+        },
+        "password": {
+          "type": ["string", "null"],
+          "description": "The password for the user. Required when creating a user."
+        }
+      }
+    }
+  }
+}

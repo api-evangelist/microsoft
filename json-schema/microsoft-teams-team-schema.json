@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://learn.microsoft.com/en-us/graph/schemas/microsoft/team.json",
+  "title": "Microsoft Teams Team",
+  "description": "Represents a team in Microsoft Teams. A team is a collection of channels and members with shared settings, permissions, and tools for collaboration.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the team (GUID)",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The name of the team",
+      "maxLength": 256
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "An optional description for the team",
+      "maxLength": 1024
+    },
+    "internalId": {
+      "type": ["string", "null"],
+      "description": "A unique ID for the team that has been used in some internal contexts",
+      "readOnly": true
+    },
+    "classification": {
+      "type": ["string", "null"],
+      "description": "An optional label describing the sensitivity of the team"
+    },
+    "specialization": {
+      "type": ["string", "null"],
+      "enum": [null, "none", "educationStandard", "educationClass", "educationProfessionalLearningCommunity", "educationStaff", "unknownFutureValue"],
+      "description": "Indicates whether the team is intended for a particular use case"
+    },
+    "visibility": {
+      "type": ["string", "null"],
+      "enum": [null, "private", "public"],
+      "description": "The visibility of the group and team"
+    },
+    "webUrl": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "A hyperlink to the team in the Microsoft Teams client",
+      "readOnly": true
+    },
+    "isArchived": {
+      "type": ["boolean", "null"],
+      "description": "Whether this team is in read-only mode"
+    },
+    "isMembershipLimitedToOwners": {
+      "type": ["boolean", "null"],
+      "description": "If set to true, the team is currently in the owner-only team membership state"
+    },
+    "createdDateTime": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp at which the team was created",
+      "readOnly": true
+    },
+    "memberSettings": {
+      "$ref": "#/$defs/TeamMemberSettings"
+    },
+    "guestSettings": {
+      "$ref": "#/$defs/TeamGuestSettings"
+    },
+    "messagingSettings": {
+      "$ref": "#/$defs/TeamMessagingSettings"
+    },
+    "funSettings": {
+      "$ref": "#/$defs/TeamFunSettings"
+    },
+    "discoverySettings": {
+      "$ref": "#/$defs/TeamDiscoverySettings"
+    }
+  },
+  "$defs": {
+    "TeamMemberSettings": {
+      "type": ["object", "null"],
+      "description": "Settings to configure whether members can perform certain actions in the team",
+      "properties": {
+        "allowCreateUpdateChannels": {
+          "type": "boolean",
+          "description": "If true, members can add and update channels"
+        },
+        "allowCreatePrivateChannels": {
+          "type": "boolean",
+          "description": "If true, members can create private channels"
+        },
+        "allowDeleteChannels": {
+          "type": "boolean",
+          "description": "If true, members can delete channels"
+        },
+        "allowAddRemoveApps": {
+          "type": "boolean",
+          "description": "If true, members can add and remove apps"
+        },
+        "allowCreateUpdateRemoveTabs": {
+          "type": "boolean",
+          "description": "If true, members can create, update, and remove tabs"
+        },
+        "allowCreateUpdateRemoveConnectors": {
+          "type": "boolean",
+          "description": "If true, members can create, update, and remove connectors"
+        }
+      }
+    },
+    "TeamGuestSettings": {
+      "type": ["object", "null"],
+      "description": "Settings to configure whether guests can perform certain actions in the team",
+      "properties": {
+        "allowCreateUpdateChannels": {
+          "type": "boolean",
+          "description": "If true, guests can create and update channels"
+        },
+        "allowDeleteChannels": {
+          "type": "boolean",
+          "description": "If true, guests can delete channels"
+        }
+      }
+    },
+    "TeamMessagingSettings": {
+      "type": ["object", "null"],
+      "description": "Settings to configure messaging and mentions in the team",
+      "properties": {
+        "allowUserEditMessages": {
+          "type": "boolean",
+          "description": "If true, users can edit their messages"
+        },
+        "allowUserDeleteMessages": {
+          "type": "boolean",
+          "description": "If true, users can delete their messages"
+        },
+        "allowOwnerDeleteMessages": {
+          "type": "boolean",
+          "description": "If true, owners can delete any message"
+        },
+        "allowTeamMentions": {
+          "type": "boolean",
+          "description": "If true, @team mentions are allowed"
+        },
+        "allowChannelMentions": {
+          "type": "boolean",
+          "description": "If true, @channel mentions are allowed"
+        }
+      }
+    },
+    "TeamFunSettings": {
+      "type": ["object", "null"],
+      "description": "Settings to configure use of Giphy, memes, and stickers in the team",
+      "properties": {
+        "allowGiphy": {
+          "type": "boolean",
+          "description": "If true, enables Giphy use"
+        },
+        "giphyContentRating": {
+          "type": "string",
+          "enum": ["moderate", "strict"],
+          "description": "Giphy content rating"
+        },
+        "allowStickersAndMemes": {
+          "type": "boolean",
+          "description": "If true, enables stickers and memes"
+        },
+        "allowCustomMemes": {
+          "type": "boolean",
+          "description": "If true, enables custom memes"
+        }
+      }
+    },
+    "TeamDiscoverySettings": {
+      "type": ["object", "null"],
+      "description": "Settings to configure team discoverability by others",
+      "properties": {
+        "showInTeamsSearchAndSuggestions": {
+          "type": "boolean",
+          "description": "If true, team is visible in search and suggestions"
+        }
+      }
+    }
+  }
+}

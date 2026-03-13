@@ -1,0 +1,428 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Entra ID API
+  description: >-
+    APIs for identity and access management including user authentication,
+    authorization, application registrations, service principals, and
+    directory services via Microsoft Graph.
+  version: '1.0'
+  contact:
+    name: Microsoft Entra Support
+    url: https://learn.microsoft.com/en-us/entra/identity-platform/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Microsoft Entra ID Documentation
+  url: https://learn.microsoft.com/en-us/entra/identity-platform/
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0
+tags:
+  - name: Applications
+    description: Manage application registrations
+  - name: Service Principals
+    description: Manage service principals
+  - name: OAuth2 Permissions
+    description: Manage OAuth2 permission grants
+security:
+  - oauth2: []
+paths:
+  /applications:
+    get:
+      operationId: listApplications
+      summary: List applications
+      description: Get the list of applications in the organization.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of applications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createApplication
+      summary: Create an application
+      description: Create a new application registration.
+      tags:
+        - Applications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApplicationRequest'
+      responses:
+        '201':
+          description: Application created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /applications/{applicationId}:
+    get:
+      operationId: getApplication
+      summary: Get an application
+      description: Get the properties of an application object.
+      tags:
+        - Applications
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          description: Application object ID
+          schema:
+            type: string
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Application details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+    patch:
+      operationId: updateApplication
+      summary: Update an application
+      description: Update the properties of an application object.
+      tags:
+        - Applications
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApplicationRequest'
+      responses:
+        '204':
+          description: Application updated
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteApplication
+      summary: Delete an application
+      description: Delete an application registration.
+      tags:
+        - Applications
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Application deleted
+        '401':
+          description: Unauthorized
+  /servicePrincipals:
+    get:
+      operationId: listServicePrincipals
+      summary: List service principals
+      description: Retrieve a list of service principal objects.
+      tags:
+        - Service Principals
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of service principals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServicePrincipal'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createServicePrincipal
+      summary: Create a service principal
+      description: Create a new service principal.
+      tags:
+        - Service Principals
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - appId
+              properties:
+                appId:
+                  type: string
+                  description: Application (client) ID of the associated app registration
+      responses:
+        '201':
+          description: Service principal created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePrincipal'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /oauth2PermissionGrants:
+    get:
+      operationId: listOAuth2PermissionGrants
+      summary: List OAuth2 permission grants
+      description: Retrieve a list of oAuth2PermissionGrant objects.
+      tags:
+        - OAuth2 Permissions
+      parameters:
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of permission grants
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OAuth2PermissionGrant'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createOAuth2PermissionGrant
+      summary: Create a delegated permission grant
+      description: Create a delegated permission grant.
+      tags:
+        - OAuth2 Permissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth2PermissionGrant'
+      responses:
+        '201':
+          description: Permission grant created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth2PermissionGrant'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Access Microsoft Graph
+            Application.ReadWrite.All: Read and write all applications
+            Directory.ReadWrite.All: Read and write directory data
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+  schemas:
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Object ID of the application
+        appId:
+          type: string
+          description: Application (client) ID
+        displayName:
+          type: string
+          description: Display name of the application
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+            - AzureADMyOrg
+            - AzureADMultipleOrgs
+            - AzureADandPersonalMicrosoftAccount
+            - PersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+            homePageUrl:
+              type: string
+        api:
+          type: object
+          properties:
+            oauth2PermissionScopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                  adminConsentDisplayName:
+                    type: string
+                  userConsentDisplayName:
+                    type: string
+        requiredResourceAccess:
+          type: array
+          items:
+            type: object
+            properties:
+              resourceAppId:
+                type: string
+              resourceAccess:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                      enum:
+                        - Role
+                        - Scope
+        createdDateTime:
+          type: string
+          format: date-time
+    CreateApplicationRequest:
+      type: object
+      required:
+        - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+            - AzureADMyOrg
+            - AzureADMultipleOrgs
+            - AzureADandPersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+    ServicePrincipal:
+      type: object
+      properties:
+        id:
+          type: string
+        appId:
+          type: string
+        displayName:
+          type: string
+        servicePrincipalType:
+          type: string
+        appRoles:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              displayName:
+                type: string
+              value:
+                type: string
+              isEnabled:
+                type: boolean
+        oauth2PermissionScopes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              value:
+                type: string
+              type:
+                type: string
+        createdDateTime:
+          type: string
+          format: date-time
+    OAuth2PermissionGrant:
+      type: object
+      properties:
+        id:
+          type: string
+        clientId:
+          type: string
+          description: Object ID of the service principal
+        consentType:
+          type: string
+          enum:
+            - AllPrincipals
+            - Principal
+        principalId:
+          type: string
+        resourceId:
+          type: string
+          description: Object ID of the resource service principal
+        scope:
+          type: string
+          description: Space-delimited list of scopes

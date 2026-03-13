@@ -1,0 +1,2438 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Graph API
+  description: >-
+    Unified API endpoint for accessing Microsoft 365 services including users,
+    groups, mail, calendar, files, and teams. Microsoft Graph provides a single
+    endpoint (https://graph.microsoft.com) to access data and intelligence from
+    Microsoft cloud services.
+  version: '1.0'
+  contact:
+    name: Microsoft Graph Support
+    url: https://developer.microsoft.com/en-us/graph/support
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  license:
+    name: Microsoft API License
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+externalDocs:
+  description: Microsoft Graph API Documentation
+  url: https://learn.microsoft.com/en-us/graph/overview
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0 (General Availability)
+  - url: https://graph.microsoft.com/beta
+    description: Microsoft Graph Beta (Preview)
+tags:
+  - name: Users
+    description: Manage Microsoft Entra user accounts and profiles
+  - name: Groups
+    description: Manage Microsoft Entra groups including Microsoft 365 groups and security groups
+  - name: Mail
+    description: Access and manage Outlook mail messages and folders
+  - name: Calendar
+    description: Access and manage Outlook calendar events
+  - name: Drive
+    description: Access OneDrive files and folders
+  - name: Teams
+    description: Manage Microsoft Teams resources
+  - name: Applications
+    description: Manage application registrations in Microsoft Entra ID
+security:
+  - oauth2: []
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      summary: List users
+      description: >-
+        Retrieve a list of user objects. By default, only a limited set of
+        properties are returned. To return an alternative property set, specify
+        the desired properties using the OData $select query parameter.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/count'
+      responses:
+        '200':
+          description: Collection of user objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                    description: URL to retrieve the next page of results
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      operationId: createUser
+      summary: Create user
+      description: >-
+        Create a new user object. The request body contains the user to create.
+        At a minimum, you must specify the required properties for the user,
+        including displayName, mailNickname, userPrincipalName, and passwordProfile.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/{user-id}:
+    get:
+      operationId: getUser
+      summary: Get user
+      description: >-
+        Retrieve the properties and relationships of a user object. Returns a
+        default set of properties unless you use $select to specify specific properties.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: User object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateUser
+      summary: Update user
+      description: >-
+        Update the properties of a user object. Not all properties can be
+        updated by Member or Guest users with their default permissions.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '204':
+          description: User updated successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteUser
+      summary: Delete user
+      description: >-
+        Delete a user object. When deleted, user resources are moved to a
+        temporary container and can be restored within 30 days. After that time,
+        they are permanently deleted.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '204':
+          description: User deleted successfully
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /users/{user-id}/manager:
+    get:
+      operationId: getUserManager
+      summary: Get user's manager
+      description: >-
+        Returns the user or organizational contact assigned as the user's
+        manager. Optionally, you can expand the manager's chain up to the root node.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: Manager directory object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectoryObject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /users/{user-id}/directReports:
+    get:
+      operationId: listUserDirectReports
+      summary: List user's direct reports
+      description: >-
+        Get the users and organizational contacts that report to the user.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: Collection of direct reports
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DirectoryObject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /users/{user-id}/memberOf:
+    get:
+      operationId: listUserMemberOf
+      summary: List user's group memberships
+      description: >-
+        Get the groups, directory roles, and administrative units that the user
+        is a direct member of.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        '200':
+          description: Collection of directory objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DirectoryObject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /groups:
+    get:
+      operationId: listGroups
+      summary: List groups
+      description: >-
+        List all the groups in an organization, including but not limited to
+        Microsoft 365 groups. Returns a default set of properties for each group.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/count'
+      responses:
+        '200':
+          description: Collection of group objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Group'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createGroup
+      summary: Create group
+      description: >-
+        Create a new group as specified in the request body. You can create one
+        of the following groups: Microsoft 365 group (unified group), security
+        group, or mail-enabled security group.
+      tags:
+        - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreate'
+      responses:
+        '201':
+          description: Group created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /groups/{group-id}:
+    get:
+      operationId: getGroup
+      summary: Get group
+      description: >-
+        Get the properties and relationships of a group object. Returns a
+        default set of properties unless you use $select to specify specific properties.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/groupId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Group object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateGroup
+      summary: Update group
+      description: >-
+        Update the properties of a group object.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/groupId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+      responses:
+        '204':
+          description: Group updated successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteGroup
+      summary: Delete group
+      description: >-
+        Delete a group. When deleted, Microsoft 365 groups are moved to a
+        temporary container and can be restored within 30 days.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/groupId'
+      responses:
+        '204':
+          description: Group deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /groups/{group-id}/members:
+    get:
+      operationId: listGroupMembers
+      summary: List group members
+      description: >-
+        Get a list of the group's direct members. A group can have users,
+        organizational contacts, devices, service principals, and other groups
+        as members.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/groupId'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        '200':
+          description: Collection of member directory objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DirectoryObject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /groups/{group-id}/members/$ref:
+    post:
+      operationId: addGroupMember
+      summary: Add group member
+      description: >-
+        Add a member to a Microsoft 365 group or a security group through the
+        members navigation property.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/groupId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - '@odata.id'
+              properties:
+                '@odata.id':
+                  type: string
+                  description: The URL of the directory object to add as a member
+                  example: https://graph.microsoft.com/v1.0/directoryObjects/{id}
+      responses:
+        '204':
+          description: Member added successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /groups/{group-id}/owners:
+    get:
+      operationId: listGroupOwners
+      summary: List group owners
+      description: >-
+        Retrieve a list of the group's owners. The owners are a set of users or
+        service principals who are allowed to manage the group.
+      tags:
+        - Groups
+      parameters:
+        - $ref: '#/components/parameters/groupId'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: Collection of owner directory objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DirectoryObject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /me/messages:
+    get:
+      operationId: listMessages
+      summary: List messages
+      description: >-
+        Get the messages in the signed-in user's mailbox, including the Deleted
+        Items and Clutter folders. Returns messages from all mail folders.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/search'
+      responses:
+        '200':
+          description: Collection of messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createMessage
+      summary: Create message draft
+      description: >-
+        Create a draft of a new message in either JSON or MIME format. When
+        using JSON format, you can include an attachment and use a mention to
+        call out another user.
+      tags:
+        - Mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '201':
+          description: Message draft created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /me/messages/{message-id}:
+    get:
+      operationId: getMessage
+      summary: Get message
+      description: >-
+        Retrieve the properties and relationships of a message object. You can
+        use $select to retrieve specific properties and $expand to expand
+        supported relationships.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Message object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateMessage
+      summary: Update message
+      description: >-
+        Update the properties of a message object.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Message updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+    delete:
+      operationId: deleteMessage
+      summary: Delete message
+      description: >-
+        Delete a message in the specified user's mailbox, or delete a
+        relationship of the message.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/messageId'
+      responses:
+        '204':
+          description: Message deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /me/sendMail:
+    post:
+      operationId: sendMail
+      summary: Send mail
+      description: >-
+        Send the message specified in the request body using either JSON or MIME
+        format. The message is saved in the Sent Items folder by default.
+      tags:
+        - Mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+              properties:
+                message:
+                  $ref: '#/components/schemas/Message'
+                saveToSentItems:
+                  type: boolean
+                  description: Whether to save the message in Sent Items
+                  default: true
+      responses:
+        '202':
+          description: Mail sent successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /me/mailFolders:
+    get:
+      operationId: listMailFolders
+      summary: List mail folders
+      description: >-
+        Get the mail folder collection under the root folder of the signed-in user.
+      tags:
+        - Mail
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of mail folders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MailFolder'
+  /me/events:
+    get:
+      operationId: listEvents
+      summary: List calendar events
+      description: >-
+        Get a list of event objects in the user's mailbox. The list contains
+        single instance meetings and series masters.
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: Collection of calendar events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createEvent
+      summary: Create calendar event
+      description: >-
+        Create an event in the user's default calendar or specified calendar.
+        By default, the allowNewTimeProposals property is set to true.
+      tags:
+        - Calendar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          description: Event created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /me/events/{event-id}:
+    get:
+      operationId: getEvent
+      summary: Get calendar event
+      description: >-
+        Get the properties and relationships of the specified event object.
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/components/parameters/eventId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Event object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateEvent
+      summary: Update calendar event
+      description: >-
+        Update the properties of the event object.
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/components/parameters/eventId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Event updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+    delete:
+      operationId: deleteEvent
+      summary: Delete calendar event
+      description: >-
+        Remove the specified event from the user's calendar.
+      tags:
+        - Calendar
+      parameters:
+        - $ref: '#/components/parameters/eventId'
+      responses:
+        '204':
+          description: Event deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /me/calendarView:
+    get:
+      operationId: listCalendarView
+      summary: List calendar view
+      description: >-
+        Get the occurrences, exceptions, and single instances of events in a
+        calendar view defined by a time range from the user's default calendar.
+      tags:
+        - Calendar
+      parameters:
+        - name: startDateTime
+          in: query
+          required: true
+          description: Start date and time of the time range (ISO 8601 format)
+          schema:
+            type: string
+            format: date-time
+        - name: endDateTime
+          in: query
+          required: true
+          description: End date and time of the time range (ISO 8601 format)
+          schema:
+            type: string
+            format: date-time
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of calendar events in the specified time range
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+  /me/drive:
+    get:
+      operationId: getMyDrive
+      summary: Get current user's OneDrive
+      description: >-
+        Retrieve the properties and relationships of a Drive resource for the
+        signed-in user's OneDrive.
+      tags:
+        - Drive
+      responses:
+        '200':
+          description: Drive object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /me/drive/root/children:
+    get:
+      operationId: listDriveRootChildren
+      summary: List items in drive root
+      description: >-
+        Return a collection of DriveItems in the root of the signed-in user's
+        OneDrive.
+      tags:
+        - Drive
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: Collection of drive items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DriveItem'
+  /drives/{drive-id}/items/{item-id}:
+    get:
+      operationId: getDriveItem
+      summary: Get drive item
+      description: >-
+        Retrieve the metadata for a DriveItem in a Drive by file system path
+        or ID.
+      tags:
+        - Drive
+      parameters:
+        - $ref: '#/components/parameters/driveId'
+        - $ref: '#/components/parameters/itemId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Drive item object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateDriveItem
+      summary: Update drive item
+      description: >-
+        Update the metadata for a DriveItem by ID or path. You can also use
+        update to move an item to another parent by updating the parentReference
+        property.
+      tags:
+        - Drive
+      parameters:
+        - $ref: '#/components/parameters/driveId'
+        - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DriveItem'
+      responses:
+        '200':
+          description: Drive item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+    delete:
+      operationId: deleteDriveItem
+      summary: Delete drive item
+      description: >-
+        Delete a DriveItem by using its ID or path. Deleting items using this
+        method moves the items to the recycle bin instead of permanently
+        deleting the item.
+      tags:
+        - Drive
+      parameters:
+        - $ref: '#/components/parameters/driveId'
+        - $ref: '#/components/parameters/itemId'
+      responses:
+        '204':
+          description: Item deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /teams:
+    get:
+      operationId: listTeams
+      summary: List teams
+      description: >-
+        List all teams in an organization.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of teams
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Team'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /teams/{team-id}:
+    get:
+      operationId: getTeam
+      summary: Get team
+      description: >-
+        Retrieve the properties and relationships of the specified team.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Team object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateTeam
+      summary: Update team
+      description: >-
+        Update the properties of the specified team.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '204':
+          description: Team updated successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteTeam
+      summary: Delete team
+      description: >-
+        Delete a team. When deleted, Microsoft 365 groups are moved to a
+        temporary container and can be restored within 30 days.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+      responses:
+        '204':
+          description: Team deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /teams/{team-id}/channels:
+    get:
+      operationId: listChannels
+      summary: List channels
+      description: >-
+        Retrieve the list of channels in this team.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of channels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Channel'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      operationId: createChannel
+      summary: Create channel
+      description: >-
+        Create a new channel in a team as specified in the request body.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Channel'
+      responses:
+        '201':
+          description: Channel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /teams/{team-id}/channels/{channel-id}/messages:
+    get:
+      operationId: listChannelMessages
+      summary: List channel messages
+      description: >-
+        Retrieve the list of messages (without the replies) in a channel of a
+        team. To get the replies for a message, call the list message replies or
+        the get message reply API.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+        - $ref: '#/components/parameters/channelId'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: Collection of chat messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChatMessage'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      operationId: sendChannelMessage
+      summary: Send channel message
+      description: >-
+        Send a new chatMessage in the specified channel.
+      tags:
+        - Teams
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+        - $ref: '#/components/parameters/channelId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+  /applications:
+    get:
+      operationId: listApplications
+      summary: List applications
+      description: >-
+        Get the list of applications in this organization.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/count'
+      responses:
+        '200':
+          description: Collection of application objects
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createApplication
+      summary: Create application
+      description: >-
+        Create a new application object.
+      tags:
+        - Applications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+      responses:
+        '201':
+          description: Application created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /applications/{application-id}:
+    get:
+      operationId: getApplication
+      summary: Get application
+      description: >-
+        Get the properties and relationships of an application object.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Application object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateApplication
+      summary: Update application
+      description: >-
+        Update the properties of an application object.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+      responses:
+        '204':
+          description: Application updated successfully
+    delete:
+      operationId: deleteApplication
+      summary: Delete application
+      description: >-
+        Delete an application object. When deleted, apps are moved to a
+        temporary container and can be restored within 30 days.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+      responses:
+        '204':
+          description: Application deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            User.Read: Read the signed-in user's profile
+            User.ReadWrite: Read and update the signed-in user's profile
+            User.Read.All: Read all users' full profiles
+            User.ReadWrite.All: Read and write all users' full profiles
+            Group.Read.All: Read all groups
+            Group.ReadWrite.All: Read and write all groups
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail as a user
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files that user can access
+            Team.ReadBasic.All: Read the names and descriptions of teams
+            Channel.ReadBasic.All: Read channel names and descriptions
+            ChannelMessage.Read.All: Read all channel messages
+            ChannelMessage.Send: Send channel messages
+            Application.Read.All: Read all applications
+            Application.ReadWrite.All: Read and write all applications
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Default scope for application permissions
+  parameters:
+    userId:
+      name: user-id
+      in: path
+      required: true
+      description: Unique identifier of the user (GUID or userPrincipalName)
+      schema:
+        type: string
+    groupId:
+      name: group-id
+      in: path
+      required: true
+      description: Unique identifier of the group
+      schema:
+        type: string
+    messageId:
+      name: message-id
+      in: path
+      required: true
+      description: Unique identifier of the message
+      schema:
+        type: string
+    eventId:
+      name: event-id
+      in: path
+      required: true
+      description: Unique identifier of the event
+      schema:
+        type: string
+    driveId:
+      name: drive-id
+      in: path
+      required: true
+      description: Unique identifier of the drive
+      schema:
+        type: string
+    itemId:
+      name: item-id
+      in: path
+      required: true
+      description: Unique identifier of the drive item
+      schema:
+        type: string
+    teamId:
+      name: team-id
+      in: path
+      required: true
+      description: Unique identifier of the team
+      schema:
+        type: string
+    channelId:
+      name: channel-id
+      in: path
+      required: true
+      description: Unique identifier of the channel
+      schema:
+        type: string
+    applicationId:
+      name: application-id
+      in: path
+      required: true
+      description: Unique identifier of the application
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      required: false
+      description: Include count of items in the response
+      schema:
+        type: boolean
+  responses:
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  schemas:
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    DirectoryObject:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+          description: OData type annotation
+        id:
+          type: string
+          description: Unique identifier (GUID)
+        deletedDateTime:
+          type: string
+          format: date-time
+          description: Date and time when object was deleted
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the user (GUID)
+          readOnly: true
+        displayName:
+          type: string
+          description: Name displayed in the address book
+          maxLength: 256
+        givenName:
+          type: string
+          description: First name of the user
+          maxLength: 64
+        surname:
+          type: string
+          description: Last name of the user
+          maxLength: 64
+        mail:
+          type: string
+          format: email
+          description: SMTP address for the user
+        userPrincipalName:
+          type: string
+          description: User principal name (UPN) in internet-style login format
+        jobTitle:
+          type: string
+          description: User's job title
+          maxLength: 128
+        department:
+          type: string
+          description: Department name
+          maxLength: 64
+        officeLocation:
+          type: string
+          description: Office location in the user's place of business
+        businessPhones:
+          type: array
+          items:
+            type: string
+          description: Telephone numbers for the user
+        mobilePhone:
+          type: string
+          description: Primary cellular telephone number
+          maxLength: 64
+        city:
+          type: string
+          description: City where the user is located
+          maxLength: 128
+        state:
+          type: string
+          description: State or province in the user's address
+          maxLength: 128
+        country:
+          type: string
+          description: Country or region where the user is located
+          maxLength: 128
+        postalCode:
+          type: string
+          description: Postal code for the user's postal address
+          maxLength: 40
+        streetAddress:
+          type: string
+          description: Street address of the user's place of business
+          maxLength: 1024
+        companyName:
+          type: string
+          description: Company name associated with the user
+          maxLength: 64
+        employeeId:
+          type: string
+          description: Employee identifier assigned to the user
+          maxLength: 16
+        employeeType:
+          type: string
+          description: Captures enterprise worker type (Employee, Contractor, etc.)
+        accountEnabled:
+          type: boolean
+          description: Whether the account is enabled
+        createdDateTime:
+          type: string
+          format: date-time
+          description: Date and time the user was created
+          readOnly: true
+        lastPasswordChangeDateTime:
+          type: string
+          format: date-time
+          description: Time of last password change
+          readOnly: true
+        preferredLanguage:
+          type: string
+          description: Preferred language for the user (ISO 639-1 code)
+        usageLocation:
+          type: string
+          description: Two-letter country code required for license assignment
+        mailNickname:
+          type: string
+          description: Mail alias for the user
+          maxLength: 64
+        proxyAddresses:
+          type: array
+          items:
+            type: string
+          description: Email addresses that direct to the same mailbox
+          readOnly: true
+        onPremisesSyncEnabled:
+          type: boolean
+          description: Whether the user is synced from on-premises AD
+          readOnly: true
+    UserCreate:
+      type: object
+      required:
+        - accountEnabled
+        - displayName
+        - mailNickname
+        - userPrincipalName
+        - passwordProfile
+      properties:
+        accountEnabled:
+          type: boolean
+          description: Whether the account is enabled
+        displayName:
+          type: string
+          description: Name displayed in the address book
+          maxLength: 256
+        mailNickname:
+          type: string
+          description: Mail alias for the user
+          maxLength: 64
+        userPrincipalName:
+          type: string
+          description: User principal name
+        passwordProfile:
+          type: object
+          required:
+            - password
+          properties:
+            forceChangePasswordNextSignIn:
+              type: boolean
+              description: Whether user must change password on next sign-in
+            password:
+              type: string
+              description: The password for the user
+        givenName:
+          type: string
+          description: First name
+        surname:
+          type: string
+          description: Last name
+        jobTitle:
+          type: string
+          description: Job title
+        department:
+          type: string
+          description: Department
+        officeLocation:
+          type: string
+          description: Office location
+        usageLocation:
+          type: string
+          description: Two-letter country code for license assignment
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the group
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name for the group
+          maxLength: 256
+        description:
+          type: string
+          description: Optional description for the group
+        mail:
+          type: string
+          format: email
+          description: SMTP address for the group
+          readOnly: true
+        mailEnabled:
+          type: boolean
+          description: Whether the group is mail-enabled
+        mailNickname:
+          type: string
+          description: Mail alias for the group
+          maxLength: 64
+        securityEnabled:
+          type: boolean
+          description: Whether the group is a security group
+        groupTypes:
+          type: array
+          items:
+            type: string
+          description: >-
+            Specifies the group type. Contains 'Unified' for Microsoft 365 groups.
+        visibility:
+          type: string
+          enum:
+            - Public
+            - Private
+            - HiddenMembership
+          description: Group visibility and join policy
+        classification:
+          type: string
+          description: Classification for the group (low, medium, high business impact)
+        createdDateTime:
+          type: string
+          format: date-time
+          description: Timestamp of when the group was created
+          readOnly: true
+        renewedDateTime:
+          type: string
+          format: date-time
+          description: Timestamp of when the group was last renewed
+          readOnly: true
+        expirationDateTime:
+          type: string
+          format: date-time
+          description: Timestamp of when the group is set to expire
+          readOnly: true
+        isAssignableToRole:
+          type: boolean
+          description: Whether the group can be assigned to a Microsoft Entra role
+        proxyAddresses:
+          type: array
+          items:
+            type: string
+          description: Email addresses for the group
+          readOnly: true
+        onPremisesSyncEnabled:
+          type: boolean
+          description: Whether the group is synced from on-premises AD
+          readOnly: true
+        membershipRule:
+          type: string
+          description: Rule for dynamic group membership
+        membershipRuleProcessingState:
+          type: string
+          enum:
+            - 'On'
+            - Paused
+          description: Whether dynamic membership processing is on or paused
+        theme:
+          type: string
+          enum:
+            - Teal
+            - Purple
+            - Green
+            - Blue
+            - Pink
+            - Orange
+            - Red
+          description: Microsoft 365 group color theme
+    GroupCreate:
+      type: object
+      required:
+        - displayName
+        - mailEnabled
+        - mailNickname
+        - securityEnabled
+      properties:
+        displayName:
+          type: string
+          description: Display name for the group
+          maxLength: 256
+        description:
+          type: string
+          description: Optional description
+        mailEnabled:
+          type: boolean
+          description: Whether the group is mail-enabled
+        mailNickname:
+          type: string
+          description: Mail alias for the group
+          maxLength: 64
+        securityEnabled:
+          type: boolean
+          description: Whether the group is a security group
+        groupTypes:
+          type: array
+          items:
+            type: string
+          description: Group types (include 'Unified' for Microsoft 365 group)
+        visibility:
+          type: string
+          enum:
+            - Public
+            - Private
+            - HiddenMembership
+        'members@odata.bind':
+          type: array
+          items:
+            type: string
+          description: URLs of members to add
+        'owners@odata.bind':
+          type: array
+          items:
+            type: string
+          description: URLs of owners to add
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the message
+          readOnly: true
+        subject:
+          type: string
+          description: Subject of the message
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+                - text
+                - html
+              description: Type of the body content
+            content:
+              type: string
+              description: Content of the message body
+        bodyPreview:
+          type: string
+          description: First 255 characters of the message body
+          readOnly: true
+        from:
+          $ref: '#/components/schemas/Recipient'
+        toRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: To recipients
+        ccRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: CC recipients
+        bccRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: BCC recipients
+        replyTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: Reply-to addresses
+        importance:
+          type: string
+          enum:
+            - low
+            - normal
+            - high
+          description: Importance of the message
+        isRead:
+          type: boolean
+          description: Whether the message has been read
+        isDraft:
+          type: boolean
+          description: Whether the message is a draft
+        hasAttachments:
+          type: boolean
+          description: Whether the message has attachments
+          readOnly: true
+        receivedDateTime:
+          type: string
+          format: date-time
+          description: Date and time the message was received
+          readOnly: true
+        sentDateTime:
+          type: string
+          format: date-time
+          description: Date and time the message was sent
+          readOnly: true
+        conversationId:
+          type: string
+          description: Identifier of the conversation the message belongs to
+        internetMessageId:
+          type: string
+          description: Message ID in RFC2822 format
+          readOnly: true
+        webLink:
+          type: string
+          format: uri
+          description: URL to open the message in Outlook on the web
+          readOnly: true
+        categories:
+          type: array
+          items:
+            type: string
+          description: Categories associated with the message
+    Recipient:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Display name of the recipient
+            address:
+              type: string
+              format: email
+              description: Email address of the recipient
+    MailFolder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name of the mail folder
+        parentFolderId:
+          type: string
+          description: Unique identifier for the parent mail folder
+        childFolderCount:
+          type: integer
+          description: Number of immediate child mail folders
+        unreadItemCount:
+          type: integer
+          description: Number of unread items in the folder
+        totalItemCount:
+          type: integer
+          description: Total number of items in the folder
+        isHidden:
+          type: boolean
+          description: Whether the folder is hidden
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the event
+          readOnly: true
+        subject:
+          type: string
+          description: Text of the event's subject line
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+                - text
+                - html
+            content:
+              type: string
+        start:
+          $ref: '#/components/schemas/DateTimeTimeZone'
+        end:
+          $ref: '#/components/schemas/DateTimeTimeZone'
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+              description: Name associated with the location
+            address:
+              type: object
+              properties:
+                street:
+                  type: string
+                city:
+                  type: string
+                state:
+                  type: string
+                countryOrRegion:
+                  type: string
+                postalCode:
+                  type: string
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+                    format: email
+              type:
+                type: string
+                enum:
+                  - required
+                  - optional
+                  - resource
+              status:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    enum:
+                      - none
+                      - organizer
+                      - tentativelyAccepted
+                      - accepted
+                      - declined
+                      - notResponded
+                  time:
+                    type: string
+                    format: date-time
+        organizer:
+          $ref: '#/components/schemas/Recipient'
+        isAllDay:
+          type: boolean
+          description: Whether the event lasts all day
+        isCancelled:
+          type: boolean
+          description: Whether the event has been cancelled
+          readOnly: true
+        isOrganizer:
+          type: boolean
+          description: Whether the signed-in user is the organizer
+          readOnly: true
+        showAs:
+          type: string
+          enum:
+            - free
+            - tentative
+            - busy
+            - oof
+            - workingElsewhere
+            - unknown
+          description: Status to show during the event
+        sensitivity:
+          type: string
+          enum:
+            - normal
+            - personal
+            - private
+            - confidential
+        importance:
+          type: string
+          enum:
+            - low
+            - normal
+            - high
+        recurrence:
+          type: object
+          description: Recurrence pattern for the event
+          properties:
+            pattern:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - daily
+                    - weekly
+                    - absoluteMonthly
+                    - relativeMonthly
+                    - absoluteYearly
+                    - relativeYearly
+                interval:
+                  type: integer
+                daysOfWeek:
+                  type: array
+                  items:
+                    type: string
+            range:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - endDate
+                    - noEnd
+                    - numbered
+                startDate:
+                  type: string
+                  format: date
+                endDate:
+                  type: string
+                  format: date
+                numberOfOccurrences:
+                  type: integer
+        onlineMeeting:
+          type: object
+          description: Online meeting information
+          properties:
+            joinUrl:
+              type: string
+              format: uri
+              description: URL to join the online meeting
+        isOnlineMeeting:
+          type: boolean
+          description: Whether the event is an online meeting
+        onlineMeetingProvider:
+          type: string
+          enum:
+            - unknown
+            - teamsForBusiness
+            - skypeForBusiness
+            - skypeForConsumer
+          description: Online meeting service provider
+        webLink:
+          type: string
+          format: uri
+          description: URL to open the event in Outlook on the web
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        categories:
+          type: array
+          items:
+            type: string
+          description: Categories associated with the event
+    DateTimeTimeZone:
+      type: object
+      properties:
+        dateTime:
+          type: string
+          description: Date and time in ISO 8601 format
+        timeZone:
+          type: string
+          description: Time zone for the date-time value (Windows or IANA format)
+    Drive:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the drive
+          readOnly: true
+        name:
+          type: string
+          description: Name of the drive
+        description:
+          type: string
+          description: Human-readable description of the drive
+        driveType:
+          type: string
+          enum:
+            - personal
+            - business
+            - documentLibrary
+          description: Type of drive
+        owner:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+        quota:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+              description: Total allowed storage space in bytes
+            used:
+              type: integer
+              format: int64
+              description: Total space used in bytes
+            remaining:
+              type: integer
+              format: int64
+              description: Total space remaining in bytes
+            deleted:
+              type: integer
+              format: int64
+              description: Total space consumed by items in the recycle bin
+            state:
+              type: string
+              enum:
+                - normal
+                - nearing
+                - critical
+                - exceeded
+        webUrl:
+          type: string
+          format: uri
+          description: URL that displays the drive in a browser
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    DriveItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the item within the drive
+          readOnly: true
+        name:
+          type: string
+          description: Name of the item (filename and extension)
+        description:
+          type: string
+          description: User-visible description of the item
+        size:
+          type: integer
+          format: int64
+          description: Size of the item in bytes
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: URL that displays the resource in the browser
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        file:
+          type: object
+          description: File metadata if the item is a file
+          properties:
+            mimeType:
+              type: string
+              description: MIME type for the file
+            hashes:
+              type: object
+              properties:
+                sha1Hash:
+                  type: string
+                sha256Hash:
+                  type: string
+                quickXorHash:
+                  type: string
+        folder:
+          type: object
+          description: Folder metadata if the item is a folder
+          properties:
+            childCount:
+              type: integer
+              description: Number of children contained immediately within this container
+        parentReference:
+          type: object
+          description: Parent information
+          properties:
+            driveId:
+              type: string
+            driveType:
+              type: string
+            id:
+              type: string
+            name:
+              type: string
+            path:
+              type: string
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        device:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the team
+          readOnly: true
+        displayName:
+          type: string
+          description: Name of the team
+        description:
+          type: string
+          description: Optional description for the team
+        internalId:
+          type: string
+          description: Unique ID for the team used in a few places such as the audit log
+          readOnly: true
+        isArchived:
+          type: boolean
+          description: Whether the team is in read-only mode
+        visibility:
+          type: string
+          enum:
+            - private
+            - public
+          description: Visibility of the group and team
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink to the team in Microsoft Teams client
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        memberSettings:
+          type: object
+          properties:
+            allowCreateUpdateChannels:
+              type: boolean
+            allowDeleteChannels:
+              type: boolean
+            allowAddRemoveApps:
+              type: boolean
+            allowCreateUpdateRemoveTabs:
+              type: boolean
+            allowCreateUpdateRemoveConnectors:
+              type: boolean
+        guestSettings:
+          type: object
+          properties:
+            allowCreateUpdateChannels:
+              type: boolean
+            allowDeleteChannels:
+              type: boolean
+        messagingSettings:
+          type: object
+          properties:
+            allowUserEditMessages:
+              type: boolean
+            allowUserDeleteMessages:
+              type: boolean
+            allowTeamMentions:
+              type: boolean
+            allowChannelMentions:
+              type: boolean
+        funSettings:
+          type: object
+          properties:
+            allowGiphy:
+              type: boolean
+            giphyContentRating:
+              type: string
+              enum:
+                - strict
+                - moderate
+            allowStickersAndMemes:
+              type: boolean
+            allowCustomMemes:
+              type: boolean
+    Channel:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Channel unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Channel name as it appears in Microsoft Teams
+        description:
+          type: string
+          description: Optional textual description for the channel
+        membershipType:
+          type: string
+          enum:
+            - standard
+            - private
+            - shared
+          description: Type of channel
+        email:
+          type: string
+          format: email
+          description: Email address for sending messages to the channel
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink for the channel in Microsoft Teams
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the message
+          readOnly: true
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+                - text
+                - html
+            content:
+              type: string
+        from:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+                userIdentityType:
+                  type: string
+        messageType:
+          type: string
+          enum:
+            - message
+            - chatEvent
+            - typing
+            - unknownFutureValue
+            - systemEventMessage
+          description: Type of chat message
+        importance:
+          type: string
+          enum:
+            - normal
+            - high
+            - urgent
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        subject:
+          type: string
+          description: Subject of the chat message (only for channel messages)
+        summary:
+          type: string
+          description: Summary text for push notifications and previews
+        webUrl:
+          type: string
+          format: uri
+          readOnly: true
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier (object ID)
+          readOnly: true
+        appId:
+          type: string
+          description: Unique application ID (client ID) assigned by Microsoft Entra ID
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name of the application
+        description:
+          type: string
+          description: Free text description of the application
+        signInAudience:
+          type: string
+          enum:
+            - AzureADMyOrg
+            - AzureADMultipleOrgs
+            - AzureADandPersonalMicrosoftAccount
+            - PersonalMicrosoftAccount
+          description: Specifies the Microsoft accounts that are supported
+        identifierUris:
+          type: array
+          items:
+            type: string
+          description: URIs that identify the application within its Microsoft Entra tenant
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+              description: Redirect URIs for the application
+            homePageUrl:
+              type: string
+              format: uri
+              description: Home page or landing page of the application
+        api:
+          type: object
+          properties:
+            requestedAccessTokenVersion:
+              type: integer
+              description: Specifies the access token version (1 or 2)
+            oauth2PermissionScopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                  adminConsentDisplayName:
+                    type: string
+                  adminConsentDescription:
+                    type: string
+        requiredResourceAccess:
+          type: array
+          items:
+            type: object
+            properties:
+              resourceAppId:
+                type: string
+              resourceAccess:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                      enum:
+                        - Scope
+                        - Role
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        tags:
+          type: array
+          items:
+            type: string
+          description: Custom strings for categorizing the application

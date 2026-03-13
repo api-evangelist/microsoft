@@ -1,0 +1,323 @@
+openapi: 3.1.0
+info:
+  title: LinkedIn API
+  description: >-
+    APIs for LinkedIn integrations covering member profile, posts, shares,
+    organizations, and marketing solutions.
+  version: '2.0'
+  contact:
+    name: LinkedIn Developer Support
+    url: https://developer.linkedin.com/
+  termsOfService: https://www.linkedin.com/legal/l/api-terms-of-use
+externalDocs:
+  description: LinkedIn API Documentation
+  url: https://learn.microsoft.com/en-us/linkedin/
+servers:
+  - url: https://api.linkedin.com/v2
+    description: LinkedIn REST API v2
+tags:
+  - name: Profile
+    description: Access member profile information
+  - name: Posts
+    description: Create and manage posts
+  - name: Organizations
+    description: Manage organization pages
+  - name: Marketing
+    description: LinkedIn Marketing APIs
+security:
+  - oauth2: []
+paths:
+  /me:
+    get:
+      operationId: getCurrentMember
+      summary: Get current member profile
+      description: >-
+        Returns the profile of the authenticated member.
+      tags:
+        - Profile
+      parameters:
+        - name: projection
+          in: query
+          description: Fields to return
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Member profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberProfile'
+        '401':
+          description: Unauthorized
+  /people/(id:{personId}):
+    get:
+      operationId: getMemberById
+      summary: Get member by ID
+      description: Returns the profile of a member by their person ID.
+      tags:
+        - Profile
+      parameters:
+        - name: personId
+          in: path
+          required: true
+          description: Member person ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Member profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberProfile'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Member not found
+  /posts:
+    post:
+      operationId: createPost
+      summary: Create a post
+      description: Create a new post on LinkedIn.
+      tags:
+        - Posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePostRequest'
+      responses:
+        '201':
+          description: Post created
+          headers:
+            x-restli-id:
+              schema:
+                type: string
+              description: URN of the created post
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /organizationalEntityAcls:
+    get:
+      operationId: listOrganizationAccess
+      summary: List organization access
+      description: >-
+        Find organizations for which the authenticated member has admin access.
+      tags:
+        - Organizations
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+            default: roleAssignee
+        - name: role
+          in: query
+          required: true
+          schema:
+            type: string
+            default: ADMINISTRATOR
+        - name: projection
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of organization access control entries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        organizationalTarget:
+                          type: string
+                        role:
+                          type: string
+                        state:
+                          type: string
+        '401':
+          description: Unauthorized
+  /organizations/{organizationId}:
+    get:
+      operationId: getOrganization
+      summary: Get an organization
+      description: Retrieve the details of an organization page.
+      tags:
+        - Organizations
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Organization details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Organization not found
+  /adAccounts:
+    get:
+      operationId: listAdAccounts
+      summary: List ad accounts
+      description: List the LinkedIn Ad Accounts associated with the authenticated user.
+      tags:
+        - Marketing
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+            default: search
+        - name: search.status.values[0]:
+          in: query
+          schema:
+            type: string
+            default: ACTIVE
+      responses:
+        '200':
+          description: List of ad accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AdAccount'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: LinkedIn OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.linkedin.com/oauth/v2/authorization
+          tokenUrl: https://www.linkedin.com/oauth/v2/accessToken
+          scopes:
+            openid: OpenID Connect
+            profile: Read member profile
+            email: Read member email
+            w_member_social: Post, comment, and like on behalf of member
+            r_organization_social: Read organization posts
+            w_organization_social: Write organization posts
+            r_ads: Read advertising data
+            rw_ads: Read and write advertising data
+  schemas:
+    MemberProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        localizedFirstName:
+          type: string
+        localizedLastName:
+          type: string
+        localizedHeadline:
+          type: string
+        vanityName:
+          type: string
+        profilePicture:
+          type: object
+          properties:
+            displayImage:
+              type: string
+    CreatePostRequest:
+      type: object
+      required:
+        - author
+        - lifecycleState
+        - visibility
+        - commentary
+      properties:
+        author:
+          type: string
+          description: URN of the author (person or organization)
+        lifecycleState:
+          type: string
+          enum:
+            - PUBLISHED
+            - DRAFT
+        visibility:
+          type: string
+          enum:
+            - PUBLIC
+            - CONNECTIONS
+        commentary:
+          type: string
+          description: Post text content
+        distribution:
+          type: object
+          properties:
+            feedDistribution:
+              type: string
+              enum:
+                - MAIN_FEED
+                - NONE
+    Organization:
+      type: object
+      properties:
+        id:
+          type: integer
+        localizedName:
+          type: string
+        localizedDescription:
+          type: string
+        vanityName:
+          type: string
+        localizedWebsite:
+          type: string
+        logoV2:
+          type: object
+          properties:
+            original:
+              type: string
+        organizationType:
+          type: string
+        staffCountRange:
+          type: string
+    AdAccount:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - CANCELED
+            - DRAFT
+            - REMOVED
+        type:
+          type: string
+          enum:
+            - BUSINESS
+            - ENTERPRISE
+        currency:
+          type: string
+        reference:
+          type: string
+        servingStatuses:
+          type: array
+          items:
+            type: string

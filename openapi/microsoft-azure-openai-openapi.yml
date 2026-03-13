@@ -1,0 +1,619 @@
+openapi: 3.1.0
+info:
+  title: Azure OpenAI Service API
+  description: >-
+    Access to OpenAI's powerful language models through Azure including chat
+    completions, completions, embeddings, image generation, and audio
+    transcription and translation services.
+  version: '2024-10-21'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Azure OpenAI Service REST API Reference
+  url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
+servers:
+  - url: https://{resource-name}.openai.azure.com/openai
+    description: Azure OpenAI Service Endpoint
+    variables:
+      resource-name:
+        default: your-resource-name
+        description: Your Azure OpenAI resource name
+tags:
+  - name: Chat Completions
+    description: Create chat completions using conversational models
+  - name: Completions
+    description: Create text completions
+  - name: Embeddings
+    description: Create vector embeddings from text
+  - name: Images
+    description: Generate images from text descriptions
+  - name: Audio
+    description: Transcribe and translate audio
+security:
+  - apiKey: []
+  - oauth2: []
+paths:
+  /deployments/{deployment-id}/chat/completions:
+    post:
+      operationId: createChatCompletion
+      summary: Create chat completion
+      description: >-
+        Creates a completion for the chat message. Supports function calling,
+        tool usage, and streaming responses.
+      tags:
+        - Chat Completions
+      parameters:
+        - $ref: '#/components/parameters/deploymentId'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+      responses:
+        '200':
+          description: Chat completion response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+  /deployments/{deployment-id}/completions:
+    post:
+      operationId: createCompletion
+      summary: Create completion
+      description: >-
+        Creates a completion for the provided prompt and parameters.
+      tags:
+        - Completions
+      parameters:
+        - $ref: '#/components/parameters/deploymentId'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompletionRequest'
+      responses:
+        '200':
+          description: Completion response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompletionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+  /deployments/{deployment-id}/embeddings:
+    post:
+      operationId: createEmbedding
+      summary: Create embeddings
+      description: >-
+        Get a vector representation of a given input that can be consumed by
+        machine learning models and algorithms.
+      tags:
+        - Embeddings
+      parameters:
+        - $ref: '#/components/parameters/deploymentId'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddingRequest'
+      responses:
+        '200':
+          description: Embedding response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddingResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+  /deployments/{deployment-id}/images/generations:
+    post:
+      operationId: createImageGeneration
+      summary: Generate images
+      description: >-
+        Creates an image given a prompt using DALL-E models.
+      tags:
+        - Images
+      parameters:
+        - $ref: '#/components/parameters/deploymentId'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageGenerationRequest'
+      responses:
+        '200':
+          description: Image generation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageGenerationResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+  /deployments/{deployment-id}/audio/transcriptions:
+    post:
+      operationId: createTranscription
+      summary: Transcribe audio
+      description: >-
+        Transcribes audio into the input language.
+      tags:
+        - Audio
+      parameters:
+        - $ref: '#/components/parameters/deploymentId'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The audio file to transcribe
+                language:
+                  type: string
+                  description: Language of the input audio in ISO-639-1 format
+                prompt:
+                  type: string
+                  description: Optional text to guide the model's style
+                response_format:
+                  type: string
+                  enum:
+                    - json
+                    - text
+                    - srt
+                    - verbose_json
+                    - vtt
+                  default: json
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+      responses:
+        '200':
+          description: Transcription response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranscriptionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /deployments/{deployment-id}/audio/translations:
+    post:
+      operationId: createTranslation
+      summary: Translate audio
+      description: >-
+        Transcribes and translates input audio into English text.
+      tags:
+        - Audio
+      parameters:
+        - $ref: '#/components/parameters/deploymentId'
+        - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The audio file to translate
+                prompt:
+                  type: string
+                response_format:
+                  type: string
+                  enum:
+                    - json
+                    - text
+                    - srt
+                    - verbose_json
+                    - vtt
+                  default: json
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+      responses:
+        '200':
+          description: Translation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranscriptionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: api-key
+      in: header
+      description: Azure OpenAI API key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://cognitiveservices.azure.com/.default: Access Azure OpenAI
+  parameters:
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
+  schemas:
+    ChatCompletionRequest:
+      type: object
+      required:
+        - messages
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            required:
+              - role
+              - content
+            properties:
+              role:
+                type: string
+                enum:
+                  - system
+                  - user
+                  - assistant
+                  - tool
+              content:
+                type: string
+              name:
+                type: string
+          description: A list of messages comprising the conversation
+        temperature:
+          type: number
+          minimum: 0
+          maximum: 2
+          default: 1
+          description: Sampling temperature
+        top_p:
+          type: number
+          minimum: 0
+          maximum: 1
+          default: 1
+          description: Nucleus sampling parameter
+        max_tokens:
+          type: integer
+          description: Maximum number of tokens to generate
+        stream:
+          type: boolean
+          default: false
+          description: Whether to stream partial message deltas
+        stop:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: Sequences where the API will stop generating
+        presence_penalty:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 0
+        frequency_penalty:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 0
+        tools:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                  - function
+              function:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  parameters:
+                    type: object
+          description: A list of tools the model may call
+        response_format:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - text
+                - json_object
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          enum:
+            - chat.completion
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+                enum:
+                  - stop
+                  - length
+                  - content_filter
+                  - tool_calls
+        usage:
+          $ref: '#/components/schemas/Usage'
+    CompletionRequest:
+      type: object
+      required:
+        - prompt
+      properties:
+        prompt:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: The prompt(s) to generate completions for
+        max_tokens:
+          type: integer
+          default: 16
+        temperature:
+          type: number
+          minimum: 0
+          maximum: 2
+          default: 1
+        top_p:
+          type: number
+          minimum: 0
+          maximum: 1
+          default: 1
+        n:
+          type: integer
+          minimum: 1
+          default: 1
+          description: Number of completions to generate
+        stream:
+          type: boolean
+          default: false
+        stop:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        presence_penalty:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 0
+        frequency_penalty:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 0
+    CompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              index:
+                type: integer
+              finish_reason:
+                type: string
+        usage:
+          $ref: '#/components/schemas/Usage'
+    EmbeddingRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: Input text to embed
+        encoding_format:
+          type: string
+          enum:
+            - float
+            - base64
+          default: float
+    EmbeddingResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+            - list
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              object:
+                type: string
+                enum:
+                  - embedding
+              embedding:
+                type: array
+                items:
+                  type: number
+              index:
+                type: integer
+        model:
+          type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+    ImageGenerationRequest:
+      type: object
+      required:
+        - prompt
+      properties:
+        prompt:
+          type: string
+          description: A text description of the desired image
+        n:
+          type: integer
+          minimum: 1
+          maximum: 10
+          default: 1
+          description: Number of images to generate
+        size:
+          type: string
+          enum:
+            - 256x256
+            - 512x512
+            - 1024x1024
+            - 1792x1024
+            - 1024x1792
+          default: 1024x1024
+        quality:
+          type: string
+          enum:
+            - standard
+            - hd
+          default: standard
+        style:
+          type: string
+          enum:
+            - natural
+            - vivid
+          default: vivid
+        response_format:
+          type: string
+          enum:
+            - url
+            - b64_json
+          default: url
+    ImageGenerationResponse:
+      type: object
+      properties:
+        created:
+          type: integer
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              b64_json:
+                type: string
+              revised_prompt:
+                type: string
+    TranscriptionResponse:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The transcribed or translated text
+        task:
+          type: string
+        language:
+          type: string
+        duration:
+          type: number
+    Usage:
+      type: object
+      properties:
+        prompt_tokens:
+          type: integer
+        completion_tokens:
+          type: integer
+        total_tokens:
+          type: integer

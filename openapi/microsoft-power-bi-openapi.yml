@@ -1,0 +1,505 @@
+openapi: 3.1.0
+info:
+  title: Power BI REST API
+  description: >-
+    REST APIs for embedded analytics, administration, governance, and content
+    management in Power BI including datasets, reports, dashboards, groups,
+    and imports.
+  version: '1.0'
+  contact:
+    name: Power BI Developer Support
+    url: https://learn.microsoft.com/en-us/power-bi/developer/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Power BI REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/power-bi/
+servers:
+  - url: https://api.powerbi.com/v1.0/myorg
+    description: Power BI REST API
+tags:
+  - name: Datasets
+    description: Manage Power BI datasets
+  - name: Reports
+    description: Manage Power BI reports
+  - name: Dashboards
+    description: Manage Power BI dashboards
+  - name: Groups
+    description: Manage Power BI workspaces (groups)
+  - name: Imports
+    description: Import content into Power BI
+security:
+  - oauth2: []
+paths:
+  /datasets:
+    get:
+      operationId: listDatasets
+      summary: List datasets
+      description: Returns a list of datasets from My workspace.
+      tags:
+        - Datasets
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetCollection'
+        '401':
+          description: Unauthorized
+  /datasets/{datasetId}:
+    get:
+      operationId: getDataset
+      summary: Get a dataset
+      description: Returns the specified dataset from My workspace.
+      tags:
+        - Datasets
+      parameters:
+        - $ref: '#/components/parameters/datasetId'
+      responses:
+        '200':
+          description: Dataset details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    delete:
+      operationId: deleteDataset
+      summary: Delete a dataset
+      description: Deletes the specified dataset from My workspace.
+      tags:
+        - Datasets
+      parameters:
+        - $ref: '#/components/parameters/datasetId'
+      responses:
+        '200':
+          description: Dataset deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+  /datasets/{datasetId}/refreshes:
+    post:
+      operationId: refreshDataset
+      summary: Trigger dataset refresh
+      description: Triggers a refresh for the specified dataset.
+      tags:
+        - Datasets
+      parameters:
+        - $ref: '#/components/parameters/datasetId'
+      responses:
+        '202':
+          description: Refresh accepted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    get:
+      operationId: listRefreshHistory
+      summary: List refresh history
+      description: Returns the refresh history for the specified dataset.
+      tags:
+        - Datasets
+      parameters:
+        - $ref: '#/components/parameters/datasetId'
+        - name: $top
+          in: query
+          description: Number of entries to return
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Refresh history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshCollection'
+        '401':
+          description: Unauthorized
+  /reports:
+    get:
+      operationId: listReports
+      summary: List reports
+      description: Returns a list of reports from My workspace.
+      tags:
+        - Reports
+      responses:
+        '200':
+          description: List of reports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportCollection'
+        '401':
+          description: Unauthorized
+  /reports/{reportId}:
+    get:
+      operationId: getReport
+      summary: Get a report
+      description: Returns the specified report from My workspace.
+      tags:
+        - Reports
+      parameters:
+        - $ref: '#/components/parameters/reportId'
+      responses:
+        '200':
+          description: Report details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Report not found
+    delete:
+      operationId: deleteReport
+      summary: Delete a report
+      description: Deletes the specified report from My workspace.
+      tags:
+        - Reports
+      parameters:
+        - $ref: '#/components/parameters/reportId'
+      responses:
+        '200':
+          description: Report deleted
+        '401':
+          description: Unauthorized
+  /dashboards:
+    get:
+      operationId: listDashboards
+      summary: List dashboards
+      description: Returns a list of dashboards from My workspace.
+      tags:
+        - Dashboards
+      responses:
+        '200':
+          description: List of dashboards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardCollection'
+        '401':
+          description: Unauthorized
+  /dashboards/{dashboardId}:
+    get:
+      operationId: getDashboard
+      summary: Get a dashboard
+      description: Returns the specified dashboard from My workspace.
+      tags:
+        - Dashboards
+      parameters:
+        - $ref: '#/components/parameters/dashboardId'
+      responses:
+        '200':
+          description: Dashboard details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dashboard not found
+  /dashboards/{dashboardId}/tiles:
+    get:
+      operationId: listTiles
+      summary: List dashboard tiles
+      description: Returns a list of tiles within the specified dashboard.
+      tags:
+        - Dashboards
+      parameters:
+        - $ref: '#/components/parameters/dashboardId'
+      responses:
+        '200':
+          description: List of tiles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TileCollection'
+        '401':
+          description: Unauthorized
+  /groups:
+    get:
+      operationId: listGroups
+      summary: List workspaces
+      description: Returns a list of workspaces the user has access to.
+      tags:
+        - Groups
+      parameters:
+        - name: $filter
+          in: query
+          description: OData filter expression
+          schema:
+            type: string
+        - name: $top
+          in: query
+          description: Maximum number to return
+          schema:
+            type: integer
+        - name: $skip
+          in: query
+          description: Number to skip
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of workspaces
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupCollection'
+        '401':
+          description: Unauthorized
+  /imports:
+    post:
+      operationId: importFile
+      summary: Import a PBIX file
+      description: Imports a Power BI .pbix file into My workspace.
+      tags:
+        - Imports
+      parameters:
+        - name: datasetDisplayName
+          in: query
+          required: true
+          description: Display name for the dataset
+          schema:
+            type: string
+        - name: nameConflict
+          in: query
+          description: Action on name conflict
+          schema:
+            type: string
+            enum:
+              - Ignore
+              - Abort
+              - Overwrite
+              - CreateOrOverwrite
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Import details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Import'
+        '202':
+          description: Import accepted
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://analysis.windows.net/powerbi/api/.default: Access Power BI
+  parameters:
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: Dataset unique identifier
+      schema:
+        type: string
+    reportId:
+      name: reportId
+      in: path
+      required: true
+      description: Report unique identifier
+      schema:
+        type: string
+    dashboardId:
+      name: dashboardId
+      in: path
+      required: true
+      description: Dashboard unique identifier
+      schema:
+        type: string
+  schemas:
+    DatasetCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        configuredBy:
+          type: string
+        isRefreshable:
+          type: boolean
+        isEffectiveIdentityRequired:
+          type: boolean
+        isOnPremGatewayRequired:
+          type: boolean
+        addRowsAPIEnabled:
+          type: boolean
+        webUrl:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+    RefreshCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              requestId:
+                type: string
+              refreshType:
+                type: string
+              startTime:
+                type: string
+                format: date-time
+              endTime:
+                type: string
+                format: date-time
+              status:
+                type: string
+                enum:
+                  - Unknown
+                  - Completed
+                  - Failed
+                  - Cancelled
+                  - Disabled
+    ReportCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        datasetId:
+          type: string
+        webUrl:
+          type: string
+        embedUrl:
+          type: string
+        reportType:
+          type: string
+    DashboardCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dashboard'
+    Dashboard:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        isReadOnly:
+          type: boolean
+        embedUrl:
+          type: string
+        webUrl:
+          type: string
+    TileCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              embedUrl:
+                type: string
+              reportId:
+                type: string
+              datasetId:
+                type: string
+    GroupCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+    Group:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isReadOnly:
+          type: boolean
+        isOnDedicatedCapacity:
+          type: boolean
+        type:
+          type: string
+    Import:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        importState:
+          type: string
+          enum:
+            - Publishing
+            - Succeeded
+            - Failed
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+        createdDateTime:
+          type: string
+          format: date-time
+        updatedDateTime:
+          type: string
+          format: date-time

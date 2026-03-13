@@ -1,0 +1,288 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "microsoft": "https://graph.microsoft.com/v1.0/",
+    "azure": "https://management.azure.com/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+
+    "User": {
+      "@id": "microsoft:User",
+      "@context": {
+        "displayName": "schema:name",
+        "givenName": "schema:givenName",
+        "surname": "schema:familyName",
+        "mail": "schema:email",
+        "userPrincipalName": "microsoft:userPrincipalName",
+        "jobTitle": "schema:jobTitle",
+        "department": "microsoft:department",
+        "officeLocation": "schema:workLocation",
+        "companyName": "schema:worksFor",
+        "mobilePhone": "vcard:cell",
+        "accountEnabled": {
+          "@id": "microsoft:accountEnabled",
+          "@type": "xsd:boolean"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Group": {
+      "@id": "microsoft:Group",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "mail": "schema:email",
+        "mailEnabled": {
+          "@id": "microsoft:mailEnabled",
+          "@type": "xsd:boolean"
+        },
+        "securityEnabled": {
+          "@id": "microsoft:securityEnabled",
+          "@type": "xsd:boolean"
+        },
+        "visibility": "microsoft:visibility",
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Message": {
+      "@id": "microsoft:Message",
+      "@context": {
+        "subject": "schema:name",
+        "bodyPreview": "schema:description",
+        "from": "schema:sender",
+        "toRecipients": "schema:recipient",
+        "importance": "microsoft:importance",
+        "isRead": {
+          "@id": "microsoft:isRead",
+          "@type": "xsd:boolean"
+        },
+        "receivedDateTime": {
+          "@id": "schema:dateReceived",
+          "@type": "xsd:dateTime"
+        },
+        "sentDateTime": {
+          "@id": "schema:dateSent",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Event": {
+      "@id": "microsoft:Event",
+      "@context": {
+        "subject": "schema:name",
+        "start": {
+          "@id": "schema:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "end": {
+          "@id": "schema:endDate",
+          "@type": "xsd:dateTime"
+        },
+        "location": "schema:location",
+        "organizer": "schema:organizer",
+        "attendees": "schema:attendee",
+        "isAllDay": {
+          "@id": "microsoft:isAllDay",
+          "@type": "xsd:boolean"
+        },
+        "isCancelled": {
+          "@id": "microsoft:isCancelled",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "DriveItem": {
+      "@id": "microsoft:DriveItem",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "size": {
+          "@id": "schema:contentSize",
+          "@type": "xsd:integer"
+        },
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastModifiedDateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Team": {
+      "@id": "microsoft:Team",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "visibility": "microsoft:visibility",
+        "isArchived": {
+          "@id": "microsoft:isArchived",
+          "@type": "xsd:boolean"
+        },
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Channel": {
+      "@id": "microsoft:Channel",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "membershipType": "microsoft:membershipType",
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "Application": {
+      "@id": "microsoft:Application",
+      "@context": {
+        "displayName": "schema:name",
+        "description": "schema:description",
+        "appId": "microsoft:appId",
+        "signInAudience": "microsoft:signInAudience",
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "ResourceGroup": {
+      "@id": "azure:ResourceGroup",
+      "@context": {
+        "name": "schema:name",
+        "location": "schema:location",
+        "tags": "microsoft:tags",
+        "provisioningState": "azure:provisioningState"
+      }
+    },
+
+    "Subscription": {
+      "@id": "azure:Subscription",
+      "@context": {
+        "displayName": "schema:name",
+        "subscriptionId": "azure:subscriptionId",
+        "state": "azure:subscriptionState",
+        "tenantId": "azure:tenantId"
+      }
+    },
+
+    "ManagedDevice": {
+      "@id": "microsoft:ManagedDevice",
+      "@context": {
+        "deviceName": "schema:name",
+        "operatingSystem": "microsoft:operatingSystem",
+        "osVersion": "microsoft:osVersion",
+        "complianceState": "microsoft:complianceState",
+        "model": "microsoft:deviceModel",
+        "manufacturer": "schema:manufacturer",
+        "serialNumber": "microsoft:serialNumber",
+        "userPrincipalName": "microsoft:userPrincipalName",
+        "isEncrypted": {
+          "@id": "microsoft:isEncrypted",
+          "@type": "xsd:boolean"
+        },
+        "enrolledDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastSyncDateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Dataset": {
+      "@id": "microsoft:powerbi/Dataset",
+      "@context": {
+        "name": "schema:name",
+        "configuredBy": "microsoft:configuredBy",
+        "isRefreshable": {
+          "@id": "microsoft:isRefreshable",
+          "@type": "xsd:boolean"
+        },
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createdDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Report": {
+      "@id": "microsoft:powerbi/Report",
+      "@context": {
+        "name": "schema:name",
+        "webUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "embedUrl": {
+          "@id": "microsoft:embedUrl",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "WorkItem": {
+      "@id": "microsoft:devops/WorkItem",
+      "@context": {
+        "title": "schema:name",
+        "state": "microsoft:workItemState",
+        "assignedTo": "schema:contributor",
+        "description": "schema:description",
+        "createdDate": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "ChatCompletionRequest": {
+      "@id": "microsoft:openai/ChatCompletionRequest",
+      "@context": {
+        "messages": "microsoft:messages",
+        "temperature": {
+          "@id": "microsoft:temperature",
+          "@type": "xsd:decimal"
+        },
+        "max_tokens": {
+          "@id": "microsoft:maxTokens",
+          "@type": "xsd:integer"
+        }
+      }
+    }
+  }
+}

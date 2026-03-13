@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://learn.microsoft.com/en-us/graph/schemas/microsoft/drive-item.json",
+  "title": "Microsoft OneDrive DriveItem",
+  "description": "Represents a file, folder, or other item stored in a OneDrive or SharePoint document library. All file system objects in OneDrive and SharePoint are returned as driveItem resources.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the item within the drive",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item (filename and extension)"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Provides a user-visible description of the item"
+    },
+    "size": {
+      "type": ["integer", "null"],
+      "format": "int64",
+      "description": "Size of the item in bytes",
+      "readOnly": true
+    },
+    "webUrl": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "URL that displays the resource in the browser",
+      "readOnly": true
+    },
+    "webDavUrl": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "WebDAV compatible URL for the item",
+      "readOnly": true
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time of item creation in UTC",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the item was last modified in UTC",
+      "readOnly": true
+    },
+    "eTag": {
+      "type": ["string", "null"],
+      "description": "eTag for the entire item (metadata + content)",
+      "readOnly": true
+    },
+    "cTag": {
+      "type": ["string", "null"],
+      "description": "eTag for the content of the item",
+      "readOnly": true
+    },
+    "createdBy": {
+      "$ref": "#/$defs/IdentitySet"
+    },
+    "lastModifiedBy": {
+      "$ref": "#/$defs/IdentitySet"
+    },
+    "parentReference": {
+      "$ref": "#/$defs/ItemReference"
+    },
+    "file": {
+      "type": ["object", "null"],
+      "description": "File metadata, if the item is a file",
+      "properties": {
+        "mimeType": {
+          "type": "string",
+          "description": "The MIME type for the file"
+        },
+        "hashes": {
+          "type": "object",
+          "properties": {
+            "sha1Hash": {
+              "type": ["string", "null"],
+              "description": "SHA1 hash for the contents of the file"
+            },
+            "sha256Hash": {
+              "type": ["string", "null"],
+              "description": "SHA256 hash for the contents of the file"
+            },
+            "quickXorHash": {
+              "type": ["string", "null"],
+              "description": "A proprietary hash of the file for change detection"
+            }
+          }
+        },
+        "processingMetadata": {
+          "type": ["boolean", "null"],
+          "description": "Indicates whether the file is still being processed to extract metadata"
+        }
+      }
+    },
+    "folder": {
+      "type": ["object", "null"],
+      "description": "Folder metadata, if the item is a folder",
+      "properties": {
+        "childCount": {
+          "type": "integer",
+          "description": "Number of children contained immediately within this container"
+        },
+        "view": {
+          "type": "object",
+          "properties": {
+            "sortBy": {
+              "type": "string",
+              "description": "The method by which the folder should be sorted"
+            },
+            "sortOrder": {
+              "type": "string",
+              "enum": ["ascending", "descending"]
+            },
+            "viewType": {
+              "type": "string",
+              "description": "The type of view that should be used"
+            }
+          }
+        }
+      }
+    },
+    "image": {
+      "type": ["object", "null"],
+      "description": "Image metadata, if the item is an image",
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        }
+      }
+    },
+    "video": {
+      "type": ["object", "null"],
+      "description": "Video metadata, if the item is a video",
+      "properties": {
+        "duration": {
+          "type": "integer",
+          "description": "Duration in milliseconds"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "bitrate": {
+          "type": "integer"
+        }
+      }
+    },
+    "shared": {
+      "type": ["object", "null"],
+      "description": "Indicates the item has been shared with others",
+      "properties": {
+        "owner": {
+          "$ref": "#/$defs/IdentitySet"
+        },
+        "scope": {
+          "type": "string",
+          "enum": ["anonymous", "organization", "users"],
+          "description": "The scope of how the item is shared"
+        },
+        "sharedDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sharedBy": {
+          "$ref": "#/$defs/IdentitySet"
+        }
+      }
+    },
+    "deleted": {
+      "type": ["object", "null"],
+      "description": "Information about the deleted state of the item",
+      "properties": {
+        "state": {
+          "type": "string",
+          "description": "Represents the state of the deleted item"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "IdentitySet": {
+      "type": ["object", "null"],
+      "description": "A keyed collection of identity resources",
+      "properties": {
+        "user": {
+          "type": "object",
+          "properties": {
+            "displayName": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": ["string", "null"]
+            }
+          }
+        },
+        "application": {
+          "type": ["object", "null"],
+          "properties": {
+            "displayName": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "device": {
+          "type": ["object", "null"],
+          "properties": {
+            "displayName": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ItemReference": {
+      "type": ["object", "null"],
+      "description": "Provides information necessary to address a driveItem",
+      "properties": {
+        "driveId": {
+          "type": "string",
+          "description": "Unique identifier of the drive instance"
+        },
+        "driveType": {
+          "type": "string",
+          "enum": ["personal", "business", "documentLibrary"]
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the item in the drive"
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "The name of the item being referenced"
+        },
+        "path": {
+          "type": ["string", "null"],
+          "description": "Path to navigate to the item"
+        },
+        "shareId": {
+          "type": ["string", "null"],
+          "description": "A unique identifier for a shared resource"
+        },
+        "siteId": {
+          "type": ["string", "null"],
+          "description": "For SharePoint, the identifier of the site"
+        }
+      }
+    }
+  }
+}

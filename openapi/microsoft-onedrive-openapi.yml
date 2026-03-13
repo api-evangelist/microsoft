@@ -1,0 +1,456 @@
+openapi: 3.1.0
+info:
+  title: OneDrive API
+  description: >-
+    Access and manage files stored in OneDrive and SharePoint through
+    Microsoft Graph. Upload, download, share, and organize files and folders.
+  version: '1.0'
+  contact:
+    name: OneDrive Developer Support
+    url: https://developer.microsoft.com/en-us/onedrive
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: OneDrive REST API Reference
+  url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0 Production
+tags:
+  - name: Drives
+    description: Access drives (OneDrive or document libraries)
+  - name: Items
+    description: Manage files and folders
+  - name: Sharing
+    description: Share files and folders
+security:
+  - oauth2: []
+paths:
+  /me/drive:
+    get:
+      operationId: getCurrentUserDrive
+      summary: Get current user's drive
+      description: Retrieve the properties and relationships of a user's OneDrive.
+      tags:
+        - Drives
+      responses:
+        '200':
+          description: Drive details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+        '401':
+          description: Unauthorized
+  /me/drive/root/children:
+    get:
+      operationId: listRootChildren
+      summary: List root folder children
+      description: >-
+        Return a collection of DriveItems in the children relationship of the
+        root folder.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of drive items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItemCollection'
+        '401':
+          description: Unauthorized
+  /me/drive/items/{itemId}:
+    get:
+      operationId: getDriveItem
+      summary: Get a drive item
+      description: Retrieve the metadata for a DriveItem by ID.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Drive item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    patch:
+      operationId: updateDriveItem
+      summary: Update a drive item
+      description: Update the metadata for a DriveItem by ID.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Drive item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    delete:
+      operationId: deleteDriveItem
+      summary: Delete a drive item
+      description: Delete a DriveItem by ID. Deleted items are moved to the recycle bin.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+      responses:
+        '204':
+          description: Item deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+  /me/drive/items/{itemId}/children:
+    get:
+      operationId: listChildren
+      summary: List children of a folder
+      description: Return a collection of DriveItems in the children of a DriveItem.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of child items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItemCollection'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Folder not found
+  /me/drive/items/{itemId}/content:
+    get:
+      operationId: downloadFile
+      summary: Download file content
+      description: Download the contents of a DriveItem.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+      responses:
+        '200':
+          description: File content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '302':
+          description: Redirect to pre-authenticated download URL
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    put:
+      operationId: uploadFile
+      summary: Upload file content
+      description: >-
+        Upload a new file or replace the contents of an existing file.
+        Simple upload for files up to 4MB.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: File updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '201':
+          description: File created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '401':
+          description: Unauthorized
+  /me/drive/items/{itemId}/createLink:
+    post:
+      operationId: createSharingLink
+      summary: Create a sharing link
+      description: Create a new sharing link for a DriveItem.
+      tags:
+        - Sharing
+      parameters:
+        - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - view
+                    - edit
+                    - embed
+                scope:
+                  type: string
+                  enum:
+                    - anonymous
+                    - organization
+                expirationDateTime:
+                  type: string
+                  format: date-time
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Sharing link created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+        '401':
+          description: Unauthorized
+  /me/drive/search(q='{searchText}'):
+    get:
+      operationId: searchDriveItems
+      summary: Search for items
+      description: Search the hierarchy of items for items matching a query.
+      tags:
+        - Items
+      parameters:
+        - name: searchText
+          in: path
+          required: true
+          description: Search query text
+          schema:
+            type: string
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItemCollection'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 via Microsoft identity platform
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files user can access
+            Files.ReadWrite.All: Full access to all files
+  parameters:
+    itemId:
+      name: itemId
+      in: path
+      required: true
+      description: Drive item unique identifier
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+  schemas:
+    Drive:
+      type: object
+      properties:
+        id:
+          type: string
+        driveType:
+          type: string
+          enum:
+            - personal
+            - business
+            - documentLibrary
+        name:
+          type: string
+        owner:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                id:
+                  type: string
+        quota:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+            used:
+              type: integer
+              format: int64
+            remaining:
+              type: integer
+              format: int64
+            state:
+              type: string
+              enum:
+                - normal
+                - nearing
+                - critical
+                - exceeded
+    DriveItemCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DriveItem'
+    DriveItem:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+        webUrl:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+        file:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            hashes:
+              type: object
+              properties:
+                sha1Hash:
+                  type: string
+                quickXorHash:
+                  type: string
+        folder:
+          type: object
+          properties:
+            childCount:
+              type: integer
+        parentReference:
+          type: object
+          properties:
+            driveId:
+              type: string
+            id:
+              type: string
+            path:
+              type: string
+        createdBy:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                id:
+                  type: string
+        lastModifiedBy:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                id:
+                  type: string
+    Permission:
+      type: object
+      properties:
+        id:
+          type: string
+        link:
+          type: object
+          properties:
+            type:
+              type: string
+            scope:
+              type: string
+            webUrl:
+              type: string
+        roles:
+          type: array
+          items:
+            type: string
+        expirationDateTime:
+          type: string
+          format: date-time

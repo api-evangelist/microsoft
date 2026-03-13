@@ -1,0 +1,272 @@
+openapi: 3.1.0
+info:
+  title: Power Platform API
+  description: >-
+    APIs for Power Apps, Power Automate, and Power BI including environment
+    management, connector management, and flow operations via the Dataverse
+    Web API.
+  version: '9.2'
+  contact:
+    name: Microsoft Power Platform Support
+    url: https://learn.microsoft.com/en-us/power-platform/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Power Platform API Documentation
+  url: https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview
+servers:
+  - url: https://{org}.api.crm.dynamics.com/api/data/v9.2
+    description: Dataverse Web API
+    variables:
+      org:
+        default: your-org
+        description: Your Dataverse organization name
+tags:
+  - name: Entities
+    description: CRUD operations on Dataverse entities
+  - name: Metadata
+    description: Entity and attribute metadata
+security:
+  - oauth2: []
+paths:
+  /accounts:
+    get:
+      operationId: listAccounts
+      summary: List accounts
+      description: Retrieve a list of account records.
+      tags:
+        - Entities
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAccount
+      summary: Create an account
+      description: Create a new account record.
+      tags:
+        - Entities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '204':
+          description: Account created
+          headers:
+            OData-EntityId:
+              schema:
+                type: string
+              description: URI of the created record
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /accounts({accountid}):
+    get:
+      operationId: getAccount
+      summary: Get an account
+      description: Retrieve a specific account record.
+      tags:
+        - Entities
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          description: Account unique identifier
+          schema:
+            type: string
+            format: uuid
+        - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+    patch:
+      operationId: updateAccount
+      summary: Update an account
+      description: Update an existing account record.
+      tags:
+        - Entities
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '204':
+          description: Account updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+    delete:
+      operationId: deleteAccount
+      summary: Delete an account
+      description: Delete an account record.
+      tags:
+        - Entities
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Account deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+  /contacts:
+    get:
+      operationId: listContacts
+      summary: List contacts
+      description: Retrieve a list of contact records.
+      tags:
+        - Entities
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of contacts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+  /EntityDefinitions:
+    get:
+      operationId: listEntityDefinitions
+      summary: List entity definitions
+      description: Retrieve metadata about all entities in the environment.
+      tags:
+        - Metadata
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+      responses:
+        '200':
+          description: List of entity definitions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://org.crm.dynamics.com/.default: Access Dataverse
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+    Account:
+      type: object
+      properties:
+        accountid:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: Account name
+        accountnumber:
+          type: string
+        revenue:
+          type: number
+        numberofemployees:
+          type: integer
+        telephone1:
+          type: string
+        emailaddress1:
+          type: string
+        websiteurl:
+          type: string
+        address1_city:
+          type: string
+        address1_stateorprovince:
+          type: string
+        address1_country:
+          type: string
+        address1_postalcode:
+          type: string
+        industrycode:
+          type: integer
+        statecode:
+          type: integer
+          description: Status of the account (0=Active, 1=Inactive)

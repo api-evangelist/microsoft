@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://learn.microsoft.com/en-us/graph/schemas/microsoft/managed-device.json",
+  "title": "Microsoft Intune Managed Device",
+  "description": "Represents a device that is managed through Intune. Contains information about the hardware inventory, installed applications, and compliance state of the device.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the device",
+      "readOnly": true
+    },
+    "deviceName": {
+      "type": ["string", "null"],
+      "description": "Name of the device"
+    },
+    "managedDeviceOwnerType": {
+      "type": "string",
+      "enum": ["unknown", "company", "personal"],
+      "description": "Ownership of the device (company or personal)"
+    },
+    "enrolledDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Enrollment time of the device",
+      "readOnly": true
+    },
+    "lastSyncDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time that the device last completed a sync with Intune",
+      "readOnly": true
+    },
+    "operatingSystem": {
+      "type": ["string", "null"],
+      "description": "Operating system of the device (Windows, iOS, Android, macOS)"
+    },
+    "osVersion": {
+      "type": ["string", "null"],
+      "description": "Operating system version of the device"
+    },
+    "complianceState": {
+      "type": "string",
+      "enum": ["unknown", "compliant", "noncompliant", "conflict", "error", "inGracePeriod", "configManager"],
+      "description": "Compliance state of the device"
+    },
+    "model": {
+      "type": ["string", "null"],
+      "description": "Model of the device"
+    },
+    "manufacturer": {
+      "type": ["string", "null"],
+      "description": "Manufacturer of the device"
+    },
+    "serialNumber": {
+      "type": ["string", "null"],
+      "description": "Serial number of the device"
+    },
+    "imei": {
+      "type": ["string", "null"],
+      "description": "IMEI number of the device"
+    },
+    "userPrincipalName": {
+      "type": ["string", "null"],
+      "description": "Device user principal name"
+    },
+    "userDisplayName": {
+      "type": ["string", "null"],
+      "description": "User display name"
+    },
+    "emailAddress": {
+      "type": ["string", "null"],
+      "format": "email",
+      "description": "Email address of the user associated with the device"
+    },
+    "phoneNumber": {
+      "type": ["string", "null"],
+      "description": "Phone number of the device"
+    },
+    "managementAgent": {
+      "type": "string",
+      "enum": ["eas", "mdm", "easMdm", "intuneClient", "easIntuneClient", "configurationManagerClient", "configurationManagerClientMdm", "unknown"],
+      "description": "Management channel of the device"
+    },
+    "deviceRegistrationState": {
+      "type": "string",
+      "enum": ["notRegistered", "registered", "revoked", "keyConflict", "approvalPending", "certificateReset", "notRegisteredPendingEnrollment", "unknown"],
+      "description": "Device registration state"
+    },
+    "deviceCategoryDisplayName": {
+      "type": ["string", "null"],
+      "description": "Device category display name"
+    },
+    "isEncrypted": {
+      "type": ["boolean", "null"],
+      "description": "Device encryption status"
+    },
+    "isSupervised": {
+      "type": ["boolean", "null"],
+      "description": "Device supervised status"
+    },
+    "jailBroken": {
+      "type": ["string", "null"],
+      "description": "Whether the device is jail broken or rooted"
+    },
+    "totalStorageSpaceInBytes": {
+      "type": ["integer", "null"],
+      "format": "int64",
+      "description": "Total storage in bytes"
+    },
+    "freeStorageSpaceInBytes": {
+      "type": ["integer", "null"],
+      "format": "int64",
+      "description": "Free storage in bytes"
+    },
+    "wiFiMacAddress": {
+      "type": ["string", "null"],
+      "description": "Wi-Fi MAC address of the device"
+    },
+    "azureADRegistered": {
+      "type": ["boolean", "null"],
+      "description": "Whether the device is Azure Active Directory registered"
+    },
+    "azureADDeviceId": {
+      "type": ["string", "null"],
+      "description": "The unique identifier of the Azure Active Directory device"
+    },
+    "deviceEnrollmentType": {
+      "type": "string",
+      "enum": ["unknown", "userEnrollment", "deviceEnrollmentManager", "appleBulkWithUser", "appleBulkWithoutUser", "windowsAzureADJoin", "windowsBulkUserless", "windowsAutoEnrollment", "windowsBulkAzureDomainJoin", "windowsCoManagement"],
+      "description": "Enrollment type of the device"
+    }
+  }
+}

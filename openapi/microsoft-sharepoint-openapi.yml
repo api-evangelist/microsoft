@@ -1,0 +1,371 @@
+openapi: 3.1.0
+info:
+  title: SharePoint REST API
+  description: >-
+    REST service for remotely interacting with SharePoint data including sites,
+    lists, list items, and document libraries using standard REST and OData
+    protocols.
+  version: '1.0'
+  contact:
+    name: SharePoint Developer Support
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: SharePoint REST API Documentation
+  url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+servers:
+  - url: https://{tenant}.sharepoint.com/_api
+    description: SharePoint REST API
+    variables:
+      tenant:
+        default: your-tenant
+        description: Your SharePoint Online tenant name
+tags:
+  - name: Sites
+    description: Access SharePoint sites via Microsoft Graph
+  - name: Lists
+    description: Manage SharePoint lists
+  - name: Items
+    description: Manage list items
+security:
+  - oauth2: []
+paths:
+  /web:
+    get:
+      operationId: getWeb
+      summary: Get current web
+      description: Get the properties of the current SharePoint site.
+      tags:
+        - Sites
+      responses:
+        '200':
+          description: Web properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Web'
+        '401':
+          description: Unauthorized
+  /web/lists:
+    get:
+      operationId: listLists
+      summary: List all lists
+      description: Get all lists in the current SharePoint site.
+      tags:
+        - Lists
+      responses:
+        '200':
+          description: List of SharePoint lists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/SPList'
+        '401':
+          description: Unauthorized
+  /web/lists/getbytitle('{listTitle}'):
+    get:
+      operationId: getListByTitle
+      summary: Get list by title
+      description: Get a SharePoint list by its title.
+      tags:
+        - Lists
+      parameters:
+        - name: listTitle
+          in: path
+          required: true
+          description: Title of the list
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/SPList'
+        '401':
+          description: Unauthorized
+        '404':
+          description: List not found
+  /web/lists/getbytitle('{listTitle}')/items:
+    get:
+      operationId: listItems
+      summary: List items in a list
+      description: Get all items from a SharePoint list.
+      tags:
+        - Items
+      parameters:
+        - name: listTitle
+          in: path
+          required: true
+          description: Title of the list
+          schema:
+            type: string
+        - name: $select
+          in: query
+          description: Fields to include
+          schema:
+            type: string
+        - name: $filter
+          in: query
+          description: OData filter expression
+          schema:
+            type: string
+        - name: $top
+          in: query
+          description: Maximum number of items
+          schema:
+            type: integer
+        - name: $orderby
+          in: query
+          description: Sort order
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ListItem'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createListItem
+      summary: Create a list item
+      description: Add a new item to a SharePoint list.
+      tags:
+        - Items
+      parameters:
+        - name: listTitle
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListItem'
+      responses:
+        '201':
+          description: Item created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/ListItem'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /web/lists/getbytitle('{listTitle}')/items({itemId}):
+    get:
+      operationId: getListItem
+      summary: Get a list item
+      description: Get a specific item from a SharePoint list.
+      tags:
+        - Items
+      parameters:
+        - name: listTitle
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: itemId
+          in: path
+          required: true
+          description: Item ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List item details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/ListItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    post:
+      operationId: updateListItem
+      summary: Update a list item
+      description: Update an existing item in a SharePoint list.
+      tags:
+        - Items
+      parameters:
+        - name: listTitle
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: X-HTTP-Method
+          in: header
+          required: true
+          schema:
+            type: string
+            default: MERGE
+        - name: If-Match
+          in: header
+          required: true
+          description: ETag value for concurrency control
+          schema:
+            type: string
+            default: '*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListItem'
+      responses:
+        '204':
+          description: Item updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    delete:
+      operationId: deleteListItem
+      summary: Delete a list item
+      description: Delete an item from a SharePoint list.
+      tags:
+        - Items
+      parameters:
+        - name: listTitle
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: If-Match
+          in: header
+          required: true
+          schema:
+            type: string
+            default: '*'
+      responses:
+        '200':
+          description: Item deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Sites.Read.All: Read items in all site collections
+            Sites.ReadWrite.All: Read and write items in all site collections
+  schemas:
+    Web:
+      type: object
+      properties:
+        Id:
+          type: string
+        Title:
+          type: string
+          description: Title of the site
+        Description:
+          type: string
+        Url:
+          type: string
+        Created:
+          type: string
+          format: date-time
+        Language:
+          type: integer
+        WebTemplate:
+          type: string
+    SPList:
+      type: object
+      properties:
+        Id:
+          type: string
+        Title:
+          type: string
+          description: Title of the list
+        Description:
+          type: string
+        ItemCount:
+          type: integer
+          description: Number of items in the list
+        Created:
+          type: string
+          format: date-time
+        LastItemModifiedDate:
+          type: string
+          format: date-time
+        Hidden:
+          type: boolean
+        BaseTemplate:
+          type: integer
+          description: List template type
+        ListItemEntityTypeFullName:
+          type: string
+    ListItem:
+      type: object
+      properties:
+        __metadata:
+          type: object
+          properties:
+            type:
+              type: string
+        Id:
+          type: integer
+        Title:
+          type: string
+        Created:
+          type: string
+          format: date-time
+        Modified:
+          type: string
+          format: date-time
+        AuthorId:
+          type: integer
+        EditorId:
+          type: integer

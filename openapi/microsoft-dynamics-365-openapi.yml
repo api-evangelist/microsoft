@@ -1,0 +1,425 @@
+openapi: 3.1.0
+info:
+  title: Dynamics 365 REST API
+  description: >-
+    REST APIs for Dynamics 365 business applications including Customer
+    Engagement and Dataverse Web API for managing accounts, contacts,
+    opportunities, and custom entities.
+  version: '9.2'
+  contact:
+    name: Dynamics 365 Support
+    url: https://learn.microsoft.com/en-us/rest/dynamics365/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Dynamics 365 REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/dynamics365/
+servers:
+  - url: https://{org}.api.crm.dynamics.com/api/data/v9.2
+    description: Dynamics 365 Dataverse Web API
+    variables:
+      org:
+        default: your-org
+        description: Your Dynamics 365 organization name
+tags:
+  - name: Accounts
+    description: Manage business accounts
+  - name: Contacts
+    description: Manage contacts
+  - name: Opportunities
+    description: Manage sales opportunities
+  - name: Leads
+    description: Manage leads
+security:
+  - oauth2: []
+paths:
+  /accounts:
+    get:
+      operationId: listAccounts
+      summary: List accounts
+      description: Retrieve a list of account records.
+      tags:
+        - Accounts
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: List of accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAccount
+      summary: Create an account
+      description: Create a new account record.
+      tags:
+        - Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '204':
+          description: Account created
+          headers:
+            OData-EntityId:
+              schema:
+                type: string
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /accounts({accountid}):
+    get:
+      operationId: getAccount
+      summary: Get an account
+      description: Retrieve a specific account.
+      tags:
+        - Accounts
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+    patch:
+      operationId: updateAccount
+      summary: Update an account
+      description: Update an existing account.
+      tags:
+        - Accounts
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '204':
+          description: Account updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteAccount
+      summary: Delete an account
+      description: Delete an account record.
+      tags:
+        - Accounts
+      parameters:
+        - name: accountid
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Account deleted
+        '401':
+          description: Unauthorized
+  /contacts:
+    get:
+      operationId: listContacts
+      summary: List contacts
+      description: Retrieve a list of contact records.
+      tags:
+        - Contacts
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of contacts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createContact
+      summary: Create a contact
+      description: Create a new contact record.
+      tags:
+        - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '204':
+          description: Contact created
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /opportunities:
+    get:
+      operationId: listOpportunities
+      summary: List opportunities
+      description: Retrieve a list of opportunity records.
+      tags:
+        - Opportunities
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of opportunities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createOpportunity
+      summary: Create an opportunity
+      description: Create a new opportunity record.
+      tags:
+        - Opportunities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '204':
+          description: Opportunity created
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /leads:
+    get:
+      operationId: listLeads
+      summary: List leads
+      description: Retrieve a list of lead records.
+      tags:
+        - Leads
+      parameters:
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of leads
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createLead
+      summary: Create a lead
+      description: Create a new lead record.
+      tags:
+        - Leads
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+      responses:
+        '204':
+          description: Lead created
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://org.api.crm.dynamics.com/.default: Access Dynamics 365
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline
+      schema:
+        type: string
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+    Account:
+      type: object
+      properties:
+        accountid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        accountnumber:
+          type: string
+        revenue:
+          type: number
+        numberofemployees:
+          type: integer
+        telephone1:
+          type: string
+        emailaddress1:
+          type: string
+        websiteurl:
+          type: string
+        address1_city:
+          type: string
+        address1_stateorprovince:
+          type: string
+        address1_country:
+          type: string
+        industrycode:
+          type: integer
+        statecode:
+          type: integer
+    Contact:
+      type: object
+      properties:
+        contactid:
+          type: string
+          format: uuid
+        firstname:
+          type: string
+        lastname:
+          type: string
+        fullname:
+          type: string
+        emailaddress1:
+          type: string
+        telephone1:
+          type: string
+        jobtitle:
+          type: string
+        address1_city:
+          type: string
+        address1_stateorprovince:
+          type: string
+        statecode:
+          type: integer
+    Opportunity:
+      type: object
+      properties:
+        opportunityid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        estimatedvalue:
+          type: number
+        estimatedclosedate:
+          type: string
+          format: date
+        stepname:
+          type: string
+        description:
+          type: string
+        statecode:
+          type: integer
+        statuscode:
+          type: integer
+    Lead:
+      type: object
+      properties:
+        leadid:
+          type: string
+          format: uuid
+        firstname:
+          type: string
+        lastname:
+          type: string
+        fullname:
+          type: string
+        emailaddress1:
+          type: string
+        companyname:
+          type: string
+        jobtitle:
+          type: string
+        telephone1:
+          type: string
+        subject:
+          type: string
+        statecode:
+          type: integer
+        statuscode:
+          type: integer

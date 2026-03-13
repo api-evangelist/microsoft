@@ -1,0 +1,504 @@
+openapi: 3.1.0
+info:
+  title: Azure Cognitive Services API
+  description: >-
+    APIs for vision, speech, language, and decision-making AI capabilities
+    including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/
+servers:
+  - url: https://{region}.api.cognitive.microsoft.com
+    description: Azure Cognitive Services Regional Endpoint
+    variables:
+      region:
+        default: eastus
+        description: Azure region for the Cognitive Services resource
+tags:
+  - name: Computer Vision
+    description: Analyze images and extract visual features
+  - name: Text Analytics
+    description: Extract insights from text including sentiment and entities
+  - name: Translator
+    description: Translate text between languages
+security:
+  - apiKey: []
+paths:
+  /vision/v3.2/analyze:
+    post:
+      operationId: analyzeImage
+      summary: Analyze image
+      description: >-
+        Extract visual features from an image including objects, faces, tags,
+        categories, descriptions, and color information.
+      tags:
+        - Computer Vision
+      parameters:
+        - name: visualFeatures
+          in: query
+          description: Visual features to analyze
+          schema:
+            type: string
+            enum:
+              - Categories
+              - Tags
+              - Description
+              - Faces
+              - ImageType
+              - Color
+              - Adult
+              - Objects
+              - Brands
+        - name: language
+          in: query
+          description: Language for response
+          schema:
+            type: string
+            default: en
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url
+              properties:
+                url:
+                  type: string
+                  description: Publicly reachable URL of an image
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Image analysis results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageAnalysis'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /vision/v3.2/ocr:
+    post:
+      operationId: recognizeText
+      summary: Optical character recognition
+      description: >-
+        Detect and extract text from an image using optical character recognition.
+      tags:
+        - Computer Vision
+      parameters:
+        - name: language
+          in: query
+          description: BCP-47 language code of the text to detect
+          schema:
+            type: string
+            default: unk
+        - name: detectOrientation
+          in: query
+          description: Whether to detect text orientation
+          schema:
+            type: boolean
+            default: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url
+              properties:
+                url:
+                  type: string
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OCR results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OcrResult'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /text/analytics/v3.1/sentiment:
+    post:
+      operationId: analyzeSentiment
+      summary: Analyze sentiment
+      description: >-
+        Analyze sentiment of the input text and return sentiment predictions
+        for each sentence and the document as a whole.
+      tags:
+        - Text Analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextAnalyticsRequest'
+      responses:
+        '200':
+          description: Sentiment analysis results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SentimentResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /text/analytics/v3.1/entities/recognition/general:
+    post:
+      operationId: recognizeEntities
+      summary: Recognize named entities
+      description: >-
+        Identify and categorize entities in the input text as people,
+        places, organizations, date/time, quantities, and more.
+      tags:
+        - Text Analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextAnalyticsRequest'
+      responses:
+        '200':
+          description: Entity recognition results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitiesResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /text/analytics/v3.1/keyPhrases:
+    post:
+      operationId: extractKeyPhrases
+      summary: Extract key phrases
+      description: >-
+        Extract key talking points from the input text.
+      tags:
+        - Text Analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextAnalyticsRequest'
+      responses:
+        '200':
+          description: Key phrase extraction results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyPhrasesResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /translate:
+    post:
+      operationId: translateText
+      summary: Translate text
+      description: >-
+        Translate text into one or more languages.
+      tags:
+        - Translator
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '3.0'
+        - name: to
+          in: query
+          required: true
+          description: Target language codes
+          schema:
+            type: array
+            items:
+              type: string
+        - name: from
+          in: query
+          description: Source language code
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  Text:
+                    type: string
+      responses:
+        '200':
+          description: Translation results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TranslationResult'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /languages:
+    get:
+      operationId: getLanguages
+      summary: Get supported languages
+      description: >-
+        Get the set of languages currently supported by the Translator.
+      tags:
+        - Translator
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '3.0'
+        - name: scope
+          in: query
+          description: Comma-separated group of language names
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Supported languages
+          content:
+            application/json:
+              schema:
+                type: object
+      security: []
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+  schemas:
+    ImageAnalysis:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              score:
+                type: number
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              confidence:
+                type: number
+        description:
+          type: object
+          properties:
+            tags:
+              type: array
+              items:
+                type: string
+            captions:
+              type: array
+              items:
+                type: object
+                properties:
+                  text:
+                    type: string
+                  confidence:
+                    type: number
+        objects:
+          type: array
+          items:
+            type: object
+            properties:
+              object:
+                type: string
+              confidence:
+                type: number
+              rectangle:
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  'y':
+                    type: integer
+                  w:
+                    type: integer
+                  h:
+                    type: integer
+        metadata:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+            format:
+              type: string
+    OcrResult:
+      type: object
+      properties:
+        language:
+          type: string
+        textAngle:
+          type: number
+        orientation:
+          type: string
+        regions:
+          type: array
+          items:
+            type: object
+            properties:
+              boundingBox:
+                type: string
+              lines:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    boundingBox:
+                      type: string
+                    words:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          boundingBox:
+                            type: string
+                          text:
+                            type: string
+    TextAnalyticsRequest:
+      type: object
+      required:
+        - documents
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - text
+            properties:
+              id:
+                type: string
+              text:
+                type: string
+              language:
+                type: string
+    SentimentResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              sentiment:
+                type: string
+                enum:
+                  - positive
+                  - neutral
+                  - negative
+                  - mixed
+              confidenceScores:
+                type: object
+                properties:
+                  positive:
+                    type: number
+                  neutral:
+                    type: number
+                  negative:
+                    type: number
+    EntitiesResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              entities:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                    category:
+                      type: string
+                    subcategory:
+                      type: string
+                    offset:
+                      type: integer
+                    length:
+                      type: integer
+                    confidenceScore:
+                      type: number
+    KeyPhrasesResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              keyPhrases:
+                type: array
+                items:
+                  type: string
+    TranslationResult:
+      type: object
+      properties:
+        detectedLanguage:
+          type: object
+          properties:
+            language:
+              type: string
+            score:
+              type: number
+        translations:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              to:
+                type: string
