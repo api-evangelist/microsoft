@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: SharePoint REST API
+  title: Microsoft SharePoint REST API
   description: >-
     REST service for remotely interacting with SharePoint data including sites,
     lists, list items, and document libraries using standard REST and OData
@@ -33,7 +33,7 @@ paths:
   /web:
     get:
       operationId: getWeb
-      summary: Get current web
+      summary: Microsoft Get current web
       description: Get the properties of the current SharePoint site.
       tags:
         - Sites
@@ -49,7 +49,7 @@ paths:
   /web/lists:
     get:
       operationId: listLists
-      summary: List all lists
+      summary: Microsoft List all lists
       description: Get all lists in the current SharePoint site.
       tags:
         - Lists
@@ -73,7 +73,7 @@ paths:
   /web/lists/getbytitle('{listTitle}'):
     get:
       operationId: getListByTitle
-      summary: Get list by title
+      summary: Microsoft Get list by title
       description: Get a SharePoint list by its title.
       tags:
         - Lists
@@ -101,7 +101,7 @@ paths:
   /web/lists/getbytitle('{listTitle}')/items:
     get:
       operationId: listItems
-      summary: List items in a list
+      summary: Microsoft List items in a list
       description: Get all items from a SharePoint list.
       tags:
         - Items
@@ -151,7 +151,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createListItem
-      summary: Create a list item
+      summary: Microsoft Create a list item
       description: Add a new item to a SharePoint list.
       tags:
         - Items
@@ -184,7 +184,7 @@ paths:
   /web/lists/getbytitle('{listTitle}')/items({itemId}):
     get:
       operationId: getListItem
-      summary: Get a list item
+      summary: Microsoft Get a list item
       description: Get a specific item from a SharePoint list.
       tags:
         - Items
@@ -216,7 +216,7 @@ paths:
           description: Item not found
     post:
       operationId: updateListItem
-      summary: Update a list item
+      summary: Microsoft Update a list item
       description: Update an existing item in a SharePoint list.
       tags:
         - Items
@@ -261,7 +261,7 @@ paths:
           description: Item not found
     delete:
       operationId: deleteListItem
-      summary: Delete a list item
+      summary: Microsoft Delete a list item
       description: Delete an item from a SharePoint list.
       tags:
         - Items

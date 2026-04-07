@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Dynamics 365 REST API
+  title: Microsoft Dynamics 365 REST API
   description: >-
     REST APIs for Dynamics 365 business applications including Customer
     Engagement and Dataverse Web API for managing accounts, contacts,
@@ -35,7 +35,7 @@ paths:
   /accounts:
     get:
       operationId: listAccounts
-      summary: List accounts
+      summary: Microsoft List accounts
       description: Retrieve a list of account records.
       tags:
         - Accounts
@@ -56,7 +56,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createAccount
-      summary: Create an account
+      summary: Microsoft Create an account
       description: Create a new account record.
       tags:
         - Accounts
@@ -80,7 +80,7 @@ paths:
   /accounts({accountid}):
     get:
       operationId: getAccount
-      summary: Get an account
+      summary: Microsoft Get an account
       description: Retrieve a specific account.
       tags:
         - Accounts
@@ -106,7 +106,7 @@ paths:
           description: Account not found
     patch:
       operationId: updateAccount
-      summary: Update an account
+      summary: Microsoft Update an account
       description: Update an existing account.
       tags:
         - Accounts
@@ -132,7 +132,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteAccount
-      summary: Delete an account
+      summary: Microsoft Delete an account
       description: Delete an account record.
       tags:
         - Accounts
@@ -151,7 +151,7 @@ paths:
   /contacts:
     get:
       operationId: listContacts
-      summary: List contacts
+      summary: Microsoft List contacts
       description: Retrieve a list of contact records.
       tags:
         - Contacts
@@ -171,7 +171,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createContact
-      summary: Create a contact
+      summary: Microsoft Create a contact
       description: Create a new contact record.
       tags:
         - Contacts
@@ -191,7 +191,7 @@ paths:
   /opportunities:
     get:
       operationId: listOpportunities
-      summary: List opportunities
+      summary: Microsoft List opportunities
       description: Retrieve a list of opportunity records.
       tags:
         - Opportunities
@@ -211,7 +211,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createOpportunity
-      summary: Create an opportunity
+      summary: Microsoft Create an opportunity
       description: Create a new opportunity record.
       tags:
         - Opportunities
@@ -231,7 +231,7 @@ paths:
   /leads:
     get:
       operationId: listLeads
-      summary: List leads
+      summary: Microsoft List leads
       description: Retrieve a list of lead records.
       tags:
         - Leads
@@ -251,7 +251,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createLead
-      summary: Create a lead
+      summary: Microsoft Create a lead
       description: Create a new lead record.
       tags:
         - Leads

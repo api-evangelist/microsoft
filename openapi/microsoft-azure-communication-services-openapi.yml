@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Azure Communication Services API
+  title: Microsoft Azure Communication Services API
   description: >-
     Multichannel communication APIs for adding voice, video, chat, SMS, and
     email capabilities to applications.
@@ -34,7 +34,7 @@ paths:
   /identities:
     post:
       operationId: createIdentity
-      summary: Create an identity
+      summary: Microsoft Create an identity
       description: Create a new Communication Services identity.
       tags:
         - Identity
@@ -67,7 +67,7 @@ paths:
   /identities/{id}:
     delete:
       operationId: deleteIdentity
-      summary: Delete an identity
+      summary: Microsoft Delete an identity
       description: Delete a Communication Services identity and revoke all tokens.
       tags:
         - Identity
@@ -89,7 +89,7 @@ paths:
   /identities/{id}/:issueAccessToken:
     post:
       operationId: issueAccessToken
-      summary: Issue an access token
+      summary: Microsoft Issue an access token
       description: Issue a new access token for an identity.
       tags:
         - Identity
@@ -133,7 +133,7 @@ paths:
   /sms:
     post:
       operationId: sendSms
-      summary: Send an SMS message
+      summary: Microsoft Send an SMS message
       description: Send a single SMS message or a batch of SMS messages.
       tags:
         - SMS
@@ -159,7 +159,7 @@ paths:
   /emails:send:
     post:
       operationId: sendEmail
-      summary: Send an email
+      summary: Microsoft Send an email
       description: Queues an email message for sending.
       tags:
         - Email
@@ -201,7 +201,7 @@ paths:
   /chat/threads:
     post:
       operationId: createChatThread
-      summary: Create a chat thread
+      summary: Microsoft Create a chat thread
       description: Create a new chat thread.
       tags:
         - Chat
@@ -226,7 +226,7 @@ paths:
           description: Unauthorized
     get:
       operationId: listChatThreads
-      summary: List chat threads
+      summary: Microsoft List chat threads
       description: List all chat threads for the authenticated user.
       tags:
         - Chat
@@ -262,7 +262,7 @@ paths:
   /chat/threads/{chatThreadId}/messages:
     post:
       operationId: sendChatMessage
-      summary: Send a chat message
+      summary: Microsoft Send a chat message
       description: Send a message to a chat thread.
       tags:
         - Chat
@@ -309,7 +309,7 @@ paths:
           description: Unauthorized
     get:
       operationId: listChatMessages
-      summary: List chat messages
+      summary: Microsoft List chat messages
       description: List messages in a chat thread.
       tags:
         - Chat

@@ -30,7 +30,7 @@ paths:
   /deviceManagement/managedDevices:
     get:
       operationId: listManagedDevices
-      summary: List managed devices
+      summary: Microsoft List managed devices
       description: List properties and relationships of managed device objects.
       tags:
         - Managed Devices
@@ -58,7 +58,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}:
     get:
       operationId: getManagedDevice
-      summary: Get a managed device
+      summary: Microsoft Get a managed device
       description: Read properties of a managed device object.
       tags:
         - Managed Devices
@@ -84,7 +84,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/wipe:
     post:
       operationId: wipeManagedDevice
-      summary: Wipe a managed device
+      summary: Microsoft Wipe a managed device
       description: Wipe a device, removing all data and resetting to factory defaults.
       tags:
         - Managed Devices
@@ -104,7 +104,7 @@ paths:
   /deviceManagement/managedDevices/{managedDeviceId}/retire:
     post:
       operationId: retireManagedDevice
-      summary: Retire a managed device
+      summary: Microsoft Retire a managed device
       description: Retire a device, removing managed data while keeping personal data.
       tags:
         - Managed Devices
@@ -122,7 +122,7 @@ paths:
   /deviceManagement/deviceCompliancePolicies:
     get:
       operationId: listCompliancePolicies
-      summary: List compliance policies
+      summary: Microsoft List compliance policies
       description: List properties and relationships of device compliance policy objects.
       tags:
         - Device Compliance
@@ -147,7 +147,7 @@ paths:
   /deviceAppManagement/mobileApps:
     get:
       operationId: listMobileApps
-      summary: List mobile apps
+      summary: Microsoft List mobile apps
       description: List properties and relationships of mobile app objects.
       tags:
         - Mobile Apps
@@ -172,7 +172,7 @@ paths:
   /deviceManagement/deviceConfigurations:
     get:
       operationId: listDeviceConfigurations
-      summary: List device configurations
+      summary: Microsoft List device configurations
       description: List properties and relationships of device configuration objects.
       tags:
         - Device Configuration

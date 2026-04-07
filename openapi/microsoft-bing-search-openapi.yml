@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Bing Search APIs
+  title: Microsoft Bing Search APIs
   description: >-
     Integrate Bing search capabilities into applications including web search,
     image search, news search, and video search.
@@ -30,7 +30,7 @@ paths:
   /search:
     get:
       operationId: webSearch
-      summary: Web search
+      summary: Microsoft Web search
       description: >-
         Returns relevant web pages, images, videos, news, and more for a
         given search query.
@@ -91,7 +91,7 @@ paths:
   /images/search:
     get:
       operationId: imageSearch
-      summary: Image search
+      summary: Microsoft Image search
       description: Returns images relevant to the given search query.
       tags:
         - Image Search
@@ -152,7 +152,7 @@ paths:
   /news/search:
     get:
       operationId: newsSearch
-      summary: News search
+      summary: Microsoft News search
       description: Returns news articles relevant to the given search query.
       tags:
         - News Search
@@ -198,7 +198,7 @@ paths:
   /videos/search:
     get:
       operationId: videoSearch
-      summary: Video search
+      summary: Microsoft Video search
       description: Returns videos relevant to the given search query.
       tags:
         - Video Search

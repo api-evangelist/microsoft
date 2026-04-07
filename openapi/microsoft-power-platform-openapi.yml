@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Power Platform API
+  title: Microsoft Power Platform API
   description: >-
     APIs for Power Apps, Power Automate, and Power BI including environment
     management, connector management, and flow operations via the Dataverse
@@ -31,7 +31,7 @@ paths:
   /accounts:
     get:
       operationId: listAccounts
-      summary: List accounts
+      summary: Microsoft List accounts
       description: Retrieve a list of account records.
       tags:
         - Entities
@@ -51,7 +51,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createAccount
-      summary: Create an account
+      summary: Microsoft Create an account
       description: Create a new account record.
       tags:
         - Entities
@@ -76,7 +76,7 @@ paths:
   /accounts({accountid}):
     get:
       operationId: getAccount
-      summary: Get an account
+      summary: Microsoft Get an account
       description: Retrieve a specific account record.
       tags:
         - Entities
@@ -102,7 +102,7 @@ paths:
           description: Account not found
     patch:
       operationId: updateAccount
-      summary: Update an account
+      summary: Microsoft Update an account
       description: Update an existing account record.
       tags:
         - Entities
@@ -130,7 +130,7 @@ paths:
           description: Account not found
     delete:
       operationId: deleteAccount
-      summary: Delete an account
+      summary: Microsoft Delete an account
       description: Delete an account record.
       tags:
         - Entities
@@ -151,7 +151,7 @@ paths:
   /contacts:
     get:
       operationId: listContacts
-      summary: List contacts
+      summary: Microsoft List contacts
       description: Retrieve a list of contact records.
       tags:
         - Entities
@@ -172,7 +172,7 @@ paths:
   /EntityDefinitions:
     get:
       operationId: listEntityDefinitions
-      summary: List entity definitions
+      summary: Microsoft List entity definitions
       description: Retrieve metadata about all entities in the environment.
       tags:
         - Metadata

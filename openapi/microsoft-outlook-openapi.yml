@@ -28,7 +28,7 @@ paths:
   /messages:
     get:
       operationId: listMessages
-      summary: List messages
+      summary: Microsoft List messages
       description: Get the messages in the signed-in user's mailbox.
       tags:
         - Mail
@@ -51,7 +51,7 @@ paths:
   /messages/{messageId}:
     get:
       operationId: getMessage
-      summary: Get a message
+      summary: Microsoft Get a message
       description: Retrieve a specific message.
       tags:
         - Mail
@@ -71,7 +71,7 @@ paths:
           description: Message not found
     patch:
       operationId: updateMessage
-      summary: Update a message
+      summary: Microsoft Update a message
       description: Update the properties of a message.
       tags:
         - Mail
@@ -107,7 +107,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteMessage
-      summary: Delete a message
+      summary: Microsoft Delete a message
       description: Delete a message and move it to the Deleted Items folder.
       tags:
         - Mail
@@ -121,7 +121,7 @@ paths:
   /sendMail:
     post:
       operationId: sendMail
-      summary: Send mail
+      summary: Microsoft Send mail
       description: >-
         Send the message specified in the request body. The message is saved
         in the Sent Items folder by default.
@@ -143,7 +143,7 @@ paths:
   /mailFolders:
     get:
       operationId: listMailFolders
-      summary: List mail folders
+      summary: Microsoft List mail folders
       description: Get the mail folder collection under the root folder.
       tags:
         - Mail
@@ -166,7 +166,7 @@ paths:
   /events:
     get:
       operationId: listEvents
-      summary: List calendar events
+      summary: Microsoft List calendar events
       description: Get events from the user's default calendar.
       tags:
         - Calendar
@@ -186,7 +186,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createEvent
-      summary: Create a calendar event
+      summary: Microsoft Create a calendar event
       description: Create an event in the user's default calendar.
       tags:
         - Calendar
@@ -210,7 +210,7 @@ paths:
   /contacts:
     get:
       operationId: listContacts
-      summary: List contacts
+      summary: Microsoft List contacts
       description: Get contacts from the user's default contacts folder.
       tags:
         - Contacts
@@ -235,7 +235,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createContact
-      summary: Create a contact
+      summary: Microsoft Create a contact
       description: Create a new contact in the user's default contacts folder.
       tags:
         - Contacts

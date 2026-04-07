@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Azure OpenAI Service API
+  title: Microsoft Azure OpenAI Service API
   description: >-
     Access to OpenAI's powerful language models through Azure including chat
     completions, completions, embeddings, image generation, and audio
@@ -38,7 +38,7 @@ paths:
   /deployments/{deployment-id}/chat/completions:
     post:
       operationId: createChatCompletion
-      summary: Create chat completion
+      summary: Microsoft Create chat completion
       description: >-
         Creates a completion for the chat message. Supports function calling,
         tool usage, and streaming responses.
@@ -69,7 +69,7 @@ paths:
   /deployments/{deployment-id}/completions:
     post:
       operationId: createCompletion
-      summary: Create completion
+      summary: Microsoft Create completion
       description: >-
         Creates a completion for the provided prompt and parameters.
       tags:
@@ -99,7 +99,7 @@ paths:
   /deployments/{deployment-id}/embeddings:
     post:
       operationId: createEmbedding
-      summary: Create embeddings
+      summary: Microsoft Create embeddings
       description: >-
         Get a vector representation of a given input that can be consumed by
         machine learning models and algorithms.
@@ -130,7 +130,7 @@ paths:
   /deployments/{deployment-id}/images/generations:
     post:
       operationId: createImageGeneration
-      summary: Generate images
+      summary: Microsoft Generate images
       description: >-
         Creates an image given a prompt using DALL-E models.
       tags:
@@ -160,7 +160,7 @@ paths:
   /deployments/{deployment-id}/audio/transcriptions:
     post:
       operationId: createTranscription
-      summary: Transcribe audio
+      summary: Microsoft Transcribe audio
       description: >-
         Transcribes audio into the input language.
       tags:
@@ -214,7 +214,7 @@ paths:
   /deployments/{deployment-id}/audio/translations:
     post:
       operationId: createTranslation
-      summary: Translate audio
+      summary: Microsoft Translate audio
       description: >-
         Transcribes and translates input audio into English text.
       tags:

@@ -43,7 +43,7 @@ paths:
   /users:
     get:
       operationId: listUsers
-      summary: List users
+      summary: Microsoft List users
       description: >-
         Retrieve a list of user objects. By default, only a limited set of
         properties are returned. To return an alternative property set, specify
@@ -81,7 +81,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
     post:
       operationId: createUser
-      summary: Create user
+      summary: Microsoft Create user
       description: >-
         Create a new user object. The request body contains the user to create.
         At a minimum, you must specify the required properties for the user,
@@ -108,7 +108,7 @@ paths:
   /users/{user-id}:
     get:
       operationId: getUser
-      summary: Get user
+      summary: Microsoft Get user
       description: >-
         Retrieve the properties and relationships of a user object. Returns a
         default set of properties unless you use $select to specify specific properties.
@@ -130,7 +130,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateUser
-      summary: Update user
+      summary: Microsoft Update user
       description: >-
         Update the properties of a user object. Not all properties can be
         updated by Member or Guest users with their default permissions.
@@ -155,7 +155,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteUser
-      summary: Delete user
+      summary: Microsoft Delete user
       description: >-
         Delete a user object. When deleted, user resources are moved to a
         temporary container and can be restored within 30 days. After that time,
@@ -174,7 +174,7 @@ paths:
   /users/{user-id}/manager:
     get:
       operationId: getUserManager
-      summary: Get user's manager
+      summary: Microsoft Get user's manager
       description: >-
         Returns the user or organizational contact assigned as the user's
         manager. Optionally, you can expand the manager's chain up to the root node.
@@ -194,7 +194,7 @@ paths:
   /users/{user-id}/directReports:
     get:
       operationId: listUserDirectReports
-      summary: List user's direct reports
+      summary: Microsoft List user's direct reports
       description: >-
         Get the users and organizational contacts that report to the user.
       tags:
@@ -219,7 +219,7 @@ paths:
   /users/{user-id}/memberOf:
     get:
       operationId: listUserMemberOf
-      summary: List user's group memberships
+      summary: Microsoft List user's group memberships
       description: >-
         Get the groups, directory roles, and administrative units that the user
         is a direct member of.
@@ -246,7 +246,7 @@ paths:
   /groups:
     get:
       operationId: listGroups
-      summary: List groups
+      summary: Microsoft List groups
       description: >-
         List all the groups in an organization, including but not limited to
         Microsoft 365 groups. Returns a default set of properties for each group.
@@ -280,7 +280,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createGroup
-      summary: Create group
+      summary: Microsoft Create group
       description: >-
         Create a new group as specified in the request body. You can create one
         of the following groups: Microsoft 365 group (unified group), security
@@ -307,7 +307,7 @@ paths:
   /groups/{group-id}:
     get:
       operationId: getGroup
-      summary: Get group
+      summary: Microsoft Get group
       description: >-
         Get the properties and relationships of a group object. Returns a
         default set of properties unless you use $select to specify specific properties.
@@ -329,7 +329,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateGroup
-      summary: Update group
+      summary: Microsoft Update group
       description: >-
         Update the properties of a group object.
       tags:
@@ -351,7 +351,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteGroup
-      summary: Delete group
+      summary: Microsoft Delete group
       description: >-
         Delete a group. When deleted, Microsoft 365 groups are moved to a
         temporary container and can be restored within 30 days.
@@ -367,7 +367,7 @@ paths:
   /groups/{group-id}/members:
     get:
       operationId: listGroupMembers
-      summary: List group members
+      summary: Microsoft List group members
       description: >-
         Get a list of the group's direct members. A group can have users,
         organizational contacts, devices, service principals, and other groups
@@ -395,7 +395,7 @@ paths:
   /groups/{group-id}/members/$ref:
     post:
       operationId: addGroupMember
-      summary: Add group member
+      summary: Microsoft Add group member
       description: >-
         Add a member to a Microsoft 365 group or a security group through the
         members navigation property.
@@ -426,7 +426,7 @@ paths:
   /groups/{group-id}/owners:
     get:
       operationId: listGroupOwners
-      summary: List group owners
+      summary: Microsoft List group owners
       description: >-
         Retrieve a list of the group's owners. The owners are a set of users or
         service principals who are allowed to manage the group.
@@ -452,7 +452,7 @@ paths:
   /me/messages:
     get:
       operationId: listMessages
-      summary: List messages
+      summary: Microsoft List messages
       description: >-
         Get the messages in the signed-in user's mailbox, including the Deleted
         Items and Clutter folders. Returns messages from all mail folders.
@@ -485,7 +485,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createMessage
-      summary: Create message draft
+      summary: Microsoft Create message draft
       description: >-
         Create a draft of a new message in either JSON or MIME format. When
         using JSON format, you can include an attachment and use a mention to
@@ -510,7 +510,7 @@ paths:
   /me/messages/{message-id}:
     get:
       operationId: getMessage
-      summary: Get message
+      summary: Microsoft Get message
       description: >-
         Retrieve the properties and relationships of a message object. You can
         use $select to retrieve specific properties and $expand to expand
@@ -531,7 +531,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateMessage
-      summary: Update message
+      summary: Microsoft Update message
       description: >-
         Update the properties of a message object.
       tags:
@@ -553,7 +553,7 @@ paths:
                 $ref: '#/components/schemas/Message'
     delete:
       operationId: deleteMessage
-      summary: Delete message
+      summary: Microsoft Delete message
       description: >-
         Delete a message in the specified user's mailbox, or delete a
         relationship of the message.
@@ -569,7 +569,7 @@ paths:
   /me/sendMail:
     post:
       operationId: sendMail
-      summary: Send mail
+      summary: Microsoft Send mail
       description: >-
         Send the message specified in the request body using either JSON or MIME
         format. The message is saved in the Sent Items folder by default.
@@ -598,7 +598,7 @@ paths:
   /me/mailFolders:
     get:
       operationId: listMailFolders
-      summary: List mail folders
+      summary: Microsoft List mail folders
       description: >-
         Get the mail folder collection under the root folder of the signed-in user.
       tags:
@@ -622,7 +622,7 @@ paths:
   /me/events:
     get:
       operationId: listEvents
-      summary: List calendar events
+      summary: Microsoft List calendar events
       description: >-
         Get a list of event objects in the user's mailbox. The list contains
         single instance meetings and series masters.
@@ -654,7 +654,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createEvent
-      summary: Create calendar event
+      summary: Microsoft Create calendar event
       description: >-
         Create an event in the user's default calendar or specified calendar.
         By default, the allowNewTimeProposals property is set to true.
@@ -678,7 +678,7 @@ paths:
   /me/events/{event-id}:
     get:
       operationId: getEvent
-      summary: Get calendar event
+      summary: Microsoft Get calendar event
       description: >-
         Get the properties and relationships of the specified event object.
       tags:
@@ -697,7 +697,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateEvent
-      summary: Update calendar event
+      summary: Microsoft Update calendar event
       description: >-
         Update the properties of the event object.
       tags:
@@ -719,7 +719,7 @@ paths:
                 $ref: '#/components/schemas/Event'
     delete:
       operationId: deleteEvent
-      summary: Delete calendar event
+      summary: Microsoft Delete calendar event
       description: >-
         Remove the specified event from the user's calendar.
       tags:
@@ -734,7 +734,7 @@ paths:
   /me/calendarView:
     get:
       operationId: listCalendarView
-      summary: List calendar view
+      summary: Microsoft List calendar view
       description: >-
         Get the occurrences, exceptions, and single instances of events in a
         calendar view defined by a time range from the user's default calendar.
@@ -772,7 +772,7 @@ paths:
   /me/drive:
     get:
       operationId: getMyDrive
-      summary: Get current user's OneDrive
+      summary: Microsoft Get current user's OneDrive
       description: >-
         Retrieve the properties and relationships of a Drive resource for the
         signed-in user's OneDrive.
@@ -790,7 +790,7 @@ paths:
   /me/drive/root/children:
     get:
       operationId: listDriveRootChildren
-      summary: List items in drive root
+      summary: Microsoft List items in drive root
       description: >-
         Return a collection of DriveItems in the root of the signed-in user's
         OneDrive.
@@ -815,7 +815,7 @@ paths:
   /drives/{drive-id}/items/{item-id}:
     get:
       operationId: getDriveItem
-      summary: Get drive item
+      summary: Microsoft Get drive item
       description: >-
         Retrieve the metadata for a DriveItem in a Drive by file system path
         or ID.
@@ -836,7 +836,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateDriveItem
-      summary: Update drive item
+      summary: Microsoft Update drive item
       description: >-
         Update the metadata for a DriveItem by ID or path. You can also use
         update to move an item to another parent by updating the parentReference
@@ -861,7 +861,7 @@ paths:
                 $ref: '#/components/schemas/DriveItem'
     delete:
       operationId: deleteDriveItem
-      summary: Delete drive item
+      summary: Microsoft Delete drive item
       description: >-
         Delete a DriveItem by using its ID or path. Deleting items using this
         method moves the items to the recycle bin instead of permanently
@@ -879,7 +879,7 @@ paths:
   /teams:
     get:
       operationId: listTeams
-      summary: List teams
+      summary: Microsoft List teams
       description: >-
         List all teams in an organization.
       tags:
@@ -909,7 +909,7 @@ paths:
   /teams/{team-id}:
     get:
       operationId: getTeam
-      summary: Get team
+      summary: Microsoft Get team
       description: >-
         Retrieve the properties and relationships of the specified team.
       tags:
@@ -928,7 +928,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateTeam
-      summary: Update team
+      summary: Microsoft Update team
       description: >-
         Update the properties of the specified team.
       tags:
@@ -948,7 +948,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteTeam
-      summary: Delete team
+      summary: Microsoft Delete team
       description: >-
         Delete a team. When deleted, Microsoft 365 groups are moved to a
         temporary container and can be restored within 30 days.
@@ -964,7 +964,7 @@ paths:
   /teams/{team-id}/channels:
     get:
       operationId: listChannels
-      summary: List channels
+      summary: Microsoft List channels
       description: >-
         Retrieve the list of channels in this team.
       tags:
@@ -990,7 +990,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       operationId: createChannel
-      summary: Create channel
+      summary: Microsoft Create channel
       description: >-
         Create a new channel in a team as specified in the request body.
       tags:
@@ -1015,7 +1015,7 @@ paths:
   /teams/{team-id}/channels/{channel-id}/messages:
     get:
       operationId: listChannelMessages
-      summary: List channel messages
+      summary: Microsoft List channel messages
       description: >-
         Retrieve the list of messages (without the replies) in a channel of a
         team. To get the replies for a message, call the list message replies or
@@ -1042,7 +1042,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       operationId: sendChannelMessage
-      summary: Send channel message
+      summary: Microsoft Send channel message
       description: >-
         Send a new chatMessage in the specified channel.
       tags:
@@ -1066,7 +1066,7 @@ paths:
   /applications:
     get:
       operationId: listApplications
-      summary: List applications
+      summary: Microsoft List applications
       description: >-
         Get the list of applications in this organization.
       tags:
@@ -1093,7 +1093,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createApplication
-      summary: Create application
+      summary: Microsoft Create application
       description: >-
         Create a new application object.
       tags:
@@ -1116,7 +1116,7 @@ paths:
   /applications/{application-id}:
     get:
       operationId: getApplication
-      summary: Get application
+      summary: Microsoft Get application
       description: >-
         Get the properties and relationships of an application object.
       tags:
@@ -1135,7 +1135,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateApplication
-      summary: Update application
+      summary: Microsoft Update application
       description: >-
         Update the properties of an application object.
       tags:
@@ -1153,7 +1153,7 @@ paths:
           description: Application updated successfully
     delete:
       operationId: deleteApplication
-      summary: Delete application
+      summary: Microsoft Delete application
       description: >-
         Delete an application object. When deleted, apps are moved to a
         temporary container and can be restored within 30 days.

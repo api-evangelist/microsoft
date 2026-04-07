@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: OneDrive API
+  title: Microsoft OneDrive API
   description: >-
     Access and manage files stored in OneDrive and SharePoint through
     Microsoft Graph. Upload, download, share, and organize files and folders.
@@ -28,7 +28,7 @@ paths:
   /me/drive:
     get:
       operationId: getCurrentUserDrive
-      summary: Get current user's drive
+      summary: Microsoft Get current user's drive
       description: Retrieve the properties and relationships of a user's OneDrive.
       tags:
         - Drives
@@ -44,7 +44,7 @@ paths:
   /me/drive/root/children:
     get:
       operationId: listRootChildren
-      summary: List root folder children
+      summary: Microsoft List root folder children
       description: >-
         Return a collection of DriveItems in the children relationship of the
         root folder.
@@ -66,7 +66,7 @@ paths:
   /me/drive/items/{itemId}:
     get:
       operationId: getDriveItem
-      summary: Get a drive item
+      summary: Microsoft Get a drive item
       description: Retrieve the metadata for a DriveItem by ID.
       tags:
         - Items
@@ -86,7 +86,7 @@ paths:
           description: Item not found
     patch:
       operationId: updateDriveItem
-      summary: Update a drive item
+      summary: Microsoft Update a drive item
       description: Update the metadata for a DriveItem by ID.
       tags:
         - Items
@@ -116,7 +116,7 @@ paths:
           description: Item not found
     delete:
       operationId: deleteDriveItem
-      summary: Delete a drive item
+      summary: Microsoft Delete a drive item
       description: Delete a DriveItem by ID. Deleted items are moved to the recycle bin.
       tags:
         - Items
@@ -132,7 +132,7 @@ paths:
   /me/drive/items/{itemId}/children:
     get:
       operationId: listChildren
-      summary: List children of a folder
+      summary: Microsoft List children of a folder
       description: Return a collection of DriveItems in the children of a DriveItem.
       tags:
         - Items
@@ -155,7 +155,7 @@ paths:
   /me/drive/items/{itemId}/content:
     get:
       operationId: downloadFile
-      summary: Download file content
+      summary: Microsoft Download file content
       description: Download the contents of a DriveItem.
       tags:
         - Items
@@ -177,7 +177,7 @@ paths:
           description: Item not found
     put:
       operationId: uploadFile
-      summary: Upload file content
+      summary: Microsoft Upload file content
       description: >-
         Upload a new file or replace the contents of an existing file.
         Simple upload for files up to 4MB.
@@ -210,7 +210,7 @@ paths:
   /me/drive/items/{itemId}/createLink:
     post:
       operationId: createSharingLink
-      summary: Create a sharing link
+      summary: Microsoft Create a sharing link
       description: Create a new sharing link for a DriveItem.
       tags:
         - Sharing
@@ -253,7 +253,7 @@ paths:
   /me/drive/search(q='{searchText}'):
     get:
       operationId: searchDriveItems
-      summary: Search for items
+      summary: Microsoft Search for items
       description: Search the hierarchy of items for items matching a query.
       tags:
         - Items

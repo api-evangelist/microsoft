@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Azure DevOps REST API
+  title: Microsoft Azure DevOps REST API
   description: >-
     REST APIs for managing Azure DevOps Services including projects, Git
     repositories, pipelines, builds, and work items.
@@ -35,7 +35,7 @@ paths:
   /_apis/projects:
     get:
       operationId: listProjects
-      summary: List projects
+      summary: Microsoft List projects
       description: Get all projects in the organization.
       tags:
         - Projects
@@ -75,7 +75,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createProject
-      summary: Create a project
+      summary: Microsoft Create a project
       description: Queue a project creation operation.
       tags:
         - Projects
@@ -101,7 +101,7 @@ paths:
   /_apis/projects/{projectId}:
     get:
       operationId: getProject
-      summary: Get a project
+      summary: Microsoft Get a project
       description: Get project with the specified id or name.
       tags:
         - Projects
@@ -122,7 +122,7 @@ paths:
   /{project}/_apis/git/repositories:
     get:
       operationId: listRepositories
-      summary: List repositories
+      summary: Microsoft List repositories
       description: Retrieve git repositories for a project.
       tags:
         - Git
@@ -140,7 +140,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createRepository
-      summary: Create a repository
+      summary: Microsoft Create a repository
       description: Create a git repository in a team project.
       tags:
         - Git
@@ -172,7 +172,7 @@ paths:
   /{project}/_apis/pipelines:
     get:
       operationId: listPipelines
-      summary: List pipelines
+      summary: Microsoft List pipelines
       description: Get a list of pipelines for a project.
       tags:
         - Pipelines
@@ -195,7 +195,7 @@ paths:
   /{project}/_apis/pipelines/{pipelineId}/runs:
     post:
       operationId: runPipeline
-      summary: Run a pipeline
+      summary: Microsoft Run a pipeline
       description: Runs a pipeline.
       tags:
         - Pipelines
@@ -237,7 +237,7 @@ paths:
   /{project}/_apis/wit/workitems/${type}:
     post:
       operationId: createWorkItem
-      summary: Create a work item
+      summary: Microsoft Create a work item
       description: Creates a single work item.
       tags:
         - Work Items
@@ -284,7 +284,7 @@ paths:
   /{project}/_apis/wit/workitems/{id}:
     get:
       operationId: getWorkItem
-      summary: Get a work item
+      summary: Microsoft Get a work item
       description: Returns a single work item.
       tags:
         - Work Items

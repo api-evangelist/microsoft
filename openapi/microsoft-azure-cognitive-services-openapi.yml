@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Azure Cognitive Services API
+  title: Microsoft Azure Cognitive Services API
   description: >-
     APIs for vision, speech, language, and decision-making AI capabilities
     including Computer Vision, Text Analytics, and Translator services.
@@ -32,7 +32,7 @@ paths:
   /vision/v3.2/analyze:
     post:
       operationId: analyzeImage
-      summary: Analyze image
+      summary: Microsoft Analyze image
       description: >-
         Extract visual features from an image including objects, faces, tags,
         categories, descriptions, and color information.
@@ -90,7 +90,7 @@ paths:
   /vision/v3.2/ocr:
     post:
       operationId: recognizeText
-      summary: Optical character recognition
+      summary: Microsoft Optical character recognition
       description: >-
         Detect and extract text from an image using optical character recognition.
       tags:
@@ -137,7 +137,7 @@ paths:
   /text/analytics/v3.1/sentiment:
     post:
       operationId: analyzeSentiment
-      summary: Analyze sentiment
+      summary: Microsoft Analyze sentiment
       description: >-
         Analyze sentiment of the input text and return sentiment predictions
         for each sentence and the document as a whole.
@@ -163,7 +163,7 @@ paths:
   /text/analytics/v3.1/entities/recognition/general:
     post:
       operationId: recognizeEntities
-      summary: Recognize named entities
+      summary: Microsoft Recognize named entities
       description: >-
         Identify and categorize entities in the input text as people,
         places, organizations, date/time, quantities, and more.
@@ -189,7 +189,7 @@ paths:
   /text/analytics/v3.1/keyPhrases:
     post:
       operationId: extractKeyPhrases
-      summary: Extract key phrases
+      summary: Microsoft Extract key phrases
       description: >-
         Extract key talking points from the input text.
       tags:
@@ -214,7 +214,7 @@ paths:
   /translate:
     post:
       operationId: translateText
-      summary: Translate text
+      summary: Microsoft Translate text
       description: >-
         Translate text into one or more languages.
       tags:
@@ -266,7 +266,7 @@ paths:
   /languages:
     get:
       operationId: getLanguages
-      summary: Get supported languages
+      summary: Microsoft Get supported languages
       description: >-
         Get the set of languages currently supported by the Translator.
       tags:

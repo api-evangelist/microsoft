@@ -29,7 +29,7 @@ paths:
   /applications:
     get:
       operationId: listApplications
-      summary: List applications
+      summary: Microsoft List applications
       description: Get the list of applications in the organization.
       tags:
         - Applications
@@ -55,7 +55,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createApplication
-      summary: Create an application
+      summary: Microsoft Create an application
       description: Create a new application registration.
       tags:
         - Applications
@@ -79,7 +79,7 @@ paths:
   /applications/{applicationId}:
     get:
       operationId: getApplication
-      summary: Get an application
+      summary: Microsoft Get an application
       description: Get the properties of an application object.
       tags:
         - Applications
@@ -104,7 +104,7 @@ paths:
           description: Application not found
     patch:
       operationId: updateApplication
-      summary: Update an application
+      summary: Microsoft Update an application
       description: Update the properties of an application object.
       tags:
         - Applications
@@ -127,7 +127,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteApplication
-      summary: Delete an application
+      summary: Microsoft Delete an application
       description: Delete an application registration.
       tags:
         - Applications
@@ -145,7 +145,7 @@ paths:
   /servicePrincipals:
     get:
       operationId: listServicePrincipals
-      summary: List service principals
+      summary: Microsoft List service principals
       description: Retrieve a list of service principal objects.
       tags:
         - Service Principals
@@ -171,7 +171,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createServicePrincipal
-      summary: Create a service principal
+      summary: Microsoft Create a service principal
       description: Create a new service principal.
       tags:
         - Service Principals
@@ -201,7 +201,7 @@ paths:
   /oauth2PermissionGrants:
     get:
       operationId: listOAuth2PermissionGrants
-      summary: List OAuth2 permission grants
+      summary: Microsoft List OAuth2 permission grants
       description: Retrieve a list of oAuth2PermissionGrant objects.
       tags:
         - OAuth2 Permissions
@@ -224,7 +224,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createOAuth2PermissionGrant
-      summary: Create a delegated permission grant
+      summary: Microsoft Create a delegated permission grant
       description: Create a delegated permission grant.
       tags:
         - OAuth2 Permissions

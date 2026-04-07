@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Power BI REST API
+  title: Microsoft Power BI REST API
   description: >-
     REST APIs for embedded analytics, administration, governance, and content
     management in Power BI including datasets, reports, dashboards, groups,
@@ -33,7 +33,7 @@ paths:
   /datasets:
     get:
       operationId: listDatasets
-      summary: List datasets
+      summary: Microsoft List datasets
       description: Returns a list of datasets from My workspace.
       tags:
         - Datasets
@@ -49,7 +49,7 @@ paths:
   /datasets/{datasetId}:
     get:
       operationId: getDataset
-      summary: Get a dataset
+      summary: Microsoft Get a dataset
       description: Returns the specified dataset from My workspace.
       tags:
         - Datasets
@@ -68,7 +68,7 @@ paths:
           description: Dataset not found
     delete:
       operationId: deleteDataset
-      summary: Delete a dataset
+      summary: Microsoft Delete a dataset
       description: Deletes the specified dataset from My workspace.
       tags:
         - Datasets
@@ -84,7 +84,7 @@ paths:
   /datasets/{datasetId}/refreshes:
     post:
       operationId: refreshDataset
-      summary: Trigger dataset refresh
+      summary: Microsoft Trigger dataset refresh
       description: Triggers a refresh for the specified dataset.
       tags:
         - Datasets
@@ -99,7 +99,7 @@ paths:
           description: Dataset not found
     get:
       operationId: listRefreshHistory
-      summary: List refresh history
+      summary: Microsoft List refresh history
       description: Returns the refresh history for the specified dataset.
       tags:
         - Datasets
@@ -122,7 +122,7 @@ paths:
   /reports:
     get:
       operationId: listReports
-      summary: List reports
+      summary: Microsoft List reports
       description: Returns a list of reports from My workspace.
       tags:
         - Reports
@@ -138,7 +138,7 @@ paths:
   /reports/{reportId}:
     get:
       operationId: getReport
-      summary: Get a report
+      summary: Microsoft Get a report
       description: Returns the specified report from My workspace.
       tags:
         - Reports
@@ -157,7 +157,7 @@ paths:
           description: Report not found
     delete:
       operationId: deleteReport
-      summary: Delete a report
+      summary: Microsoft Delete a report
       description: Deletes the specified report from My workspace.
       tags:
         - Reports
@@ -171,7 +171,7 @@ paths:
   /dashboards:
     get:
       operationId: listDashboards
-      summary: List dashboards
+      summary: Microsoft List dashboards
       description: Returns a list of dashboards from My workspace.
       tags:
         - Dashboards
@@ -187,7 +187,7 @@ paths:
   /dashboards/{dashboardId}:
     get:
       operationId: getDashboard
-      summary: Get a dashboard
+      summary: Microsoft Get a dashboard
       description: Returns the specified dashboard from My workspace.
       tags:
         - Dashboards
@@ -207,7 +207,7 @@ paths:
   /dashboards/{dashboardId}/tiles:
     get:
       operationId: listTiles
-      summary: List dashboard tiles
+      summary: Microsoft List dashboard tiles
       description: Returns a list of tiles within the specified dashboard.
       tags:
         - Dashboards
@@ -225,7 +225,7 @@ paths:
   /groups:
     get:
       operationId: listGroups
-      summary: List workspaces
+      summary: Microsoft List workspaces
       description: Returns a list of workspaces the user has access to.
       tags:
         - Groups
@@ -257,7 +257,7 @@ paths:
   /imports:
     post:
       operationId: importFile
-      summary: Import a PBIX file
+      summary: Microsoft Import a PBIX file
       description: Imports a Power BI .pbix file into My workspace.
       tags:
         - Imports

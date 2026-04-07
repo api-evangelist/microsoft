@@ -30,7 +30,7 @@ paths:
   /teams:
     get:
       operationId: listTeams
-      summary: List all teams
+      summary: Microsoft List all teams
       description: List all teams in an organization.
       tags:
         - Teams
@@ -49,7 +49,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createTeam
-      summary: Create a team
+      summary: Microsoft Create a team
       description: Create a new team.
       tags:
         - Teams
@@ -74,7 +74,7 @@ paths:
   /teams/{teamId}:
     get:
       operationId: getTeam
-      summary: Get a team
+      summary: Microsoft Get a team
       description: Retrieve the properties and relationships of the specified team.
       tags:
         - Teams
@@ -93,7 +93,7 @@ paths:
           description: Team not found
     patch:
       operationId: updateTeam
-      summary: Update a team
+      summary: Microsoft Update a team
       description: Update the properties of a team.
       tags:
         - Teams
@@ -116,7 +116,7 @@ paths:
           description: Team not found
     delete:
       operationId: deleteTeam
-      summary: Delete a team
+      summary: Microsoft Delete a team
       description: Delete a team and its associated group.
       tags:
         - Teams
@@ -132,7 +132,7 @@ paths:
   /teams/{teamId}/channels:
     get:
       operationId: listChannels
-      summary: List channels
+      summary: Microsoft List channels
       description: Retrieve the list of channels in a team.
       tags:
         - Channels
@@ -151,7 +151,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createChannel
-      summary: Create a channel
+      summary: Microsoft Create a channel
       description: Create a new channel in a team.
       tags:
         - Channels
@@ -177,7 +177,7 @@ paths:
   /teams/{teamId}/channels/{channelId}:
     get:
       operationId: getChannel
-      summary: Get a channel
+      summary: Microsoft Get a channel
       description: Retrieve the properties of a channel.
       tags:
         - Channels
@@ -197,7 +197,7 @@ paths:
           description: Channel not found
     delete:
       operationId: deleteChannel
-      summary: Delete a channel
+      summary: Microsoft Delete a channel
       description: Delete a channel in a team.
       tags:
         - Channels
@@ -214,7 +214,7 @@ paths:
   /teams/{teamId}/channels/{channelId}/messages:
     get:
       operationId: listChannelMessages
-      summary: List channel messages
+      summary: Microsoft List channel messages
       description: Retrieve the list of messages in a channel.
       tags:
         - Messages
@@ -233,7 +233,7 @@ paths:
           description: Unauthorized
     post:
       operationId: sendChannelMessage
-      summary: Send a channel message
+      summary: Microsoft Send a channel message
       description: Send a new message to a channel.
       tags:
         - Messages
@@ -260,7 +260,7 @@ paths:
   /teams/{teamId}/members:
     get:
       operationId: listTeamMembers
-      summary: List team members
+      summary: Microsoft List team members
       description: Get the members of a team.
       tags:
         - Members
@@ -277,7 +277,7 @@ paths:
           description: Unauthorized
     post:
       operationId: addTeamMember
-      summary: Add a team member
+      summary: Microsoft Add a team member
       description: Add a new member to a team.
       tags:
         - Members

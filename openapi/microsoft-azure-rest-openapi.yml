@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Azure REST API
+  title: Microsoft Azure REST API
   description: >-
     REST APIs for managing Azure resources and services including subscriptions,
     resource groups, and deployments through the Azure Resource Manager.
@@ -30,7 +30,7 @@ paths:
   /subscriptions:
     get:
       operationId: listSubscriptions
-      summary: List subscriptions
+      summary: Microsoft List subscriptions
       description: >-
         Gets all subscriptions for a tenant.
       tags:
@@ -49,7 +49,7 @@ paths:
   /subscriptions/{subscriptionId}:
     get:
       operationId: getSubscription
-      summary: Get a subscription
+      summary: Microsoft Get a subscription
       description: >-
         Gets details about a specified subscription.
       tags:
@@ -71,7 +71,7 @@ paths:
   /subscriptions/{subscriptionId}/resourcegroups:
     get:
       operationId: listResourceGroups
-      summary: List resource groups
+      summary: Microsoft List resource groups
       description: >-
         Gets all the resource groups for a subscription.
       tags:
@@ -93,7 +93,7 @@ paths:
   /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}:
     get:
       operationId: getResourceGroup
-      summary: Get a resource group
+      summary: Microsoft Get a resource group
       description: >-
         Gets a resource group.
       tags:
@@ -115,7 +115,7 @@ paths:
           description: Resource group not found
     put:
       operationId: createOrUpdateResourceGroup
-      summary: Create or update a resource group
+      summary: Microsoft Create or update a resource group
       description: >-
         Creates or updates a resource group.
       tags:
@@ -149,7 +149,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteResourceGroup
-      summary: Delete a resource group
+      summary: Microsoft Delete a resource group
       description: >-
         Deletes a resource group and all of its resources.
       tags:
@@ -170,7 +170,7 @@ paths:
   /subscriptions/{subscriptionId}/resources:
     get:
       operationId: listResources
-      summary: List all resources in a subscription
+      summary: Microsoft List all resources in a subscription
       description: >-
         Get all the resources in a subscription.
       tags:
@@ -189,10 +189,10 @@ paths:
                 $ref: '#/components/schemas/ResourceListResult'
         '401':
           description: Unauthorized
-  /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}:
-    put:
+  ? /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}
+  : put:
       operationId: createOrUpdateDeployment
-      summary: Create or update a deployment
+      summary: Microsoft Create or update a deployment
       description: >-
         Deploy resources to a resource group using an ARM template.
       tags:
