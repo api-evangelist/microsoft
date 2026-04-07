@@ -16,14 +16,14 @@ servers:
   - url: https://management.azure.com
     description: Azure Resource Manager Production
 tags:
-  - name: Subscriptions
-    description: Manage Azure subscriptions
+  - name: Deployments
+    description: Manage ARM template deployments
   - name: Resource Groups
     description: Manage Azure resource groups
   - name: Resources
     description: Manage Azure resources
-  - name: Deployments
-    description: Manage ARM template deployments
+  - name: Subscriptions
+    description: Manage Azure subscriptions
 security:
   - oauth2: []
 paths:

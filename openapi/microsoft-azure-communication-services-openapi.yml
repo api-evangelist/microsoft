@@ -20,14 +20,14 @@ servers:
         default: your-resource
         description: Your Communication Services resource name
 tags:
+  - name: Chat
+    description: Manage chat threads and messages
+  - name: Email
+    description: Send email messages
   - name: Identity
     description: Create and manage communication identities
   - name: SMS
     description: Send SMS messages
-  - name: Email
-    description: Send email messages
-  - name: Chat
-    description: Manage chat threads and messages
 security:
   - accessKey: []
 paths:

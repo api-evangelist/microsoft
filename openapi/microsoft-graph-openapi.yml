@@ -23,20 +23,20 @@ servers:
   - url: https://graph.microsoft.com/beta
     description: Microsoft Graph Beta (Preview)
 tags:
-  - name: Users
-    description: Manage Microsoft Entra user accounts and profiles
-  - name: Groups
-    description: Manage Microsoft Entra groups including Microsoft 365 groups and security groups
-  - name: Mail
-    description: Access and manage Outlook mail messages and folders
+  - name: Applications
+    description: Manage application registrations in Microsoft Entra ID
   - name: Calendar
     description: Access and manage Outlook calendar events
   - name: Drive
     description: Access OneDrive files and folders
+  - name: Groups
+    description: Manage Microsoft Entra groups including Microsoft 365 groups and security groups
+  - name: Mail
+    description: Access and manage Outlook mail messages and folders
   - name: Teams
     description: Manage Microsoft Teams resources
-  - name: Applications
-    description: Manage application registrations in Microsoft Entra ID
+  - name: Users
+    description: Manage Microsoft Entra user accounts and profiles
 security:
   - oauth2: []
 paths:

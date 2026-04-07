@@ -16,14 +16,14 @@ servers:
   - url: https://graph.microsoft.com/v1.0
     description: Microsoft Graph v1.0 Production
 tags:
-  - name: Teams
-    description: Manage teams
   - name: Channels
     description: Manage channels within teams
-  - name: Messages
-    description: Send and manage channel messages
   - name: Members
     description: Manage team membership
+  - name: Messages
+    description: Send and manage channel messages
+  - name: Teams
+    description: Manage teams
 security:
   - oauth2: []
 paths:

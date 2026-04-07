@@ -16,12 +16,12 @@ servers:
   - url: https://graph.microsoft.com/v1.0/me
     description: Microsoft Graph v1.0 (current user context)
 tags:
-  - name: Mail
-    description: Manage mail messages and folders
   - name: Calendar
     description: Manage calendar events
   - name: Contacts
     description: Manage personal contacts
+  - name: Mail
+    description: Manage mail messages and folders
 security:
   - oauth2: []
 paths:

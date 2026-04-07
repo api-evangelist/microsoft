@@ -25,10 +25,10 @@ tags:
     description: Manage business accounts
   - name: Contacts
     description: Manage contacts
-  - name: Opportunities
-    description: Manage sales opportunities
   - name: Leads
     description: Manage leads
+  - name: Opportunities
+    description: Manage sales opportunities
 security:
   - oauth2: []
 paths:

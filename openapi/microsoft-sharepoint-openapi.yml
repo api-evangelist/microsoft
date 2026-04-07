@@ -21,12 +21,12 @@ servers:
         default: your-tenant
         description: Your SharePoint Online tenant name
 tags:
-  - name: Sites
-    description: Access SharePoint sites via Microsoft Graph
-  - name: Lists
-    description: Manage SharePoint lists
   - name: Items
     description: Manage list items
+  - name: Lists
+    description: Manage SharePoint lists
+  - name: Sites
+    description: Access SharePoint sites via Microsoft Graph
 security:
   - oauth2: []
 paths:

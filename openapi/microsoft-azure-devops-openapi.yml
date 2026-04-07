@@ -20,12 +20,12 @@ servers:
         default: your-org
         description: Your Azure DevOps organization name
 tags:
-  - name: Projects
-    description: Manage team projects
   - name: Git
     description: Manage Git repositories
   - name: Pipelines
     description: Manage build and release pipelines
+  - name: Projects
+    description: Manage team projects
   - name: Work Items
     description: Manage work items and queries
 security:

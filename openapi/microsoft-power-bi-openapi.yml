@@ -17,16 +17,16 @@ servers:
   - url: https://api.powerbi.com/v1.0/myorg
     description: Power BI REST API
 tags:
-  - name: Datasets
-    description: Manage Power BI datasets
-  - name: Reports
-    description: Manage Power BI reports
   - name: Dashboards
     description: Manage Power BI dashboards
+  - name: Datasets
+    description: Manage Power BI datasets
   - name: Groups
     description: Manage Power BI workspaces (groups)
   - name: Imports
     description: Import content into Power BI
+  - name: Reports
+    description: Manage Power BI reports
 security:
   - oauth2: []
 paths:

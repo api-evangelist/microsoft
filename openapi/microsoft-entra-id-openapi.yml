@@ -19,10 +19,10 @@ servers:
 tags:
   - name: Applications
     description: Manage application registrations
-  - name: Service Principals
-    description: Manage service principals
   - name: OAuth2 Permissions
     description: Manage OAuth2 permission grants
+  - name: Service Principals
+    description: Manage service principals
 security:
   - oauth2: []
 paths:

@@ -16,14 +16,14 @@ servers:
   - url: https://graph.microsoft.com/v1.0
     description: Microsoft Graph v1.0
 tags:
-  - name: Managed Devices
-    description: Manage enrolled devices
   - name: Device Compliance
     description: Manage compliance policies
-  - name: Mobile Apps
-    description: Manage mobile applications
   - name: Device Configuration
     description: Manage device configuration profiles
+  - name: Managed Devices
+    description: Manage enrolled devices
+  - name: Mobile Apps
+    description: Manage mobile applications
 security:
   - oauth2: []
 paths:

@@ -14,8 +14,8 @@ apis:
     humanURL: https://developer.microsoft.com/en-us/graph
     baseURL: https://graph.microsoft.com
     tags:
-      - Office 365
       - Azure AD
+      - Office 365
       - OneDrive
       - Outlook
       - Teams
@@ -46,9 +46,9 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/rest/api/azure/
     baseURL: https://management.azure.com
     tags:
+      - Azure
       - Cloud
       - Infrastructure
-      - Azure
       - Resources
     properties:
       - type: Documentation
@@ -68,29 +68,24 @@ apis:
   - name: Azure OpenAI Service API
     description: >-
       Access to OpenAI's powerful language models through Azure.
-    humanURL: 
-      https://azure.microsoft.com/en-us/products/ai-services/openai-service
+    humanURL: https://azure.microsoft.com/en-us/products/ai-services/openai-service
     baseURL: https://{resource-name}.openai.azure.com
     tags:
       - AI
-      - Machine Learning
       - GPT
+      - Machine Learning
       - OpenAI
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/ai-services/openai/
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
+        url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
       - type: Quickstart
-        url: 
-          https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart
+        url: https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart
       - type: Pricing
-        url: 
-          https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/
+        url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/managed-identity
+        url: https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/managed-identity
       - type: OpenAPI
         url: openapi/microsoft-azure-openai-openapi.yml
   - name: Azure Cognitive Services API
@@ -101,20 +96,18 @@ apis:
     tags:
       - AI
       - Computer Vision
-      - Speech
       - Language
       - Machine Learning
+      - Speech
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/ai-services/
       - type: API Reference
         url: https://learn.microsoft.com/en-us/rest/api/cognitiveservices/
       - type: Pricing
-        url: 
-          https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
+        url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
       - type: SDKs
-        url: 
-          https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+        url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
       - type: OpenAPI
         url: openapi/microsoft-azure-cognitive-services-openapi.yml
   - name: Microsoft Teams API
@@ -123,21 +116,19 @@ apis:
     humanURL: https://developer.microsoft.com/en-us/microsoft-teams
     baseURL: https://graph.microsoft.com/v1.0/teams
     tags:
-      - Collaboration
       - Chat
-      - Teams
+      - Collaboration
       - Messaging
+      - Teams
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/microsoftteams/platform/
       - type: API Reference
         url: https://learn.microsoft.com/en-us/graph/teams-concept-overview
       - type: App Templates
-        url: 
-          https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
+        url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
       - type: SDKs
-        url: 
-          https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+        url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
       - type: OpenAPI
         url: openapi/microsoft-teams-openapi.yml
       - type: JSONSchema
@@ -148,10 +139,10 @@ apis:
     humanURL: https://developer.microsoft.com/en-us/onedrive
     baseURL: https://graph.microsoft.com/v1.0/me/drive
     tags:
-      - Storage
       - Files
       - OneDrive
       - SharePoint
+      - Storage
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/onedrive/developer/
@@ -169,17 +160,15 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/power-platform/
     baseURL: https://api.powerplatform.com
     tags:
-      - Low Code
       - Automation
       - Business Intelligence
+      - Low Code
       - Power Apps
     properties:
       - type: Documentation
-        url: 
-          https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview
+        url: https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview
       - type: Power Apps API
-        url: 
-          https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
+        url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
       - type: Power Automate API
         url: https://learn.microsoft.com/en-us/power-automate/web-api
       - type: OpenAPI
@@ -190,16 +179,15 @@ apis:
     humanURL: https://www.microsoft.com/en-us/bing/apis/bing-web-search-api
     baseURL: https://api.bing.microsoft.com/v7.0
     tags:
+      - Bing
+      - Image Search
       - Search
       - Web Search
-      - Image Search
-      - Bing
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/bing/search-apis/
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/endpoints
+        url: https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/endpoints
       - type: Pricing
         url: https://www.microsoft.com/en-us/bing/apis/pricing
       - type: OpenAPI
@@ -208,24 +196,20 @@ apis:
     description: >-
       REST service for remotely interacting with SharePoint data using standard REST
       and OData web protocol standards.
-    humanURL: 
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    humanURL: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
     baseURL: https://{tenant}.sharepoint.com/_api
     tags:
-      - Content Management
       - Collaboration
-      - SharePoint
+      - Content Management
       - Documents
+      - SharePoint
     properties:
       - type: Documentation
-        url: 
-          https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+        url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+        url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
       - type: Getting Started
-        url: 
-          https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
+        url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
       - type: Microsoft Graph Integration
         url: https://learn.microsoft.com/en-us/graph/sharepoint-concept-overview
       - type: OpenAPI
@@ -237,8 +221,8 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/power-bi/developer/
     baseURL: https://api.powerbi.com/v1.0/myorg
     tags:
-      - Business Intelligence
       - Analytics
+      - Business Intelligence
       - Dashboards
       - Reports
     properties:
@@ -249,8 +233,7 @@ apis:
       - type: SDKs
         url: https://learn.microsoft.com/en-us/power-bi/developer/embedded/
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/power-bi/developer/embedded/register-app
+        url: https://learn.microsoft.com/en-us/power-bi/developer/embedded/register-app
       - type: OpenAPI
         url: openapi/microsoft-power-bi-openapi.yml
   - name: Azure DevOps REST API
@@ -260,23 +243,20 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/rest/api/azure/devops/
     baseURL: https://dev.azure.com/{organization}/_apis
     tags:
-      - DevOps
       - CI/CD
-      - Pipelines
+      - DevOps
       - Git
+      - Pipelines
       - Work Items
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/rest/api/azure/devops/
       - type: Getting Started
-        url: 
-          https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
+        url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+        url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
       - type: Samples
-        url: 
-          https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
+        url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
       - type: OpenAPI
         url: openapi/microsoft-azure-devops-openapi.yml
   - name: Dynamics 365 REST API
@@ -286,22 +266,19 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/rest/dynamics365/
     baseURL: https://{org}.api.crm.dynamics.com/api/data/v9.2
     tags:
-      - CRM
-      - ERP
       - Business Applications
+      - CRM
       - Dynamics
+      - ERP
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/rest/dynamics365/
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+        url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
       - type: Getting Started
-        url: 
-          https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
+        url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth
+        url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth
       - type: OpenAPI
         url: openapi/microsoft-dynamics-365-openapi.yml
   - name: LinkedIn API
@@ -311,22 +288,19 @@ apis:
     humanURL: https://developer.linkedin.com/
     baseURL: https://api.linkedin.com/v2
     tags:
-      - Social
-      - Professional Network
       - Marketing
+      - Professional Network
       - Recruiting
+      - Social
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/linkedin/
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access
+        url: https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts
+        url: https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts
       - type: SDKs
-        url: 
-          https://learn.microsoft.com/en-us/linkedin/shared/development-resources/api-clients
+        url: https://learn.microsoft.com/en-us/linkedin/shared/development-resources/api-clients
       - type: OpenAPI
         url: openapi/microsoft-linkedin-openapi.yml
   - name: Azure Communication Services API
@@ -336,23 +310,21 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/azure/communication-services/
     baseURL: https://{resource}.communication.azure.com
     tags:
-      - Communication
-      - Voice
-      - Video
       - Chat
-      - SMS
+      - Communication
       - Email
+      - SMS
+      - Video
+      - Voice
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/communication-services/
       - type: API Reference
         url: https://learn.microsoft.com/en-us/rest/api/communication/
       - type: SDKs
-        url: 
-          https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options
+        url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options
       - type: Pricing
-        url: 
-          https://azure.microsoft.com/en-us/products/communication-services/#pricing
+        url: https://azure.microsoft.com/en-us/products/communication-services/#pricing
       - type: GitHub
         url: https://github.com/Azure/Communication
       - type: OpenAPI
@@ -364,23 +336,20 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/entra/identity-platform/
     baseURL: https://graph.microsoft.com/v1.0
     tags:
-      - Identity
       - Authentication
       - Authorization
       - Directory
+      - Identity
       - Security
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/entra/identity-platform/
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/graph/identity-network-access-overview
+        url: https://learn.microsoft.com/en-us/graph/identity-network-access-overview
       - type: Getting Started
-        url: 
-          https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app
+        url: https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview
+        url: https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview
       - type: OpenAPI
         url: openapi/microsoft-entra-id-openapi.yml
   - name: Microsoft Outlook API
@@ -390,19 +359,17 @@ apis:
     humanURL: https://developer.microsoft.com/en-us/outlook
     baseURL: https://graph.microsoft.com/v1.0/me
     tags:
-      - Email
       - Calendar
       - Contacts
+      - Email
       - Outlook
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/outlook/
       - type: Mail API Reference
-        url: 
-          https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview
+        url: https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview
       - type: Calendar API Reference
-        url: 
-          https://learn.microsoft.com/en-us/graph/outlook-calendar-concept-overview
+        url: https://learn.microsoft.com/en-us/graph/outlook-calendar-concept-overview
       - type: Getting Started
         url: https://learn.microsoft.com/en-us/outlook/rest/get-started
       - type: OpenAPI
@@ -414,22 +381,19 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/graph/intune-concept-overview
     baseURL: https://graph.microsoft.com/v1.0
     tags:
-      - Device Management
-      - Mobile
       - Compliance
+      - Device Management
       - Endpoint Management
+      - Mobile
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/graph/intune-concept-overview
       - type: API Reference
-        url: 
-          https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview
+        url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/intune/intune-service/developer/intune-graph-apis
+        url: https://learn.microsoft.com/en-us/intune/intune-service/developer/intune-graph-apis
       - type: SDKs
-        url: 
-          https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk-get-started
+        url: https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk-get-started
       - type: OpenAPI
         url: openapi/microsoft-intune-openapi.yml
       - type: JSONSchema

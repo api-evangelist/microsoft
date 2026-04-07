@@ -16,14 +16,14 @@ servers:
   - url: https://api.bing.microsoft.com/v7.0
     description: Bing Search API v7
 tags:
-  - name: Web Search
-    description: Search the web for relevant results
   - name: Image Search
     description: Search for images
   - name: News Search
     description: Search for news articles
   - name: Video Search
     description: Search for videos
+  - name: Web Search
+    description: Search the web for relevant results
 security:
   - apiKey: []
 paths:

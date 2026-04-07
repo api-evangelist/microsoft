@@ -21,6 +21,8 @@ servers:
         default: your-resource-name
         description: Your Azure OpenAI resource name
 tags:
+  - name: Audio
+    description: Transcribe and translate audio
   - name: Chat Completions
     description: Create chat completions using conversational models
   - name: Completions
@@ -29,8 +31,6 @@ tags:
     description: Create vector embeddings from text
   - name: Images
     description: Generate images from text descriptions
-  - name: Audio
-    description: Transcribe and translate audio
 security:
   - apiKey: []
   - oauth2: []
