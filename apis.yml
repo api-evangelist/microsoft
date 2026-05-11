@@ -378,6 +378,16 @@ apis:
         url: openapi/microsoft-intune-openapi.yml
       - type: JSONSchema
         url: json-schema/microsoft-managed-device-schema.json
+integrations:
+  - name: Microsoft
+  - name: Two people looking at a computer.
+  - name: This is placeholder text for
+  - name: IDC
+  - name: Nationwide
+  - name: RSA company
+  - name: Teleperformance
+  - name: A woman smiling at a laptop
+  - name: A man holding a laptop.
 maintainers:
   - name: Kin Lane
     email: kin@apievangelist.com
@@ -470,3 +480,5 @@ common:
       - https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans
       - https://focus.finops.org/
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://www.microsoft.com/en-us/marketplace
