@@ -28,9 +28,9 @@ apis:
         url: https://learn.microsoft.com/en-us/graph/sdks/sdks-overview
       - type: Graph Explorer
         url: https://developer.microsoft.com/en-us/graph/graph-explorer
-      - type: Changelog
+      - type: ChangeLog
         url: https://learn.microsoft.com/en-us/graph/whats-new-overview
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/graph/use-the-api
       - type: OpenAPI
         url: openapi/microsoft-graph-openapi.yml
@@ -50,7 +50,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/rest/api/azure/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/rest/api/?view=Azure
       - type: Authentication
         url: https://learn.microsoft.com/en-us/azure/active-directory/develop/
@@ -74,7 +74,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/ai-services/openai/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
       - type: Quickstart
         url: https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart
@@ -97,7 +97,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/ai-services/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/rest/api/cognitiveservices/
       - type: Pricing
         url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
@@ -117,7 +117,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/microsoftteams/platform/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/graph/teams-concept-overview
       - type: App Templates
         url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
@@ -139,7 +139,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/onedrive/developer/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
       - type: Samples
         url: https://github.com/OneDrive/samples
@@ -177,7 +177,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/bing/search-apis/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/endpoints
       - type: Pricing
         url: https://www.microsoft.com/en-us/bing/apis/pricing
@@ -196,9 +196,9 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
       - type: Microsoft Graph Integration
         url: https://learn.microsoft.com/en-us/graph/sharepoint-concept-overview
@@ -217,7 +217,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/power-bi/developer/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/rest/api/power-bi/
       - type: SDKs
         url: https://learn.microsoft.com/en-us/power-bi/developer/embedded/
@@ -239,7 +239,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/rest/api/azure/devops/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
       - type: Authentication
         url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
@@ -260,9 +260,9 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/rest/dynamics365/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
       - type: Authentication
         url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth
@@ -283,7 +283,7 @@ apis:
         url: https://learn.microsoft.com/en-us/linkedin/
       - type: Authentication
         url: https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts
       - type: SDKs
         url: https://learn.microsoft.com/en-us/linkedin/shared/development-resources/api-clients
@@ -303,7 +303,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/communication-services/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/rest/api/communication/
       - type: SDKs
         url: https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options
@@ -327,9 +327,9 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/entra/identity-platform/
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/graph/identity-network-access-overview
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app
       - type: Authentication
         url: https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview
@@ -351,7 +351,7 @@ apis:
         url: https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview
       - type: Calendar API Reference
         url: https://learn.microsoft.com/en-us/graph/outlook-calendar-concept-overview
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/outlook/rest/get-started
       - type: OpenAPI
         url: openapi/microsoft-outlook-openapi.yml
@@ -368,7 +368,7 @@ apis:
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/graph/intune-concept-overview
-      - type: API Reference
+      - type: APIReference
         url: https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview
       - type: Authentication
         url: https://learn.microsoft.com/en-us/intune/intune-service/developer/intune-graph-apis
@@ -397,19 +397,19 @@ common:
     url: https://developer.microsoft.com/
   - type: Azure Portal
     url: https://portal.azure.com
-  - type: Status Page
+  - type: StatusPage
     url: https://status.azure.com/
   - type: Support
     url: https://support.microsoft.com/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://privacy.microsoft.com/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.microsoft.com/en-us/legal/terms-of-use
   - type: Blog
     url: https://devblogs.microsoft.com/
   - type: Authentication
     url: https://learn.microsoft.com/en-us/entra/identity-platform/
-  - type: Sign Up
+  - type: SignUp
     url: https://developer.microsoft.com/en-us/microsoft-365/dev-program
   - type: Forum
     url: https://learn.microsoft.com/en-us/answers/
@@ -417,9 +417,9 @@ common:
     url: https://azure.microsoft.com/en-us/pricing/calculator/
   - type: GitHub
     url: https://github.com/microsoft
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/microsoft-context.jsonld
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/microsoft-graph-context.jsonld
   - type: JSONSchema
     url: json-schema/microsoft-graph-user-schema.json
