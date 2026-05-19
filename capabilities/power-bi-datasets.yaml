@@ -1,0 +1,193 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Power BI REST API — Datasets
+  description: 'Microsoft Power BI REST API — Datasets. 5 operations. Lead operation: Microsoft List datasets. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Datasets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: power-bi-datasets
+    baseUri: https://api.powerbi.com/v1.0/myorg
+    description: Microsoft Power BI REST API — Datasets business capability. Self-contained, no shared references.
+    resources:
+    - name: datasets
+      path: /datasets
+      operations:
+      - name: listdatasets
+        method: GET
+        description: Microsoft List datasets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datasets-datasetId
+      path: /datasets/{datasetId}
+      operations:
+      - name: getdataset
+        method: GET
+        description: Microsoft Get a dataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletedataset
+        method: DELETE
+        description: Microsoft Delete a dataset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: datasets-datasetId-refreshes
+      path: /datasets/{datasetId}/refreshes
+      operations:
+      - name: refreshdataset
+        method: POST
+        description: Microsoft Trigger dataset refresh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listrefreshhistory
+        method: GET
+        description: Microsoft List refresh history
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+          description: Number of entries to return
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: power-bi-datasets-rest
+    port: 8080
+    description: REST adapter for Microsoft Power BI REST API — Datasets. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/datasets
+      name: datasets
+      description: REST surface for datasets.
+      operations:
+      - method: GET
+        name: listdatasets
+        description: Microsoft List datasets
+        call: power-bi-datasets.listdatasets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasets/{datasetid}
+      name: datasets-datasetid
+      description: REST surface for datasets-datasetId.
+      operations:
+      - method: GET
+        name: getdataset
+        description: Microsoft Get a dataset
+        call: power-bi-datasets.getdataset
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedataset
+        description: Microsoft Delete a dataset
+        call: power-bi-datasets.deletedataset
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/datasets/{datasetid}/refreshes
+      name: datasets-datasetid-refreshes
+      description: REST surface for datasets-datasetId-refreshes.
+      operations:
+      - method: POST
+        name: refreshdataset
+        description: Microsoft Trigger dataset refresh
+        call: power-bi-datasets.refreshdataset
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listrefreshhistory
+        description: Microsoft List refresh history
+        call: power-bi-datasets.listrefreshhistory
+        with:
+          $top: rest.$top
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: power-bi-datasets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Power BI REST API — Datasets. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-datasets
+      description: Microsoft List datasets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-bi-datasets.listdatasets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-dataset
+      description: Microsoft Get a dataset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-bi-datasets.getdataset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-dataset
+      description: Microsoft Delete a dataset
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: power-bi-datasets.deletedataset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-trigger-dataset-refresh
+      description: Microsoft Trigger dataset refresh
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: power-bi-datasets.refreshdataset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-list-refresh-history
+      description: Microsoft List refresh history
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-bi-datasets.listrefreshhistory
+      with:
+        $top: tools.$top
+      outputParameters:
+      - type: object
+        mapping: $.

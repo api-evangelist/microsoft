@@ -1,0 +1,299 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft SharePoint REST API — Items
+  description: 'Microsoft SharePoint REST API — Items. 5 operations. Lead operation: Microsoft List items in a list. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Items
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sharepoint-items
+    baseUri: https://{tenant}.sharepoint.com/_api
+    description: Microsoft SharePoint REST API — Items business capability. Self-contained, no shared references.
+    resources:
+    - name: web-lists-getbytitle('{listTitle}')-items
+      path: /web/lists/getbytitle('{listTitle}')/items
+      operations:
+      - name: listitems
+        method: GET
+        description: Microsoft List items in a list
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listTitle
+          in: path
+          type: string
+          description: Title of the list
+          required: true
+        - name: $select
+          in: query
+          type: string
+          description: Fields to include
+        - name: $filter
+          in: query
+          type: string
+          description: OData filter expression
+        - name: $top
+          in: query
+          type: integer
+          description: Maximum number of items
+        - name: $orderby
+          in: query
+          type: string
+          description: Sort order
+      - name: createlistitem
+        method: POST
+        description: Microsoft Create a list item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listTitle
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: web-lists-getbytitle('{listTitle}')-items({itemId})
+      path: /web/lists/getbytitle('{listTitle}')/items({itemId})
+      operations:
+      - name: getlistitem
+        method: GET
+        description: Microsoft Get a list item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listTitle
+          in: path
+          type: string
+          required: true
+        - name: itemId
+          in: path
+          type: integer
+          description: Item ID
+          required: true
+      - name: updatelistitem
+        method: POST
+        description: Microsoft Update a list item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listTitle
+          in: path
+          type: string
+          required: true
+        - name: itemId
+          in: path
+          type: integer
+          required: true
+        - name: X-HTTP-Method
+          in: header
+          type: string
+          required: true
+        - name: If-Match
+          in: header
+          type: string
+          description: ETag value for concurrency control
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletelistitem
+        method: DELETE
+        description: Microsoft Delete a list item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: listTitle
+          in: path
+          type: string
+          required: true
+        - name: itemId
+          in: path
+          type: integer
+          required: true
+        - name: If-Match
+          in: header
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: sharepoint-items-rest
+    port: 8080
+    description: REST adapter for Microsoft SharePoint REST API — Items. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/web/lists/getbytitle-listtitle/items
+      name: web-lists-getbytitle-listtitle-items
+      description: REST surface for web-lists-getbytitle('{listTitle}')-items.
+      operations:
+      - method: GET
+        name: listitems
+        description: Microsoft List items in a list
+        call: sharepoint-items.listitems
+        with:
+          listTitle: rest.listTitle
+          $select: rest.$select
+          $filter: rest.$filter
+          $top: rest.$top
+          $orderby: rest.$orderby
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createlistitem
+        description: Microsoft Create a list item
+        call: sharepoint-items.createlistitem
+        with:
+          listTitle: rest.listTitle
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/web/lists/getbytitle-listtitle/items-itemid
+      name: web-lists-getbytitle-listtitle-items-itemid
+      description: REST surface for web-lists-getbytitle('{listTitle}')-items({itemId}).
+      operations:
+      - method: GET
+        name: getlistitem
+        description: Microsoft Get a list item
+        call: sharepoint-items.getlistitem
+        with:
+          listTitle: rest.listTitle
+          itemId: rest.itemId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: updatelistitem
+        description: Microsoft Update a list item
+        call: sharepoint-items.updatelistitem
+        with:
+          listTitle: rest.listTitle
+          itemId: rest.itemId
+          X-HTTP-Method: rest.X-HTTP-Method
+          If-Match: rest.If-Match
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletelistitem
+        description: Microsoft Delete a list item
+        call: sharepoint-items.deletelistitem
+        with:
+          listTitle: rest.listTitle
+          itemId: rest.itemId
+          If-Match: rest.If-Match
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sharepoint-items-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft SharePoint REST API — Items. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-items-list
+      description: Microsoft List items in a list
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sharepoint-items.listitems
+      with:
+        listTitle: tools.listTitle
+        $select: tools.$select
+        $filter: tools.$filter
+        $top: tools.$top
+        $orderby: tools.$orderby
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-list-item
+      description: Microsoft Create a list item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sharepoint-items.createlistitem
+      with:
+        listTitle: tools.listTitle
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-list-item
+      description: Microsoft Get a list item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sharepoint-items.getlistitem
+      with:
+        listTitle: tools.listTitle
+        itemId: tools.itemId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-update-list-item
+      description: Microsoft Update a list item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: sharepoint-items.updatelistitem
+      with:
+        listTitle: tools.listTitle
+        itemId: tools.itemId
+        X-HTTP-Method: tools.X-HTTP-Method
+        If-Match: tools.If-Match
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-list-item
+      description: Microsoft Delete a list item
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: sharepoint-items.deletelistitem
+      with:
+        listTitle: tools.listTitle
+        itemId: tools.itemId
+        If-Match: tools.If-Match
+      outputParameters:
+      - type: object
+        mapping: $.

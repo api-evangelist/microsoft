@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Azure OpenAI Service API — Images
+  description: 'Microsoft Azure OpenAI Service API — Images. 1 operations. Lead operation: Microsoft Generate images. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Images
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-openai-images
+    baseUri: https://{resource-name}.openai.azure.com/openai
+    description: Microsoft Azure OpenAI Service API — Images business capability. Self-contained, no shared references.
+    resources:
+    - name: deployments-deployment-id-images-generations
+      path: /deployments/{deployment-id}/images/generations
+      operations:
+      - name: createimagegeneration
+        method: POST
+        description: Microsoft Generate images
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: azure-openai-images-rest
+    port: 8080
+    description: REST adapter for Microsoft Azure OpenAI Service API — Images. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deployments/{deployment-id}/images/generations
+      name: deployments-deployment-id-images-generations
+      description: REST surface for deployments-deployment-id-images-generations.
+      operations:
+      - method: POST
+        name: createimagegeneration
+        description: Microsoft Generate images
+        call: azure-openai-images.createimagegeneration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-openai-images-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Azure OpenAI Service API — Images. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-generate-images
+      description: Microsoft Generate images
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-openai-images.createimagegeneration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

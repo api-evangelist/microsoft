@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Teams API — Channels
+  description: 'Microsoft Teams API — Channels. 4 operations. Lead operation: Microsoft List channels. Self-contained Naftiko
+    capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: teams-channels
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Teams API — Channels business capability. Self-contained, no shared references.
+    resources:
+    - name: teams-teamId-channels
+      path: /teams/{teamId}/channels
+      operations:
+      - name: listchannels
+        method: GET
+        description: Microsoft List channels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createchannel
+        method: POST
+        description: Microsoft Create a channel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: teams-teamId-channels-channelId
+      path: /teams/{teamId}/channels/{channelId}
+      operations:
+      - name: getchannel
+        method: GET
+        description: Microsoft Get a channel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletechannel
+        method: DELETE
+        description: Microsoft Delete a channel
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: teams-channels-rest
+    port: 8080
+    description: REST adapter for Microsoft Teams API — Channels. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/teams/{teamid}/channels
+      name: teams-teamid-channels
+      description: REST surface for teams-teamId-channels.
+      operations:
+      - method: GET
+        name: listchannels
+        description: Microsoft List channels
+        call: teams-channels.listchannels
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createchannel
+        description: Microsoft Create a channel
+        call: teams-channels.createchannel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/teams/{teamid}/channels/{channelid}
+      name: teams-teamid-channels-channelid
+      description: REST surface for teams-teamId-channels-channelId.
+      operations:
+      - method: GET
+        name: getchannel
+        description: Microsoft Get a channel
+        call: teams-channels.getchannel
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletechannel
+        description: Microsoft Delete a channel
+        call: teams-channels.deletechannel
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: teams-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Teams API — Channels. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: microsoft-list-channels
+      description: Microsoft List channels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: teams-channels.listchannels
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-channel
+      description: Microsoft Create a channel
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: teams-channels.createchannel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-channel
+      description: Microsoft Get a channel
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: teams-channels.getchannel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-channel
+      description: Microsoft Delete a channel
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: teams-channels.deletechannel
+      outputParameters:
+      - type: object
+        mapping: $.

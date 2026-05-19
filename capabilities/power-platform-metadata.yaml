@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Power Platform API — Metadata
+  description: 'Microsoft Power Platform API — Metadata. 1 operations. Lead operation: Microsoft List entity definitions.
+    Self-contained Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: power-platform-metadata
+    baseUri: https://{org}.api.crm.dynamics.com/api/data/v9.2
+    description: Microsoft Power Platform API — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: EntityDefinitions
+      path: /EntityDefinitions
+      operations:
+      - name: listentitydefinitions
+        method: GET
+        description: Microsoft List entity definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: power-platform-metadata-rest
+    port: 8080
+    description: REST adapter for Microsoft Power Platform API — Metadata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/entitydefinitions
+      name: entitydefinitions
+      description: REST surface for EntityDefinitions.
+      operations:
+      - method: GET
+        name: listentitydefinitions
+        description: Microsoft List entity definitions
+        call: power-platform-metadata.listentitydefinitions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: power-platform-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Power Platform API — Metadata. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-entity-definitions
+      description: Microsoft List entity definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-platform-metadata.listentitydefinitions
+      outputParameters:
+      - type: object
+        mapping: $.

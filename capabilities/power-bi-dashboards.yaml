@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Power BI REST API — Dashboards
+  description: 'Microsoft Power BI REST API — Dashboards. 3 operations. Lead operation: Microsoft List dashboards. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Dashboards
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: power-bi-dashboards
+    baseUri: https://api.powerbi.com/v1.0/myorg
+    description: Microsoft Power BI REST API — Dashboards business capability. Self-contained, no shared references.
+    resources:
+    - name: dashboards
+      path: /dashboards
+      operations:
+      - name: listdashboards
+        method: GET
+        description: Microsoft List dashboards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dashboards-dashboardId
+      path: /dashboards/{dashboardId}
+      operations:
+      - name: getdashboard
+        method: GET
+        description: Microsoft Get a dashboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dashboards-dashboardId-tiles
+      path: /dashboards/{dashboardId}/tiles
+      operations:
+      - name: listtiles
+        method: GET
+        description: Microsoft List dashboard tiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: power-bi-dashboards-rest
+    port: 8080
+    description: REST adapter for Microsoft Power BI REST API — Dashboards. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/dashboards
+      name: dashboards
+      description: REST surface for dashboards.
+      operations:
+      - method: GET
+        name: listdashboards
+        description: Microsoft List dashboards
+        call: power-bi-dashboards.listdashboards
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dashboards/{dashboardid}
+      name: dashboards-dashboardid
+      description: REST surface for dashboards-dashboardId.
+      operations:
+      - method: GET
+        name: getdashboard
+        description: Microsoft Get a dashboard
+        call: power-bi-dashboards.getdashboard
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dashboards/{dashboardid}/tiles
+      name: dashboards-dashboardid-tiles
+      description: REST surface for dashboards-dashboardId-tiles.
+      operations:
+      - method: GET
+        name: listtiles
+        description: Microsoft List dashboard tiles
+        call: power-bi-dashboards.listtiles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: power-bi-dashboards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Power BI REST API — Dashboards. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-list-dashboards
+      description: Microsoft List dashboards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-bi-dashboards.listdashboards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-dashboard
+      description: Microsoft Get a dashboard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-bi-dashboards.getdashboard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-list-dashboard-tiles
+      description: Microsoft List dashboard tiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: power-bi-dashboards.listtiles
+      outputParameters:
+      - type: object
+        mapping: $.

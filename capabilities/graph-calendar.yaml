@@ -1,0 +1,246 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Graph API — Calendar
+  description: 'Microsoft Graph API — Calendar. 6 operations. Lead operation: Microsoft List calendar view. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Calendar
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: graph-calendar
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph API — Calendar business capability. Self-contained, no shared references.
+    resources:
+    - name: me-calendarView
+      path: /me/calendarView
+      operations:
+      - name: listcalendarview
+        method: GET
+        description: Microsoft List calendar view
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: startDateTime
+          in: query
+          type: string
+          description: Start date and time of the time range (ISO 8601 format)
+          required: true
+        - name: endDateTime
+          in: query
+          type: string
+          description: End date and time of the time range (ISO 8601 format)
+          required: true
+    - name: me-events
+      path: /me/events
+      operations:
+      - name: listevents
+        method: GET
+        description: Microsoft List calendar events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createevent
+        method: POST
+        description: Microsoft Create calendar event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: me-events-event-id
+      path: /me/events/{event-id}
+      operations:
+      - name: getevent
+        method: GET
+        description: Microsoft Get calendar event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateevent
+        method: PATCH
+        description: Microsoft Update calendar event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteevent
+        method: DELETE
+        description: Microsoft Delete calendar event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: graph-calendar-rest
+    port: 8080
+    description: REST adapter for Microsoft Graph API — Calendar. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/me/calendarview
+      name: me-calendarview
+      description: REST surface for me-calendarView.
+      operations:
+      - method: GET
+        name: listcalendarview
+        description: Microsoft List calendar view
+        call: graph-calendar.listcalendarview
+        with:
+          startDateTime: rest.startDateTime
+          endDateTime: rest.endDateTime
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/events
+      name: me-events
+      description: REST surface for me-events.
+      operations:
+      - method: GET
+        name: listevents
+        description: Microsoft List calendar events
+        call: graph-calendar.listevents
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createevent
+        description: Microsoft Create calendar event
+        call: graph-calendar.createevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/events/{event-id}
+      name: me-events-event-id
+      description: REST surface for me-events-event-id.
+      operations:
+      - method: GET
+        name: getevent
+        description: Microsoft Get calendar event
+        call: graph-calendar.getevent
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateevent
+        description: Microsoft Update calendar event
+        call: graph-calendar.updateevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteevent
+        description: Microsoft Delete calendar event
+        call: graph-calendar.deleteevent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: graph-calendar-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Graph API — Calendar. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: microsoft-list-calendar-view
+      description: Microsoft List calendar view
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-calendar.listcalendarview
+      with:
+        startDateTime: tools.startDateTime
+        endDateTime: tools.endDateTime
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-list-calendar-events
+      description: Microsoft List calendar events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-calendar.listevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-calendar-event
+      description: Microsoft Create calendar event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: graph-calendar.createevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-calendar-event
+      description: Microsoft Get calendar event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-calendar.getevent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-update-calendar-event
+      description: Microsoft Update calendar event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: graph-calendar.updateevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-calendar-event
+      description: Microsoft Delete calendar event
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: graph-calendar.deleteevent
+      outputParameters:
+      - type: object
+        mapping: $.

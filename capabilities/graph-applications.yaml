@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Graph API — Applications
+  description: 'Microsoft Graph API — Applications. 5 operations. Lead operation: Microsoft List applications. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: graph-applications
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph API — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: listapplications
+        method: GET
+        description: Microsoft List applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createapplication
+        method: POST
+        description: Microsoft Create application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: applications-application-id
+      path: /applications/{application-id}
+      operations:
+      - name: getapplication
+        method: GET
+        description: Microsoft Get application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateapplication
+        method: PATCH
+        description: Microsoft Update application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteapplication
+        method: DELETE
+        description: Microsoft Delete application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: graph-applications-rest
+    port: 8080
+    description: REST adapter for Microsoft Graph API — Applications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: listapplications
+        description: Microsoft List applications
+        call: graph-applications.listapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplication
+        description: Microsoft Create application
+        call: graph-applications.createapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{application-id}
+      name: applications-application-id
+      description: REST surface for applications-application-id.
+      operations:
+      - method: GET
+        name: getapplication
+        description: Microsoft Get application
+        call: graph-applications.getapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateapplication
+        description: Microsoft Update application
+        call: graph-applications.updateapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapplication
+        description: Microsoft Delete application
+        call: graph-applications.deleteapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: graph-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Graph API — Applications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-applications
+      description: Microsoft List applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-applications.listapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-application
+      description: Microsoft Create application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: graph-applications.createapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-application
+      description: Microsoft Get application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-applications.getapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-update-application
+      description: Microsoft Update application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: graph-applications.updateapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-application
+      description: Microsoft Delete application
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: graph-applications.deleteapplication
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Outlook API — Calendar
+  description: 'Microsoft Outlook API — Calendar. 2 operations. Lead operation: Microsoft List calendar events. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Calendar
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: outlook-calendar
+    baseUri: https://graph.microsoft.com/v1.0/me
+    description: Microsoft Outlook API — Calendar business capability. Self-contained, no shared references.
+    resources:
+    - name: events
+      path: /events
+      operations:
+      - name: listevents
+        method: GET
+        description: Microsoft List calendar events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createevent
+        method: POST
+        description: Microsoft Create a calendar event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: outlook-calendar-rest
+    port: 8080
+    description: REST adapter for Microsoft Outlook API — Calendar. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/events
+      name: events
+      description: REST surface for events.
+      operations:
+      - method: GET
+        name: listevents
+        description: Microsoft List calendar events
+        call: outlook-calendar.listevents
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createevent
+        description: Microsoft Create a calendar event
+        call: outlook-calendar.createevent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: outlook-calendar-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Outlook API — Calendar. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-calendar-events
+      description: Microsoft List calendar events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outlook-calendar.listevents
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-calendar-event
+      description: Microsoft Create a calendar event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: outlook-calendar.createevent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

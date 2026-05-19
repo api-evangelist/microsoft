@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Bing Search APIs — Web Search
+  description: 'Microsoft Bing Search APIs — Web Search. 1 operations. Lead operation: Microsoft Web search. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Web Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bing-search-web-search
+    baseUri: https://api.bing.microsoft.com/v7.0
+    description: Microsoft Bing Search APIs — Web Search business capability. Self-contained, no shared references.
+    resources:
+    - name: search
+      path: /search
+      operations:
+      - name: websearch
+        method: GET
+        description: Microsoft Web search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: The search query string
+          required: true
+        - name: count
+          in: query
+          type: integer
+          description: Number of results to return (1-50)
+        - name: offset
+          in: query
+          type: integer
+          description: Zero-based offset for pagination
+        - name: mkt
+          in: query
+          type: string
+          description: Market code (e.g., en-US)
+        - name: safeSearch
+          in: query
+          type: string
+          description: Filter adult content
+        - name: responseFilter
+          in: query
+          type: string
+          description: Comma-delimited list of answer types to include
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.MICROSOFT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: bing-search-web-search-rest
+    port: 8080
+    description: REST adapter for Microsoft Bing Search APIs — Web Search. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/search
+      name: search
+      description: REST surface for search.
+      operations:
+      - method: GET
+        name: websearch
+        description: Microsoft Web search
+        call: bing-search-web-search.websearch
+        with:
+          q: rest.q
+          count: rest.count
+          offset: rest.offset
+          mkt: rest.mkt
+          safeSearch: rest.safeSearch
+          responseFilter: rest.responseFilter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bing-search-web-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Bing Search APIs — Web Search. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-web-search
+      description: Microsoft Web search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bing-search-web-search.websearch
+      with:
+        q: tools.q
+        count: tools.count
+        offset: tools.offset
+        mkt: tools.mkt
+        safeSearch: tools.safeSearch
+        responseFilter: tools.responseFilter
+      outputParameters:
+      - type: object
+        mapping: $.

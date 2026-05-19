@@ -1,0 +1,135 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Azure DevOps REST API — Work Items
+  description: 'Microsoft Azure DevOps REST API — Work Items. 2 operations. Lead operation: Microsoft Create a work item.
+    Self-contained Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Work Items
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-devops-work-items
+    baseUri: https://dev.azure.com/{organization}
+    description: Microsoft Azure DevOps REST API — Work Items business capability. Self-contained, no shared references.
+    resources:
+    - name: project-_apis-wit-workitems-${type}
+      path: /{project}/_apis/wit/workitems/${type}
+      operations:
+      - name: createworkitem
+        method: POST
+        description: Microsoft Create a work item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: path
+          type: string
+          description: Work item type (e.g., Bug, Task, User Story)
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: project-_apis-wit-workitems-id
+      path: /{project}/_apis/wit/workitems/{id}
+      operations:
+      - name: getworkitem
+        method: GET
+        description: Microsoft Get a work item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: Work item ID
+          required: true
+        - name: $expand
+          in: query
+          type: string
+          description: Expand work item relationships
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: azure-devops-work-items-rest
+    port: 8080
+    description: REST adapter for Microsoft Azure DevOps REST API — Work Items. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/{project}/apis/wit/workitems/type
+      name: project-apis-wit-workitems-type
+      description: REST surface for project-_apis-wit-workitems-${type}.
+      operations:
+      - method: POST
+        name: createworkitem
+        description: Microsoft Create a work item
+        call: azure-devops-work-items.createworkitem
+        with:
+          type: rest.type
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{project}/apis/wit/workitems/{id}
+      name: project-apis-wit-workitems-id
+      description: REST surface for project-_apis-wit-workitems-id.
+      operations:
+      - method: GET
+        name: getworkitem
+        description: Microsoft Get a work item
+        call: azure-devops-work-items.getworkitem
+        with:
+          id: rest.id
+          $expand: rest.$expand
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-devops-work-items-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Azure DevOps REST API — Work Items. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-create-work-item
+      description: Microsoft Create a work item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-devops-work-items.createworkitem
+      with:
+        type: tools.type
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-work-item
+      description: Microsoft Get a work item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: azure-devops-work-items.getworkitem
+      with:
+        id: tools.id
+        $expand: tools.$expand
+      outputParameters:
+      - type: object
+        mapping: $.

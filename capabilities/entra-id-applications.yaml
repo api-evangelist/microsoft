@@ -1,0 +1,222 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Entra ID API — Applications
+  description: 'Microsoft Entra ID API — Applications. 5 operations. Lead operation: Microsoft List applications. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: entra-id-applications
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Entra ID API — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: listapplications
+        method: GET
+        description: Microsoft List applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createapplication
+        method: POST
+        description: Microsoft Create an application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: applications-applicationId
+      path: /applications/{applicationId}
+      operations:
+      - name: getapplication
+        method: GET
+        description: Microsoft Get an application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: applicationId
+          in: path
+          type: string
+          description: Application object ID
+          required: true
+      - name: updateapplication
+        method: PATCH
+        description: Microsoft Update an application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: applicationId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteapplication
+        method: DELETE
+        description: Microsoft Delete an application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: applicationId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: entra-id-applications-rest
+    port: 8080
+    description: REST adapter for Microsoft Entra ID API — Applications. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: listapplications
+        description: Microsoft List applications
+        call: entra-id-applications.listapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplication
+        description: Microsoft Create an application
+        call: entra-id-applications.createapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}
+      name: applications-applicationid
+      description: REST surface for applications-applicationId.
+      operations:
+      - method: GET
+        name: getapplication
+        description: Microsoft Get an application
+        call: entra-id-applications.getapplication
+        with:
+          applicationId: rest.applicationId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateapplication
+        description: Microsoft Update an application
+        call: entra-id-applications.updateapplication
+        with:
+          applicationId: rest.applicationId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapplication
+        description: Microsoft Delete an application
+        call: entra-id-applications.deleteapplication
+        with:
+          applicationId: rest.applicationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: entra-id-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Entra ID API — Applications. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-applications
+      description: Microsoft List applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: entra-id-applications.listapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-application
+      description: Microsoft Create an application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: entra-id-applications.createapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-application
+      description: Microsoft Get an application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: entra-id-applications.getapplication
+      with:
+        applicationId: tools.applicationId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-update-application
+      description: Microsoft Update an application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: entra-id-applications.updateapplication
+      with:
+        applicationId: tools.applicationId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-application
+      description: Microsoft Delete an application
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: entra-id-applications.deleteapplication
+      with:
+        applicationId: tools.applicationId
+      outputParameters:
+      - type: object
+        mapping: $.

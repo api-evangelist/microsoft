@@ -1,0 +1,236 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Outlook API — Mail
+  description: 'Microsoft Outlook API — Mail. 6 operations. Lead operation: Microsoft List mail folders. Self-contained Naftiko
+    capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Mail
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: outlook-mail
+    baseUri: https://graph.microsoft.com/v1.0/me
+    description: Microsoft Outlook API — Mail business capability. Self-contained, no shared references.
+    resources:
+    - name: mailFolders
+      path: /mailFolders
+      operations:
+      - name: listmailfolders
+        method: GET
+        description: Microsoft List mail folders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: messages
+      path: /messages
+      operations:
+      - name: listmessages
+        method: GET
+        description: Microsoft List messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: messages-messageId
+      path: /messages/{messageId}
+      operations:
+      - name: getmessage
+        method: GET
+        description: Microsoft Get a message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatemessage
+        method: PATCH
+        description: Microsoft Update a message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemessage
+        method: DELETE
+        description: Microsoft Delete a message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sendMail
+      path: /sendMail
+      operations:
+      - name: sendmail
+        method: POST
+        description: Microsoft Send mail
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: outlook-mail-rest
+    port: 8080
+    description: REST adapter for Microsoft Outlook API — Mail. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/mailfolders
+      name: mailfolders
+      description: REST surface for mailFolders.
+      operations:
+      - method: GET
+        name: listmailfolders
+        description: Microsoft List mail folders
+        call: outlook-mail.listmailfolders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/messages
+      name: messages
+      description: REST surface for messages.
+      operations:
+      - method: GET
+        name: listmessages
+        description: Microsoft List messages
+        call: outlook-mail.listmessages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/messages/{messageid}
+      name: messages-messageid
+      description: REST surface for messages-messageId.
+      operations:
+      - method: GET
+        name: getmessage
+        description: Microsoft Get a message
+        call: outlook-mail.getmessage
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatemessage
+        description: Microsoft Update a message
+        call: outlook-mail.updatemessage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemessage
+        description: Microsoft Delete a message
+        call: outlook-mail.deletemessage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sendmail
+      name: sendmail
+      description: REST surface for sendMail.
+      operations:
+      - method: POST
+        name: sendmail
+        description: Microsoft Send mail
+        call: outlook-mail.sendmail
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: outlook-mail-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Outlook API — Mail. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: microsoft-list-mail-folders
+      description: Microsoft List mail folders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outlook-mail.listmailfolders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-list-messages
+      description: Microsoft List messages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outlook-mail.listmessages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-message
+      description: Microsoft Get a message
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: outlook-mail.getmessage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-update-message
+      description: Microsoft Update a message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: outlook-mail.updatemessage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-message
+      description: Microsoft Delete a message
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: outlook-mail.deletemessage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-send-mail
+      description: Microsoft Send mail
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: outlook-mail.sendmail
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

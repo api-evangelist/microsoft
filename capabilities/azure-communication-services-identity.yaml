@@ -1,0 +1,172 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Azure Communication Services API — Identity
+  description: 'Microsoft Azure Communication Services API — Identity. 3 operations. Lead operation: Microsoft Create an identity.
+    Self-contained Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Identity
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-communication-services-identity
+    baseUri: https://{resource}.communication.azure.com
+    description: Microsoft Azure Communication Services API — Identity business capability. Self-contained, no shared references.
+    resources:
+    - name: identities
+      path: /identities
+      operations:
+      - name: createidentity
+        method: POST
+        description: Microsoft Create an identity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: identities-id
+      path: /identities/{id}
+      operations:
+      - name: deleteidentity
+        method: DELETE
+        description: Microsoft Delete an identity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Identifier of the identity to delete
+          required: true
+    - name: identities-id-:issueAccessToken
+      path: /identities/{id}/:issueAccessToken
+      operations:
+      - name: issueaccesstoken
+        method: POST
+        description: Microsoft Issue an access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.MICROSOFT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: azure-communication-services-identity-rest
+    port: 8080
+    description: REST adapter for Microsoft Azure Communication Services API — Identity. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/identities
+      name: identities
+      description: REST surface for identities.
+      operations:
+      - method: POST
+        name: createidentity
+        description: Microsoft Create an identity
+        call: azure-communication-services-identity.createidentity
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identities/{id}
+      name: identities-id
+      description: REST surface for identities-id.
+      operations:
+      - method: DELETE
+        name: deleteidentity
+        description: Microsoft Delete an identity
+        call: azure-communication-services-identity.deleteidentity
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identities/{id}/issueaccesstoken
+      name: identities-id-issueaccesstoken
+      description: REST surface for identities-id-:issueAccessToken.
+      operations:
+      - method: POST
+        name: issueaccesstoken
+        description: Microsoft Issue an access token
+        call: azure-communication-services-identity.issueaccesstoken
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-communication-services-identity-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Azure Communication Services API — Identity. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-create-identity
+      description: Microsoft Create an identity
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-communication-services-identity.createidentity
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-identity
+      description: Microsoft Delete an identity
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: azure-communication-services-identity.deleteidentity
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-issue-access-token
+      description: Microsoft Issue an access token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-communication-services-identity.issueaccesstoken
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

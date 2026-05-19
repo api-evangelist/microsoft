@@ -1,0 +1,166 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Azure Cognitive Services API — Text Analytics
+  description: 'Microsoft Azure Cognitive Services API — Text Analytics. 3 operations. Lead operation: Microsoft Recognize
+    named entities. Self-contained Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Text Analytics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: azure-cognitive-services-text-analytics
+    baseUri: https://{region}.api.cognitive.microsoft.com
+    description: Microsoft Azure Cognitive Services API — Text Analytics business capability. Self-contained, no shared references.
+    resources:
+    - name: text-analytics-v3.1-entities-recognition-general
+      path: /text/analytics/v3.1/entities/recognition/general
+      operations:
+      - name: recognizeentities
+        method: POST
+        description: Microsoft Recognize named entities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: text-analytics-v3.1-keyPhrases
+      path: /text/analytics/v3.1/keyPhrases
+      operations:
+      - name: extractkeyphrases
+        method: POST
+        description: Microsoft Extract key phrases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: text-analytics-v3.1-sentiment
+      path: /text/analytics/v3.1/sentiment
+      operations:
+      - name: analyzesentiment
+        method: POST
+        description: Microsoft Analyze sentiment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Ocp-Apim-Subscription-Key
+      value: '{{env.MICROSOFT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: azure-cognitive-services-text-analytics-rest
+    port: 8080
+    description: REST adapter for Microsoft Azure Cognitive Services API — Text Analytics. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/text/analytics/v3-1/entities/recognition/general
+      name: text-analytics-v3-1-entities-recognition-general
+      description: REST surface for text-analytics-v3.1-entities-recognition-general.
+      operations:
+      - method: POST
+        name: recognizeentities
+        description: Microsoft Recognize named entities
+        call: azure-cognitive-services-text-analytics.recognizeentities
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/text/analytics/v3-1/keyphrases
+      name: text-analytics-v3-1-keyphrases
+      description: REST surface for text-analytics-v3.1-keyPhrases.
+      operations:
+      - method: POST
+        name: extractkeyphrases
+        description: Microsoft Extract key phrases
+        call: azure-cognitive-services-text-analytics.extractkeyphrases
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/text/analytics/v3-1/sentiment
+      name: text-analytics-v3-1-sentiment
+      description: REST surface for text-analytics-v3.1-sentiment.
+      operations:
+      - method: POST
+        name: analyzesentiment
+        description: Microsoft Analyze sentiment
+        call: azure-cognitive-services-text-analytics.analyzesentiment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: azure-cognitive-services-text-analytics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Azure Cognitive Services API — Text Analytics. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-recognize-named-entities
+      description: Microsoft Recognize named entities
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-cognitive-services-text-analytics.recognizeentities
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-extract-key-phrases
+      description: Microsoft Extract key phrases
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-cognitive-services-text-analytics.extractkeyphrases
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-analyze-sentiment
+      description: Microsoft Analyze sentiment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: azure-cognitive-services-text-analytics.analyzesentiment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

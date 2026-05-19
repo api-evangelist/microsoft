@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft OneDrive API — Sharing
+  description: 'Microsoft OneDrive API — Sharing. 1 operations. Lead operation: Microsoft Create a sharing link. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Sharing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: onedrive-sharing
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft OneDrive API — Sharing business capability. Self-contained, no shared references.
+    resources:
+    - name: me-drive-items-itemId-createLink
+      path: /me/drive/items/{itemId}/createLink
+      operations:
+      - name: createsharinglink
+        method: POST
+        description: Microsoft Create a sharing link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: onedrive-sharing-rest
+    port: 8080
+    description: REST adapter for Microsoft OneDrive API — Sharing. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/me/drive/items/{itemid}/createlink
+      name: me-drive-items-itemid-createlink
+      description: REST surface for me-drive-items-itemId-createLink.
+      operations:
+      - method: POST
+        name: createsharinglink
+        description: Microsoft Create a sharing link
+        call: onedrive-sharing.createsharinglink
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: onedrive-sharing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft OneDrive API — Sharing. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-create-sharing-link
+      description: Microsoft Create a sharing link
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: onedrive-sharing.createsharinglink
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

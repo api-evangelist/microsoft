@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Intune API — Managed Devices
+  description: 'Microsoft Intune API — Managed Devices. 4 operations. Lead operation: Microsoft List managed devices. Self-contained
+    Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Managed Devices
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: intune-managed-devices
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Intune API — Managed Devices business capability. Self-contained, no shared references.
+    resources:
+    - name: deviceManagement-managedDevices
+      path: /deviceManagement/managedDevices
+      operations:
+      - name: listmanageddevices
+        method: GET
+        description: Microsoft List managed devices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deviceManagement-managedDevices-managedDeviceId
+      path: /deviceManagement/managedDevices/{managedDeviceId}
+      operations:
+      - name: getmanageddevice
+        method: GET
+        description: Microsoft Get a managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: managedDeviceId
+          in: path
+          type: string
+          description: Managed device unique identifier
+          required: true
+    - name: deviceManagement-managedDevices-managedDeviceId-retire
+      path: /deviceManagement/managedDevices/{managedDeviceId}/retire
+      operations:
+      - name: retiremanageddevice
+        method: POST
+        description: Microsoft Retire a managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: managedDeviceId
+          in: path
+          type: string
+          required: true
+    - name: deviceManagement-managedDevices-managedDeviceId-wipe
+      path: /deviceManagement/managedDevices/{managedDeviceId}/wipe
+      operations:
+      - name: wipemanageddevice
+        method: POST
+        description: Microsoft Wipe a managed device
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: managedDeviceId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: intune-managed-devices-rest
+    port: 8080
+    description: REST adapter for Microsoft Intune API — Managed Devices. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/devicemanagement/manageddevices
+      name: devicemanagement-manageddevices
+      description: REST surface for deviceManagement-managedDevices.
+      operations:
+      - method: GET
+        name: listmanageddevices
+        description: Microsoft List managed devices
+        call: intune-managed-devices.listmanageddevices
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devicemanagement/manageddevices/{manageddeviceid}
+      name: devicemanagement-manageddevices-manageddeviceid
+      description: REST surface for deviceManagement-managedDevices-managedDeviceId.
+      operations:
+      - method: GET
+        name: getmanageddevice
+        description: Microsoft Get a managed device
+        call: intune-managed-devices.getmanageddevice
+        with:
+          managedDeviceId: rest.managedDeviceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devicemanagement/manageddevices/{manageddeviceid}/retire
+      name: devicemanagement-manageddevices-manageddeviceid-retire
+      description: REST surface for deviceManagement-managedDevices-managedDeviceId-retire.
+      operations:
+      - method: POST
+        name: retiremanageddevice
+        description: Microsoft Retire a managed device
+        call: intune-managed-devices.retiremanageddevice
+        with:
+          managedDeviceId: rest.managedDeviceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/devicemanagement/manageddevices/{manageddeviceid}/wipe
+      name: devicemanagement-manageddevices-manageddeviceid-wipe
+      description: REST surface for deviceManagement-managedDevices-managedDeviceId-wipe.
+      operations:
+      - method: POST
+        name: wipemanageddevice
+        description: Microsoft Wipe a managed device
+        call: intune-managed-devices.wipemanageddevice
+        with:
+          managedDeviceId: rest.managedDeviceId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: intune-managed-devices-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Intune API — Managed Devices. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-list-managed-devices
+      description: Microsoft List managed devices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: intune-managed-devices.listmanageddevices
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-managed-device
+      description: Microsoft Get a managed device
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: intune-managed-devices.getmanageddevice
+      with:
+        managedDeviceId: tools.managedDeviceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-retire-managed-device
+      description: Microsoft Retire a managed device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: intune-managed-devices.retiremanageddevice
+      with:
+        managedDeviceId: tools.managedDeviceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-wipe-managed-device
+      description: Microsoft Wipe a managed device
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: intune-managed-devices.wipemanageddevice
+      with:
+        managedDeviceId: tools.managedDeviceId
+      outputParameters:
+      - type: object
+        mapping: $.

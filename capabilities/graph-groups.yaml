@@ -1,0 +1,303 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Graph API — Groups
+  description: 'Microsoft Graph API — Groups. 8 operations. Lead operation: Microsoft List groups. Self-contained Naftiko
+    capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: graph-groups
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph API — Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: groups
+      path: /groups
+      operations:
+      - name: listgroups
+        method: GET
+        description: Microsoft List groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: creategroup
+        method: POST
+        description: Microsoft Create group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: groups-group-id
+      path: /groups/{group-id}
+      operations:
+      - name: getgroup
+        method: GET
+        description: Microsoft Get group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updategroup
+        method: PATCH
+        description: Microsoft Update group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletegroup
+        method: DELETE
+        description: Microsoft Delete group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: groups-group-id-members
+      path: /groups/{group-id}/members
+      operations:
+      - name: listgroupmembers
+        method: GET
+        description: Microsoft List group members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: groups-group-id-members-$ref
+      path: /groups/{group-id}/members/$ref
+      operations:
+      - name: addgroupmember
+        method: POST
+        description: Microsoft Add group member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: groups-group-id-owners
+      path: /groups/{group-id}/owners
+      operations:
+      - name: listgroupowners
+        method: GET
+        description: Microsoft List group owners
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: graph-groups-rest
+    port: 8080
+    description: REST adapter for Microsoft Graph API — Groups. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/groups
+      name: groups
+      description: REST surface for groups.
+      operations:
+      - method: GET
+        name: listgroups
+        description: Microsoft List groups
+        call: graph-groups.listgroups
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: creategroup
+        description: Microsoft Create group
+        call: graph-groups.creategroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups/{group-id}
+      name: groups-group-id
+      description: REST surface for groups-group-id.
+      operations:
+      - method: GET
+        name: getgroup
+        description: Microsoft Get group
+        call: graph-groups.getgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updategroup
+        description: Microsoft Update group
+        call: graph-groups.updategroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletegroup
+        description: Microsoft Delete group
+        call: graph-groups.deletegroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups/{group-id}/members
+      name: groups-group-id-members
+      description: REST surface for groups-group-id-members.
+      operations:
+      - method: GET
+        name: listgroupmembers
+        description: Microsoft List group members
+        call: graph-groups.listgroupmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups/{group-id}/members/ref
+      name: groups-group-id-members-ref
+      description: REST surface for groups-group-id-members-$ref.
+      operations:
+      - method: POST
+        name: addgroupmember
+        description: Microsoft Add group member
+        call: graph-groups.addgroupmember
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups/{group-id}/owners
+      name: groups-group-id-owners
+      description: REST surface for groups-group-id-owners.
+      operations:
+      - method: GET
+        name: listgroupowners
+        description: Microsoft List group owners
+        call: graph-groups.listgroupowners
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: graph-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Graph API — Groups. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: microsoft-list-groups
+      description: Microsoft List groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-groups.listgroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-create-group
+      description: Microsoft Create group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: graph-groups.creategroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-get-group
+      description: Microsoft Get group
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-groups.getgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-update-group
+      description: Microsoft Update group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: graph-groups.updategroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-delete-group
+      description: Microsoft Delete group
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: graph-groups.deletegroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-list-group-members
+      description: Microsoft List group members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-groups.listgroupmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-add-group-member
+      description: Microsoft Add group member
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: graph-groups.addgroupmember
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-list-group-owners
+      description: Microsoft List group owners
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: graph-groups.listgroupowners
+      outputParameters:
+      - type: object
+        mapping: $.

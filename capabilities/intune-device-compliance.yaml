@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Intune API — Device Compliance
+  description: 'Microsoft Intune API — Device Compliance. 1 operations. Lead operation: Microsoft List compliance policies.
+    Self-contained Naftiko capability covering one Microsoft business surface.'
+  tags:
+  - Microsoft
+  - Device Compliance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: intune-device-compliance
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Intune API — Device Compliance business capability. Self-contained, no shared references.
+    resources:
+    - name: deviceManagement-deviceCompliancePolicies
+      path: /deviceManagement/deviceCompliancePolicies
+      operations:
+      - name: listcompliancepolicies
+        method: GET
+        description: Microsoft List compliance policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: intune-device-compliance-rest
+    port: 8080
+    description: REST adapter for Microsoft Intune API — Device Compliance. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/devicemanagement/devicecompliancepolicies
+      name: devicemanagement-devicecompliancepolicies
+      description: REST surface for deviceManagement-deviceCompliancePolicies.
+      operations:
+      - method: GET
+        name: listcompliancepolicies
+        description: Microsoft List compliance policies
+        call: intune-device-compliance.listcompliancepolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: intune-device-compliance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Intune API — Device Compliance. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-list-compliance-policies
+      description: Microsoft List compliance policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: intune-device-compliance.listcompliancepolicies
+      outputParameters:
+      - type: object
+        mapping: $.
