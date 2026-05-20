@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Trigger Microsoft Power Automate flows from GitHub events
+  description: When a GitHub workflow completes or an issue is opened, invoke a corresponding Power Automate flow via its HTTP trigger to extend automation into the Microsoft stack.
+  tags:
+  - Microsoft
+  - Integration
+  - DevOps
+  - github
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    GITHUB_API_KEY: GITHUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: providers-microsoft-powerautomate-flows-flowname-triggers-ma
+      path: /providers/Microsoft.PowerAutomate/flows/{flowName}/triggers/manual/run
+      operations:
+      - name: runpowerautomateflow
+        method: POST
+        description: Invoke a Power Automate flow via its manual trigger.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: flowName
+          in: path
+          type: string
+          description: Path parameter flowName.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: github
+    baseUri: https://api.github.com
+    description: GitHub REST API operations consumed by this integration.
+    resources:
+    - name: repos-owner-repo-actions-runs
+      path: /repos/{owner}/{repo}/actions/runs
+      operations:
+      - name: listworkflowruns
+        method: GET
+        description: 'GitHub REST API: listWorkflowRuns'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner
+          in: path
+          type: string
+          description: Path parameter owner.
+          required: true
+        - name: repo
+          in: path
+          type: string
+          description: Path parameter repo.
+          required: true
+    - name: repos-owner-repo-dispatches
+      path: /repos/{owner}/{repo}/dispatches
+      operations:
+      - name: createrepositorydispatchevent
+        method: POST
+        description: 'GitHub REST API: createRepositoryDispatchEvent'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner
+          in: path
+          type: string
+          description: Path parameter owner.
+          required: true
+        - name: repo
+          in: path
+          type: string
+          description: Path parameter repo.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-github-mcp
+    description: MCP adapter for the microsoft-github integration.
+    tools:
+    - name: microsoft_github
+      description: Execute the microsoft github integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-github-rest
+    port: 8080
+    description: REST adapter for the microsoft-github integration.
+    resources:
+    - path: /microsoft-github
+      name: microsoft-github
+      description: REST surface for the microsoft-github integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-github integration.
+        call: microsoft_github
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

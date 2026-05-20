@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Push Microsoft Power BI dataset rows to Snowflake
+  description: For each refresh of a Power BI dataset, push the rows to a Snowflake table via Snowpipe REST so analytics consolidates in the warehouse.
+  tags:
+  - Microsoft
+  - Integration
+  - Data warehouse
+  - snowflake
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    SNOWFLAKE_API_KEY: SNOWFLAKE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-myorg-datasets-datasetid-tables-tablename-rows
+      path: /v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows
+      operations:
+      - name: listdatasetrows
+        method: GET
+        description: List rows from a table in a Power BI dataset.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: datasetId
+          in: path
+          type: string
+          description: Path parameter datasetId.
+          required: true
+        - name: tableName
+          in: path
+          type: string
+          description: Path parameter tableName.
+          required: true
+  - type: http
+    namespace: snowflake
+    baseUri: https://account.snowflakecomputing.com
+    description: Snowflake Snowpipe REST API operations consumed by this integration.
+    resources:
+    - name: v1-data-pipes-pipe-insertfiles
+      path: /v1/data/pipes/{pipe}/insertFiles
+      operations:
+      - name: insertfiles
+        method: POST
+        description: 'Snowflake Snowpipe REST API: insertFiles'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: pipe
+          in: path
+          type: string
+          description: Path parameter pipe.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-snowflake-mcp
+    description: MCP adapter for the microsoft-snowflake integration.
+    tools:
+    - name: microsoft_snowflake
+      description: Execute the microsoft snowflake integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-snowflake-rest
+    port: 8080
+    description: REST adapter for the microsoft-snowflake integration.
+    resources:
+    - path: /microsoft-snowflake
+      name: microsoft-snowflake
+      description: REST surface for the microsoft-snowflake integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-snowflake integration.
+        call: microsoft_snowflake
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

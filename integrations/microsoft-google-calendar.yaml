@@ -1,0 +1,129 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sync Microsoft Outlook calendar with Google Calendar
+  description: Two-way mirror events between the signed-in user's Outlook calendar and a configured Google Calendar so meetings stay aligned across stacks.
+  tags:
+  - Microsoft
+  - Integration
+  - Calendar
+  - google-calendar
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    GOOGLE_CALENDAR_API_KEY: GOOGLE_CALENDAR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-me-calendar-events
+      path: /v1.0/me/calendar/events
+      operations:
+      - name: listmyevents
+        method: GET
+        description: List events on the signed-in user's primary Outlook calendar.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: v1-0-me-calendar-events
+      path: /v1.0/me/calendar/events
+      operations:
+      - name: createmyevent
+        method: POST
+        description: Create an event on the signed-in user's primary Outlook calendar.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: google-calendar
+    baseUri: https://www.googleapis.com
+    description: Google Calendar API operations consumed by this integration.
+    resources:
+    - name: calendar-v3-calendars-calendarid-events
+      path: /calendar/v3/calendars/{calendarId}/events
+      operations:
+      - name: insertevent
+        method: POST
+        description: 'Google Calendar API: insertEvent'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: calendar-v3-calendars-calendarid-events
+      path: /calendar/v3/calendars/{calendarId}/events
+      operations:
+      - name: listevents
+        method: GET
+        description: 'Google Calendar API: listEvents'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: calendarId
+          in: path
+          type: string
+          description: Path parameter calendarId.
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-google-calendar-mcp
+    description: MCP adapter for the microsoft-google-calendar integration.
+    tools:
+    - name: microsoft_google_calendar
+      description: Execute the microsoft google calendar integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-google-calendar-rest
+    port: 8080
+    description: REST adapter for the microsoft-google-calendar integration.
+    resources:
+    - path: /microsoft-google-calendar
+      name: microsoft-google-calendar
+      description: REST surface for the microsoft-google-calendar integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-google-calendar integration.
+        call: microsoft_google_calendar
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Sync Microsoft Teams tasks with Asana
+  description: Mirror Teams Planner tasks created in a team channel as Asana tasks in the matching project, keeping status and assignee in sync.
+  tags:
+  - Microsoft
+  - Integration
+  - Project management
+  - asana
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    ASANA_API_KEY: ASANA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-planner-plans-plan-id-tasks
+      path: /v1.0/planner/plans/{plan-id}/tasks
+      operations:
+      - name: listplannertasks
+        method: GET
+        description: List tasks in a Microsoft Planner plan.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: plan-id
+          in: path
+          type: string
+          description: Path parameter plan-id.
+          required: true
+    - name: v1-0-planner-tasks
+      path: /v1.0/planner/tasks
+      operations:
+      - name: createplannertask
+        method: POST
+        description: Create a task in Microsoft Planner.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: asana
+    baseUri: https://app.asana.com
+    description: Asana API operations consumed by this integration.
+    resources:
+    - name: api-1-0-tasks
+      path: /api/1.0/tasks
+      operations:
+      - name: createtask
+        method: POST
+        description: 'Asana API: createTask'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-1-0-tasks-task-gid
+      path: /api/1.0/tasks/{task_gid}
+      operations:
+      - name: updatetask
+        method: PUT
+        description: 'Asana API: updateTask'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: task_gid
+          in: path
+          type: string
+          description: Path parameter task_gid.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-asana-mcp
+    description: MCP adapter for the microsoft-asana integration.
+    tools:
+    - name: microsoft_asana
+      description: Execute the microsoft asana integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-asana-rest
+    port: 8080
+    description: REST adapter for the microsoft-asana integration.
+    resources:
+    - path: /microsoft-asana
+      name: microsoft-asana
+      description: REST surface for the microsoft-asana integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-asana integration.
+        call: microsoft_asana
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

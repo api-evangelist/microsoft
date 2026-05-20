@@ -1,0 +1,245 @@
+# Curated Microsoft integrations grouped by category.
+# Each entry becomes one Naftiko capability YAML in integrations/.
+# Microsoft ops live on Graph (graph.microsoft.com) or Azure mgmt.
+
+# Collaboration / messaging bridges (3)
+- partner: slack
+  name: Bridge Microsoft Teams channel messages to Slack
+  category: Collaboration
+  use_case: When a message is posted in a Microsoft Teams channel, mirror it into a matching Slack channel so cross-org teams converse in their tool of choice.
+  partner_baseUri: https://slack.com
+  partner_api: Slack Web API
+  provider_ops:
+    - method: GET
+      path: /v1.0/teams/{team-id}/channels/{channel-id}/messages
+      name: listChannelMessages
+      description: List messages in a Microsoft Teams channel.
+    - method: POST
+      path: /v1.0/teams/{team-id}/channels/{channel-id}/messages
+      name: sendChannelMessage
+      description: Post a message into a Microsoft Teams channel.
+  partner_ops:
+    - method: POST
+      path: /api/chat.postMessage
+      name: postMessage
+
+- partner: asana
+  name: Sync Microsoft Teams tasks with Asana
+  category: Project management
+  use_case: Mirror Teams Planner tasks created in a team channel as Asana tasks in the matching project, keeping status and assignee in sync.
+  partner_baseUri: https://app.asana.com
+  partner_api: Asana API
+  provider_ops:
+    - method: GET
+      path: /v1.0/planner/plans/{plan-id}/tasks
+      name: listPlannerTasks
+      description: List tasks in a Microsoft Planner plan.
+    - method: POST
+      path: /v1.0/planner/tasks
+      name: createPlannerTask
+      description: Create a task in Microsoft Planner.
+  partner_ops:
+    - method: POST
+      path: /api/1.0/tasks
+      name: createTask
+    - method: PUT
+      path: /api/1.0/tasks/{task_gid}
+      name: updateTask
+
+- partner: linear
+  name: Bridge Microsoft Teams chat to Linear issues
+  category: Project management
+  use_case: When an engineer flags a Teams chat message with a tag, create a Linear issue with the message body and a deep link back to Teams.
+  partner_baseUri: https://api.linear.app
+  partner_api: Linear GraphQL API
+  provider_ops:
+    - method: GET
+      path: /v1.0/chats/{chat-id}/messages
+      name: listChatMessages
+      description: List messages in a Microsoft Teams 1:1 or group chat.
+  partner_ops:
+    - method: POST
+      path: /graphql
+      name: createIssue
+
+# CRM / contacts (2)
+- partner: salesforce
+  name: Log Microsoft Outlook email as Salesforce Activity
+  category: CRM
+  use_case: When an Outlook email is sent or received with a known Salesforce Contact, log a matching Salesforce Activity with subject, body, and attachments.
+  partner_baseUri: https://yourinstance.my.salesforce.com
+  partner_api: Salesforce REST API
+  provider_ops:
+    - method: GET
+      path: /v1.0/me/messages
+      name: listMyMessages
+      description: List messages in the signed-in user's Outlook mailbox.
+    - method: GET
+      path: /v1.0/me/messages/{message-id}
+      name: getMyMessage
+      description: Get a single Outlook message by id.
+  partner_ops:
+    - method: POST
+      path: /services/data/v60.0/sobjects/Task
+      name: createTask
+
+- partner: hubspot
+  name: Sync Microsoft Outlook contacts into HubSpot
+  category: CRM
+  use_case: For each Outlook contact in the signed-in user's mailbox, create or update the matching HubSpot Contact with company, title, and phone.
+  partner_baseUri: https://api.hubapi.com
+  partner_api: HubSpot CRM API
+  provider_ops:
+    - method: GET
+      path: /v1.0/me/contacts
+      name: listMyContacts
+      description: List Outlook contacts for the signed-in user.
+    - method: GET
+      path: /v1.0/me/contacts/{contact-id}
+      name: getMyContact
+      description: Get a single Outlook contact by id.
+  partner_ops:
+    - method: POST
+      path: /crm/v3/objects/contacts
+      name: createContact
+    - method: PATCH
+      path: /crm/v3/objects/contacts/{contactId}
+      name: updateContact
+
+# AI / docs (1)
+- partner: anthropic
+  name: Summarize Microsoft Word documents with Anthropic Claude
+  category: AI
+  use_case: For each Word document in a OneDrive folder, fetch the content and send it to Anthropic Claude to produce an executive summary stored beside the file.
+  partner_baseUri: https://api.anthropic.com
+  partner_api: Anthropic Messages API
+  provider_ops:
+    - method: GET
+      path: /v1.0/me/drive/items/{item-id}/content
+      name: getDriveItemContent
+      description: Download the binary content of a OneDrive item (e.g. a Word document).
+    - method: PUT
+      path: /v1.0/me/drive/items/{item-id}/content
+      name: putDriveItemContent
+      description: Upload or replace the content of a OneDrive item.
+  partner_ops:
+    - method: POST
+      path: /v1/messages
+      name: createMessage
+
+# Finance / spreadsheets (2)
+- partner: stripe
+  name: Reconcile Stripe payouts in Microsoft Excel workbooks
+  category: Finance
+  use_case: For each Stripe payout, append a row to a designated worksheet in an Excel workbook stored in OneDrive for ops to reconcile.
+  partner_baseUri: https://api.stripe.com
+  partner_api: Stripe REST API
+  provider_ops:
+    - method: GET
+      path: /v1.0/me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/usedRange
+      name: getWorksheetUsedRange
+      description: Get the used range of an Excel worksheet stored in OneDrive.
+    - method: POST
+      path: /v1.0/me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/tables/{table-id}/rows/add
+      name: addTableRow
+      description: Append a row to an Excel table stored in OneDrive.
+  partner_ops:
+    - method: GET
+      path: /v1/payouts
+      name: listPayouts
+
+- partner: snowflake
+  name: Push Microsoft Power BI dataset rows to Snowflake
+  category: Data warehouse
+  use_case: For each refresh of a Power BI dataset, push the rows to a Snowflake table via Snowpipe REST so analytics consolidates in the warehouse.
+  partner_baseUri: https://account.snowflakecomputing.com
+  partner_api: Snowflake Snowpipe REST API
+  provider_ops:
+    - method: GET
+      path: /v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows
+      name: listDatasetRows
+      description: List rows from a table in a Power BI dataset.
+  partner_ops:
+    - method: POST
+      path: /v1/data/pipes/{pipe}/insertFiles
+      name: insertFiles
+
+# Calendar / scheduling (2)
+- partner: google-calendar
+  name: Sync Microsoft Outlook calendar with Google Calendar
+  category: Calendar
+  use_case: Two-way mirror events between the signed-in user's Outlook calendar and a configured Google Calendar so meetings stay aligned across stacks.
+  partner_baseUri: https://www.googleapis.com
+  partner_api: Google Calendar API
+  provider_ops:
+    - method: GET
+      path: /v1.0/me/calendar/events
+      name: listMyEvents
+      description: List events on the signed-in user's primary Outlook calendar.
+    - method: POST
+      path: /v1.0/me/calendar/events
+      name: createMyEvent
+      description: Create an event on the signed-in user's primary Outlook calendar.
+  partner_ops:
+    - method: POST
+      path: /calendar/v3/calendars/{calendarId}/events
+      name: insertEvent
+    - method: GET
+      path: /calendar/v3/calendars/{calendarId}/events
+      name: listEvents
+
+- partner: notion
+  name: Index OneDrive files into a Notion database
+  category: Knowledge management
+  use_case: For each file uploaded to a watched OneDrive folder, create a Notion database page with file metadata, owner, and a link back to OneDrive.
+  partner_baseUri: https://api.notion.com
+  partner_api: Notion API
+  provider_ops:
+    - method: GET
+      path: /v1.0/me/drive/root/children
+      name: listDriveRootChildren
+      description: List files and folders at the root of the user's OneDrive.
+    - method: GET
+      path: /v1.0/me/drive/items/{item-id}
+      name: getDriveItem
+      description: Get metadata for a OneDrive item.
+  partner_ops:
+    - method: POST
+      path: /v1/pages
+      name: createPage
+
+# Monitoring / DevOps (2)
+- partner: datadog
+  name: Forward Azure Monitor metrics into Datadog
+  category: Monitoring
+  use_case: Stream Azure Monitor metrics for a subscription into Datadog as custom metrics so cross-cloud dashboards reflect Azure resource health.
+  partner_baseUri: https://api.datadoghq.com
+  partner_api: Datadog Metrics API
+  provider_ops:
+    - method: GET
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/metrics
+      name: listAzureMonitorMetrics
+      description: List Azure Monitor metric values for a subscription.
+  partner_ops:
+    - method: POST
+      path: /api/v2/series
+      name: submitMetrics
+
+- partner: github
+  name: Trigger Microsoft Power Automate flows from GitHub events
+  category: DevOps
+  use_case: When a GitHub workflow completes or an issue is opened, invoke a corresponding Power Automate flow via its HTTP trigger to extend automation into the Microsoft stack.
+  partner_baseUri: https://api.github.com
+  partner_api: GitHub REST API
+  provider_ops:
+    - method: POST
+      path: /providers/Microsoft.PowerAutomate/flows/{flowName}/triggers/manual/run
+      name: runPowerAutomateFlow
+      description: Invoke a Power Automate flow via its manual trigger.
+  partner_ops:
+    - method: GET
+      path: /repos/{owner}/{repo}/actions/runs
+      name: listWorkflowRuns
+    - method: POST
+      path: /repos/{owner}/{repo}/dispatches
+      name: createRepositoryDispatchEvent

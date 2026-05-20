@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Bridge Microsoft Teams channel messages to Slack
+  description: When a message is posted in a Microsoft Teams channel, mirror it into a matching Slack channel so cross-org teams converse in their tool of choice.
+  tags:
+  - Microsoft
+  - Integration
+  - Collaboration
+  - slack
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    SLACK_API_KEY: SLACK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-teams-team-id-channels-channel-id-messages
+      path: /v1.0/teams/{team-id}/channels/{channel-id}/messages
+      operations:
+      - name: listchannelmessages
+        method: GET
+        description: List messages in a Microsoft Teams channel.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: team-id
+          in: path
+          type: string
+          description: Path parameter team-id.
+          required: true
+        - name: channel-id
+          in: path
+          type: string
+          description: Path parameter channel-id.
+          required: true
+    - name: v1-0-teams-team-id-channels-channel-id-messages
+      path: /v1.0/teams/{team-id}/channels/{channel-id}/messages
+      operations:
+      - name: sendchannelmessage
+        method: POST
+        description: Post a message into a Microsoft Teams channel.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: team-id
+          in: path
+          type: string
+          description: Path parameter team-id.
+          required: true
+        - name: channel-id
+          in: path
+          type: string
+          description: Path parameter channel-id.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: slack
+    baseUri: https://slack.com
+    description: Slack Web API operations consumed by this integration.
+    resources:
+    - name: api-chat-postmessage
+      path: /api/chat.postMessage
+      operations:
+      - name: postmessage
+        method: POST
+        description: 'Slack Web API: postMessage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-slack-mcp
+    description: MCP adapter for the microsoft-slack integration.
+    tools:
+    - name: microsoft_slack
+      description: Execute the microsoft slack integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-slack-rest
+    port: 8080
+    description: REST adapter for the microsoft-slack integration.
+    resources:
+    - path: /microsoft-slack
+      name: microsoft-slack
+      description: REST surface for the microsoft-slack integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-slack integration.
+        call: microsoft_slack
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

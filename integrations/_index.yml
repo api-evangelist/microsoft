@@ -1,0 +1,60 @@
+- slug: microsoft-slack
+  label: Bridge Microsoft Teams channel messages to Slack
+  partner: slack
+  category: Collaboration
+  use_case: When a message is posted in a Microsoft Teams channel, mirror it into a matching Slack channel so cross-org teams converse in their tool of choice.
+- slug: microsoft-asana
+  label: Sync Microsoft Teams tasks with Asana
+  partner: asana
+  category: Project management
+  use_case: Mirror Teams Planner tasks created in a team channel as Asana tasks in the matching project, keeping status and assignee in sync.
+- slug: microsoft-linear
+  label: Bridge Microsoft Teams chat to Linear issues
+  partner: linear
+  category: Project management
+  use_case: When an engineer flags a Teams chat message with a tag, create a Linear issue with the message body and a deep link back to Teams.
+- slug: microsoft-salesforce
+  label: Log Microsoft Outlook email as Salesforce Activity
+  partner: salesforce
+  category: CRM
+  use_case: When an Outlook email is sent or received with a known Salesforce Contact, log a matching Salesforce Activity with subject, body, and attachments.
+- slug: microsoft-hubspot
+  label: Sync Microsoft Outlook contacts into HubSpot
+  partner: hubspot
+  category: CRM
+  use_case: For each Outlook contact in the signed-in user's mailbox, create or update the matching HubSpot Contact with company, title, and phone.
+- slug: microsoft-anthropic
+  label: Summarize Microsoft Word documents with Anthropic Claude
+  partner: anthropic
+  category: AI
+  use_case: For each Word document in a OneDrive folder, fetch the content and send it to Anthropic Claude to produce an executive summary stored beside the file.
+- slug: microsoft-stripe
+  label: Reconcile Stripe payouts in Microsoft Excel workbooks
+  partner: stripe
+  category: Finance
+  use_case: For each Stripe payout, append a row to a designated worksheet in an Excel workbook stored in OneDrive for ops to reconcile.
+- slug: microsoft-snowflake
+  label: Push Microsoft Power BI dataset rows to Snowflake
+  partner: snowflake
+  category: Data warehouse
+  use_case: For each refresh of a Power BI dataset, push the rows to a Snowflake table via Snowpipe REST so analytics consolidates in the warehouse.
+- slug: microsoft-google-calendar
+  label: Sync Microsoft Outlook calendar with Google Calendar
+  partner: google-calendar
+  category: Calendar
+  use_case: Two-way mirror events between the signed-in user's Outlook calendar and a configured Google Calendar so meetings stay aligned across stacks.
+- slug: microsoft-notion
+  label: Index OneDrive files into a Notion database
+  partner: notion
+  category: Knowledge management
+  use_case: For each file uploaded to a watched OneDrive folder, create a Notion database page with file metadata, owner, and a link back to OneDrive.
+- slug: microsoft-datadog
+  label: Forward Azure Monitor metrics into Datadog
+  partner: datadog
+  category: Monitoring
+  use_case: Stream Azure Monitor metrics for a subscription into Datadog as custom metrics so cross-cloud dashboards reflect Azure resource health.
+- slug: microsoft-github
+  label: Trigger Microsoft Power Automate flows from GitHub events
+  partner: github
+  category: DevOps
+  use_case: When a GitHub workflow completes or an issue is opened, invoke a corresponding Power Automate flow via its HTTP trigger to extend automation into the Microsoft stack.

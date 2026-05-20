@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Reconcile Stripe payouts in Microsoft Excel workbooks
+  description: For each Stripe payout, append a row to a designated worksheet in an Excel workbook stored in OneDrive for ops to reconcile.
+  tags:
+  - Microsoft
+  - Integration
+  - Finance
+  - stripe
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    STRIPE_API_KEY: STRIPE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-me-drive-items-item-id-workbook-worksheets-worksheet-id
+      path: /v1.0/me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/usedRange
+      operations:
+      - name: getworksheetusedrange
+        method: GET
+        description: Get the used range of an Excel worksheet stored in OneDrive.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: item-id
+          in: path
+          type: string
+          description: Path parameter item-id.
+          required: true
+        - name: worksheet-id
+          in: path
+          type: string
+          description: Path parameter worksheet-id.
+          required: true
+    - name: v1-0-me-drive-items-item-id-workbook-worksheets-worksheet-id
+      path: /v1.0/me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/tables/{table-id}/rows/add
+      operations:
+      - name: addtablerow
+        method: POST
+        description: Append a row to an Excel table stored in OneDrive.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: item-id
+          in: path
+          type: string
+          description: Path parameter item-id.
+          required: true
+        - name: worksheet-id
+          in: path
+          type: string
+          description: Path parameter worksheet-id.
+          required: true
+        - name: table-id
+          in: path
+          type: string
+          description: Path parameter table-id.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: stripe
+    baseUri: https://api.stripe.com
+    description: Stripe REST API operations consumed by this integration.
+    resources:
+    - name: v1-payouts
+      path: /v1/payouts
+      operations:
+      - name: listpayouts
+        method: GET
+        description: 'Stripe REST API: listPayouts'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+  exposes:
+  - type: mcp
+    namespace: microsoft-stripe-mcp
+    description: MCP adapter for the microsoft-stripe integration.
+    tools:
+    - name: microsoft_stripe
+      description: Execute the microsoft stripe integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-stripe-rest
+    port: 8080
+    description: REST adapter for the microsoft-stripe integration.
+    resources:
+    - path: /microsoft-stripe
+      name: microsoft-stripe
+      description: REST surface for the microsoft-stripe integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-stripe integration.
+        call: microsoft_stripe
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

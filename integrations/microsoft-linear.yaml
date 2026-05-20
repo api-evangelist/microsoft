@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Bridge Microsoft Teams chat to Linear issues
+  description: When an engineer flags a Teams chat message with a tag, create a Linear issue with the message body and a deep link back to Teams.
+  tags:
+  - Microsoft
+  - Integration
+  - Project management
+  - linear
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    LINEAR_API_KEY: LINEAR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-chats-chat-id-messages
+      path: /v1.0/chats/{chat-id}/messages
+      operations:
+      - name: listchatmessages
+        method: GET
+        description: List messages in a Microsoft Teams 1:1 or group chat.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: chat-id
+          in: path
+          type: string
+          description: Path parameter chat-id.
+          required: true
+  - type: http
+    namespace: linear
+    baseUri: https://api.linear.app
+    description: Linear GraphQL API operations consumed by this integration.
+    resources:
+    - name: graphql
+      path: /graphql
+      operations:
+      - name: createissue
+        method: POST
+        description: 'Linear GraphQL API: createIssue'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-linear-mcp
+    description: MCP adapter for the microsoft-linear integration.
+    tools:
+    - name: microsoft_linear
+      description: Execute the microsoft linear integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-linear-rest
+    port: 8080
+    description: REST adapter for the microsoft-linear integration.
+    resources:
+    - path: /microsoft-linear
+      name: microsoft-linear
+      description: REST surface for the microsoft-linear integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-linear integration.
+        call: microsoft_linear
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

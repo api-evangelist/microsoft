@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Forward Azure Monitor metrics into Datadog
+  description: Stream Azure Monitor metrics for a subscription into Datadog as custom metrics so cross-cloud dashboards reflect Azure resource health.
+  tags:
+  - Microsoft
+  - Integration
+  - Monitoring
+  - datadog
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    DATADOG_API_KEY: DATADOG_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: subscriptions-subscriptionid-providers-microsoft-insights-me
+      path: /subscriptions/{subscriptionId}/providers/Microsoft.Insights/metrics
+      operations:
+      - name: listazuremonitormetrics
+        method: GET
+        description: List Azure Monitor metric values for a subscription.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: subscriptionId
+          in: path
+          type: string
+          description: Path parameter subscriptionId.
+          required: true
+  - type: http
+    namespace: datadog
+    baseUri: https://api.datadoghq.com
+    description: Datadog Metrics API operations consumed by this integration.
+    resources:
+    - name: api-v2-series
+      path: /api/v2/series
+      operations:
+      - name: submitmetrics
+        method: POST
+        description: 'Datadog Metrics API: submitMetrics'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-datadog-mcp
+    description: MCP adapter for the microsoft-datadog integration.
+    tools:
+    - name: microsoft_datadog
+      description: Execute the microsoft datadog integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-datadog-rest
+    port: 8080
+    description: REST adapter for the microsoft-datadog integration.
+    resources:
+    - path: /microsoft-datadog
+      name: microsoft-datadog
+      description: REST surface for the microsoft-datadog integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-datadog integration.
+        call: microsoft_datadog
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

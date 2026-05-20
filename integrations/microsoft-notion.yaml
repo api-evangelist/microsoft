@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Index OneDrive files into a Notion database
+  description: For each file uploaded to a watched OneDrive folder, create a Notion database page with file metadata, owner, and a link back to OneDrive.
+  tags:
+  - Microsoft
+  - Integration
+  - Knowledge management
+  - notion
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    NOTION_API_KEY: NOTION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-me-drive-root-children
+      path: /v1.0/me/drive/root/children
+      operations:
+      - name: listdriverootchildren
+        method: GET
+        description: List files and folders at the root of the user's OneDrive.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: v1-0-me-drive-items-item-id
+      path: /v1.0/me/drive/items/{item-id}
+      operations:
+      - name: getdriveitem
+        method: GET
+        description: Get metadata for a OneDrive item.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: item-id
+          in: path
+          type: string
+          description: Path parameter item-id.
+          required: true
+  - type: http
+    namespace: notion
+    baseUri: https://api.notion.com
+    description: Notion API operations consumed by this integration.
+    resources:
+    - name: v1-pages
+      path: /v1/pages
+      operations:
+      - name: createpage
+        method: POST
+        description: 'Notion API: createPage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-notion-mcp
+    description: MCP adapter for the microsoft-notion integration.
+    tools:
+    - name: microsoft_notion
+      description: Execute the microsoft notion integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-notion-rest
+    port: 8080
+    description: REST adapter for the microsoft-notion integration.
+    resources:
+    - path: /microsoft-notion
+      name: microsoft-notion
+      description: REST surface for the microsoft-notion integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-notion integration.
+        call: microsoft_notion
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

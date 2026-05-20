@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Log Microsoft Outlook email as Salesforce Activity
+  description: When an Outlook email is sent or received with a known Salesforce Contact, log a matching Salesforce Activity with subject, body, and attachments.
+  tags:
+  - Microsoft
+  - Integration
+  - CRM
+  - salesforce
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    SALESFORCE_API_KEY: SALESFORCE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-me-messages
+      path: /v1.0/me/messages
+      operations:
+      - name: listmymessages
+        method: GET
+        description: List messages in the signed-in user's Outlook mailbox.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters: []
+    - name: v1-0-me-messages-message-id
+      path: /v1.0/me/messages/{message-id}
+      operations:
+      - name: getmymessage
+        method: GET
+        description: Get a single Outlook message by id.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: message-id
+          in: path
+          type: string
+          description: Path parameter message-id.
+          required: true
+  - type: http
+    namespace: salesforce
+    baseUri: https://yourinstance.my.salesforce.com
+    description: Salesforce REST API operations consumed by this integration.
+    resources:
+    - name: services-data-v60-0-sobjects-task
+      path: /services/data/v60.0/sobjects/Task
+      operations:
+      - name: createtask
+        method: POST
+        description: 'Salesforce REST API: createTask'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-salesforce-mcp
+    description: MCP adapter for the microsoft-salesforce integration.
+    tools:
+    - name: microsoft_salesforce
+      description: Execute the microsoft salesforce integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-salesforce-rest
+    port: 8080
+    description: REST adapter for the microsoft-salesforce integration.
+    resources:
+    - path: /microsoft-salesforce
+      name: microsoft-salesforce
+      description: REST surface for the microsoft-salesforce integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-salesforce integration.
+        call: microsoft_salesforce
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.

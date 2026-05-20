@@ -1,0 +1,117 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Summarize Microsoft Word documents with Anthropic Claude
+  description: For each Word document in a OneDrive folder, fetch the content and send it to Anthropic Claude to produce an executive summary stored beside the file.
+  tags:
+  - Microsoft
+  - Integration
+  - AI
+  - anthropic
+  created: '2026-05-20'
+  modified: '2026-05-20'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_API_KEY: MICROSOFT_API_KEY
+    ANTHROPIC_API_KEY: ANTHROPIC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft
+    baseUri: https://graph.microsoft.com
+    description: Microsoft API operations consumed by this integration.
+    resources:
+    - name: v1-0-me-drive-items-item-id-content
+      path: /v1.0/me/drive/items/{item-id}/content
+      operations:
+      - name: getdriveitemcontent
+        method: GET
+        description: Download the binary content of a OneDrive item (e.g. a Word document).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: item-id
+          in: path
+          type: string
+          description: Path parameter item-id.
+          required: true
+    - name: v1-0-me-drive-items-item-id-content
+      path: /v1.0/me/drive/items/{item-id}/content
+      operations:
+      - name: putdriveitemcontent
+        method: PUT
+        description: Upload or replace the content of a OneDrive item.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: item-id
+          in: path
+          type: string
+          description: Path parameter item-id.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  - type: http
+    namespace: anthropic
+    baseUri: https://api.anthropic.com
+    description: Anthropic Messages API operations consumed by this integration.
+    resources:
+    - name: v1-messages
+      path: /v1/messages
+      operations:
+      - name: createmessage
+        method: POST
+        description: 'Anthropic Messages API: createMessage'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: mcp
+    namespace: microsoft-anthropic-mcp
+    description: MCP adapter for the microsoft-anthropic integration.
+    tools:
+    - name: microsoft_anthropic
+      description: Execute the microsoft anthropic integration end-to-end.
+      inputSchema:
+        type: object
+        properties:
+          trigger_event:
+            type: object
+            description: Triggering event payload.
+        required:
+        - trigger_event
+  - type: rest
+    namespace: microsoft-anthropic-rest
+    port: 8080
+    description: REST adapter for the microsoft-anthropic integration.
+    resources:
+    - path: /microsoft-anthropic
+      name: microsoft-anthropic
+      description: REST surface for the microsoft-anthropic integration.
+      operations:
+      - method: POST
+        name: trigger
+        description: Trigger the microsoft-anthropic integration.
+        call: microsoft_anthropic
+        with:
+          trigger_event: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
