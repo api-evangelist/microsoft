@@ -1,0 +1,338 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Dynamics 365 REST API",
+    "version": "9.2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/accounts",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Related entities to expand inline"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of account records."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new account record."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/accounts(:accountid)",
+            "params": [
+              {
+                "name": "accountid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Related entities to expand inline"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific account."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/accounts(:accountid)",
+            "params": [
+              {
+                "name": "accountid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing account."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/accounts(:accountid)",
+            "params": [
+              {
+                "name": "accountid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an account record."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/contacts",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of contact records."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/contacts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new contact record."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Opportunities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/opportunities",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of opportunity records."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create an opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/opportunities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new opportunity record."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List leads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/leads",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of lead records."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{org}.api.crm.dynamics.com/api/data/v9.2/leads",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new lead record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

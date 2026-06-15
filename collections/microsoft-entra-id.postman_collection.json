@@ -1,0 +1,1588 @@
+{
+  "item": [
+    {
+      "id": "27fc5539-9ee0-4dce-b53d-dfe84d69144b",
+      "name": "Applications",
+      "description": {
+        "content": "Manage application registrations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4cc5d98d-c0b2-45cf-ad3c-bd2b7ba55680",
+          "name": "Microsoft List applications",
+          "request": {
+            "name": "Microsoft List applications",
+            "description": {
+              "content": "Get the list of applications in the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Properties to include"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of items"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b30d6322-fad0-4ceb-b06c-87108bd5b67a",
+              "name": "List of applications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"signInAudience\": \"AzureADMultipleOrgs\",\n      \"web\": {\n        \"redirectUris\": [\n          \"string\",\n          \"string\"\n        ],\n        \"homePageUrl\": \"string\"\n      },\n      \"api\": {\n        \"oauth2PermissionScopes\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          }\n        ]\n      },\n      \"requiredResourceAccess\": [\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            }\n          ]\n        },\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            }\n          ]\n        }\n      ],\n      \"createdDateTime\": \"2014-05-15T12:57:38.370Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"signInAudience\": \"PersonalMicrosoftAccount\",\n      \"web\": {\n        \"redirectUris\": [\n          \"string\",\n          \"string\"\n        ],\n        \"homePageUrl\": \"string\"\n      },\n      \"api\": {\n        \"oauth2PermissionScopes\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          }\n        ]\n      },\n      \"requiredResourceAccess\": [\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            }\n          ]\n        },\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            }\n          ]\n        }\n      ],\n      \"createdDateTime\": \"1970-09-05T09:39:23.821Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93117317-b905-4022-8986-f5ea21a8b916",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8188897-1621-487e-8b90-fcb0d67ace8e",
+          "name": "Microsoft Create an application",
+          "request": {
+            "name": "Microsoft Create an application",
+            "description": {
+              "content": "Create a new application registration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0a34942-40da-424f-afc9-807d5e525253",
+              "name": "Application created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"appId\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"signInAudience\": \"AzureADandPersonalMicrosoftAccount\",\n  \"web\": {\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"homePageUrl\": \"string\"\n  },\n  \"api\": {\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"1959-05-14T00:01:46.783Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99259395-2d86-4258-a3cd-4752e62a0c09",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16ad91a7-81e0-490b-bfeb-8ea2739dd8d3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e606e73f-fe91-44f3-9a27-6cb832b64e1f",
+          "name": "Microsoft Get an application",
+          "request": {
+            "name": "Microsoft Get an application",
+            "description": {
+              "content": "Get the properties of an application object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Properties to include"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationId",
+                  "description": "(Required) Application object ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6088f3ae-1eea-4dc0-aef8-d00b053ae5ab",
+              "name": "Application details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) Application object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"appId\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"signInAudience\": \"AzureADandPersonalMicrosoftAccount\",\n  \"web\": {\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"homePageUrl\": \"string\"\n  },\n  \"api\": {\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"1959-05-14T00:01:46.783Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79ad5d1e-7dc1-4b38-8956-cb66847a605b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) Application object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f217681-650c-4b09-8cca-3067ed6ea3c5",
+              "name": "Application not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) Application object ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab362135-8384-4c05-b62c-6e7e6d81564a",
+          "name": "Microsoft Update an application",
+          "request": {
+            "name": "Microsoft Update an application",
+            "description": {
+              "content": "Update the properties of an application object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "37eb1a4c-c1f0-4604-8f3a-52294e54e47e",
+              "name": "Application updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5fe87d90-afbf-46c6-bb0d-0ffeeb5b4906",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18703cd4-f1b6-4661-a884-f2fff8f35a9b",
+          "name": "Microsoft Delete an application",
+          "request": {
+            "name": "Microsoft Delete an application",
+            "description": {
+              "content": "Delete an application registration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff31b3ac-4510-4a79-b689-9df05bd97149",
+              "name": "Application deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "919ab60a-2303-4dbc-b90c-f89ffddac800",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c87dfe92-b4b5-4694-a68a-167c9c719aa1",
+      "name": "OAuth2 Permissions",
+      "description": {
+        "content": "Manage OAuth2 permission grants",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8db4a8fe-e3be-4c64-8d97-8379348c864f",
+          "name": "Microsoft List OAuth2 permission grants",
+          "request": {
+            "name": "Microsoft List OAuth2 permission grants",
+            "description": {
+              "content": "Retrieve a list of oAuth2PermissionGrant objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2PermissionGrants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of items"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a379ab6-1f2e-4e91-859a-94bbfc0e2c98",
+              "name": "List of permission grants",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"clientId\": \"string\",\n      \"consentType\": \"AllPrincipals\",\n      \"principalId\": \"string\",\n      \"resourceId\": \"string\",\n      \"scope\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"clientId\": \"string\",\n      \"consentType\": \"Principal\",\n      \"principalId\": \"string\",\n      \"resourceId\": \"string\",\n      \"scope\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b6d528a-bddc-4456-be5c-9cdd09599b90",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a462f2f5-66bf-450b-8fdf-f3c5b34531a6",
+          "name": "Microsoft Create a delegated permission grant",
+          "request": {
+            "name": "Microsoft Create a delegated permission grant",
+            "description": {
+              "content": "Create a delegated permission grant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2PermissionGrants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"<string>\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df06c7d4-899c-42c8-a1b0-2bd29990e850",
+              "name": "Permission grant created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"<string>\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"clientId\": \"string\",\n  \"consentType\": \"Principal\",\n  \"principalId\": \"string\",\n  \"resourceId\": \"string\",\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "817cd11b-dad9-4f67-a7d6-e6a5bbb05721",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"<string>\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4cb38cc9-d29e-4c81-b926-00ccbf653eaa",
+      "name": "Service Principals",
+      "description": {
+        "content": "Manage service principals",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f5d8e78-cfc4-4ad0-8bc7-a8a3a482619a",
+          "name": "Microsoft List service principals",
+          "request": {
+            "name": "Microsoft List service principals",
+            "description": {
+              "content": "Retrieve a list of service principal objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "servicePrincipals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Properties to include"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of items"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd96efe6-32a9-4aef-b680-8304f82e13c1",
+              "name": "List of service principals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "servicePrincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"servicePrincipalType\": \"string\",\n      \"appRoles\": [\n        {\n          \"id\": \"string\",\n          \"displayName\": \"string\",\n          \"value\": \"string\",\n          \"isEnabled\": false\n        },\n        {\n          \"id\": \"string\",\n          \"displayName\": \"string\",\n          \"value\": \"string\",\n          \"isEnabled\": true\n        }\n      ],\n      \"oauth2PermissionScopes\": [\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"createdDateTime\": \"1971-08-20T23:39:17.836Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"servicePrincipalType\": \"string\",\n      \"appRoles\": [\n        {\n          \"id\": \"string\",\n          \"displayName\": \"string\",\n          \"value\": \"string\",\n          \"isEnabled\": false\n        },\n        {\n          \"id\": \"string\",\n          \"displayName\": \"string\",\n          \"value\": \"string\",\n          \"isEnabled\": false\n        }\n      ],\n      \"oauth2PermissionScopes\": [\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"value\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"createdDateTime\": \"2017-10-24T14:59:33.821Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcc279cb-9bcc-41cc-b14f-e55702bc14f0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "servicePrincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6dc10ed6-1a27-4253-8e75-fe287f7a2f53",
+          "name": "Microsoft Create a service principal",
+          "request": {
+            "name": "Microsoft Create a service principal",
+            "description": {
+              "content": "Create a new service principal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "servicePrincipals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"appId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84df1a4a-b8a8-4909-b54b-0c30032a8972",
+              "name": "Service principal created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "servicePrincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"appId\": \"string\",\n  \"displayName\": \"string\",\n  \"servicePrincipalType\": \"string\",\n  \"appRoles\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"value\": \"string\",\n      \"isEnabled\": false\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"value\": \"string\",\n      \"isEnabled\": true\n    }\n  ],\n  \"oauth2PermissionScopes\": [\n    {\n      \"id\": \"string\",\n      \"value\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"value\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"createdDateTime\": \"2017-08-24T11:33:57.223Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b995184-417a-4416-b45b-17ec5967509a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "servicePrincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed2ee954-8499-4650-ab74-42f126ef2eb2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "servicePrincipals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"appId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.microsoft.com/v1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://graph.microsoft.com/.default Application.ReadWrite.All Directory.ReadWrite.All"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7262c259-d1eb-46f5-a89b-c94efb5b3d33",
+    "name": "Microsoft Entra ID API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for identity and access management including user authentication, authorization, application registrations, service principals, and directory services via Microsoft Graph.\n\nContact Support:\n Name: Microsoft Entra Support",
+      "type": "text/plain"
+    }
+  }
+}

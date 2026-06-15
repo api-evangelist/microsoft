@@ -1,0 +1,1736 @@
+{
+  "item": [
+    {
+      "id": "fceeb627-5a66-45b7-a1d0-a7338051a51b",
+      "name": "Computer Vision",
+      "description": {
+        "content": "Analyze images and extract visual features",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a07000d9-b7b2-43b3-819f-65f3bbfa268b",
+          "name": "Microsoft Analyze image",
+          "request": {
+            "name": "Microsoft Analyze image",
+            "description": {
+              "content": "Extract visual features from an image including objects, faces, tags, categories, descriptions, and color information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vision",
+                "v3.2",
+                "analyze"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "visualFeatures",
+                  "value": "<string>",
+                  "description": "Visual features to analyze"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "en",
+                  "description": "Language for response"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "783c7b11-88e0-424e-87a1-f8a1b65e9994",
+              "name": "Image analysis results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vision",
+                    "v3.2",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "visualFeatures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"categories\": [\n    {\n      \"name\": \"string\",\n      \"score\": 9498.015066572267\n    },\n    {\n      \"name\": \"string\",\n      \"score\": 2930.882000353767\n    }\n  ],\n  \"tags\": [\n    {\n      \"name\": \"string\",\n      \"confidence\": 5557.436325867573\n    },\n    {\n      \"name\": \"string\",\n      \"confidence\": 8995.784609378838\n    }\n  ],\n  \"description\": {\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"captions\": [\n      {\n        \"text\": \"string\",\n        \"confidence\": 4395.764955082184\n      },\n      {\n        \"text\": \"string\",\n        \"confidence\": 3122.4013214817924\n      }\n    ]\n  },\n  \"objects\": [\n    {\n      \"object\": \"string\",\n      \"confidence\": 222.61538220937462,\n      \"rectangle\": {\n        \"x\": 4512,\n        \"y\": 591,\n        \"w\": 52,\n        \"h\": 239\n      }\n    },\n    {\n      \"object\": \"string\",\n      \"confidence\": 6745.1619281852845,\n      \"rectangle\": {\n        \"x\": 3995,\n        \"y\": 7651,\n        \"w\": 6558,\n        \"h\": 320\n      }\n    }\n  ],\n  \"metadata\": {\n    \"width\": 383,\n    \"height\": 1704,\n    \"format\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3d74627-f856-41d0-8bac-f604acfb3506",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vision",
+                    "v3.2",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "visualFeatures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf2e45d2-c7f2-47a1-bef4-4b0355cafc1a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vision",
+                    "v3.2",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "visualFeatures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "en"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad5c7b30-b2d6-4412-8bfc-25a76d09231c",
+          "name": "Microsoft Optical character recognition",
+          "request": {
+            "name": "Microsoft Optical character recognition",
+            "description": {
+              "content": "Detect and extract text from an image using optical character recognition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vision",
+                "v3.2",
+                "ocr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "unk",
+                  "description": "BCP-47 language code of the text to detect"
+                },
+                {
+                  "disabled": false,
+                  "key": "detectOrientation",
+                  "value": "true",
+                  "description": "Whether to detect text orientation"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c710b951-4364-4ae2-81f9-0104d6f27009",
+              "name": "OCR results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vision",
+                    "v3.2",
+                    "ocr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "unk"
+                    },
+                    {
+                      "key": "detectOrientation",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"language\": \"string\",\n  \"textAngle\": 4603.079305293008,\n  \"orientation\": \"string\",\n  \"regions\": [\n    {\n      \"boundingBox\": \"string\",\n      \"lines\": [\n        {\n          \"boundingBox\": \"string\",\n          \"words\": [\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            },\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            }\n          ]\n        },\n        {\n          \"boundingBox\": \"string\",\n          \"words\": [\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            },\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"boundingBox\": \"string\",\n      \"lines\": [\n        {\n          \"boundingBox\": \"string\",\n          \"words\": [\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            },\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            }\n          ]\n        },\n        {\n          \"boundingBox\": \"string\",\n          \"words\": [\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            },\n            {\n              \"boundingBox\": \"string\",\n              \"text\": \"string\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8945d08-5482-4b08-967a-893a5505d2ee",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vision",
+                    "v3.2",
+                    "ocr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "unk"
+                    },
+                    {
+                      "key": "detectOrientation",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ca439be-6dde-48a7-b127-92bf4986a91b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vision",
+                    "v3.2",
+                    "ocr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "language",
+                      "value": "unk"
+                    },
+                    {
+                      "key": "detectOrientation",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a36f8127-88ce-447c-801a-f97879753494",
+      "name": "Text Analytics",
+      "description": {
+        "content": "Extract insights from text including sentiment and entities",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "39e27274-275f-4b77-b70a-14bd72021fff",
+          "name": "Microsoft Analyze sentiment",
+          "request": {
+            "name": "Microsoft Analyze sentiment",
+            "description": {
+              "content": "Analyze sentiment of the input text and return sentiment predictions for each sentence and the document as a whole.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "text",
+                "analytics",
+                "v3.1",
+                "sentiment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "acc8c7a7-6004-495a-9a8f-bd8b9a1fbb2e",
+              "name": "Sentiment analysis results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "sentiment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"id\": \"string\",\n      \"sentiment\": \"negative\",\n      \"confidenceScores\": {\n        \"positive\": 7039.012474398219,\n        \"neutral\": 766.8514218397471,\n        \"negative\": 1799.7095457808975\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"sentiment\": \"neutral\",\n      \"confidenceScores\": {\n        \"positive\": 1255.751977764158,\n        \"neutral\": 3728.1138278027083,\n        \"negative\": 7878.643493642738\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2aca51b1-17e6-4f64-b528-53e4ded1752f",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "sentiment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60537b68-c4ff-4161-aa56-cc10e3eddfaa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "sentiment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5defea93-9a37-40e0-99a2-98ca5d0ea9ab",
+          "name": "Microsoft Recognize named entities",
+          "request": {
+            "name": "Microsoft Recognize named entities",
+            "description": {
+              "content": "Identify and categorize entities in the input text as people, places, organizations, date/time, quantities, and more.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "text",
+                "analytics",
+                "v3.1",
+                "entities",
+                "recognition",
+                "general"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee394d46-8024-46d3-b20d-1d78ca828b3c",
+              "name": "Entity recognition results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "entities",
+                    "recognition",
+                    "general"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"id\": \"string\",\n      \"entities\": [\n        {\n          \"text\": \"string\",\n          \"category\": \"string\",\n          \"subcategory\": \"string\",\n          \"offset\": 1034,\n          \"length\": 7075,\n          \"confidenceScore\": 2791.2653730052093\n        },\n        {\n          \"text\": \"string\",\n          \"category\": \"string\",\n          \"subcategory\": \"string\",\n          \"offset\": 6393,\n          \"length\": 7726,\n          \"confidenceScore\": 3997.156701708048\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"entities\": [\n        {\n          \"text\": \"string\",\n          \"category\": \"string\",\n          \"subcategory\": \"string\",\n          \"offset\": 8780,\n          \"length\": 2377,\n          \"confidenceScore\": 9125.542643010553\n        },\n        {\n          \"text\": \"string\",\n          \"category\": \"string\",\n          \"subcategory\": \"string\",\n          \"offset\": 81,\n          \"length\": 8690,\n          \"confidenceScore\": 2518.566102602703\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9ccc5a1-4c63-4d3b-a302-8ef1ffa9b784",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "entities",
+                    "recognition",
+                    "general"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04bbebcb-b786-417f-98d2-6592231f58ad",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "entities",
+                    "recognition",
+                    "general"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "613142f5-1261-46b9-9e78-1b3a0632e305",
+          "name": "Microsoft Extract key phrases",
+          "request": {
+            "name": "Microsoft Extract key phrases",
+            "description": {
+              "content": "Extract key talking points from the input text.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "text",
+                "analytics",
+                "v3.1",
+                "keyPhrases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcbff5e6-fb6a-4fde-b84e-7099107d7fec",
+              "name": "Key phrase extraction results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "keyPhrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"id\": \"string\",\n      \"keyPhrases\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"keyPhrases\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62b36595-384a-42b6-a046-a494ea39f86d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "keyPhrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a85c039-3c7e-4343-af99-fc265aa93997",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text",
+                    "analytics",
+                    "v3.1",
+                    "keyPhrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "08d4ae38-adfc-4a22-8a16-e885278ac486",
+      "name": "Translator",
+      "description": {
+        "content": "Translate text between languages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bea56808-ce5e-4301-bad3-6dbcf7338eec",
+          "name": "Microsoft Translate text",
+          "request": {
+            "name": "Microsoft Translate text",
+            "description": {
+              "content": "Translate text into one or more languages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "translate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "3.0",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) Target language codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) Target language codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Source language code"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4419732-628a-4b77-8d43-f1adc4ecb763",
+              "name": "Translation results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"detectedLanguage\": {\n      \"language\": \"string\",\n      \"score\": 4763.779842864089\n    },\n    \"translations\": [\n      {\n        \"text\": \"string\",\n        \"to\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"to\": \"string\"\n      }\n    ]\n  },\n  {\n    \"detectedLanguage\": {\n      \"language\": \"string\",\n      \"score\": 6795.835031726574\n    },\n    \"translations\": [\n      {\n        \"text\": \"string\",\n        \"to\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"to\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1faf1c54-a9fe-441f-84f8-cb8119e00079",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51b8cf6d-c0fd-4370-9968-f2489e7cb62c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "translate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f4fe0b1-d067-4b49-b1b3-282a4c1cdc19",
+          "name": "Microsoft Get supported languages",
+          "request": {
+            "name": "Microsoft Get supported languages",
+            "description": {
+              "content": "Get the set of languages currently supported by the Translator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "languages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "3.0",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Comma-separated group of language names"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9dfa902-fefc-4749-84f9-9977f558a8f7",
+              "name": "Supported languages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "languages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "07740657-c384-47ab-9695-25748387736a",
+    "name": "Microsoft Azure Cognitive Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

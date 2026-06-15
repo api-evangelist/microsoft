@@ -1,0 +1,325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure DevOps REST API",
+    "version": "7.2"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.azure.com/{organization}/_apis/projects",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of projects to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of projects to skip"
+              },
+              {
+                "name": "stateFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter on team project state"
+              }
+            ]
+          },
+          "docs": "Get all projects in the organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.azure.com/{organization}/_apis/projects",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queue a project creation operation."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.azure.com/{organization}/_apis/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              }
+            ]
+          },
+          "docs": "Get project with the specified id or name."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Git",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List repositories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.azure.com/{organization}/:project/_apis/git/repositories",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              }
+            ]
+          },
+          "docs": "Retrieve git repositories for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.azure.com/{organization}/:project/_apis/git/repositories",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a git repository in a team project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pipelines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List pipelines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.azure.com/{organization}/:project/_apis/pipelines",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of pipelines for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Run a pipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.azure.com/{organization}/:project/_apis/pipelines/:pipelineId/runs",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "pipelineId",
+                "value": "",
+                "type": "path",
+                "description": "Pipeline ID"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Runs a pipeline."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Work Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create a work item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev.azure.com/{organization}/:project/_apis/wit/workitems/$:type",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Work item type (e.g., Bug, Task, User Story)"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a single work item."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a work item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev.azure.com/{organization}/:project/_apis/wit/workitems/:id",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID or name"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Work item ID"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "Version of the API to use"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Expand work item relationships"
+              }
+            ]
+          },
+          "docs": "Returns a single work item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

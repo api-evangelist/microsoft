@@ -1,0 +1,279 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure OpenAI Service API",
+    "version": "2024-10-21"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chat Completions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create chat completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource-name}.openai.azure.com/openai/deployments/:deployment-id/chat/completions",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "",
+                "type": "path",
+                "description": "The deployment name for the model"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a completion for the chat message. Supports function calling, tool usage, and streaming responses."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Completions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create completion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource-name}.openai.azure.com/openai/deployments/:deployment-id/completions",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "",
+                "type": "path",
+                "description": "The deployment name for the model"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a completion for the provided prompt and parameters."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Embeddings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create embeddings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource-name}.openai.azure.com/openai/deployments/:deployment-id/embeddings",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "",
+                "type": "path",
+                "description": "The deployment name for the model"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a vector representation of a given input that can be consumed by machine learning models and algorithms."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Generate images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource-name}.openai.azure.com/openai/deployments/:deployment-id/images/generations",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "",
+                "type": "path",
+                "description": "The deployment name for the model"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an image given a prompt using DALL-E models."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Audio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Transcribe audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource-name}.openai.azure.com/openai/deployments/:deployment-id/audio/transcriptions",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "",
+                "type": "path",
+                "description": "The deployment name for the model"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "language",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "prompt",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "response_format",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "temperature",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Transcribes audio into the input language."
+        },
+        {
+          "info": {
+            "name": "Microsoft Translate audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource-name}.openai.azure.com/openai/deployments/:deployment-id/audio/translations",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "",
+                "type": "path",
+                "description": "The deployment name for the model"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "prompt",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "response_format",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "temperature",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Transcribes and translates input audio into English text."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

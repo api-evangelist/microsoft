@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft OneDrive API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Drives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Get current user's drive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive"
+          },
+          "docs": "Retrieve the properties and relationships of a user's OneDrive."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List root folder children",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/root/children",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Return a collection of DriveItems in the children relationship of the root folder."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              }
+            ]
+          },
+          "docs": "Retrieve the metadata for a DriveItem by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update a drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the metadata for a DriveItem by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a DriveItem by ID. Deleted items are moved to the recycle bin."
+        },
+        {
+          "info": {
+            "name": "Microsoft List children of a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId/children",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Return a collection of DriveItems in the children of a DriveItem."
+        },
+        {
+          "info": {
+            "name": "Microsoft Download file content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId/content",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ]
+          },
+          "docs": "Download the contents of a DriveItem."
+        },
+        {
+          "info": {
+            "name": "Microsoft Upload file content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId/content",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ]
+          },
+          "docs": "Upload a new file or replace the contents of an existing file. Simple upload for files up to 4MB."
+        },
+        {
+          "info": {
+            "name": "Microsoft Search for items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/search(q=':searchText')",
+            "params": [
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "path",
+                "description": "Search query text"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              }
+            ]
+          },
+          "docs": "Search the hierarchy of items for items matching a query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sharing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create a sharing link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:itemId/createLink",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new sharing link for a DriveItem."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

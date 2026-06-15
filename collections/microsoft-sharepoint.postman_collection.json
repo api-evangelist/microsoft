@@ -1,0 +1,1764 @@
+{
+  "item": [
+    {
+      "id": "ced231fa-7b28-46ef-a960-ce17efbfe7b4",
+      "name": "Items",
+      "description": {
+        "content": "Manage list items",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "484aeaa9-23b6-4918-9086-1e4f7bf5df06",
+          "name": "Microsoft List items in a list",
+          "request": {
+            "name": "Microsoft List items in a list",
+            "description": {
+              "content": "Get all items from a SharePoint list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists",
+                "getbytitle('{{listTitle}}')",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Fields to include"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of items"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Sort order"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f75dbd11-cfff-44df-8e78-b4d5277dd30e",
+              "name": "List items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"__metadata\": {\n          \"type\": \"string\"\n        },\n        \"Id\": 769,\n        \"Title\": \"string\",\n        \"Created\": \"1970-01-03T15:16:23.581Z\",\n        \"Modified\": \"1994-05-24T11:35:35.544Z\",\n        \"AuthorId\": 4016,\n        \"EditorId\": 292\n      },\n      {\n        \"__metadata\": {\n          \"type\": \"string\"\n        },\n        \"Id\": 7361,\n        \"Title\": \"string\",\n        \"Created\": \"2000-04-22T07:39:11.059Z\",\n        \"Modified\": \"2003-05-17T23:06:51.832Z\",\n        \"AuthorId\": 6184,\n        \"EditorId\": 6916\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06b085e1-394e-4dd4-820b-2ce71542bbff",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "514d1e8c-af26-4cb1-a031-a86310cf4ca2",
+          "name": "Microsoft Create a list item",
+          "request": {
+            "name": "Microsoft Create a list item",
+            "description": {
+              "content": "Add a new item to a SharePoint list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists",
+                "getbytitle('{{listTitle}}')",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1cdc667-4207-46a0-97ea-cee47b03b969",
+              "name": "Item created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"__metadata\": {\n      \"type\": \"string\"\n    },\n    \"Id\": 917,\n    \"Title\": \"string\",\n    \"Created\": \"2010-05-15T15:43:30.019Z\",\n    \"Modified\": \"2006-10-10T14:24:12.434Z\",\n    \"AuthorId\": 6098,\n    \"EditorId\": 3511\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a205e2f-98f5-471f-96f7-5d19b2f2c8c5",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b4ec3aaa-3939-43d5-8690-0b4aadf4d351",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ef3afbb-6df9-41ef-89bc-ce0cb505a987",
+          "name": "Microsoft Get a list item",
+          "request": {
+            "name": "Microsoft Get a list item",
+            "description": {
+              "content": "Get a specific item from a SharePoint list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists",
+                "getbytitle('{{listTitle}}')",
+                "items({{itemId}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dcb13b1-ccc3-46b8-bdec-ec80add7592a",
+              "name": "List item details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"__metadata\": {\n      \"type\": \"string\"\n    },\n    \"Id\": 917,\n    \"Title\": \"string\",\n    \"Created\": \"2010-05-15T15:43:30.019Z\",\n    \"Modified\": \"2006-10-10T14:24:12.434Z\",\n    \"AuthorId\": 6098,\n    \"EditorId\": 3511\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d93c9482-4f73-4164-b489-9f4861cba4f8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd00263b-3871-499f-8230-b018bfbb3d5b",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e34a909b-6b6f-4858-bf85-c379e58c1816",
+          "name": "Microsoft Update a list item",
+          "request": {
+            "name": "Microsoft Update a list item",
+            "description": {
+              "content": "Update an existing item in a SharePoint list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists",
+                "getbytitle('{{listTitle}}')",
+                "items({{itemId}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "X-HTTP-Method",
+                "value": "MERGE"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ETag value for concurrency control",
+                "key": "If-Match",
+                "value": "*"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "99a4a1fa-a849-48ce-a0ae-b414ee480440",
+              "name": "Item updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "X-HTTP-Method",
+                    "value": "MERGE"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for concurrency control",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66cfa2ff-97b5-4a0d-89d7-aa460f4a2eb8",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "X-HTTP-Method",
+                    "value": "MERGE"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for concurrency control",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e4c196c4-ddc9-4c25-81c2-2555efffb8e3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "X-HTTP-Method",
+                    "value": "MERGE"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for concurrency control",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fdeba778-ef8d-42cb-aa6f-68e4fb399688",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "X-HTTP-Method",
+                    "value": "MERGE"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for concurrency control",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3181ebec-c3a9-40fc-bbf0-99a7a9a5b294",
+          "name": "Microsoft Delete a list item",
+          "request": {
+            "name": "Microsoft Delete a list item",
+            "description": {
+              "content": "Delete an item from a SharePoint list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists",
+                "getbytitle('{{listTitle}}')",
+                "items({{itemId}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "If-Match",
+                "value": "*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95484e5a-603a-4832-8c41-1b0fc5da5da2",
+              "name": "Item deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e130305-5fb1-417c-a885-5272f99f4971",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58557810-4241-496d-8400-351682547e34",
+              "name": "Item not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')",
+                    "items({{itemId}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "If-Match",
+                    "value": "*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8e4c1131-8630-464d-873a-4ee144297ba8",
+      "name": "Lists",
+      "description": {
+        "content": "Manage SharePoint lists",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4898ad9a-2e06-4e6b-b044-a16234c48465",
+          "name": "Microsoft List all lists",
+          "request": {
+            "name": "Microsoft List all lists",
+            "description": {
+              "content": "Get all lists in the current SharePoint site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52af3913-f477-4156-9b8a-22eaead7c787",
+              "name": "List of SharePoint lists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"Id\": \"string\",\n        \"Title\": \"string\",\n        \"Description\": \"string\",\n        \"ItemCount\": 76,\n        \"Created\": \"1987-12-29T21:31:59.649Z\",\n        \"LastItemModifiedDate\": \"1999-02-01T22:29:01.143Z\",\n        \"Hidden\": false,\n        \"BaseTemplate\": 7722,\n        \"ListItemEntityTypeFullName\": \"string\"\n      },\n      {\n        \"Id\": \"string\",\n        \"Title\": \"string\",\n        \"Description\": \"string\",\n        \"ItemCount\": 1873,\n        \"Created\": \"1955-11-18T04:32:54.070Z\",\n        \"LastItemModifiedDate\": \"1949-10-26T06:27:50.670Z\",\n        \"Hidden\": true,\n        \"BaseTemplate\": 4741,\n        \"ListItemEntityTypeFullName\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c109474-9ccc-48f3-ac97-77b78de995ba",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33eb2706-79bb-4203-b9ca-f975b37efe44",
+          "name": "Microsoft Get list by title",
+          "request": {
+            "name": "Microsoft Get list by title",
+            "description": {
+              "content": "Get a SharePoint list by its title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web",
+                "lists",
+                "getbytitle('{{listTitle}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6b15190-948d-4e44-b096-16cbae946381",
+              "name": "List details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"Id\": \"string\",\n    \"Title\": \"string\",\n    \"Description\": \"string\",\n    \"ItemCount\": 7857,\n    \"Created\": \"1987-08-08T00:54:54.912Z\",\n    \"LastItemModifiedDate\": \"1997-06-16T20:36:08.379Z\",\n    \"Hidden\": false,\n    \"BaseTemplate\": 4853,\n    \"ListItemEntityTypeFullName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5ac3b31-369b-499b-8749-2c3850a77b09",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4fa27ac8-c51a-4dbc-9f18-7a66fb3b2852",
+              "name": "List not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "lists",
+                    "getbytitle('{{listTitle}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "12790635-944b-4df5-b74f-e211534ed897",
+      "name": "Sites",
+      "description": {
+        "content": "Access SharePoint sites via Microsoft Graph",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20c5a190-9115-4d49-9f66-2772aa1fe551",
+          "name": "Microsoft Get current web",
+          "request": {
+            "name": "Microsoft Get current web",
+            "description": {
+              "content": "Get the properties of the current SharePoint site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "web"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your SharePoint Online tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f04a4d3a-cb86-4ee3-8886-b34b46a54882",
+              "name": "Web properties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"string\",\n  \"Title\": \"string\",\n  \"Description\": \"string\",\n  \"Url\": \"string\",\n  \"Created\": \"1982-08-21T11:02:27.664Z\",\n  \"Language\": 5169,\n  \"WebTemplate\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6175540a-e1d4-4b15-88d2-18988b7f4a74",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your SharePoint Online tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your SharePoint Online tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-tenant",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/_api",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Title of the list",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "listTitle"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Item ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "itemId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "Sites.Read.All Sites.ReadWrite.All"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "75f5d155-cfac-49f8-b045-59760511a67c",
+    "name": "Microsoft SharePoint REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST service for remotely interacting with SharePoint data including sites, lists, list items, and document libraries using standard REST and OData protocols.\n\nContact Support:\n Name: SharePoint Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

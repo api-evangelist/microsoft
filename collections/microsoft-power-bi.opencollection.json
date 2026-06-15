@@ -1,0 +1,319 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Power BI REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/datasets"
+          },
+          "docs": "Returns a list of datasets from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/datasets/:datasetId",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns the specified dataset from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.powerbi.com/v1.0/myorg/datasets/:datasetId",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              }
+            ]
+          },
+          "docs": "Deletes the specified dataset from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft List refresh history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/datasets/:datasetId/refreshes",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of entries to return"
+              }
+            ]
+          },
+          "docs": "Returns the refresh history for the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Microsoft Trigger dataset refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.powerbi.com/v1.0/myorg/datasets/:datasetId/refreshes",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              }
+            ]
+          },
+          "docs": "Triggers a refresh for the specified dataset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/reports"
+          },
+          "docs": "Returns a list of reports from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/reports/:reportId",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Report unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns the specified report from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.powerbi.com/v1.0/myorg/reports/:reportId",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path",
+                "description": "Report unique identifier"
+              }
+            ]
+          },
+          "docs": "Deletes the specified report from My workspace."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/dashboards"
+          },
+          "docs": "Returns a list of dashboards from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/dashboards/:dashboardId",
+            "params": [
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "path",
+                "description": "Dashboard unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns the specified dashboard from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft List dashboard tiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/dashboards/:dashboardId/tiles",
+            "params": [
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "path",
+                "description": "Dashboard unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns a list of tiles within the specified dashboard."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.powerbi.com/v1.0/myorg/groups",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number to skip"
+              }
+            ]
+          },
+          "docs": "Returns a list of workspaces the user has access to."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Imports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Import a PBIX file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.powerbi.com/v1.0/myorg/imports",
+            "params": [
+              {
+                "name": "datasetDisplayName",
+                "value": "",
+                "type": "query",
+                "description": "Display name for the dataset"
+              },
+              {
+                "name": "nameConflict",
+                "value": "",
+                "type": "query",
+                "description": "Action on name conflict"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Imports a Power BI .pbix file into My workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2133 @@
+{
+  "item": [
+    {
+      "id": "91bffb83-ff1c-499a-a59b-536c65bda9c9",
+      "name": "Chat",
+      "description": {
+        "content": "Manage chat threads and messages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9f43940-7821-4e62-9c24-9a2058b25e24",
+          "name": "Microsoft Create a chat thread",
+          "request": {
+            "name": "Microsoft Create a chat thread",
+            "description": {
+              "content": "Create a new chat thread.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chat",
+                "threads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d3c91717-ffff-4c87-bd5b-be94475cd909",
+              "name": "Chat thread created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chatThread\": {\n    \"id\": \"string\",\n    \"topic\": \"string\",\n    \"createdOn\": \"1973-05-19T23:00:31.351Z\",\n    \"createdByCommunicationIdentifier\": {\n      \"communicationUserId\": \"string\"\n    },\n    \"deletedOn\": \"1970-01-09T04:55:49.486Z\"\n  },\n  \"errors\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dc33e45-f5c6-448c-89dc-1c2a8a6d22b5",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98199459-ad13-4a22-9721-4bb54b8dfee0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "310ca512-920a-476b-9cd6-691ea809aa7a",
+          "name": "Microsoft List chat threads",
+          "request": {
+            "name": "Microsoft List chat threads",
+            "description": {
+              "content": "List all chat threads for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chat",
+                "threads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPageSize",
+                  "value": "<integer>",
+                  "description": "Maximum number of threads per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<dateTime>",
+                  "description": "Start time for the range query"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b07484b-c933-4906-89cc-1ca346e8aa25",
+              "name": "List of chat threads",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    },
+                    {
+                      "key": "maxPageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"topic\": \"string\",\n      \"createdOn\": \"1972-10-13T01:12:30.680Z\",\n      \"createdByCommunicationIdentifier\": {\n        \"communicationUserId\": \"string\"\n      },\n      \"deletedOn\": \"1994-05-25T13:46:23.916Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"topic\": \"string\",\n      \"createdOn\": \"1955-11-03T08:18:06.992Z\",\n      \"createdByCommunicationIdentifier\": {\n        \"communicationUserId\": \"string\"\n      },\n      \"deletedOn\": \"2013-06-16T01:11:08.913Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f532467f-ab27-4764-9c54-c78702d38869",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    },
+                    {
+                      "key": "maxPageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26a3b714-ce51-4c47-9c6c-34149e8f3fc2",
+          "name": "Microsoft Send a chat message",
+          "request": {
+            "name": "Microsoft Send a chat message",
+            "description": {
+              "content": "Send a message to a chat thread.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chat",
+                "threads",
+                ":chatThreadId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chatThreadId",
+                  "description": "(Required) Chat thread ID"
+                },
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b8cd7f8-3ec9-4858-9165-99c1f84abbb3",
+              "name": "Message sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads",
+                    ":chatThreadId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chatThreadId",
+                      "description": "(Required) Chat thread ID"
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93cc46ad-8e0e-430d-8d96-e7a8c2d853eb",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads",
+                    ":chatThreadId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chatThreadId",
+                      "description": "(Required) Chat thread ID"
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2edc06e5-78a3-4067-b275-c23fb56c1806",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads",
+                    ":chatThreadId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chatThreadId",
+                      "description": "(Required) Chat thread ID"
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a780ddeb-96a5-4c11-befb-6c9e3c126060",
+          "name": "Microsoft List chat messages",
+          "request": {
+            "name": "Microsoft List chat messages",
+            "description": {
+              "content": "List messages in a chat thread.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "chat",
+                "threads",
+                ":chatThreadId",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chatThreadId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6a9313a-44b5-438c-be4b-dd3c9e4d0967",
+              "name": "List of messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads",
+                    ":chatThreadId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    },
+                    {
+                      "key": "maxPageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chatThreadId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"content\": {\n        \"message\": \"string\"\n      },\n      \"senderDisplayName\": \"string\",\n      \"createdOn\": \"1964-01-31T01:17:46.762Z\",\n      \"senderCommunicationIdentifier\": {\n        \"communicationUserId\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"content\": {\n        \"message\": \"string\"\n      },\n      \"senderDisplayName\": \"string\",\n      \"createdOn\": \"2011-03-27T06:16:16.320Z\",\n      \"senderCommunicationIdentifier\": {\n        \"communicationUserId\": \"string\"\n      }\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b27735b-a939-4a2e-afa8-33289d3f794f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "chat",
+                    "threads",
+                    ":chatThreadId",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    },
+                    {
+                      "key": "maxPageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chatThreadId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "93425774-30cc-4802-8469-b1a8939851f8",
+      "name": "Email",
+      "description": {
+        "content": "Send email messages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9a42ea4-3da6-421b-85f6-d48d2d73a503",
+          "name": "Microsoft Send an email",
+          "request": {
+            "name": "Microsoft Send an email",
+            "description": {
+              "content": "Queues an email message for sending.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "emails:send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"senderAddress\": \"<string>\",\n  \"recipients\": {\n    \"to\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"cc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"bcc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ]\n  },\n  \"content\": {\n    \"subject\": \"<string>\",\n    \"plainText\": \"<string>\",\n    \"html\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "268a3ce8-0b71-4773-9113-45db745554ee",
+              "name": "Email accepted for delivery",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "emails:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"senderAddress\": \"<string>\",\n  \"recipients\": {\n    \"to\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"cc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"bcc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ]\n  },\n  \"content\": {\n    \"subject\": \"<string>\",\n    \"plainText\": \"<string>\",\n    \"html\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL to poll for send status",
+                  "key": "Operation-Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"Failed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b80de6ae-08aa-4826-aefe-8a5b720acfc8",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "emails:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"senderAddress\": \"<string>\",\n  \"recipients\": {\n    \"to\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"cc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"bcc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ]\n  },\n  \"content\": {\n    \"subject\": \"<string>\",\n    \"plainText\": \"<string>\",\n    \"html\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b861032-1d4d-4401-9a4c-42d98d9d5153",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "emails:send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"senderAddress\": \"<string>\",\n  \"recipients\": {\n    \"to\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"cc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ],\n    \"bcc\": [\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      },\n      {\n        \"address\": \"<string>\",\n        \"displayName\": \"<string>\"\n      }\n    ]\n  },\n  \"content\": {\n    \"subject\": \"<string>\",\n    \"plainText\": \"<string>\",\n    \"html\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2fae4549-799c-4fb4-8389-c753e3b5a7ea",
+      "name": "Identity",
+      "description": {
+        "content": "Create and manage communication identities",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a58d8c01-fff2-4e9f-98bf-49d2e0c87234",
+          "name": "Microsoft Create an identity",
+          "request": {
+            "name": "Microsoft Create an identity",
+            "description": {
+              "content": "Create a new Communication Services identity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createTokenWithScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c99b5db7-bc1a-4a53-88c6-17ff59ba0314",
+              "name": "Identity created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createTokenWithScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"identity\": {\n    \"id\": \"string\"\n  },\n  \"accessToken\": {\n    \"token\": \"string\",\n    \"expiresOn\": \"2005-10-06T09:07:38.043Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c669472-dd69-48c2-8970-b10f75b76b8a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createTokenWithScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c94cf53-81bf-49b8-aaf2-d0edc9d81954",
+          "name": "Microsoft Delete an identity",
+          "request": {
+            "name": "Microsoft Delete an identity",
+            "description": {
+              "content": "Delete a Communication Services identity and revoke all tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identities",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Identifier of the identity to delete"
+                },
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02f0e4a8-66f8-4ae2-bd62-2f1a2bcf895b",
+              "name": "Identity deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the identity to delete"
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44ffd9f0-b98b-4283-9c60-104d2be34730",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the identity to delete"
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b228503-5766-4f82-bc9d-78f4d3dd2d32",
+              "name": "Identity not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Identifier of the identity to delete"
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11544aa9-cfa0-48a8-afa0-815b8ec3102c",
+          "name": "Microsoft Issue an access token",
+          "request": {
+            "name": "Microsoft Issue an access token",
+            "description": {
+              "content": "Issue a new access token for an identity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identities",
+                ":id",
+                ":issueAccessToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expiresInMinutes\": 1440\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a8a4605-4dc0-4971-9a4b-7c09059e0e68",
+              "name": "Access token issued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities",
+                    ":id",
+                    ":issueAccessToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expiresInMinutes\": 1440\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"expiresOn\": \"1984-08-26T08:05:12.512Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "744942a3-9586-4742-88e5-e463bca4bc42",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identities",
+                    ":id",
+                    ":issueAccessToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expiresInMinutes\": 1440\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "258ecbfb-1426-48ed-aa14-070488867960",
+      "name": "SMS",
+      "description": {
+        "content": "Send SMS messages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e31248a-3cf8-4558-b88b-8930c4aeca4b",
+          "name": "Microsoft Send an SMS message",
+          "request": {
+            "name": "Microsoft Send an SMS message",
+            "description": {
+              "content": "Send a single SMS message or a batch of SMS messages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-15-preview",
+                  "description": "(Required) API version"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Communication Services resource name",
+                  "type": "any",
+                  "value": "{{resource}}",
+                  "key": "resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed1a84c2-ed66-4331-a2ed-c142609b91c3",
+              "name": "SMS accepted for delivery",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"to\": \"string\",\n      \"messageId\": \"string\",\n      \"httpStatusCode\": 6323,\n      \"successful\": false,\n      \"errorMessage\": \"string\"\n    },\n    {\n      \"to\": \"string\",\n      \"messageId\": \"string\",\n      \"httpStatusCode\": 9367,\n      \"successful\": false,\n      \"errorMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73208766-bb5d-41db-a47e-96736c149f9d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa750ac9-726b-47db-b214-6ef1d2250818",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Communication Services resource name",
+                      "type": "any",
+                      "value": "{{resource}}",
+                      "key": "resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Communication Services resource name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-resource",
+      "key": "resource"
+    },
+    {
+      "type": "string",
+      "value": "https://{{resource}}.communication.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ada41b6f-9ed2-45e8-8126-9a0982425137",
+    "name": "Microsoft Azure Communication Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Multichannel communication APIs for adding voice, video, chat, SMS, and email capabilities to applications.\n\nContact Support:\n Name: Azure Communication Services Support",
+      "type": "text/plain"
+    }
+  }
+}

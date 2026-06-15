@@ -1,0 +1,242 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft SharePoint REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Get current web",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/_api/web"
+          },
+          "docs": "Get the properties of the current SharePoint site."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List all lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists"
+          },
+          "docs": "Get all lists in the current SharePoint site."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get list by title",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists/getbytitle(':listTitle')",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path",
+                "description": "Title of the list"
+              }
+            ]
+          },
+          "docs": "Get a SharePoint list by its title."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List items in a list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists/getbytitle(':listTitle')/items",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path",
+                "description": "Title of the list"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Fields to include"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Get all items from a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists/getbytitle(':listTitle')/items",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new item to a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists/getbytitle(':listTitle')/items(:itemId)",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Item ID"
+              }
+            ]
+          },
+          "docs": "Get a specific item from a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists/getbytitle(':listTitle')/items(:itemId)",
+            "headers": [
+              {
+                "name": "X-HTTP-Method",
+                "value": ""
+              },
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing item in a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/_api/web/lists/getbytitle(':listTitle')/items(:itemId)",
+            "headers": [
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an item from a SharePoint list."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

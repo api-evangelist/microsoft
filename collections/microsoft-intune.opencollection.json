@@ -1,0 +1,230 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Intune API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Managed Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List managed devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List properties and relationships of managed device objects."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a managed device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "Managed device unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Read properties of a managed device object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Wipe a managed device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/wipe",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Wipe a device, removing all data and resetting to factory defaults."
+        },
+        {
+          "info": {
+            "name": "Microsoft Retire a managed device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/managedDevices/:managedDeviceId/retire",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retire a device, removing managed data while keeping personal data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Device Compliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List compliance policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceCompliancePolicies",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List properties and relationships of device compliance policy objects."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Mobile Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List mobile apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceAppManagement/mobileApps",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List properties and relationships of mobile app objects."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Device Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List device configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/deviceManagement/deviceConfigurations",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List properties and relationships of device configuration objects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

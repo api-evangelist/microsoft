@@ -1,0 +1,203 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Computer Vision",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Analyze image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/vision/v3.2/analyze",
+            "params": [
+              {
+                "name": "visualFeatures",
+                "value": "",
+                "type": "query",
+                "description": "Visual features to analyze"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language for response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Extract visual features from an image including objects, faces, tags, categories, descriptions, and color information."
+        },
+        {
+          "info": {
+            "name": "Microsoft Optical character recognition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/vision/v3.2/ocr",
+            "params": [
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "BCP-47 language code of the text to detect"
+              },
+              {
+                "name": "detectOrientation",
+                "value": "",
+                "type": "query",
+                "description": "Whether to detect text orientation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect and extract text from an image using optical character recognition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Text Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Analyze sentiment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/text/analytics/v3.1/sentiment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Analyze sentiment of the input text and return sentiment predictions for each sentence and the document as a whole."
+        },
+        {
+          "info": {
+            "name": "Microsoft Recognize named entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/text/analytics/v3.1/entities/recognition/general",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Identify and categorize entities in the input text as people, places, organizations, date/time, quantities, and more."
+        },
+        {
+          "info": {
+            "name": "Microsoft Extract key phrases",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/text/analytics/v3.1/keyPhrases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Extract key talking points from the input text."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Translator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Translate text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/translate",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Target language codes"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Source language code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Translate text into one or more languages."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get supported languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/languages",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated group of language names"
+              }
+            ]
+          },
+          "docs": "Get the set of languages currently supported by the Translator."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

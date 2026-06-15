@@ -1,0 +1,1841 @@
+{
+  "item": [
+    {
+      "id": "9bba8b8b-9531-4662-8e79-5e21ca065fe1",
+      "name": "Calendar",
+      "description": {
+        "content": "Manage calendar events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7dc304f4-e903-4404-b9c7-43c76ef0274b",
+          "name": "Microsoft List calendar events",
+          "request": {
+            "name": "Microsoft List calendar events",
+            "description": {
+              "content": "Get events from the user's default calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53d41d87-aed7-4603-a4e2-6fbb3fb66a89",
+              "name": "List of events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"start\": {\n        \"dateTime\": \"1980-05-12T01:23:59.689Z\",\n        \"timeZone\": \"string\"\n      },\n      \"end\": {\n        \"dateTime\": \"1965-02-27T01:10:01.355Z\",\n        \"timeZone\": \"string\"\n      },\n      \"location\": {\n        \"displayName\": \"string\"\n      },\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"oKu3b8K34-8bns@YBjlGVPuMGfcNfQLBhyGhUmxRvZtrign.ff\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"none\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"tentativelyAccepted\"\n          }\n        }\n      ],\n      \"isAllDay\": false,\n      \"isCancelled\": false,\n      \"showAs\": \"free\"\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"start\": {\n        \"dateTime\": \"2008-04-18T10:52:28.265Z\",\n        \"timeZone\": \"string\"\n      },\n      \"end\": {\n        \"dateTime\": \"2014-08-24T21:52:28.812Z\",\n        \"timeZone\": \"string\"\n      },\n      \"location\": {\n        \"displayName\": \"string\"\n      },\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"dz6B8WPDknXyC@JFvuiSwDcUxL.fvy\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"none\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"organizer\"\n          }\n        }\n      ],\n      \"isAllDay\": false,\n      \"isCancelled\": true,\n      \"showAs\": \"free\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0af166a2-cd4d-49af-8cd9-f011fa1eac44",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8492400-0245-464b-bc0d-b7193c2e9ff4",
+          "name": "Microsoft Create a calendar event",
+          "request": {
+            "name": "Microsoft Create a calendar event",
+            "description": {
+              "content": "Create an event in the user's default calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "943b8365-2c00-4084-835c-ec37f82bd265",
+              "name": "Event created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"string\",\n  \"start\": {\n    \"dateTime\": \"2001-06-08T06:34:41.260Z\",\n    \"timeZone\": \"string\"\n  },\n  \"end\": {\n    \"dateTime\": \"1983-07-17T07:21:54.168Z\",\n    \"timeZone\": \"string\"\n  },\n  \"location\": {\n    \"displayName\": \"string\"\n  },\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"string\",\n      \"address\": \"aLvcZ-Vi7X@MvqHMOULXr.iav\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"string\"\n      },\n      \"type\": \"required\",\n      \"status\": {\n        \"response\": \"organizer\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"string\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"accepted\"\n      }\n    }\n  ],\n  \"isAllDay\": true,\n  \"isCancelled\": true,\n  \"showAs\": \"busy\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b35728d-0598-4fe8-861b-daafbb814c60",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "feb89924-db56-44b4-9221-7443b30f356b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "70ee9a89-6314-4c67-8348-f222ae47a180",
+      "name": "Contacts",
+      "description": {
+        "content": "Manage personal contacts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6d36382-b547-4ce0-8d16-fac1f1b5c52c",
+          "name": "Microsoft List contacts",
+          "request": {
+            "name": "Microsoft List contacts",
+            "description": {
+              "content": "Get contacts from the user's default contacts folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ffc52c22-22fb-48f5-acb0-6a92b8e8bf69",
+              "name": "List of contacts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"givenName\": \"string\",\n      \"surname\": \"string\",\n      \"emailAddresses\": [\n        {\n          \"name\": \"string\",\n          \"address\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"address\": \"string\"\n        }\n      ],\n      \"businessPhones\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mobilePhone\": \"string\",\n      \"companyName\": \"string\",\n      \"jobTitle\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"givenName\": \"string\",\n      \"surname\": \"string\",\n      \"emailAddresses\": [\n        {\n          \"name\": \"string\",\n          \"address\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"address\": \"string\"\n        }\n      ],\n      \"businessPhones\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mobilePhone\": \"string\",\n      \"companyName\": \"string\",\n      \"jobTitle\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d82baedb-22eb-4601-87d9-ecbdd0541ccb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "077b0a4f-e2b9-421c-93a8-a28d6bc46789",
+          "name": "Microsoft Create a contact",
+          "request": {
+            "name": "Microsoft Create a contact",
+            "description": {
+              "content": "Create a new contact in the user's default contacts folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"emailAddresses\": [\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    }\n  ],\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"jobTitle\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ab41a2f-bdc5-4dc7-81b9-fe8167779541",
+              "name": "Contact created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"emailAddresses\": [\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    }\n  ],\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"jobTitle\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"givenName\": \"string\",\n  \"surname\": \"string\",\n  \"emailAddresses\": [\n    {\n      \"name\": \"string\",\n      \"address\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"address\": \"string\"\n    }\n  ],\n  \"businessPhones\": [\n    \"string\",\n    \"string\"\n  ],\n  \"mobilePhone\": \"string\",\n  \"companyName\": \"string\",\n  \"jobTitle\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c21b376-b04e-4b0d-a0d9-913682f463a9",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"emailAddresses\": [\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    }\n  ],\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"jobTitle\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5bfe8de-744f-43fc-beae-39c132520de8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"emailAddresses\": [\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\"\n    }\n  ],\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"jobTitle\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9d5295d1-dd76-4939-a487-4a8574ab7018",
+      "name": "Mail",
+      "description": {
+        "content": "Manage mail messages and folders",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "984e4602-4a9c-44ee-9d9f-59ac4baa5d7f",
+          "name": "Microsoft List messages",
+          "request": {
+            "name": "Microsoft List messages",
+            "description": {
+              "content": "Get the messages in the signed-in user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bba0257-02b8-475d-9309-5a78c321f08d",
+              "name": "List of messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"bodyPreview\": \"string\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"string\"\n      },\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"trsEsWDez@gtYQJLgjIfUC.ed\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"CurapogH0moh@yiBalQZLktzwmpXlbHyQntKGJqazjWTA.xwzs\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"G9BNYjK6L21@pFBuOFtpXVLhnJBBrrr.ebm\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"S-5@abntlqwJnsDWRQNWlGeK.brst\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"XbV@CDyoIXJBowj.tl\"\n          }\n        }\n      ],\n      \"receivedDateTime\": \"1957-03-29T06:56:00.375Z\",\n      \"sentDateTime\": \"2011-08-15T09:15:52.747Z\",\n      \"isRead\": true,\n      \"isDraft\": true,\n      \"hasAttachments\": true,\n      \"importance\": \"high\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"bodyPreview\": \"string\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"string\"\n      },\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"vESuB@OktGnhVVPUIxZnFgDibfzbjuHQSM.mzzr\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"3q49v2@iqJ.tw\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"gusUXDgfJYu@TrKgNYapbvjWJxsvxZOwgVbHuzyyTQv.nvrd\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"3e1HcvjlAr@ySPIoZuqVLfuVoNOu.vzd\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"oiV@jzxeOFzCejyTFTHtcceKknybwEjyTMQnM.lbn\"\n          }\n        }\n      ],\n      \"receivedDateTime\": \"1987-03-23T11:57:37.389Z\",\n      \"sentDateTime\": \"1979-12-25T20:46:26.853Z\",\n      \"isRead\": true,\n      \"isDraft\": true,\n      \"hasAttachments\": false,\n      \"importance\": \"high\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b7e9325-b0d8-4937-8377-94774d3a18e7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a2140ef-336d-4e09-a542-714cea791032",
+          "name": "Microsoft Get a message",
+          "request": {
+            "name": "Microsoft Get a message",
+            "description": {
+              "content": "Retrieve a specific message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) Message unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a73684c-0c06-44c9-bc0b-968783623f10",
+              "name": "Message details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"string\",\n  \"bodyPreview\": \"string\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"string\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"string\",\n      \"address\": \"0ffb1lY9cVj@vpJeOjmyTqwMcAQwkVTl.md\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"KFS@aNB.xlnz\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"6La7Rswkj@XDxqZbEtZBbjMYPzo.aqb\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"s1rN@b.kw\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"JoidfWmOB@KQwCCPvHDuowKlQDAyPuAgJwLrmHQon.yzn\"\n      }\n    }\n  ],\n  \"receivedDateTime\": \"2025-09-14T00:25:35.620Z\",\n  \"sentDateTime\": \"1987-11-18T00:41:14.804Z\",\n  \"isRead\": true,\n  \"isDraft\": false,\n  \"hasAttachments\": false,\n  \"importance\": \"high\",\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10e4cb26-240c-4313-b287-0bf98720c745",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57003bd5-c144-4221-b392-9a165c1fcd13",
+              "name": "Message not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f3ef698-a7d0-4fb7-a9e3-b5c1497f48c9",
+          "name": "Microsoft Update a message",
+          "request": {
+            "name": "Microsoft Update a message",
+            "description": {
+              "content": "Update the properties of a message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) Message unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a08daa0-e48d-46b9-aa52-ef2f45c2df21",
+              "name": "Message updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"string\",\n  \"bodyPreview\": \"string\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"string\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"string\",\n      \"address\": \"0ffb1lY9cVj@vpJeOjmyTqwMcAQwkVTl.md\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"KFS@aNB.xlnz\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"6La7Rswkj@XDxqZbEtZBbjMYPzo.aqb\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"s1rN@b.kw\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"JoidfWmOB@KQwCCPvHDuowKlQDAyPuAgJwLrmHQon.yzn\"\n      }\n    }\n  ],\n  \"receivedDateTime\": \"2025-09-14T00:25:35.620Z\",\n  \"sentDateTime\": \"1987-11-18T00:41:14.804Z\",\n  \"isRead\": true,\n  \"isDraft\": false,\n  \"hasAttachments\": false,\n  \"importance\": \"high\",\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a4a7bd1-98bd-4c6f-a068-58b3a424ce1e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ff687c9-d646-4f50-b1a9-f21e5e81f681",
+          "name": "Microsoft Delete a message",
+          "request": {
+            "name": "Microsoft Delete a message",
+            "description": {
+              "content": "Delete a message and move it to the Deleted Items folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) Message unique identifier"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5a16a32-6738-4694-ad2f-28b0b79b19b1",
+              "name": "Message deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f96e1d0-14e3-407e-8038-69c4e0fa7a51",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7665382e-a886-4e4c-91da-ce111a4083f1",
+          "name": "Microsoft Send mail",
+          "request": {
+            "name": "Microsoft Send mail",
+            "description": {
+              "content": "Send the message specified in the request body. The message is saved in the Sent Items folder by default.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sendMail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1b43d638-a2db-4812-9c08-04e0d7d52c24",
+              "name": "Mail sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"VqTiLOBrPDF6@F.wllf\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"YXEv4a6c@GOTDmxzIodcEKQUVBne.oeu\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"alhx@abLiWICogPRFPdRRmESLQDiVEHnAaHcQm.ylvn\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"15mwDR2PX@GpKhZwnalYSOsDijGYHbxSCL.ha\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9878ccb-1789-4c00-9520-526a9b3d122d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"VqTiLOBrPDF6@F.wllf\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"YXEv4a6c@GOTDmxzIodcEKQUVBne.oeu\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"alhx@abLiWICogPRFPdRRmESLQDiVEHnAaHcQm.ylvn\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"15mwDR2PX@GpKhZwnalYSOsDijGYHbxSCL.ha\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7719b208-9c05-4e56-ad76-68b11144ad61",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"VqTiLOBrPDF6@F.wllf\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"YXEv4a6c@GOTDmxzIodcEKQUVBne.oeu\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"alhx@abLiWICogPRFPdRRmESLQDiVEHnAaHcQm.ylvn\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"15mwDR2PX@GpKhZwnalYSOsDijGYHbxSCL.ha\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "630c2280-0623-4b46-bfd4-177c28dc8643",
+          "name": "Microsoft List mail folders",
+          "request": {
+            "name": "Microsoft List mail folders",
+            "description": {
+              "content": "Get the mail folder collection under the root folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mailFolders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edf4d4db-d52b-40e5-82e2-a9fb701fc309",
+              "name": "List of mail folders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mailFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"totalItemCount\": 9376,\n      \"unreadItemCount\": 232,\n      \"parentFolderId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"totalItemCount\": 2233,\n      \"unreadItemCount\": 4457,\n      \"parentFolderId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "648dd8be-b7b5-4117-b7fe-62bf1ec680b2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mailFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.microsoft.com/v1.0/me",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "Mail.Read Mail.ReadWrite Mail.Send Calendars.Read Calendars.ReadWrite Contacts.Read Contacts.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "506b1ba9-0c7c-4eb0-b432-807d4d4ddd80",
+    "name": "Microsoft Outlook API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for integrating with Outlook mail, calendar, and contacts through Microsoft Graph including reading, sending, and organizing messages.\n\nContact Support:\n Name: Outlook Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

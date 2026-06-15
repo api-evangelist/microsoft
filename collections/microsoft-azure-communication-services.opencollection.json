@@ -1,0 +1,289 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Communication Services API",
+    "version": "2024-03-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create an identity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource}.communication.azure.com/identities",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Communication Services identity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete an identity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{resource}.communication.azure.com/identities/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the identity to delete"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ]
+          },
+          "docs": "Delete a Communication Services identity and revoke all tokens."
+        },
+        {
+          "info": {
+            "name": "Microsoft Issue an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource}.communication.azure.com/identities/:id/:issueAccessToken",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue a new access token for an identity."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Send an SMS message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource}.communication.azure.com/sms",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a single SMS message or a batch of SMS messages."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Email",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Send an email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource}.communication.azure.com/emails:send",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queues an email message for sending."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List chat threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{resource}.communication.azure.com/chat/threads",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              },
+              {
+                "name": "maxPageSize",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of threads per page"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time for the range query"
+              }
+            ]
+          },
+          "docs": "List all chat threads for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a chat thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource}.communication.azure.com/chat/threads",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new chat thread."
+        },
+        {
+          "info": {
+            "name": "Microsoft List chat messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{resource}.communication.azure.com/chat/threads/:chatThreadId/messages",
+            "params": [
+              {
+                "name": "chatThreadId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              },
+              {
+                "name": "maxPageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List messages in a chat thread."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send a chat message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{resource}.communication.azure.com/chat/threads/:chatThreadId/messages",
+            "params": [
+              {
+                "name": "chatThreadId",
+                "value": "",
+                "type": "path",
+                "description": "Chat thread ID"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a message to a chat thread."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

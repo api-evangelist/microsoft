@@ -1,0 +1,220 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Bing Search APIs",
+    "version": "7.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Web Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Web search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bing.microsoft.com/v7.0/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query string"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (1-50)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for pagination"
+              },
+              {
+                "name": "mkt",
+                "value": "",
+                "type": "query",
+                "description": "Market code (e.g., en-US)"
+              },
+              {
+                "name": "safeSearch",
+                "value": "",
+                "type": "query",
+                "description": "Filter adult content"
+              },
+              {
+                "name": "responseFilter",
+                "value": "",
+                "type": "query",
+                "description": "Comma-delimited list of answer types to include"
+              }
+            ]
+          },
+          "docs": "Returns relevant web pages, images, videos, news, and more for a given search query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Image Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Image search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bing.microsoft.com/v7.0/images/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query string"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of images to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mkt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Filter images by size"
+              },
+              {
+                "name": "imageType",
+                "value": "",
+                "type": "query",
+                "description": "Filter images by type"
+              }
+            ]
+          },
+          "docs": "Returns images relevant to the given search query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "News Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft News search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bing.microsoft.com/v7.0/news/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query string"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mkt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "freshness",
+                "value": "",
+                "type": "query",
+                "description": "Filter by article freshness"
+              }
+            ]
+          },
+          "docs": "Returns news articles relevant to the given search query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Video Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Video search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bing.microsoft.com/v7.0/videos/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query string"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mkt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns videos relevant to the given search query."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

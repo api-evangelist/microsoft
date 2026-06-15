@@ -1,0 +1,367 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Teams API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List all teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              }
+            ]
+          },
+          "docs": "List all teams in an organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties and relationships of the specified team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a team and its associated group."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/channels",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Retrieve the list of channels in a team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/channels",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new channel in a team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/channels/:channelId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "path",
+                "description": "Channel unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties of a channel."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/channels/:channelId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "path",
+                "description": "Channel unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a channel in a team."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List channel messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/channels/:channelId/messages",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "path",
+                "description": "Channel unique identifier"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              }
+            ]
+          },
+          "docs": "Retrieve the list of messages in a channel."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send a channel message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/channels/:channelId/messages",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "path",
+                "description": "Channel unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a new message to a channel."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List team members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/members",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ]
+          },
+          "docs": "Get the members of a team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Add a team member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/teams/:teamId/members",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new member to a team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

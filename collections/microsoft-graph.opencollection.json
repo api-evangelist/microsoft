@@ -1,0 +1,1314 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Graph API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/users",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search expression to filter results"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "Include count of items in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of user objects. By default, only a limited set of properties are returned. To return an alternative property set, specify the desired properties using the OData $select query parameter."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new user object. The request body contains the user to create. At a minimum, you must specify the required properties for the user, including displayName, mailNickname, userPrincipalName, and passwordProfile."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/users/:user-id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user (GUID or userPrincipalName)"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties and relationships of a user object. Returns a default set of properties unless you use $select to specify specific properties."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/users/:user-id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user (GUID or userPrincipalName)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/users/:user-id",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user (GUID or userPrincipalName)"
+              }
+            ]
+          },
+          "docs": "Delete a user object. When deleted, user resources are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get user's manager",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/users/:user-id/manager",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user (GUID or userPrincipalName)"
+              }
+            ]
+          },
+          "docs": "Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node."
+        },
+        {
+          "info": {
+            "name": "Microsoft List user's direct reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/users/:user-id/directReports",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user (GUID or userPrincipalName)"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              }
+            ]
+          },
+          "docs": "Get the users and organizational contacts that report to the user."
+        },
+        {
+          "info": {
+            "name": "Microsoft List user's group memberships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/users/:user-id/memberOf",
+            "params": [
+              {
+                "name": "user-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user (GUID or userPrincipalName)"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Get the groups, directory roles, and administrative units that the user is a direct member of."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/groups",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search expression to filter results"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "Include count of items in the response"
+              }
+            ]
+          },
+          "docs": "List all the groups in an organization, including but not limited to Microsoft 365 groups. Returns a default set of properties for each group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new group as specified in the request body. You can create one of the following groups: Microsoft 365 group (unified group), security group, or mail-enabled security group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/groups/:group-id",
+            "params": [
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the properties and relationships of a group object. Returns a default set of properties unless you use $select to specify specific properties."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/groups/:group-id",
+            "params": [
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a group object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/groups/:group-id",
+            "params": [
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group"
+              }
+            ]
+          },
+          "docs": "Delete a group. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days."
+        },
+        {
+          "info": {
+            "name": "Microsoft List group members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/groups/:group-id/members",
+            "params": [
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Get a list of the group's direct members. A group can have users, organizational contacts, devices, service principals, and other groups as members."
+        },
+        {
+          "info": {
+            "name": "Microsoft Add group member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/groups/:group-id/members/$ref",
+            "params": [
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a member to a Microsoft 365 group or a security group through the members navigation property."
+        },
+        {
+          "info": {
+            "name": "Microsoft List group owners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/groups/:group-id/owners",
+            "params": [
+              {
+                "name": "group-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the group"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of the group's owners. The owners are a set of users or service principals who are allowed to manage the group."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Mail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/messages",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search expression to filter results"
+              }
+            ]
+          },
+          "docs": "Get the messages in the signed-in user's mailbox, including the Deleted Items and Clutter folders. Returns messages from all mail folders."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create message draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a draft of a new message in either JSON or MIME format. When using JSON format, you can include an attachment and use a mention to call out another user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/messages/:message-id",
+            "params": [
+              {
+                "name": "message-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the message"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties and relationships of a message object. You can use $select to retrieve specific properties and $expand to expand supported relationships."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/messages/:message-id",
+            "params": [
+              {
+                "name": "message-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the message"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a message object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/me/messages/:message-id",
+            "params": [
+              {
+                "name": "message-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the message"
+              }
+            ]
+          },
+          "docs": "Delete a message in the specified user's mailbox, or delete a relationship of the message."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/sendMail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send the message specified in the request body using either JSON or MIME format. The message is saved in the Sent Items folder by default."
+        },
+        {
+          "info": {
+            "name": "Microsoft List mail folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/mailFolders",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the mail folder collection under the root folder of the signed-in user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Calendar",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List calendar events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/events",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              }
+            ]
+          },
+          "docs": "Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an event in the user's default calendar or specified calendar. By default, the allowNewTimeProposals property is set to true."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/events/:event-id",
+            "params": [
+              {
+                "name": "event-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the event"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the properties and relationships of the specified event object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/events/:event-id",
+            "params": [
+              {
+                "name": "event-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the event"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of the event object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/me/events/:event-id",
+            "params": [
+              {
+                "name": "event-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the event"
+              }
+            ]
+          },
+          "docs": "Remove the specified event from the user's calendar."
+        },
+        {
+          "info": {
+            "name": "Microsoft List calendar view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/calendarView",
+            "params": [
+              {
+                "name": "startDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start date and time of the time range (ISO 8601 format)"
+              },
+              {
+                "name": "endDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End date and time of the time range (ISO 8601 format)"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range from the user's default calendar."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Drive",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Get current user's OneDrive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive"
+          },
+          "docs": "Retrieve the properties and relationships of a Drive resource for the signed-in user's OneDrive."
+        },
+        {
+          "info": {
+            "name": "Microsoft List items in drive root",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/root/children",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              }
+            ]
+          },
+          "docs": "Return a collection of DriveItems in the root of the signed-in user's OneDrive."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/drives/:drive-id/items/:item-id",
+            "params": [
+              {
+                "name": "drive-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive"
+              },
+              {
+                "name": "item-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive item"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the metadata for a DriveItem in a Drive by file system path or ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/drives/:drive-id/items/:item-id",
+            "params": [
+              {
+                "name": "drive-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive"
+              },
+              {
+                "name": "item-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive item"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the parentReference property."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/drives/:drive-id/items/:item-id",
+            "params": [
+              {
+                "name": "drive-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive"
+              },
+              {
+                "name": "item-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive item"
+              }
+            ]
+          },
+          "docs": "Delete a DriveItem by using its ID or path. Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "List all teams in an organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties and relationships of the specified team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of the specified team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              }
+            ]
+          },
+          "docs": "Delete a team. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days."
+        },
+        {
+          "info": {
+            "name": "Microsoft List channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id/channels",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the list of channels in this team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id/channels",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new channel in a team as specified in the request body."
+        },
+        {
+          "info": {
+            "name": "Microsoft List channel messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id/channels/:channel-id/messages",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              },
+              {
+                "name": "channel-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the channel"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              }
+            ]
+          },
+          "docs": "Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send channel message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/teams/:team-id/channels/:channel-id/messages",
+            "params": [
+              {
+                "name": "team-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the team"
+              },
+              {
+                "name": "channel-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the channel"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a new chatMessage in the specified channel."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/applications",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search expression to filter results"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "Include count of items in the response"
+              }
+            ]
+          },
+          "docs": "Get the list of applications in this organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new application object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/applications/:application-id",
+            "params": [
+              {
+                "name": "application-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the properties and relationships of an application object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/applications/:application-id",
+            "params": [
+              {
+                "name": "application-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of an application object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/applications/:application-id",
+            "params": [
+              {
+                "name": "application-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              }
+            ]
+          },
+          "docs": "Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
