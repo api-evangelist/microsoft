@@ -399,6 +399,10 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 common:
+- type: MCPServer
+  url: https://learn.microsoft.com/en-us/graph/mcp-server/overview
+  name: MCP Server for Enterprise
+  description: Microsoft's remote MCP Server for Enterprise turns natural language into read-only Microsoft Graph queries over an Entra tenant, using delegated Entra permissions.
 - type: Developer Portal
   url: https://developer.microsoft.com/
 - type: Azure Portal
