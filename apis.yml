@@ -80,7 +80,7 @@ apis:
     url: https://learn.microsoft.com/en-us/azure/ai-services/openai/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
-  - type: Quickstart
+  - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/
@@ -403,7 +403,7 @@ common:
   url: https://learn.microsoft.com/en-us/graph/mcp-server/overview
   name: MCP Server for Enterprise
   description: Microsoft's remote MCP Server for Enterprise turns natural language into read-only Microsoft Graph queries over an Entra tenant, using delegated Entra permissions.
-- type: Developer Portal
+- type: DeveloperPortal
   url: https://developer.microsoft.com/
 - type: Azure Portal
   url: https://portal.azure.com
@@ -419,9 +419,9 @@ common:
   url: https://devblogs.microsoft.com/
 - type: Authentication
   url: https://learn.microsoft.com/en-us/entra/identity-platform/
-- type: SignUp
+- type: Signup
   url: https://developer.microsoft.com/en-us/microsoft-365/dev-program
-- type: Forum
+- type: Forums
   url: https://learn.microsoft.com/en-us/answers/
 - type: Pricing
   url: https://azure.microsoft.com/en-us/pricing/calculator/
