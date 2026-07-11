@@ -1,0 +1,365 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-azure-devops-openapi.yml, openapi/microsoft-azure-openai-openapi.yml,
+  openapi/microsoft-azure-rest-openapi.yml, openapi/microsoft-dynamics-365-openapi.yml, openapi/microsoft-entra-id-openapi.yml,
+  openapi/microsoft-graph-openapi.yml, openapi/microsoft-intune-openapi.yml, openapi/microsoft-onedrive-openapi.yml,
+  openapi/microsoft-outlook-openapi.yml, openapi/microsoft-power-bi-openapi.yml, openapi/microsoft-power-platform-openapi.yml,
+  openapi/microsoft-sharepoint-openapi.yml, openapi/microsoft-teams-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/microsoft-azure-devops-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.vssps.visualstudio.com/oauth2/authorize
+    tokenUrl: https://app.vssps.visualstudio.com/oauth2/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-azure-openai-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-azure-rest-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-dynamics-365-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-entra-id-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-graph-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+  description: Microsoft identity platform OAuth 2.0 authorization
+- name: oauth2
+  source: openapi/microsoft-intune-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-onedrive-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: OAuth 2.0 via Microsoft identity platform
+- name: oauth2
+  source: openapi/microsoft-outlook-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-power-bi-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-power-platform-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-sharepoint-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Entra ID OAuth 2.0
+- name: oauth2
+  source: openapi/microsoft-teams-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: OAuth 2.0 via Microsoft identity platform
+scopes:
+- scope: Application.Read.All
+  description: Read all applications
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: Application.ReadWrite.All
+  description: Read and write all applications
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/microsoft-entra-id-openapi.yml
+  - openapi/microsoft-graph-openapi.yml
+- scope: Calendars.Read
+  description: Read user calendars
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-outlook-openapi.yml
+- scope: Calendars.ReadWrite
+  description: Read and write user calendars
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-outlook-openapi.yml
+- scope: Channel.ReadBasic.All
+  description: Read channel names and descriptions
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-teams-openapi.yml
+- scope: ChannelMessage.Read.All
+  description: Read all channel messages
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-teams-openapi.yml
+- scope: ChannelMessage.Send
+  description: Send channel messages
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-teams-openapi.yml
+- scope: Contacts.Read
+  description: Read user contacts
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-outlook-openapi.yml
+- scope: Contacts.ReadWrite
+  description: Read and write user contacts
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-outlook-openapi.yml
+- scope: DeviceManagementApps.Read.All
+  description: Read mobile apps
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-intune-openapi.yml
+- scope: DeviceManagementConfiguration.Read.All
+  description: Read device configurations
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-intune-openapi.yml
+- scope: DeviceManagementManagedDevices.Read.All
+  description: Read managed devices
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-intune-openapi.yml
+- scope: DeviceManagementManagedDevices.ReadWrite.All
+  description: Read and write managed devices
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-intune-openapi.yml
+- scope: Directory.ReadWrite.All
+  description: Read and write directory data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-entra-id-openapi.yml
+- scope: Files.Read
+  description: Read user files
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-onedrive-openapi.yml
+- scope: Files.Read.All
+  description: Read all files that user can access
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-onedrive-openapi.yml
+- scope: Files.ReadWrite
+  description: Read and write user files
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-onedrive-openapi.yml
+- scope: Files.ReadWrite.All
+  description: Full access to all files
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-onedrive-openapi.yml
+- scope: Group.Read.All
+  description: Read all groups
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: Group.ReadWrite.All
+  description: Read and write all groups
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: Mail.Read
+  description: Read user mail
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-outlook-openapi.yml
+- scope: Mail.ReadWrite
+  description: Read and write user mail
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-outlook-openapi.yml
+- scope: Mail.Send
+  description: Send mail as a user
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-outlook-openapi.yml
+- scope: Sites.Read.All
+  description: Read items in all site collections
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-sharepoint-openapi.yml
+- scope: Sites.ReadWrite.All
+  description: Read and write items in all site collections
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-sharepoint-openapi.yml
+- scope: Team.Create
+  description: Create teams
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-teams-openapi.yml
+- scope: Team.ReadBasic.All
+  description: Read the names and descriptions of teams
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+  - openapi/microsoft-teams-openapi.yml
+- scope: TeamMember.Read.All
+  description: Read team members
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-teams-openapi.yml
+- scope: User.Read
+  description: Read the signed-in user's profile
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: User.Read.All
+  description: Read all users' full profiles
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: User.ReadWrite
+  description: Read and update the signed-in user's profile
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: User.ReadWrite.All
+  description: Read and write all users' full profiles
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-openapi.yml
+- scope: https://analysis.windows.net/powerbi/api/.default
+  description: Access Power BI
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-power-bi-openapi.yml
+- scope: https://cognitiveservices.azure.com/.default
+  description: Access Azure OpenAI
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-azure-openai-openapi.yml
+- scope: https://graph.microsoft.com/.default
+  description: Access Microsoft Graph
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-entra-id-openapi.yml
+  - openapi/microsoft-graph-openapi.yml
+- scope: https://management.azure.com/.default
+  description: Access Azure Resource Manager
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-azure-rest-openapi.yml
+- scope: https://org.api.crm.dynamics.com/.default
+  description: Access Dynamics 365
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-dynamics-365-openapi.yml
+- scope: https://org.crm.dynamics.com/.default
+  description: Access Dataverse
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-power-platform-openapi.yml
+- scope: vso.build_execute
+  description: Execute builds
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-azure-devops-openapi.yml
+- scope: vso.code
+  description: Read source code
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-azure-devops-openapi.yml
+- scope: vso.project
+  description: Read projects
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-azure-devops-openapi.yml
+- scope: vso.work_write
+  description: Read and write work items
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-azure-devops-openapi.yml

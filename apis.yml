@@ -399,6 +399,8 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 common:
+- type: OAuthScopes
+  url: scopes/microsoft-scopes.yml
 - type: MCPServer
   url: https://learn.microsoft.com/en-us/graph/mcp-server/overview
   name: MCP Server for Enterprise
