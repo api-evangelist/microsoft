@@ -1,0 +1,88 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-azure-cognitive-services-openapi.yml, openapi/microsoft-azure-communication-services-openapi.yml,
+  openapi/microsoft-azure-devops-openapi.yml, openapi/microsoft-azure-openai-openapi.yml, openapi/microsoft-azure-rest-openapi.yml,
+  openapi/microsoft-bing-search-openapi.yml, openapi/microsoft-dynamics-365-openapi.yml, openapi/microsoft-entra-id-openapi.yml,
+  openapi/microsoft-graph-openapi.yml, openapi/microsoft-intune-openapi.yml, openapi/microsoft-onedrive-openapi.yml,
+  openapi/microsoft-outlook-openapi.yml ...
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: Ocp-Apim-Subscription-Key
+  description: Azure Cognitive Services subscription key
+  sources:
+  - openapi/microsoft-azure-cognitive-services-openapi.yml
+  - openapi/microsoft-bing-search-openapi.yml
+- name: accessKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: HMAC-SHA256 signature authentication
+  sources:
+  - openapi/microsoft-azure-communication-services-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: Personal Access Token (PAT) as password with empty username
+  sources:
+  - openapi/microsoft-azure-devops-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.vssps.visualstudio.com/oauth2/authorize
+    tokenUrl: https://app.vssps.visualstudio.com/oauth2/token
+    scopes: 4
+  description: Microsoft Entra ID OAuth 2.0
+  sources:
+  - openapi/microsoft-azure-devops-openapi.yml
+  - openapi/microsoft-dynamics-365-openapi.yml
+  - openapi/microsoft-onedrive-openapi.yml
+  - openapi/microsoft-outlook-openapi.yml
+  - openapi/microsoft-power-bi-openapi.yml
+  - openapi/microsoft-power-platform-openapi.yml
+  - openapi/microsoft-sharepoint-openapi.yml
+  - openapi/microsoft-teams-openapi.yml
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: api-key
+  description: Azure OpenAI API key
+  sources:
+  - openapi/microsoft-azure-openai-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+    scopes: 1
+  description: Microsoft Entra ID OAuth 2.0
+  sources:
+  - openapi/microsoft-azure-openai-openapi.yml
+  - openapi/microsoft-azure-rest-openapi.yml
+  - openapi/microsoft-entra-id-openapi.yml
+  - openapi/microsoft-intune-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+    scopes: 20
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+    scopes: 1
+  description: Microsoft identity platform OAuth 2.0 authorization
+  sources:
+  - openapi/microsoft-graph-openapi.yml

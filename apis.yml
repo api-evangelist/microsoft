@@ -399,6 +399,12 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 common:
+- type: VulnerabilityDisclosure
+  url: security/microsoft-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/microsoft-domain-security.yml
+- type: Authentication
+  url: authentication/microsoft-authentication.yml
 - type: OAuthScopes
   url: scopes/microsoft-scopes.yml
 - type: MCPServer
