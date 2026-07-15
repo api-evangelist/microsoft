@@ -399,6 +399,8 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 common:
+- type: AgenticAccess
+  url: agentic-access/microsoft-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/microsoft-vulnerability-disclosure.yml
 - type: DomainSecurity
