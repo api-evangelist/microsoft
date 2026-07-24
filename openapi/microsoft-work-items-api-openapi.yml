@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Work Items API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Work Items
+  description: Manage work items and queries
+paths:
+  /{project}/_apis/wit/workitems/${type}:
+    post:
+      operationId: createWorkItem
+      summary: Microsoft Create a work item
+      description: Creates a single work item.
+      tags:
+      - Work Items
+      parameters:
+      - $ref: '#/components/parameters/project'
+      - name: type
+        in: path
+        required: true
+        description: Work item type (e.g., Bug, Task, User Story)
+        schema:
+          type: string
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  op:
+                    type: string
+                    enum:
+                    - add
+                    - replace
+                    - remove
+                    - test
+                  path:
+                    type: string
+                  value:
+                    type: string
+      responses:
+        '200':
+          description: Work item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItem'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /{project}/_apis/wit/workitems/{id}:
+    get:
+      operationId: getWorkItem
+      summary: Microsoft Get a work item
+      description: Returns a single work item.
+      tags:
+      - Work Items
+      parameters:
+      - $ref: '#/components/parameters/project'
+      - name: id
+        in: path
+        required: true
+        description: Work item ID
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/apiVersion'
+      - name: $expand
+        in: query
+        description: Expand work item relationships
+        schema:
+          type: string
+          enum:
+          - None
+          - Relations
+          - Fields
+          - Links
+          - All
+      responses:
+        '200':
+          description: Work item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Work item not found
+components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+  schemas:
+    WorkItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        rev:
+          type: integer
+        fields:
+          type: object
+          properties:
+            System.Title:
+              type: string
+            System.State:
+              type: string
+            System.WorkItemType:
+              type: string
+            System.AssignedTo:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                uniqueName:
+                  type: string
+            System.Description:
+              type: string
+            System.CreatedDate:
+              type: string
+              format: date-time
+            System.ChangedDate:
+              type: string
+              format: date-time
+        url:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

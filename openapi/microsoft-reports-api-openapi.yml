@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Reports API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Reports
+  description: Manage Power BI reports
+paths:
+  /reports:
+    get:
+      operationId: listReports
+      summary: Microsoft List reports
+      description: Returns a list of reports from My workspace.
+      tags:
+      - Reports
+      responses:
+        '200':
+          description: List of reports
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportCollection'
+        '401':
+          description: Unauthorized
+  /reports/{reportId}:
+    get:
+      operationId: getReport
+      summary: Microsoft Get a report
+      description: Returns the specified report from My workspace.
+      tags:
+      - Reports
+      parameters:
+      - $ref: '#/components/parameters/reportId'
+      responses:
+        '200':
+          description: Report details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Report not found
+    delete:
+      operationId: deleteReport
+      summary: Microsoft Delete a report
+      description: Deletes the specified report from My workspace.
+      tags:
+      - Reports
+      parameters:
+      - $ref: '#/components/parameters/reportId'
+      responses:
+        '200':
+          description: Report deleted
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        datasetId:
+          type: string
+        webUrl:
+          type: string
+        embedUrl:
+          type: string
+        reportType:
+          type: string
+    ReportCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+  parameters:
+    reportId:
+      name: reportId
+      in: path
+      required: true
+      description: Report unique identifier
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

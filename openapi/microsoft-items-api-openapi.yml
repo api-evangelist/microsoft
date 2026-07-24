@@ -1,0 +1,534 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Items API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Items
+  description: Manage files and folders
+paths:
+  /me/drive/root/children:
+    get:
+      operationId: listRootChildren
+      summary: Microsoft List root folder children
+      description: Return a collection of DriveItems in the children relationship of the root folder.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of drive items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItemCollection'
+        '401':
+          description: Unauthorized
+  /me/drive/items/{itemId}:
+    get:
+      operationId: getDriveItem
+      summary: Microsoft Get a drive item
+      description: Retrieve the metadata for a DriveItem by ID.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Drive item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    patch:
+      operationId: updateDriveItem
+      summary: Microsoft Update a drive item
+      description: Update the metadata for a DriveItem by ID.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Drive item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    delete:
+      operationId: deleteDriveItem
+      summary: Microsoft Delete a drive item
+      description: Delete a DriveItem by ID. Deleted items are moved to the recycle bin.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      responses:
+        '204':
+          description: Item deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+  /me/drive/items/{itemId}/children:
+    get:
+      operationId: listChildren
+      summary: Microsoft List children of a folder
+      description: Return a collection of DriveItems in the children of a DriveItem.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of child items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItemCollection'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Folder not found
+  /me/drive/items/{itemId}/content:
+    get:
+      operationId: downloadFile
+      summary: Microsoft Download file content
+      description: Download the contents of a DriveItem.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      responses:
+        '200':
+          description: File content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '302':
+          description: Redirect to pre-authenticated download URL
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    put:
+      operationId: uploadFile
+      summary: Microsoft Upload file content
+      description: Upload a new file or replace the contents of an existing file. Simple upload for files up to 4MB.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: File updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '201':
+          description: File created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '401':
+          description: Unauthorized
+  /me/drive/search(q='{searchText}'):
+    get:
+      operationId: searchDriveItems
+      summary: Microsoft Search for items
+      description: Search the hierarchy of items for items matching a query.
+      tags:
+      - Items
+      parameters:
+      - name: searchText
+        in: path
+        required: true
+        description: Search query text
+        schema:
+          type: string
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItemCollection'
+        '401':
+          description: Unauthorized
+  /web/lists/getbytitle('{listTitle}')/items:
+    get:
+      operationId: listItems
+      summary: Microsoft List items in a list
+      description: Get all items from a SharePoint list.
+      tags:
+      - Items
+      parameters:
+      - name: listTitle
+        in: path
+        required: true
+        description: Title of the list
+        schema:
+          type: string
+      - name: $select
+        in: query
+        description: Fields to include
+        schema:
+          type: string
+      - name: $filter
+        in: query
+        description: OData filter expression
+        schema:
+          type: string
+      - name: $top
+        in: query
+        description: Maximum number of items
+        schema:
+          type: integer
+      - name: $orderby
+        in: query
+        description: Sort order
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ListItem'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createListItem
+      summary: Microsoft Create a list item
+      description: Add a new item to a SharePoint list.
+      tags:
+      - Items
+      parameters:
+      - name: listTitle
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListItem'
+      responses:
+        '201':
+          description: Item created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/ListItem'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /web/lists/getbytitle('{listTitle}')/items({itemId}):
+    get:
+      operationId: getListItem
+      summary: Microsoft Get a list item
+      description: Get a specific item from a SharePoint list.
+      tags:
+      - Items
+      parameters:
+      - name: listTitle
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: itemId
+        in: path
+        required: true
+        description: Item ID
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List item details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/ListItem'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    post:
+      operationId: updateListItem
+      summary: Microsoft Update a list item
+      description: Update an existing item in a SharePoint list.
+      tags:
+      - Items
+      parameters:
+      - name: listTitle
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: itemId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: X-HTTP-Method
+        in: header
+        required: true
+        schema:
+          type: string
+          default: MERGE
+      - name: If-Match
+        in: header
+        required: true
+        description: ETag value for concurrency control
+        schema:
+          type: string
+          default: '*'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListItem'
+      responses:
+        '204':
+          description: Item updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+    delete:
+      operationId: deleteListItem
+      summary: Microsoft Delete a list item
+      description: Delete an item from a SharePoint list.
+      tags:
+      - Items
+      parameters:
+      - name: listTitle
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: itemId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: If-Match
+        in: header
+        required: true
+        schema:
+          type: string
+          default: '*'
+      responses:
+        '200':
+          description: Item deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Item not found
+components:
+  parameters:
+    itemId:
+      name: itemId
+      in: path
+      required: true
+      description: Drive item unique identifier
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+  schemas:
+    DriveItemCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DriveItem'
+    ListItem:
+      type: object
+      properties:
+        __metadata:
+          type: object
+          properties:
+            type:
+              type: string
+        Id:
+          type: integer
+        Title:
+          type: string
+        Created:
+          type: string
+          format: date-time
+        Modified:
+          type: string
+          format: date-time
+        AuthorId:
+          type: integer
+        EditorId:
+          type: integer
+    DriveItem:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+        webUrl:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+        file:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            hashes:
+              type: object
+              properties:
+                sha1Hash:
+                  type: string
+                quickXorHash:
+                  type: string
+        folder:
+          type: object
+          properties:
+            childCount:
+              type: integer
+        parentReference:
+          type: object
+          properties:
+            driveId:
+              type: string
+            id:
+              type: string
+            path:
+              type: string
+        createdBy:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                id:
+                  type: string
+        lastModifiedBy:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                id:
+                  type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

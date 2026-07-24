@@ -1,0 +1,443 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Applications API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Applications
+  description: Manage application registrations
+paths:
+  /applications:
+    get:
+      operationId: listApplications
+      summary: Microsoft List applications
+      description: Get the list of applications in the organization.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of applications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createApplication
+      summary: Microsoft Create an application
+      description: Create a new application registration.
+      tags:
+      - Applications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApplicationRequest'
+      responses:
+        '201':
+          description: Application created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /applications/{applicationId}:
+    get:
+      operationId: getApplication
+      summary: Microsoft Get an application
+      description: Get the properties of an application object.
+      tags:
+      - Applications
+      parameters:
+      - name: applicationId
+        in: path
+        required: true
+        description: Application object ID
+        schema:
+          type: string
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Application details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Application not found
+    patch:
+      operationId: updateApplication
+      summary: Microsoft Update an application
+      description: Update the properties of an application object.
+      tags:
+      - Applications
+      parameters:
+      - name: applicationId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApplicationRequest'
+      responses:
+        '204':
+          description: Application updated
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteApplication
+      summary: Microsoft Delete an application
+      description: Delete an application registration.
+      tags:
+      - Applications
+      parameters:
+      - name: applicationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Application deleted
+        '401':
+          description: Unauthorized
+  /applications/{application-id}:
+    get:
+      operationId: getApplication
+      summary: Microsoft Get application
+      description: Get the properties and relationships of an application object.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/applicationId'
+      - $ref: '#/components/parameters/select_2'
+      responses:
+        '200':
+          description: Application object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application_2'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateApplication
+      summary: Microsoft Update application
+      description: Update the properties of an application object.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/applicationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application_2'
+      responses:
+        '204':
+          description: Application updated successfully
+    delete:
+      operationId: deleteApplication
+      summary: Microsoft Delete application
+      description: Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days.
+      tags:
+      - Applications
+      parameters:
+      - $ref: '#/components/parameters/applicationId'
+      responses:
+        '204':
+          description: Application deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Application_2:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier (object ID)
+          readOnly: true
+        appId:
+          type: string
+          description: Unique application ID (client ID) assigned by Microsoft Entra ID
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name of the application
+        description:
+          type: string
+          description: Free text description of the application
+        signInAudience:
+          type: string
+          enum:
+          - AzureADMyOrg
+          - AzureADMultipleOrgs
+          - AzureADandPersonalMicrosoftAccount
+          - PersonalMicrosoftAccount
+          description: Specifies the Microsoft accounts that are supported
+        identifierUris:
+          type: array
+          items:
+            type: string
+          description: URIs that identify the application within its Microsoft Entra tenant
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+              description: Redirect URIs for the application
+            homePageUrl:
+              type: string
+              format: uri
+              description: Home page or landing page of the application
+        api:
+          type: object
+          properties:
+            requestedAccessTokenVersion:
+              type: integer
+              description: Specifies the access token version (1 or 2)
+            oauth2PermissionScopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                  adminConsentDisplayName:
+                    type: string
+                  adminConsentDescription:
+                    type: string
+        requiredResourceAccess:
+          type: array
+          items:
+            type: object
+            properties:
+              resourceAppId:
+                type: string
+              resourceAccess:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                      enum:
+                      - Scope
+                      - Role
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        tags:
+          type: array
+          items:
+            type: string
+          description: Custom strings for categorizing the application
+    CreateApplicationRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+          - AzureADMyOrg
+          - AzureADMultipleOrgs
+          - AzureADandPersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Object ID of the application
+        appId:
+          type: string
+          description: Application (client) ID
+        displayName:
+          type: string
+          description: Display name of the application
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+          - AzureADMyOrg
+          - AzureADMultipleOrgs
+          - AzureADandPersonalMicrosoftAccount
+          - PersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+            homePageUrl:
+              type: string
+        api:
+          type: object
+          properties:
+            oauth2PermissionScopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                  adminConsentDisplayName:
+                    type: string
+                  userConsentDisplayName:
+                    type: string
+        requiredResourceAccess:
+          type: array
+          items:
+            type: object
+            properties:
+              resourceAppId:
+                type: string
+              resourceAccess:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                      enum:
+                      - Role
+                      - Scope
+        createdDateTime:
+          type: string
+          format: date-time
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    applicationId:
+      name: application-id
+      in: path
+      required: true
+      description: Unique identifier of the application
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

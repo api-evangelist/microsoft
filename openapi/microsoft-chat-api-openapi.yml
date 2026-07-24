@@ -1,0 +1,257 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Chat API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Chat
+  description: Manage chat threads and messages
+paths:
+  /chat/threads:
+    post:
+      operationId: createChatThread
+      summary: Microsoft Create a chat thread
+      description: Create a new chat thread.
+      tags:
+      - Chat
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChatThreadRequest'
+      responses:
+        '201':
+          description: Chat thread created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateChatThreadResult'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: listChatThreads
+      summary: Microsoft List chat threads
+      description: List all chat threads for the authenticated user.
+      tags:
+      - Chat
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      - name: maxPageSize
+        in: query
+        description: Maximum number of threads per page
+        schema:
+          type: integer
+      - name: startTime
+        in: query
+        description: Start time for the range query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: List of chat threads
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChatThread'
+                  nextLink:
+                    type: string
+        '401':
+          description: Unauthorized
+  /chat/threads/{chatThreadId}/messages:
+    post:
+      operationId: sendChatMessage
+      summary: Microsoft Send a chat message
+      description: Send a message to a chat thread.
+      tags:
+      - Chat
+      parameters:
+      - name: chatThreadId
+        in: path
+        required: true
+        description: Chat thread ID
+        schema:
+          type: string
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - content
+              properties:
+                content:
+                  type: string
+                senderDisplayName:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                  - text
+                  - html
+                  default: text
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: listChatMessages
+      summary: Microsoft List chat messages
+      description: List messages in a chat thread.
+      tags:
+      - Chat
+      parameters:
+      - name: chatThreadId
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/apiVersion'
+      - name: maxPageSize
+        in: query
+        schema:
+          type: integer
+      - name: startTime
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChatMessageItem'
+                  nextLink:
+                    type: string
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ChatThread:
+      type: object
+      properties:
+        id:
+          type: string
+        topic:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        createdByCommunicationIdentifier:
+          type: object
+          properties:
+            communicationUserId:
+              type: string
+        deletedOn:
+          type: string
+          format: date-time
+    ChatMessageItem:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        content:
+          type: object
+          properties:
+            message:
+              type: string
+        senderDisplayName:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        senderCommunicationIdentifier:
+          type: object
+          properties:
+            communicationUserId:
+              type: string
+    CreateChatThreadRequest:
+      type: object
+      required:
+      - topic
+      properties:
+        topic:
+          type: string
+        participants:
+          type: array
+          items:
+            type: object
+            required:
+            - communicationIdentifier
+            properties:
+              communicationIdentifier:
+                type: object
+                properties:
+                  communicationUserId:
+                    type: string
+              displayName:
+                type: string
+    CreateChatThreadResult:
+      type: object
+      properties:
+        chatThread:
+          $ref: '#/components/schemas/ChatThread'
+        errors:
+          type: object
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

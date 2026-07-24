@@ -1,0 +1,207 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Managed Devices API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Managed Devices
+  description: Manage enrolled devices
+paths:
+  /deviceManagement/managedDevices:
+    get:
+      operationId: listManagedDevices
+      summary: Microsoft List managed devices
+      description: List properties and relationships of managed device objects.
+      tags:
+      - Managed Devices
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of managed devices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ManagedDevice'
+        '401':
+          description: Unauthorized
+  /deviceManagement/managedDevices/{managedDeviceId}:
+    get:
+      operationId: getManagedDevice
+      summary: Microsoft Get a managed device
+      description: Read properties of a managed device object.
+      tags:
+      - Managed Devices
+      parameters:
+      - name: managedDeviceId
+        in: path
+        required: true
+        description: Managed device unique identifier
+        schema:
+          type: string
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Managed device details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManagedDevice'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /deviceManagement/managedDevices/{managedDeviceId}/wipe:
+    post:
+      operationId: wipeManagedDevice
+      summary: Microsoft Wipe a managed device
+      description: Wipe a device, removing all data and resetting to factory defaults.
+      tags:
+      - Managed Devices
+      parameters:
+      - name: managedDeviceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Wipe initiated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Device not found
+  /deviceManagement/managedDevices/{managedDeviceId}/retire:
+    post:
+      operationId: retireManagedDevice
+      summary: Microsoft Retire a managed device
+      description: Retire a device, removing managed data while keeping personal data.
+      tags:
+      - Managed Devices
+      parameters:
+      - name: managedDeviceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Retire initiated
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
+  schemas:
+    ManagedDevice:
+      type: object
+      properties:
+        id:
+          type: string
+        deviceName:
+          type: string
+        managedDeviceOwnerType:
+          type: string
+          enum:
+          - unknown
+          - company
+          - personal
+        operatingSystem:
+          type: string
+        osVersion:
+          type: string
+        complianceState:
+          type: string
+          enum:
+          - unknown
+          - compliant
+          - noncompliant
+          - conflict
+          - error
+          - inGracePeriod
+          - configManager
+        model:
+          type: string
+        manufacturer:
+          type: string
+        serialNumber:
+          type: string
+        userPrincipalName:
+          type: string
+        userDisplayName:
+          type: string
+        emailAddress:
+          type: string
+        lastSyncDateTime:
+          type: string
+          format: date-time
+        enrolledDateTime:
+          type: string
+          format: date-time
+        managementAgent:
+          type: string
+          enum:
+          - eas
+          - mdm
+          - easMdm
+          - intuneClient
+          - easIntuneClient
+          - configurationManagerClient
+          - unknown
+        isEncrypted:
+          type: boolean
+        isSupervised:
+          type: boolean
+        jailBroken:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

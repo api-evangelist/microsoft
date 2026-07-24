@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Service Principals API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Service Principals
+  description: Manage service principals
+paths:
+  /servicePrincipals:
+    get:
+      operationId: listServicePrincipals
+      summary: Microsoft List service principals
+      description: Retrieve a list of service principal objects.
+      tags:
+      - Service Principals
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of service principals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServicePrincipal'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createServicePrincipal
+      summary: Microsoft Create a service principal
+      description: Create a new service principal.
+      tags:
+      - Service Principals
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - appId
+              properties:
+                appId:
+                  type: string
+                  description: Application (client) ID of the associated app registration
+      responses:
+        '201':
+          description: Service principal created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicePrincipal'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+  schemas:
+    ServicePrincipal:
+      type: object
+      properties:
+        id:
+          type: string
+        appId:
+          type: string
+        displayName:
+          type: string
+        servicePrincipalType:
+          type: string
+        appRoles:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              displayName:
+                type: string
+              value:
+                type: string
+              isEnabled:
+                type: boolean
+        oauth2PermissionScopes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              value:
+                type: string
+              type:
+                type: string
+        createdDateTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

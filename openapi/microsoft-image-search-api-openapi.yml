@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Image Search API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Image Search
+  description: Search for images
+paths:
+  /images/search:
+    get:
+      operationId: imageSearch
+      summary: Microsoft Image search
+      description: Returns images relevant to the given search query.
+      tags:
+      - Image Search
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: The search query string
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Number of images to return
+        schema:
+          type: integer
+          default: 35
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: mkt
+        in: query
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Filter images by size
+        schema:
+          type: string
+          enum:
+          - All
+          - Small
+          - Medium
+          - Large
+          - Wallpaper
+      - name: imageType
+        in: query
+        description: Filter images by type
+        schema:
+          type: string
+          enum:
+          - AnimatedGif
+          - Clipart
+          - Line
+          - Photo
+          - Shopping
+          - Transparent
+      responses:
+        '200':
+          description: Image search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageSearchResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ImageSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        totalEstimatedMatches:
+          type: integer
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              contentUrl:
+                type: string
+              thumbnailUrl:
+                type: string
+              hostPageUrl:
+                type: string
+              width:
+                type: integer
+              height:
+                type: integer
+              encodingFormat:
+                type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

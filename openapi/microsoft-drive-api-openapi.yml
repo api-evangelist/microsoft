@@ -1,0 +1,364 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Drive API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Drive
+  description: Access OneDrive files and folders
+paths:
+  /me/drive:
+    get:
+      operationId: getMyDrive
+      summary: Microsoft Get current user's OneDrive
+      description: Retrieve the properties and relationships of a Drive resource for the signed-in user's OneDrive.
+      tags:
+      - Drive
+      responses:
+        '200':
+          description: Drive object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /me/drive/root/children:
+    get:
+      operationId: listDriveRootChildren
+      summary: Microsoft List items in drive root
+      description: Return a collection of DriveItems in the root of the signed-in user's OneDrive.
+      tags:
+      - Drive
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: Collection of drive items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DriveItem'
+  /drives/{drive-id}/items/{item-id}:
+    get:
+      operationId: getDriveItem
+      summary: Microsoft Get drive item
+      description: Retrieve the metadata for a DriveItem in a Drive by file system path or ID.
+      tags:
+      - Drive
+      parameters:
+      - $ref: '#/components/parameters/driveId'
+      - $ref: '#/components/parameters/itemId'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Drive item object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateDriveItem
+      summary: Microsoft Update drive item
+      description: Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the parentReference property.
+      tags:
+      - Drive
+      parameters:
+      - $ref: '#/components/parameters/driveId'
+      - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DriveItem'
+      responses:
+        '200':
+          description: Drive item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DriveItem'
+    delete:
+      operationId: deleteDriveItem
+      summary: Microsoft Delete drive item
+      description: Delete a DriveItem by using its ID or path. Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.
+      tags:
+      - Drive
+      parameters:
+      - $ref: '#/components/parameters/driveId'
+      - $ref: '#/components/parameters/itemId'
+      responses:
+        '204':
+          description: Item deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  parameters:
+    itemId:
+      name: item-id
+      in: path
+      required: true
+      description: Unique identifier of the drive item
+      schema:
+        type: string
+    driveId:
+      name: drive-id
+      in: path
+      required: true
+      description: Unique identifier of the drive
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+  responses:
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  schemas:
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    Drive:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the drive
+          readOnly: true
+        name:
+          type: string
+          description: Name of the drive
+        description:
+          type: string
+          description: Human-readable description of the drive
+        driveType:
+          type: string
+          enum:
+          - personal
+          - business
+          - documentLibrary
+          description: Type of drive
+        owner:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+        quota:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+              description: Total allowed storage space in bytes
+            used:
+              type: integer
+              format: int64
+              description: Total space used in bytes
+            remaining:
+              type: integer
+              format: int64
+              description: Total space remaining in bytes
+            deleted:
+              type: integer
+              format: int64
+              description: Total space consumed by items in the recycle bin
+            state:
+              type: string
+              enum:
+              - normal
+              - nearing
+              - critical
+              - exceeded
+        webUrl:
+          type: string
+          format: uri
+          description: URL that displays the drive in a browser
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    DriveItem:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the item within the drive
+          readOnly: true
+        name:
+          type: string
+          description: Name of the item (filename and extension)
+        description:
+          type: string
+          description: User-visible description of the item
+        size:
+          type: integer
+          format: int64
+          description: Size of the item in bytes
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: URL that displays the resource in the browser
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        file:
+          type: object
+          description: File metadata if the item is a file
+          properties:
+            mimeType:
+              type: string
+              description: MIME type for the file
+            hashes:
+              type: object
+              properties:
+                sha1Hash:
+                  type: string
+                sha256Hash:
+                  type: string
+                quickXorHash:
+                  type: string
+        folder:
+          type: object
+          description: Folder metadata if the item is a folder
+          properties:
+            childCount:
+              type: integer
+              description: Number of children contained immediately within this container
+        parentReference:
+          type: object
+          description: Parent information
+          properties:
+            driveId:
+              type: string
+            driveType:
+              type: string
+            id:
+              type: string
+            name:
+              type: string
+            path:
+              type: string
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        device:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

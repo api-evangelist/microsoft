@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Metadata API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Metadata
+  description: Entity and attribute metadata
+paths:
+  /EntityDefinitions:
+    get:
+      operationId: listEntityDefinitions
+      summary: Microsoft List entity definitions
+      description: Retrieve metadata about all entities in the environment.
+      tags:
+      - Metadata
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      responses:
+        '200':
+          description: List of entity definitions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

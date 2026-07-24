@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Text Analytics API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Text Analytics
+  description: Extract insights from text including sentiment and entities
+paths:
+  /text/analytics/v3.1/sentiment:
+    post:
+      operationId: analyzeSentiment
+      summary: Microsoft Analyze sentiment
+      description: Analyze sentiment of the input text and return sentiment predictions for each sentence and the document as a whole.
+      tags:
+      - Text Analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextAnalyticsRequest'
+      responses:
+        '200':
+          description: Sentiment analysis results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SentimentResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /text/analytics/v3.1/entities/recognition/general:
+    post:
+      operationId: recognizeEntities
+      summary: Microsoft Recognize named entities
+      description: Identify and categorize entities in the input text as people, places, organizations, date/time, quantities, and more.
+      tags:
+      - Text Analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextAnalyticsRequest'
+      responses:
+        '200':
+          description: Entity recognition results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitiesResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /text/analytics/v3.1/keyPhrases:
+    post:
+      operationId: extractKeyPhrases
+      summary: Microsoft Extract key phrases
+      description: Extract key talking points from the input text.
+      tags:
+      - Text Analytics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextAnalyticsRequest'
+      responses:
+        '200':
+          description: Key phrase extraction results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyPhrasesResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    SentimentResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              sentiment:
+                type: string
+                enum:
+                - positive
+                - neutral
+                - negative
+                - mixed
+              confidenceScores:
+                type: object
+                properties:
+                  positive:
+                    type: number
+                  neutral:
+                    type: number
+                  negative:
+                    type: number
+    KeyPhrasesResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              keyPhrases:
+                type: array
+                items:
+                  type: string
+    TextAnalyticsRequest:
+      type: object
+      required:
+      - documents
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - text
+            properties:
+              id:
+                type: string
+              text:
+                type: string
+              language:
+                type: string
+    EntitiesResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              entities:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                    category:
+                      type: string
+                    subcategory:
+                      type: string
+                    offset:
+                      type: integer
+                    length:
+                      type: integer
+                    confidenceScore:
+                      type: number
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

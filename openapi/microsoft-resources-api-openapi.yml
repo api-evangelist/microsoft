@@ -1,0 +1,122 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Resources API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Resources
+  description: Manage Azure resources
+paths:
+  /subscriptions/{subscriptionId}/resources:
+    get:
+      operationId: listResources
+      summary: Microsoft List all resources in a subscription
+      description: Get all the resources in a subscription.
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/apiVersion'
+      - $ref: '#/components/parameters/filterParam'
+      - $ref: '#/components/parameters/topParam'
+      responses:
+        '200':
+          description: List of resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceListResult'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ResourceListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericResource'
+        nextLink:
+          type: string
+    GenericResource:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Resource ID
+        name:
+          type: string
+          description: Resource name
+        type:
+          type: string
+          description: Resource type
+        location:
+          type: string
+          description: Resource location
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        sku:
+          type: object
+          properties:
+            name:
+              type: string
+            tier:
+              type: string
+            size:
+              type: string
+        kind:
+          type: string
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    filterParam:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    topParam:
+      name: $top
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

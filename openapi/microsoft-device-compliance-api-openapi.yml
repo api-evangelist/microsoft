@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Device Compliance API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Device Compliance
+  description: Manage compliance policies
+paths:
+  /deviceManagement/deviceCompliancePolicies:
+    get:
+      operationId: listCompliancePolicies
+      summary: Microsoft List compliance policies
+      description: List properties and relationships of device compliance policy objects.
+      tags:
+      - Device Compliance
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of compliance policies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DeviceCompliancePolicy'
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
+  schemas:
+    DeviceCompliancePolicy:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+        version:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Channels API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Channels
+  description: Manage channels within teams
+paths:
+  /teams/{teamId}/channels:
+    get:
+      operationId: listChannels
+      summary: Microsoft List channels
+      description: Retrieve the list of channels in a team.
+      tags:
+      - Channels
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      responses:
+        '200':
+          description: List of channels
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createChannel
+      summary: Microsoft Create a channel
+      description: Create a new channel in a team.
+      tags:
+      - Channels
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChannelRequest'
+      responses:
+        '201':
+          description: Channel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /teams/{teamId}/channels/{channelId}:
+    get:
+      operationId: getChannel
+      summary: Microsoft Get a channel
+      description: Retrieve the properties of a channel.
+      tags:
+      - Channels
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/channelId'
+      responses:
+        '200':
+          description: Channel details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Channel not found
+    delete:
+      operationId: deleteChannel
+      summary: Microsoft Delete a channel
+      description: Delete a channel in a team.
+      tags:
+      - Channels
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/channelId'
+      responses:
+        '204':
+          description: Channel deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Channel not found
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include in the response
+      schema:
+        type: string
+    channelId:
+      name: channelId
+      in: path
+      required: true
+      description: Channel unique identifier
+      schema:
+        type: string
+  schemas:
+    ChannelCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+    CreateChannelRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
+    Channel:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
+        email:
+          type: string
+        webUrl:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

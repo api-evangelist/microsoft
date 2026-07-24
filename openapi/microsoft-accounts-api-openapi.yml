@@ -1,0 +1,221 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Accounts
+  description: Manage business accounts
+paths:
+  /accounts:
+    get:
+      operationId: listAccounts
+      summary: Microsoft List accounts
+      description: Retrieve a list of account records.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: List of accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createAccount
+      summary: Microsoft Create an account
+      description: Create a new account record.
+      tags:
+      - Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '204':
+          description: Account created
+          headers:
+            OData-EntityId:
+              schema:
+                type: string
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /accounts({accountid}):
+    get:
+      operationId: getAccount
+      summary: Microsoft Get an account
+      description: Retrieve a specific account.
+      tags:
+      - Accounts
+      parameters:
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+    patch:
+      operationId: updateAccount
+      summary: Microsoft Update an account
+      description: Update an existing account.
+      tags:
+      - Accounts
+      parameters:
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '204':
+          description: Account updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteAccount
+      summary: Microsoft Delete an account
+      description: Delete an account record.
+      tags:
+      - Accounts
+      parameters:
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Account deleted
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+    Account:
+      type: object
+      properties:
+        accountid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        accountnumber:
+          type: string
+        revenue:
+          type: number
+        numberofemployees:
+          type: integer
+        telephone1:
+          type: string
+        emailaddress1:
+          type: string
+        websiteurl:
+          type: string
+        address1_city:
+          type: string
+        address1_stateorprovince:
+          type: string
+        address1_country:
+          type: string
+        industrycode:
+          type: integer
+        statecode:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

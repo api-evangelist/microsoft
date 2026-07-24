@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Opportunities API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Opportunities
+  description: Manage sales opportunities
+paths:
+  /opportunities:
+    get:
+      operationId: listOpportunities
+      summary: Microsoft List opportunities
+      description: Retrieve a list of opportunity records.
+      tags:
+      - Opportunities
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of opportunities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createOpportunity
+      summary: Microsoft Create an opportunity
+      description: Create a new opportunity record.
+      tags:
+      - Opportunities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '204':
+          description: Opportunity created
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+    Opportunity:
+      type: object
+      properties:
+        opportunityid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        estimatedvalue:
+          type: number
+        estimatedclosedate:
+          type: string
+          format: date
+        stepname:
+          type: string
+        description:
+          type: string
+        statecode:
+          type: integer
+        statuscode:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

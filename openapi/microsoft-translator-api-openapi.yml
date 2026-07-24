@@ -1,0 +1,130 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Translator API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Translator
+  description: Translate text between languages
+paths:
+  /translate:
+    post:
+      operationId: translateText
+      summary: Microsoft Translate text
+      description: Translate text into one or more languages.
+      tags:
+      - Translator
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '3.0'
+      - name: to
+        in: query
+        required: true
+        description: Target language codes
+        schema:
+          type: array
+          items:
+            type: string
+      - name: from
+        in: query
+        description: Source language code
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  Text:
+                    type: string
+      responses:
+        '200':
+          description: Translation results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TranslationResult'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /languages:
+    get:
+      operationId: getLanguages
+      summary: Microsoft Get supported languages
+      description: Get the set of languages currently supported by the Translator.
+      tags:
+      - Translator
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '3.0'
+      - name: scope
+        in: query
+        description: Comma-separated group of language names
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Supported languages
+          content:
+            application/json:
+              schema:
+                type: object
+      security: []
+components:
+  schemas:
+    TranslationResult:
+      type: object
+      properties:
+        detectedLanguage:
+          type: object
+          properties:
+            language:
+              type: string
+            score:
+              type: number
+        translations:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              to:
+                type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

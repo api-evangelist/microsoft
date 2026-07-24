@@ -1,0 +1,118 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts SMS API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: SMS
+  description: Send SMS messages
+paths:
+  /sms:
+    post:
+      operationId: sendSms
+      summary: Microsoft Send an SMS message
+      description: Send a single SMS message or a batch of SMS messages.
+      tags:
+      - SMS
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendSmsRequest'
+      responses:
+        '202':
+          description: SMS accepted for delivery
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmsSendResult'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
+  schemas:
+    SendSmsRequest:
+      type: object
+      required:
+      - from
+      - smsRecipients
+      - message
+      properties:
+        from:
+          type: string
+          description: Sender phone number in E.164 format
+        smsRecipients:
+          type: array
+          items:
+            type: object
+            required:
+            - to
+            properties:
+              to:
+                type: string
+                description: Recipient phone number in E.164 format
+        message:
+          type: string
+          description: The message body (max 2048 characters)
+          maxLength: 2048
+        smsSendOptions:
+          type: object
+          properties:
+            enableDeliveryReport:
+              type: boolean
+              default: false
+            tag:
+              type: string
+    SmsSendResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              to:
+                type: string
+              messageId:
+                type: string
+              httpStatusCode:
+                type: integer
+              successful:
+                type: boolean
+              errorMessage:
+                type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

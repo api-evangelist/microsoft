@@ -1,0 +1,211 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Chat Completions API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Chat Completions
+  description: Create chat completions using conversational models
+paths:
+  /deployments/{deployment-id}/chat/completions:
+    post:
+      operationId: createChatCompletion
+      summary: Microsoft Create chat completion
+      description: Creates a completion for the chat message. Supports function calling, tool usage, and streaming responses.
+      tags:
+      - Chat Completions
+      parameters:
+      - $ref: '#/components/parameters/deploymentId'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+      responses:
+        '200':
+          description: Chat completion response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          enum:
+          - chat.completion
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+                enum:
+                - stop
+                - length
+                - content_filter
+                - tool_calls
+        usage:
+          $ref: '#/components/schemas/Usage'
+    ChatCompletionRequest:
+      type: object
+      required:
+      - messages
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            required:
+            - role
+            - content
+            properties:
+              role:
+                type: string
+                enum:
+                - system
+                - user
+                - assistant
+                - tool
+              content:
+                type: string
+              name:
+                type: string
+          description: A list of messages comprising the conversation
+        temperature:
+          type: number
+          minimum: 0
+          maximum: 2
+          default: 1
+          description: Sampling temperature
+        top_p:
+          type: number
+          minimum: 0
+          maximum: 1
+          default: 1
+          description: Nucleus sampling parameter
+        max_tokens:
+          type: integer
+          description: Maximum number of tokens to generate
+        stream:
+          type: boolean
+          default: false
+          description: Whether to stream partial message deltas
+        stop:
+          oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+          description: Sequences where the API will stop generating
+        presence_penalty:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 0
+        frequency_penalty:
+          type: number
+          minimum: -2
+          maximum: 2
+          default: 0
+        tools:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                - function
+              function:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  parameters:
+                    type: object
+          description: A list of tools the model may call
+        response_format:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - text
+              - json_object
+    Usage:
+      type: object
+      properties:
+        prompt_tokens:
+          type: integer
+        completion_tokens:
+          type: integer
+        total_tokens:
+          type: integer
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,32 +1,24 @@
 openapi: 3.1.0
 info:
-  title: Microsoft Power Platform API
-  description: >-
-    APIs for Power Apps, Power Automate, and Power BI including environment
-    management, connector management, and flow operations via the Dataverse
-    Web API.
-  version: '9.2'
+  title: Microsoft Azure Cognitive Services Accounts Entities API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
   contact:
-    name: Microsoft Power Platform Support
-    url: https://learn.microsoft.com/en-us/power-platform/
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
-externalDocs:
-  description: Power Platform API Documentation
-  url: https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview
 servers:
-  - url: https://{org}.api.crm.dynamics.com/api/data/v9.2
-    description: Dataverse Web API
-    variables:
-      org:
-        default: your-org
-        description: Your Dataverse organization name
-tags:
-  - name: Entities
-    description: CRUD operations on Dataverse entities
-  - name: Metadata
-    description: Entity and attribute metadata
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
 security:
-  - oauth2: []
+- apiKey: []
+tags:
+- name: Entities
+  description: CRUD operations on Dataverse entities
 paths:
   /accounts:
     get:
@@ -34,12 +26,12 @@ paths:
       summary: Microsoft List accounts
       description: Retrieve a list of account records.
       tags:
-        - Entities
+      - Entities
       parameters:
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/filter'
-        - $ref: '#/components/parameters/top'
-        - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
       responses:
         '200':
           description: List of accounts
@@ -54,7 +46,7 @@ paths:
       summary: Microsoft Create an account
       description: Create a new account record.
       tags:
-        - Entities
+      - Entities
       requestBody:
         required: true
         content:
@@ -79,16 +71,16 @@ paths:
       summary: Microsoft Get an account
       description: Retrieve a specific account record.
       tags:
-        - Entities
+      - Entities
       parameters:
-        - name: accountid
-          in: path
-          required: true
-          description: Account unique identifier
-          schema:
-            type: string
-            format: uuid
-        - $ref: '#/components/parameters/select'
+      - name: accountid
+        in: path
+        required: true
+        description: Account unique identifier
+        schema:
+          type: string
+          format: uuid
+      - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Account details
@@ -105,14 +97,14 @@ paths:
       summary: Microsoft Update an account
       description: Update an existing account record.
       tags:
-        - Entities
+      - Entities
       parameters:
-        - name: accountid
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
       requestBody:
         required: true
         content:
@@ -133,14 +125,14 @@ paths:
       summary: Microsoft Delete an account
       description: Delete an account record.
       tags:
-        - Entities
+      - Entities
       parameters:
-        - name: accountid
-          in: path
-          required: true
-          schema:
-            type: string
-            format: uuid
+      - name: accountid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
       responses:
         '204':
           description: Account deleted
@@ -154,12 +146,12 @@ paths:
       summary: Microsoft List contacts
       description: Retrieve a list of contact records.
       tags:
-        - Entities
+      - Entities
       parameters:
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/filter'
-        - $ref: '#/components/parameters/top'
-        - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
       responses:
         '200':
           description: List of contacts
@@ -169,47 +161,24 @@ paths:
                 $ref: '#/components/schemas/EntityCollection'
         '401':
           description: Unauthorized
-  /EntityDefinitions:
-    get:
-      operationId: listEntityDefinitions
-      summary: Microsoft List entity definitions
-      description: Retrieve metadata about all entities in the environment.
-      tags:
-        - Metadata
-      parameters:
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/filter'
-      responses:
-        '200':
-          description: List of entity definitions
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EntityCollection'
-        '401':
-          description: Unauthorized
 components:
-  securitySchemes:
-    oauth2:
-      type: oauth2
-      description: Microsoft Entra ID OAuth 2.0
-      flows:
-        authorizationCode:
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
-          scopes:
-            https://org.crm.dynamics.com/.default: Access Dataverse
   parameters:
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
     filter:
       name: $filter
       in: query
       description: OData filter expression
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
       schema:
         type: string
     top:
@@ -218,12 +187,6 @@ components:
       description: Maximum number of records to return
       schema:
         type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
   schemas:
     EntityCollection:
       type: object
@@ -270,3 +233,12 @@ components:
         statecode:
           type: integer
           description: Status of the account (0=Active, 1=Inactive)
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

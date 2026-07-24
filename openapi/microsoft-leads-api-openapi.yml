@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Leads API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Leads
+  description: Manage leads
+paths:
+  /leads:
+    get:
+      operationId: listLeads
+      summary: Microsoft List leads
+      description: Retrieve a list of lead records.
+      tags:
+      - Leads
+      parameters:
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: List of leads
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createLead
+      summary: Microsoft Create a lead
+      description: Create a new lead record.
+      tags:
+      - Leads
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lead'
+      responses:
+        '204':
+          description: Lead created
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
+    Lead:
+      type: object
+      properties:
+        leadid:
+          type: string
+          format: uuid
+        firstname:
+          type: string
+        lastname:
+          type: string
+        fullname:
+          type: string
+        emailaddress1:
+          type: string
+        companyname:
+          type: string
+        jobtitle:
+          type: string
+        telephone1:
+          type: string
+        subject:
+          type: string
+        statecode:
+          type: integer
+        statuscode:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

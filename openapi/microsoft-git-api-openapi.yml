@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Git API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Git
+  description: Manage Git repositories
+paths:
+  /{project}/_apis/git/repositories:
+    get:
+      operationId: listRepositories
+      summary: Microsoft List repositories
+      description: Retrieve git repositories for a project.
+      tags:
+      - Git
+      parameters:
+      - $ref: '#/components/parameters/project'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: List of repositories
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepositoryCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createRepository
+      summary: Microsoft Create a repository
+      description: Create a git repository in a team project.
+      tags:
+      - Git
+      parameters:
+      - $ref: '#/components/parameters/project'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Repository created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Repository:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+        defaultBranch:
+          type: string
+        size:
+          type: integer
+          format: int64
+        remoteUrl:
+          type: string
+        webUrl:
+          type: string
+        project:
+          $ref: '#/components/schemas/Project'
+    RepositoryCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        state:
+          type: string
+          enum:
+          - all
+          - createPending
+          - deleted
+          - deleting
+          - new
+          - unchanged
+          - wellFormed
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        lastUpdateTime:
+          type: string
+          format: date-time
+  parameters:
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts OAuth2 Permissions API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: OAuth2 Permissions
+  description: Manage OAuth2 permission grants
+paths:
+  /oauth2PermissionGrants:
+    get:
+      operationId: listOAuth2PermissionGrants
+      summary: Microsoft List OAuth2 permission grants
+      description: Retrieve a list of oAuth2PermissionGrant objects.
+      tags:
+      - OAuth2 Permissions
+      parameters:
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of permission grants
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OAuth2PermissionGrant'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createOAuth2PermissionGrant
+      summary: Microsoft Create a delegated permission grant
+      description: Create a delegated permission grant.
+      tags:
+      - OAuth2 Permissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth2PermissionGrant'
+      responses:
+        '201':
+          description: Permission grant created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth2PermissionGrant'
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+  schemas:
+    OAuth2PermissionGrant:
+      type: object
+      properties:
+        id:
+          type: string
+        clientId:
+          type: string
+          description: Object ID of the service principal
+        consentType:
+          type: string
+          enum:
+          - AllPrincipals
+          - Principal
+        principalId:
+          type: string
+        resourceId:
+          type: string
+          description: Object ID of the resource service principal
+        scope:
+          type: string
+          description: Space-delimited list of scopes
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,0 +1,702 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Mail API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Mail
+  description: Access and manage Outlook mail messages and folders
+paths:
+  /me/messages:
+    get:
+      operationId: listMessages
+      summary: Microsoft List messages
+      description: Get the messages in the signed-in user's mailbox, including the Deleted Items and Clutter folders. Returns messages from all mail folders.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/search'
+      responses:
+        '200':
+          description: Collection of messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createMessage
+      summary: Microsoft Create message draft
+      description: Create a draft of a new message in either JSON or MIME format. When using JSON format, you can include an attachment and use a mention to call out another user.
+      tags:
+      - Mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '201':
+          description: Message draft created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /me/messages/{message-id}:
+    get:
+      operationId: getMessage
+      summary: Microsoft Get message
+      description: Retrieve the properties and relationships of a message object. You can use $select to retrieve specific properties and $expand to expand supported relationships.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/messageId'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Message object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateMessage
+      summary: Microsoft Update message
+      description: Update the properties of a message object.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/messageId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Message updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+    delete:
+      operationId: deleteMessage
+      summary: Microsoft Delete message
+      description: Delete a message in the specified user's mailbox, or delete a relationship of the message.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/messageId'
+      responses:
+        '204':
+          description: Message deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /me/sendMail:
+    post:
+      operationId: sendMail
+      summary: Microsoft Send mail
+      description: Send the message specified in the request body using either JSON or MIME format. The message is saved in the Sent Items folder by default.
+      tags:
+      - Mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - message
+              properties:
+                message:
+                  $ref: '#/components/schemas/Message'
+                saveToSentItems:
+                  type: boolean
+                  description: Whether to save the message in Sent Items
+                  default: true
+      responses:
+        '202':
+          description: Mail sent successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /me/mailFolders:
+    get:
+      operationId: listMailFolders
+      summary: Microsoft List mail folders
+      description: Get the mail folder collection under the root folder of the signed-in user.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of mail folders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MailFolder'
+  /messages:
+    get:
+      operationId: listMessages
+      summary: Microsoft List messages
+      description: Get the messages in the signed-in user's mailbox.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/select_2'
+      - $ref: '#/components/parameters/filter_2'
+      - $ref: '#/components/parameters/top_2'
+      - $ref: '#/components/parameters/skip_2'
+      - $ref: '#/components/parameters/orderby_2'
+      - $ref: '#/components/parameters/search_2'
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageCollection'
+        '401':
+          description: Unauthorized
+  /messages/{messageId}:
+    get:
+      operationId: getMessage
+      summary: Microsoft Get a message
+      description: Retrieve a specific message.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/messageId_2'
+      - $ref: '#/components/parameters/select_2'
+      responses:
+        '200':
+          description: Message details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message_2'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Message not found
+    patch:
+      operationId: updateMessage
+      summary: Microsoft Update a message
+      description: Update the properties of a message.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/messageId_2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isRead:
+                  type: boolean
+                categories:
+                  type: array
+                  items:
+                    type: string
+                importance:
+                  type: string
+                  enum:
+                  - low
+                  - normal
+                  - high
+      responses:
+        '200':
+          description: Message updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message_2'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteMessage
+      summary: Microsoft Delete a message
+      description: Delete a message and move it to the Deleted Items folder.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/messageId_2'
+      responses:
+        '204':
+          description: Message deleted
+        '401':
+          description: Unauthorized
+  /sendMail:
+    post:
+      operationId: sendMail
+      summary: Microsoft Send mail
+      description: Send the message specified in the request body. The message is saved in the Sent Items folder by default.
+      tags:
+      - Mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMailRequest'
+      responses:
+        '202':
+          description: Mail sent
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /mailFolders:
+    get:
+      operationId: listMailFolders
+      summary: Microsoft List mail folders
+      description: Get the mail folder collection under the root folder.
+      tags:
+      - Mail
+      parameters:
+      - $ref: '#/components/parameters/top_2'
+      responses:
+        '200':
+          description: List of mail folders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MailFolder_2'
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    search_2:
+      name: $search
+      in: query
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    messageId_2:
+      name: messageId
+      in: path
+      required: true
+      description: Message unique identifier
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
+    skip_2:
+      name: $skip
+      in: query
+      schema:
+        type: integer
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    messageId:
+      name: message-id
+      in: path
+      required: true
+      description: Unique identifier of the message
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+  schemas:
+    Recipient_2:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+            address:
+              type: string
+              format: email
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the message
+          readOnly: true
+        subject:
+          type: string
+          description: Subject of the message
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+              description: Type of the body content
+            content:
+              type: string
+              description: Content of the message body
+        bodyPreview:
+          type: string
+          description: First 255 characters of the message body
+          readOnly: true
+        from:
+          $ref: '#/components/schemas/Recipient'
+        toRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: To recipients
+        ccRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: CC recipients
+        bccRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: BCC recipients
+        replyTo:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient'
+          description: Reply-to addresses
+        importance:
+          type: string
+          enum:
+          - low
+          - normal
+          - high
+          description: Importance of the message
+        isRead:
+          type: boolean
+          description: Whether the message has been read
+        isDraft:
+          type: boolean
+          description: Whether the message is a draft
+        hasAttachments:
+          type: boolean
+          description: Whether the message has attachments
+          readOnly: true
+        receivedDateTime:
+          type: string
+          format: date-time
+          description: Date and time the message was received
+          readOnly: true
+        sentDateTime:
+          type: string
+          format: date-time
+          description: Date and time the message was sent
+          readOnly: true
+        conversationId:
+          type: string
+          description: Identifier of the conversation the message belongs to
+        internetMessageId:
+          type: string
+          description: Message ID in RFC2822 format
+          readOnly: true
+        webLink:
+          type: string
+          format: uri
+          description: URL to open the message in Outlook on the web
+          readOnly: true
+        categories:
+          type: array
+          items:
+            type: string
+          description: Categories associated with the message
+    Recipient:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Display name of the recipient
+            address:
+              type: string
+              format: email
+              description: Email address of the recipient
+    MessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message_2'
+    SendMailRequest:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: object
+          properties:
+            subject:
+              type: string
+            body:
+              type: object
+              properties:
+                contentType:
+                  type: string
+                  enum:
+                  - text
+                  - html
+                content:
+                  type: string
+            toRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient_2'
+            ccRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient_2'
+        saveToSentItems:
+          type: boolean
+          default: true
+    Message_2:
+      type: object
+      properties:
+        id:
+          type: string
+        subject:
+          type: string
+        bodyPreview:
+          type: string
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+            content:
+              type: string
+        from:
+          $ref: '#/components/schemas/Recipient_2'
+        toRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient_2'
+        ccRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipient_2'
+        receivedDateTime:
+          type: string
+          format: date-time
+        sentDateTime:
+          type: string
+          format: date-time
+        isRead:
+          type: boolean
+        isDraft:
+          type: boolean
+        hasAttachments:
+          type: boolean
+        importance:
+          type: string
+          enum:
+          - low
+          - normal
+          - high
+        categories:
+          type: array
+          items:
+            type: string
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    MailFolder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name of the mail folder
+        parentFolderId:
+          type: string
+          description: Unique identifier for the parent mail folder
+        childFolderCount:
+          type: integer
+          description: Number of immediate child mail folders
+        unreadItemCount:
+          type: integer
+          description: Number of unread items in the folder
+        totalItemCount:
+          type: integer
+          description: Total number of items in the folder
+        isHidden:
+          type: boolean
+          description: Whether the folder is hidden
+    MailFolder_2:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        totalItemCount:
+          type: integer
+        unreadItemCount:
+          type: integer
+        parentFolderId:
+          type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

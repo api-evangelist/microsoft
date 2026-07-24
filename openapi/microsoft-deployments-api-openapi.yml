@@ -1,0 +1,145 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Deployments API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Deployments
+  description: Manage ARM template deployments
+paths:
+  ? /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}
+  : put:
+      operationId: createOrUpdateDeployment
+      summary: Microsoft Create or update a deployment
+      description: Deploy resources to a resource group using an ARM template.
+      tags:
+      - Deployments
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - name: deploymentName
+        in: path
+        required: true
+        description: The name of the deployment
+        schema:
+          type: string
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Deployment'
+      responses:
+        '200':
+          description: Deployment updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentExtended'
+        '201':
+          description: Deployment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeploymentExtended'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The name of the resource group
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    DeploymentExtended:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+            timestamp:
+              type: string
+              format: date-time
+            correlationId:
+              type: string
+    Deployment:
+      type: object
+      required:
+      - properties
+      properties:
+        properties:
+          type: object
+          required:
+          - mode
+          properties:
+            template:
+              type: object
+              description: The template content
+            templateLink:
+              type: object
+              properties:
+                uri:
+                  type: string
+                contentVersion:
+                  type: string
+            parameters:
+              type: object
+              description: Deployment parameters
+            mode:
+              type: string
+              enum:
+              - Incremental
+              - Complete
+              description: The deployment mode
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,0 +1,215 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Projects API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Projects
+  description: Manage team projects
+paths:
+  /_apis/projects:
+    get:
+      operationId: listProjects
+      summary: Microsoft List projects
+      description: Get all projects in the organization.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      - name: $top
+        in: query
+        description: Maximum number of projects to return
+        schema:
+          type: integer
+      - name: $skip
+        in: query
+        description: Number of projects to skip
+        schema:
+          type: integer
+      - name: stateFilter
+        in: query
+        description: Filter on team project state
+        schema:
+          type: string
+          enum:
+          - all
+          - createPending
+          - deleted
+          - deleting
+          - new
+          - unchanged
+          - wellFormed
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createProject
+      summary: Microsoft Create a project
+      description: Queue a project creation operation.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      responses:
+        '202':
+          description: Project creation queued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationReference'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /_apis/projects/{projectId}:
+    get:
+      operationId: getProject
+      summary: Microsoft Get a project
+      description: Get project with the specified id or name.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Project not found
+components:
+  schemas:
+    OperationReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        url:
+          type: string
+    ProjectCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    CreateProjectRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        capabilities:
+          type: object
+          properties:
+            versioncontrol:
+              type: object
+              properties:
+                sourceControlType:
+                  type: string
+                  enum:
+                  - Git
+                  - Tfvc
+            processTemplate:
+              type: object
+              properties:
+                templateTypeId:
+                  type: string
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        state:
+          type: string
+          enum:
+          - all
+          - createPending
+          - deleted
+          - deleting
+          - new
+          - unchanged
+          - wellFormed
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        lastUpdateTime:
+          type: string
+          format: date-time
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts News Search API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: News Search
+  description: Search for news articles
+paths:
+  /news/search:
+    get:
+      operationId: newsSearch
+      summary: Microsoft News search
+      description: Returns news articles relevant to the given search query.
+      tags:
+      - News Search
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: The search query string
+        schema:
+          type: string
+      - name: count
+        in: query
+        schema:
+          type: integer
+          default: 10
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: mkt
+        in: query
+        schema:
+          type: string
+      - name: freshness
+        in: query
+        description: Filter by article freshness
+        schema:
+          type: string
+          enum:
+          - Day
+          - Week
+          - Month
+      responses:
+        '200':
+          description: News search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsSearchResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    NewsSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        totalEstimatedMatches:
+          type: integer
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+              description:
+                type: string
+              datePublished:
+                type: string
+                format: date-time
+              provider:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _type:
+                      type: string
+                    name:
+                      type: string
+              category:
+                type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

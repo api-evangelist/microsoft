@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Web Search API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Web Search
+  description: Search the web for relevant results
+paths:
+  /search:
+    get:
+      operationId: webSearch
+      summary: Microsoft Web search
+      description: Returns relevant web pages, images, videos, news, and more for a given search query.
+      tags:
+      - Web Search
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: The search query string
+        schema:
+          type: string
+      - name: count
+        in: query
+        description: Number of results to return (1-50)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 10
+      - name: offset
+        in: query
+        description: Zero-based offset for pagination
+        schema:
+          type: integer
+          default: 0
+      - name: mkt
+        in: query
+        description: Market code (e.g., en-US)
+        schema:
+          type: string
+      - name: safeSearch
+        in: query
+        description: Filter adult content
+        schema:
+          type: string
+          enum:
+          - 'Off'
+          - Moderate
+          - Strict
+          default: Moderate
+      - name: responseFilter
+        in: query
+        description: Comma-delimited list of answer types to include
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebSearchResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    WebSearchResponse:
+      type: object
+      properties:
+        _type:
+          type: string
+        queryContext:
+          type: object
+          properties:
+            originalQuery:
+              type: string
+        webPages:
+          type: object
+          properties:
+            totalEstimatedMatches:
+              type: integer
+            value:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  url:
+                    type: string
+                  snippet:
+                    type: string
+                  dateLastCrawled:
+                    type: string
+                    format: date-time
+        rankingResponse:
+          type: object
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

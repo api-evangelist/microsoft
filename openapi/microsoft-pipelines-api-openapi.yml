@@ -1,0 +1,167 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Pipelines API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Pipelines
+  description: Manage build and release pipelines
+paths:
+  /{project}/_apis/pipelines:
+    get:
+      operationId: listPipelines
+      summary: Microsoft List pipelines
+      description: Get a list of pipelines for a project.
+      tags:
+      - Pipelines
+      parameters:
+      - $ref: '#/components/parameters/project'
+      - $ref: '#/components/parameters/apiVersion'
+      - name: $top
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List of pipelines
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineCollection'
+        '401':
+          description: Unauthorized
+  /{project}/_apis/pipelines/{pipelineId}/runs:
+    post:
+      operationId: runPipeline
+      summary: Microsoft Run a pipeline
+      description: Runs a pipeline.
+      tags:
+      - Pipelines
+      parameters:
+      - $ref: '#/components/parameters/project'
+      - name: pipelineId
+        in: path
+        required: true
+        description: Pipeline ID
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resources:
+                  type: object
+                  properties:
+                    repositories:
+                      type: object
+                      properties:
+                        self:
+                          type: object
+                          properties:
+                            refName:
+                              type: string
+      responses:
+        '200':
+          description: Pipeline run started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineRun'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    PipelineRun:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+          - canceling
+          - completed
+          - inProgress
+          - unknown
+        result:
+          type: string
+          enum:
+          - canceled
+          - failed
+          - succeeded
+          - unknown
+        createdDate:
+          type: string
+          format: date-time
+        finishedDate:
+          type: string
+          format: date-time
+        url:
+          type: string
+        pipeline:
+          $ref: '#/components/schemas/Pipeline'
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string
+        folder:
+          type: string
+        revision:
+          type: integer
+    PipelineCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pipeline'
+  parameters:
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

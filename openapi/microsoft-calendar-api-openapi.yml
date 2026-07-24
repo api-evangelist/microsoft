@@ -1,0 +1,679 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Calendar API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Calendar
+  description: Access and manage Outlook calendar events
+paths:
+  /me/events:
+    get:
+      operationId: listEvents
+      summary: Microsoft List calendar events
+      description: Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters.
+      tags:
+      - Calendar
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: Collection of calendar events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createEvent
+      summary: Microsoft Create calendar event
+      description: Create an event in the user's default calendar or specified calendar. By default, the allowNewTimeProposals property is set to true.
+      tags:
+      - Calendar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          description: Event created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /me/events/{event-id}:
+    get:
+      operationId: getEvent
+      summary: Microsoft Get calendar event
+      description: Get the properties and relationships of the specified event object.
+      tags:
+      - Calendar
+      parameters:
+      - $ref: '#/components/parameters/eventId'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Event object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateEvent
+      summary: Microsoft Update calendar event
+      description: Update the properties of the event object.
+      tags:
+      - Calendar
+      parameters:
+      - $ref: '#/components/parameters/eventId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Event updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+    delete:
+      operationId: deleteEvent
+      summary: Microsoft Delete calendar event
+      description: Remove the specified event from the user's calendar.
+      tags:
+      - Calendar
+      parameters:
+      - $ref: '#/components/parameters/eventId'
+      responses:
+        '204':
+          description: Event deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /me/calendarView:
+    get:
+      operationId: listCalendarView
+      summary: Microsoft List calendar view
+      description: Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range from the user's default calendar.
+      tags:
+      - Calendar
+      parameters:
+      - name: startDateTime
+        in: query
+        required: true
+        description: Start date and time of the time range (ISO 8601 format)
+        schema:
+          type: string
+          format: date-time
+      - name: endDateTime
+        in: query
+        required: true
+        description: End date and time of the time range (ISO 8601 format)
+        schema:
+          type: string
+          format: date-time
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of calendar events in the specified time range
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Event'
+  /events:
+    get:
+      operationId: listEvents
+      summary: Microsoft List calendar events
+      description: Get events from the user's default calendar.
+      tags:
+      - Calendar
+      parameters:
+      - $ref: '#/components/parameters/select_2'
+      - $ref: '#/components/parameters/filter_2'
+      - $ref: '#/components/parameters/top_2'
+      - $ref: '#/components/parameters/orderby_2'
+      responses:
+        '200':
+          description: List of events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createEvent
+      summary: Microsoft Create a calendar event
+      description: Create an event in the user's default calendar.
+      tags:
+      - Calendar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEventRequest'
+      responses:
+        '201':
+          description: Event created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event_2'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    eventId:
+      name: event-id
+      in: path
+      required: true
+      description: Unique identifier of the event
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+  schemas:
+    Recipient_2:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+            address:
+              type: string
+              format: email
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the event
+          readOnly: true
+        subject:
+          type: string
+          description: Text of the event's subject line
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+            content:
+              type: string
+        start:
+          $ref: '#/components/schemas/DateTimeTimeZone'
+        end:
+          $ref: '#/components/schemas/DateTimeTimeZone'
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+              description: Name associated with the location
+            address:
+              type: object
+              properties:
+                street:
+                  type: string
+                city:
+                  type: string
+                state:
+                  type: string
+                countryOrRegion:
+                  type: string
+                postalCode:
+                  type: string
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+                    format: email
+              type:
+                type: string
+                enum:
+                - required
+                - optional
+                - resource
+              status:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    enum:
+                    - none
+                    - organizer
+                    - tentativelyAccepted
+                    - accepted
+                    - declined
+                    - notResponded
+                  time:
+                    type: string
+                    format: date-time
+        organizer:
+          $ref: '#/components/schemas/Recipient'
+        isAllDay:
+          type: boolean
+          description: Whether the event lasts all day
+        isCancelled:
+          type: boolean
+          description: Whether the event has been cancelled
+          readOnly: true
+        isOrganizer:
+          type: boolean
+          description: Whether the signed-in user is the organizer
+          readOnly: true
+        showAs:
+          type: string
+          enum:
+          - free
+          - tentative
+          - busy
+          - oof
+          - workingElsewhere
+          - unknown
+          description: Status to show during the event
+        sensitivity:
+          type: string
+          enum:
+          - normal
+          - personal
+          - private
+          - confidential
+        importance:
+          type: string
+          enum:
+          - low
+          - normal
+          - high
+        recurrence:
+          type: object
+          description: Recurrence pattern for the event
+          properties:
+            pattern:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                  - daily
+                  - weekly
+                  - absoluteMonthly
+                  - relativeMonthly
+                  - absoluteYearly
+                  - relativeYearly
+                interval:
+                  type: integer
+                daysOfWeek:
+                  type: array
+                  items:
+                    type: string
+            range:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                  - endDate
+                  - noEnd
+                  - numbered
+                startDate:
+                  type: string
+                  format: date
+                endDate:
+                  type: string
+                  format: date
+                numberOfOccurrences:
+                  type: integer
+        onlineMeeting:
+          type: object
+          description: Online meeting information
+          properties:
+            joinUrl:
+              type: string
+              format: uri
+              description: URL to join the online meeting
+        isOnlineMeeting:
+          type: boolean
+          description: Whether the event is an online meeting
+        onlineMeetingProvider:
+          type: string
+          enum:
+          - unknown
+          - teamsForBusiness
+          - skypeForBusiness
+          - skypeForConsumer
+          description: Online meeting service provider
+        webLink:
+          type: string
+          format: uri
+          description: URL to open the event in Outlook on the web
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        categories:
+          type: array
+          items:
+            type: string
+          description: Categories associated with the event
+    Recipient:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Display name of the recipient
+            address:
+              type: string
+              format: email
+              description: Email address of the recipient
+    DateTimeTimeZone:
+      type: object
+      properties:
+        dateTime:
+          type: string
+          description: Date and time in ISO 8601 format
+        timeZone:
+          type: string
+          description: Time zone for the date-time value (Windows or IANA format)
+    Event_2:
+      type: object
+      properties:
+        id:
+          type: string
+        subject:
+          type: string
+        start:
+          type: object
+          properties:
+            dateTime:
+              type: string
+              format: date-time
+            timeZone:
+              type: string
+        end:
+          type: object
+          properties:
+            dateTime:
+              type: string
+              format: date-time
+            timeZone:
+              type: string
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+        organizer:
+          $ref: '#/components/schemas/Recipient_2'
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+              type:
+                type: string
+                enum:
+                - required
+                - optional
+                - resource
+              status:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    enum:
+                    - none
+                    - organizer
+                    - tentativelyAccepted
+                    - accepted
+                    - declined
+                    - notResponded
+        isAllDay:
+          type: boolean
+        isCancelled:
+          type: boolean
+        showAs:
+          type: string
+          enum:
+          - free
+          - tentative
+          - busy
+          - oof
+          - workingElsewhere
+          - unknown
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    EventCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event_2'
+    CreateEventRequest:
+      type: object
+      required:
+      - subject
+      - start
+      - end
+      properties:
+        subject:
+          type: string
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+            content:
+              type: string
+        start:
+          type: object
+          properties:
+            dateTime:
+              type: string
+            timeZone:
+              type: string
+        end:
+          type: object
+          properties:
+            dateTime:
+              type: string
+            timeZone:
+              type: string
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+              type:
+                type: string
+        isOnlineMeeting:
+          type: boolean
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

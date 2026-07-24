@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Dashboards API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Dashboards
+  description: Manage Power BI dashboards
+paths:
+  /dashboards:
+    get:
+      operationId: listDashboards
+      summary: Microsoft List dashboards
+      description: Returns a list of dashboards from My workspace.
+      tags:
+      - Dashboards
+      responses:
+        '200':
+          description: List of dashboards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardCollection'
+        '401':
+          description: Unauthorized
+  /dashboards/{dashboardId}:
+    get:
+      operationId: getDashboard
+      summary: Microsoft Get a dashboard
+      description: Returns the specified dashboard from My workspace.
+      tags:
+      - Dashboards
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      responses:
+        '200':
+          description: Dashboard details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dashboard not found
+  /dashboards/{dashboardId}/tiles:
+    get:
+      operationId: listTiles
+      summary: Microsoft List dashboard tiles
+      description: Returns a list of tiles within the specified dashboard.
+      tags:
+      - Dashboards
+      parameters:
+      - $ref: '#/components/parameters/dashboardId'
+      responses:
+        '200':
+          description: List of tiles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TileCollection'
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    dashboardId:
+      name: dashboardId
+      in: path
+      required: true
+      description: Dashboard unique identifier
+      schema:
+        type: string
+  schemas:
+    Dashboard:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        isReadOnly:
+          type: boolean
+        embedUrl:
+          type: string
+        webUrl:
+          type: string
+    TileCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              embedUrl:
+                type: string
+              reportId:
+                type: string
+              datasetId:
+                type: string
+    DashboardCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dashboard'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

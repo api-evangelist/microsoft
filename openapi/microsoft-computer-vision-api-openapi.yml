@@ -1,0 +1,233 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Computer Vision API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Computer Vision
+  description: Analyze images and extract visual features
+paths:
+  /vision/v3.2/analyze:
+    post:
+      operationId: analyzeImage
+      summary: Microsoft Analyze image
+      description: Extract visual features from an image including objects, faces, tags, categories, descriptions, and color information.
+      tags:
+      - Computer Vision
+      parameters:
+      - name: visualFeatures
+        in: query
+        description: Visual features to analyze
+        schema:
+          type: string
+          enum:
+          - Categories
+          - Tags
+          - Description
+          - Faces
+          - ImageType
+          - Color
+          - Adult
+          - Objects
+          - Brands
+      - name: language
+        in: query
+        description: Language for response
+        schema:
+          type: string
+          default: en
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - url
+              properties:
+                url:
+                  type: string
+                  description: Publicly reachable URL of an image
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Image analysis results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageAnalysis'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /vision/v3.2/ocr:
+    post:
+      operationId: recognizeText
+      summary: Microsoft Optical character recognition
+      description: Detect and extract text from an image using optical character recognition.
+      tags:
+      - Computer Vision
+      parameters:
+      - name: language
+        in: query
+        description: BCP-47 language code of the text to detect
+        schema:
+          type: string
+          default: unk
+      - name: detectOrientation
+        in: query
+        description: Whether to detect text orientation
+        schema:
+          type: boolean
+          default: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - url
+              properties:
+                url:
+                  type: string
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OCR results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OcrResult'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    OcrResult:
+      type: object
+      properties:
+        language:
+          type: string
+        textAngle:
+          type: number
+        orientation:
+          type: string
+        regions:
+          type: array
+          items:
+            type: object
+            properties:
+              boundingBox:
+                type: string
+              lines:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    boundingBox:
+                      type: string
+                    words:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          boundingBox:
+                            type: string
+                          text:
+                            type: string
+    ImageAnalysis:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              score:
+                type: number
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              confidence:
+                type: number
+        description:
+          type: object
+          properties:
+            tags:
+              type: array
+              items:
+                type: string
+            captions:
+              type: array
+              items:
+                type: object
+                properties:
+                  text:
+                    type: string
+                  confidence:
+                    type: number
+        objects:
+          type: array
+          items:
+            type: object
+            properties:
+              object:
+                type: string
+              confidence:
+                type: number
+              rectangle:
+                type: object
+                properties:
+                  x:
+                    type: integer
+                  y:
+                    type: integer
+                  w:
+                    type: integer
+                  h:
+                    type: integer
+        metadata:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+            format:
+              type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

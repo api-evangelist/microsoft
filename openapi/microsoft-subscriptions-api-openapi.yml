@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Subscriptions API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Subscriptions
+  description: Manage Azure subscriptions
+paths:
+  /subscriptions:
+    get:
+      operationId: listSubscriptions
+      summary: Microsoft List subscriptions
+      description: Gets all subscriptions for a tenant.
+      tags:
+      - Subscriptions
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: List of subscriptions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionListResult'
+        '401':
+          description: Unauthorized
+  /subscriptions/{subscriptionId}:
+    get:
+      operationId: getSubscription
+      summary: Microsoft Get a subscription
+      description: Gets details about a specified subscription.
+      tags:
+      - Subscriptions
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Subscription details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Subscription not found
+components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    SubscriptionListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        nextLink:
+          type: string
+          description: URL to get the next set of results
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Fully qualified resource ID
+        subscriptionId:
+          type: string
+          description: The subscription ID
+        displayName:
+          type: string
+          description: The subscription display name
+        state:
+          type: string
+          enum:
+          - Enabled
+          - Warned
+          - PastDue
+          - Disabled
+          - Deleted
+          description: The subscription state
+        tenantId:
+          type: string
+          description: The subscription tenant ID
+        subscriptionPolicies:
+          type: object
+          properties:
+            locationPlacementId:
+              type: string
+            quotaId:
+              type: string
+            spendingLimit:
+              type: string
+              enum:
+              - 'On'
+              - 'Off'
+              - CurrentPeriodOff
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

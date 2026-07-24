@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Datasets API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Datasets
+  description: Manage Power BI datasets
+paths:
+  /datasets:
+    get:
+      operationId: listDatasets
+      summary: Microsoft List datasets
+      description: Returns a list of datasets from My workspace.
+      tags:
+      - Datasets
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetCollection'
+        '401':
+          description: Unauthorized
+  /datasets/{datasetId}:
+    get:
+      operationId: getDataset
+      summary: Microsoft Get a dataset
+      description: Returns the specified dataset from My workspace.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/datasetId'
+      responses:
+        '200':
+          description: Dataset details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dataset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    delete:
+      operationId: deleteDataset
+      summary: Microsoft Delete a dataset
+      description: Deletes the specified dataset from My workspace.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/datasetId'
+      responses:
+        '200':
+          description: Dataset deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+  /datasets/{datasetId}/refreshes:
+    post:
+      operationId: refreshDataset
+      summary: Microsoft Trigger dataset refresh
+      description: Triggers a refresh for the specified dataset.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/datasetId'
+      responses:
+        '202':
+          description: Refresh accepted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Dataset not found
+    get:
+      operationId: listRefreshHistory
+      summary: Microsoft List refresh history
+      description: Returns the refresh history for the specified dataset.
+      tags:
+      - Datasets
+      parameters:
+      - $ref: '#/components/parameters/datasetId'
+      - name: $top
+        in: query
+        description: Number of entries to return
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Refresh history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshCollection'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    RefreshCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              requestId:
+                type: string
+              refreshType:
+                type: string
+              startTime:
+                type: string
+                format: date-time
+              endTime:
+                type: string
+                format: date-time
+              status:
+                type: string
+                enum:
+                - Unknown
+                - Completed
+                - Failed
+                - Cancelled
+                - Disabled
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        configuredBy:
+          type: string
+        isRefreshable:
+          type: boolean
+        isEffectiveIdentityRequired:
+          type: boolean
+        isOnPremGatewayRequired:
+          type: boolean
+        addRowsAPIEnabled:
+          type: boolean
+        webUrl:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+    DatasetCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+  parameters:
+    datasetId:
+      name: datasetId
+      in: path
+      required: true
+      description: Dataset unique identifier
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Email API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Email
+  description: Send email messages
+paths:
+  /emails:send:
+    post:
+      operationId: sendEmail
+      summary: Microsoft Send an email
+      description: Queues an email message for sending.
+      tags:
+      - Email
+      parameters:
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailMessage'
+      responses:
+        '202':
+          description: Email accepted for delivery
+          headers:
+            Operation-Location:
+              schema:
+                type: string
+              description: URL to poll for send status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                    - NotStarted
+                    - Running
+                    - Succeeded
+                    - Failed
+                    - Canceled
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
+  schemas:
+    EmailMessage:
+      type: object
+      required:
+      - senderAddress
+      - recipients
+      - content
+      properties:
+        senderAddress:
+          type: string
+          description: Sender email address
+        recipients:
+          type: object
+          required:
+          - to
+          properties:
+            to:
+              type: array
+              items:
+                type: object
+                required:
+                - address
+                properties:
+                  address:
+                    type: string
+                  displayName:
+                    type: string
+            cc:
+              type: array
+              items:
+                type: object
+                properties:
+                  address:
+                    type: string
+                  displayName:
+                    type: string
+            bcc:
+              type: array
+              items:
+                type: object
+                properties:
+                  address:
+                    type: string
+                  displayName:
+                    type: string
+        content:
+          type: object
+          required:
+          - subject
+          properties:
+            subject:
+              type: string
+            plainText:
+              type: string
+            html:
+              type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

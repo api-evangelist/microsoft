@@ -1,0 +1,163 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Audio API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Audio
+  description: Transcribe and translate audio
+paths:
+  /deployments/{deployment-id}/audio/transcriptions:
+    post:
+      operationId: createTranscription
+      summary: Microsoft Transcribe audio
+      description: Transcribes audio into the input language.
+      tags:
+      - Audio
+      parameters:
+      - $ref: '#/components/parameters/deploymentId'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The audio file to transcribe
+                language:
+                  type: string
+                  description: Language of the input audio in ISO-639-1 format
+                prompt:
+                  type: string
+                  description: Optional text to guide the model's style
+                response_format:
+                  type: string
+                  enum:
+                  - json
+                  - text
+                  - srt
+                  - verbose_json
+                  - vtt
+                  default: json
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+      responses:
+        '200':
+          description: Transcription response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranscriptionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /deployments/{deployment-id}/audio/translations:
+    post:
+      operationId: createTranslation
+      summary: Microsoft Translate audio
+      description: Transcribes and translates input audio into English text.
+      tags:
+      - Audio
+      parameters:
+      - $ref: '#/components/parameters/deploymentId'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The audio file to translate
+                prompt:
+                  type: string
+                response_format:
+                  type: string
+                  enum:
+                  - json
+                  - text
+                  - srt
+                  - verbose_json
+                  - vtt
+                  default: json
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+      responses:
+        '200':
+          description: Translation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TranscriptionResponse'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
+  schemas:
+    TranscriptionResponse:
+      type: object
+      properties:
+        text:
+          type: string
+          description: The transcribed or translated text
+        task:
+          type: string
+        language:
+          type: string
+        duration:
+          type: number
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

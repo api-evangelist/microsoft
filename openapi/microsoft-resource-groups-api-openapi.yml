@@ -1,0 +1,205 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Resource Groups API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Resource Groups
+  description: Manage Azure resource groups
+paths:
+  /subscriptions/{subscriptionId}/resourcegroups:
+    get:
+      operationId: listResourceGroups
+      summary: Microsoft List resource groups
+      description: Gets all the resource groups for a subscription.
+      tags:
+      - Resource Groups
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/apiVersion'
+      - $ref: '#/components/parameters/filterParam'
+      - $ref: '#/components/parameters/topParam'
+      responses:
+        '200':
+          description: List of resource groups
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroupListResult'
+        '401':
+          description: Unauthorized
+  /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}:
+    get:
+      operationId: getResourceGroup
+      summary: Microsoft Get a resource group
+      description: Gets a resource group.
+      tags:
+      - Resource Groups
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Resource group details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroup'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource group not found
+    put:
+      operationId: createOrUpdateResourceGroup
+      summary: Microsoft Create or update a resource group
+      description: Creates or updates a resource group.
+      tags:
+      - Resource Groups
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceGroup'
+      responses:
+        '200':
+          description: Resource group updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroup'
+        '201':
+          description: Resource group created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceGroup'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteResourceGroup
+      summary: Microsoft Delete a resource group
+      description: Deletes a resource group and all of its resources.
+      tags:
+      - Resource Groups
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: Resource group deleted
+        '202':
+          description: Accepted - deletion in progress
+        '401':
+          description: Unauthorized
+        '404':
+          description: Resource group not found
+components:
+  schemas:
+    ResourceGroup:
+      type: object
+      required:
+      - location
+      properties:
+        id:
+          type: string
+          description: Resource group ID
+          readOnly: true
+        name:
+          type: string
+          description: Resource group name
+          readOnly: true
+        type:
+          type: string
+          description: Resource type
+          readOnly: true
+        location:
+          type: string
+          description: Resource group location
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          description: Resource group tags
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+              description: The provisioning state
+              readOnly: true
+    ResourceGroupListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceGroup'
+        nextLink:
+          type: string
+  parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The name of the resource group
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    filterParam:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    topParam:
+      name: $top
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

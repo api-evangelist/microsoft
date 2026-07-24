@@ -1,0 +1,169 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Messages API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Messages
+  description: Send and manage channel messages
+paths:
+  /teams/{teamId}/channels/{channelId}/messages:
+    get:
+      operationId: listChannelMessages
+      summary: Microsoft List channel messages
+      description: Retrieve the list of messages in a channel.
+      tags:
+      - Messages
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/channelId'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessageCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: sendChannelMessage
+      summary: Microsoft Send a channel message
+      description: Send a new message to a channel.
+      tags:
+      - Messages
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/channelId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateChatMessageRequest'
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ChatMessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+    CreateChatMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: object
+          required:
+          - content
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+              default: text
+            content:
+              type: string
+        importance:
+          type: string
+          enum:
+          - normal
+          - high
+          - urgent
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: string
+        messageType:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+        from:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+            content:
+              type: string
+        importance:
+          type: string
+          enum:
+          - normal
+          - high
+          - urgent
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
+    channelId:
+      name: channelId
+      in: path
+      required: true
+      description: Channel unique identifier
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

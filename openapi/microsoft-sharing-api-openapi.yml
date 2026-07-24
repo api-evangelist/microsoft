@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Sharing API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Sharing
+  description: Share files and folders
+paths:
+  /me/drive/items/{itemId}/createLink:
+    post:
+      operationId: createSharingLink
+      summary: Microsoft Create a sharing link
+      description: Create a new sharing link for a DriveItem.
+      tags:
+      - Sharing
+      parameters:
+      - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - type
+              properties:
+                type:
+                  type: string
+                  enum:
+                  - view
+                  - edit
+                  - embed
+                scope:
+                  type: string
+                  enum:
+                  - anonymous
+                  - organization
+                expirationDateTime:
+                  type: string
+                  format: date-time
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Sharing link created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Permission'
+        '401':
+          description: Unauthorized
+components:
+  parameters:
+    itemId:
+      name: itemId
+      in: path
+      required: true
+      description: Drive item unique identifier
+      schema:
+        type: string
+  schemas:
+    Permission:
+      type: object
+      properties:
+        id:
+          type: string
+        link:
+          type: object
+          properties:
+            type:
+              type: string
+            scope:
+              type: string
+            webUrl:
+              type: string
+        roles:
+          type: array
+          items:
+            type: string
+        expirationDateTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

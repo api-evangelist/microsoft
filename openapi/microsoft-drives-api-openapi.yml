@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Drives API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Drives
+  description: Access drives (OneDrive or document libraries)
+paths:
+  /me/drive:
+    get:
+      operationId: getCurrentUserDrive
+      summary: Microsoft Get current user's drive
+      description: Retrieve the properties and relationships of a user's OneDrive.
+      tags:
+      - Drives
+      responses:
+        '200':
+          description: Drive details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Drive'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Drive:
+      type: object
+      properties:
+        id:
+          type: string
+        driveType:
+          type: string
+          enum:
+          - personal
+          - business
+          - documentLibrary
+        name:
+          type: string
+        owner:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                id:
+                  type: string
+        quota:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+            used:
+              type: integer
+              format: int64
+            remaining:
+              type: integer
+              format: int64
+            state:
+              type: string
+              enum:
+              - normal
+              - nearing
+              - critical
+              - exceeded
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

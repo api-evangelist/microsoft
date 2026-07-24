@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Imports API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Imports
+  description: Import content into Power BI
+paths:
+  /imports:
+    post:
+      operationId: importFile
+      summary: Microsoft Import a PBIX file
+      description: Imports a Power BI .pbix file into My workspace.
+      tags:
+      - Imports
+      parameters:
+      - name: datasetDisplayName
+        in: query
+        required: true
+        description: Display name for the dataset
+        schema:
+          type: string
+      - name: nameConflict
+        in: query
+        description: Action on name conflict
+        schema:
+          type: string
+          enum:
+          - Ignore
+          - Abort
+          - Overwrite
+          - CreateOrOverwrite
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Import details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Import'
+        '202':
+          description: Import accepted
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Import:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        importState:
+          type: string
+          enum:
+          - Publishing
+          - Succeeded
+          - Failed
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
+        createdDateTime:
+          type: string
+          format: date-time
+        updatedDateTime:
+          type: string
+          format: date-time
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        configuredBy:
+          type: string
+        isRefreshable:
+          type: boolean
+        isEffectiveIdentityRequired:
+          type: boolean
+        isOnPremGatewayRequired:
+          type: boolean
+        addRowsAPIEnabled:
+          type: boolean
+        webUrl:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        datasetId:
+          type: string
+        webUrl:
+          type: string
+        embedUrl:
+          type: string
+        reportType:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

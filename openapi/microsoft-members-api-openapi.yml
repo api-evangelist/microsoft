@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Members API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Members
+  description: Manage team membership
+paths:
+  /teams/{teamId}/members:
+    get:
+      operationId: listTeamMembers
+      summary: Microsoft List team members
+      description: Get the members of a team.
+      tags:
+      - Members
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      responses:
+        '200':
+          description: List of team members
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberCollection'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: addTeamMember
+      summary: Microsoft Add a team member
+      description: Add a new member to a team.
+      tags:
+      - Members
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddMemberRequest'
+      responses:
+        '201':
+          description: Member added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Member'
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    MemberCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+    Member:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        userId:
+          type: string
+        email:
+          type: string
+    AddMemberRequest:
+      type: object
+      required:
+      - '@odata.type'
+      - roles
+      - user@odata.bind
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.aadUserConversationMember'
+        roles:
+          type: array
+          items:
+            type: string
+        user@odata.bind:
+          type: string
+          description: URL reference to the user to add
+  parameters:
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/

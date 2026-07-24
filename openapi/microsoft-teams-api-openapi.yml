@@ -1,0 +1,609 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Azure Cognitive Services Accounts Teams API
+  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
+  version: '3.2'
+  contact:
+    name: Microsoft Azure Support
+    url: https://azure.microsoft.com/en-us/support/
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://{region}.api.cognitive.microsoft.com
+  description: Azure Cognitive Services Regional Endpoint
+  variables:
+    region:
+      default: eastus
+      description: Azure region for the Cognitive Services resource
+security:
+- apiKey: []
+tags:
+- name: Teams
+  description: Manage Microsoft Teams resources
+paths:
+  /teams:
+    get:
+      operationId: listTeams
+      summary: Microsoft List teams
+      description: List all teams in an organization.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of teams
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  '@odata.context':
+                    type: string
+                  '@odata.nextLink':
+                    type: string
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Team'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createTeam
+      summary: Microsoft Create a team
+      description: Create a new team.
+      tags:
+      - Teams
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamRequest'
+      responses:
+        '202':
+          description: Team creation accepted
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL to poll for team creation status
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+  /teams/{team-id}:
+    get:
+      operationId: getTeam
+      summary: Microsoft Get team
+      description: Retrieve the properties and relationships of the specified team.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Team object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateTeam
+      summary: Microsoft Update team
+      description: Update the properties of the specified team.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '204':
+          description: Team updated successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteTeam
+      summary: Microsoft Delete team
+      description: Delete a team. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      responses:
+        '204':
+          description: Team deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /teams/{team-id}/channels:
+    get:
+      operationId: listChannels
+      summary: Microsoft List channels
+      description: Retrieve the list of channels in this team.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Collection of channels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Channel'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      operationId: createChannel
+      summary: Microsoft Create channel
+      description: Create a new channel in a team as specified in the request body.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Channel'
+      responses:
+        '201':
+          description: Channel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /teams/{team-id}/channels/{channel-id}/messages:
+    get:
+      operationId: listChannelMessages
+      summary: Microsoft List channel messages
+      description: Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/channelId'
+      - $ref: '#/components/parameters/top'
+      responses:
+        '200':
+          description: Collection of chat messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChatMessage'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    post:
+      operationId: sendChannelMessage
+      summary: Microsoft Send channel message
+      description: Send a new chatMessage in the specified channel.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId'
+      - $ref: '#/components/parameters/channelId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessage'
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessage'
+  /teams/{teamId}:
+    get:
+      operationId: getTeam
+      summary: Microsoft Get a team
+      description: Retrieve the properties and relationships of the specified team.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId_2'
+      responses:
+        '200':
+          description: Team details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team_2'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Team not found
+    patch:
+      operationId: updateTeam
+      summary: Microsoft Update a team
+      description: Update the properties of a team.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId_2'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeamRequest'
+      responses:
+        '204':
+          description: Team updated
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Team not found
+    delete:
+      operationId: deleteTeam
+      summary: Microsoft Delete a team
+      description: Delete a team and its associated group.
+      tags:
+      - Teams
+      parameters:
+      - $ref: '#/components/parameters/teamId_2'
+      responses:
+        '204':
+          description: Team deleted
+        '401':
+          description: Unauthorized
+        '404':
+          description: Team not found
+components:
+  schemas:
+    UpdateTeamRequest:
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+    Team_2:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        isArchived:
+          type: boolean
+        webUrl:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        funSettings:
+          type: object
+          properties:
+            allowGiphy:
+              type: boolean
+            allowStickersAndMemes:
+              type: boolean
+        memberSettings:
+          type: object
+          properties:
+            allowCreateUpdateChannels:
+              type: boolean
+            allowDeleteChannels:
+              type: boolean
+            allowAddRemoveApps:
+              type: boolean
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the team
+          readOnly: true
+        displayName:
+          type: string
+          description: Name of the team
+        description:
+          type: string
+          description: Optional description for the team
+        internalId:
+          type: string
+          description: Unique ID for the team used in a few places such as the audit log
+          readOnly: true
+        isArchived:
+          type: boolean
+          description: Whether the team is in read-only mode
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+          description: Visibility of the group and team
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink to the team in Microsoft Teams client
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        memberSettings:
+          type: object
+          properties:
+            allowCreateUpdateChannels:
+              type: boolean
+            allowDeleteChannels:
+              type: boolean
+            allowAddRemoveApps:
+              type: boolean
+            allowCreateUpdateRemoveTabs:
+              type: boolean
+            allowCreateUpdateRemoveConnectors:
+              type: boolean
+        guestSettings:
+          type: object
+          properties:
+            allowCreateUpdateChannels:
+              type: boolean
+            allowDeleteChannels:
+              type: boolean
+        messagingSettings:
+          type: object
+          properties:
+            allowUserEditMessages:
+              type: boolean
+            allowUserDeleteMessages:
+              type: boolean
+            allowTeamMentions:
+              type: boolean
+            allowChannelMentions:
+              type: boolean
+        funSettings:
+          type: object
+          properties:
+            allowGiphy:
+              type: boolean
+            giphyContentRating:
+              type: string
+              enum:
+              - strict
+              - moderate
+            allowStickersAndMemes:
+              type: boolean
+            allowCustomMemes:
+              type: boolean
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    CreateTeamRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+    Channel:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Channel unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Channel name as it appears in Microsoft Teams
+        description:
+          type: string
+          description: Optional textual description for the channel
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
+          description: Type of channel
+        email:
+          type: string
+          format: email
+          description: Email address for sending messages to the channel
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink for the channel in Microsoft Teams
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    ChatMessage:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the message
+          readOnly: true
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+            content:
+              type: string
+        from:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+                userIdentityType:
+                  type: string
+        messageType:
+          type: string
+          enum:
+          - message
+          - chatEvent
+          - typing
+          - unknownFutureValue
+          - systemEventMessage
+          description: Type of chat message
+        importance:
+          type: string
+          enum:
+          - normal
+          - high
+          - urgent
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        subject:
+          type: string
+          description: Subject of the chat message (only for channel messages)
+        summary:
+          type: string
+          description: Summary text for push notifications and previews
+        webUrl:
+          type: string
+          format: uri
+          readOnly: true
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    channelId:
+      name: channel-id
+      in: path
+      required: true
+      description: Unique identifier of the channel
+      schema:
+        type: string
+    teamId:
+      name: team-id
+      in: path
+      required: true
+      description: Unique identifier of the team
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    teamId_2:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      description: Azure Cognitive Services subscription key
+externalDocs:
+  description: Azure AI Services Documentation
+  url: https://learn.microsoft.com/en-us/azure/ai-services/
