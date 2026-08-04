@@ -1,0 +1,407 @@
+{
+  "info": {
+    "_postman_id": "30ba5ebe-75e5-461b-a582-09dde29f873b",
+    "name": "Microsoft Azure Cognitive Services Accounts Contacts API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:36.000Z",
+    "updatedAt": "2026-07-28T02:13:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-30ba5ebe-75e5-461b-a582-09dde29f873b"
+  },
+  "item": [
+    {
+      "name": "contacts",
+      "item": [
+        {
+          "name": "Microsoft List contacts",
+          "id": "a83425c9-2f5c-4571-9480-f478072739a3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contacts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contacts"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Sort order",
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of contact records."
+          },
+          "response": [
+            {
+              "id": "bd075d51-cba4-4d9a-8390-375f38c346d4",
+              "name": "List of contacts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:13:37.000Z",
+              "updatedAt": "2026-07-28T02:13:37.000Z",
+              "uid": "35240-bd075d51-cba4-4d9a-8390-375f38c346d4"
+            },
+            {
+              "id": "870ca1ee-d94b-4e00-9014-54f3be327b5b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:37.000Z",
+              "updatedAt": "2026-07-28T02:13:37.000Z",
+              "uid": "35240-870ca1ee-d94b-4e00-9014-54f3be327b5b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:37.000Z",
+          "updatedAt": "2026-07-28T02:13:37.000Z",
+          "uid": "35240-a83425c9-2f5c-4571-9480-f478072739a3"
+        },
+        {
+          "name": "Microsoft Create a contact",
+          "id": "0654da70-5cb2-4459-9b8a-5ce26c1c803f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contactid\": \"<uuid>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"statecode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/contacts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contacts"
+              ]
+            },
+            "description": "Create a new contact record."
+          },
+          "response": [
+            {
+              "id": "615e8134-0c13-4866-9ae7-dada7a7b7a2c",
+              "name": "Contact created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactid\": \"<uuid>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:37.000Z",
+              "updatedAt": "2026-07-28T02:13:37.000Z",
+              "uid": "35240-615e8134-0c13-4866-9ae7-dada7a7b7a2c"
+            },
+            {
+              "id": "6e65bbcd-3a15-4390-a07a-8b286cc3a323",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactid\": \"<uuid>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:37.000Z",
+              "updatedAt": "2026-07-28T02:13:37.000Z",
+              "uid": "35240-6e65bbcd-3a15-4390-a07a-8b286cc3a323"
+            },
+            {
+              "id": "cbe990d1-61b5-4b37-814b-4ace20c410ce",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactid\": \"<uuid>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:37.000Z",
+              "updatedAt": "2026-07-28T02:13:37.000Z",
+              "uid": "35240-cbe990d1-61b5-4b37-814b-4ace20c410ce"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:37.000Z",
+          "updatedAt": "2026-07-28T02:13:37.000Z",
+          "uid": "35240-0654da70-5cb2-4459-9b8a-5ce26c1c803f"
+        }
+      ],
+      "id": "0e2995a5-8592-491c-9b51-8b1d16a2c699",
+      "createdAt": "2026-07-28T02:13:37.000Z",
+      "updatedAt": "2026-07-28T02:13:37.000Z",
+      "uid": "35240-0e2995a5-8592-491c-9b51-8b1d16a2c699"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

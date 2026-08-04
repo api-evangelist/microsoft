@@ -1,0 +1,1330 @@
+{
+  "info": {
+    "_postman_id": "9aa0d025-a9d9-4f6a-be42-0cebcef18bc7",
+    "name": "Microsoft Azure Cognitive Services Accounts Calendar API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:13.000Z",
+    "updatedAt": "2026-07-28T02:13:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9aa0d025-a9d9-4f6a-be42-0cebcef18bc7"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "events",
+          "item": [
+            {
+              "name": "{event-id}",
+              "item": [
+                {
+                  "name": "Microsoft Get calendar event",
+                  "id": "09506d1f-2b96-4328-8a4a-bc7c6a383c4c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events/:event-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events",
+                        ":event-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ffe69928-5883-4867-b52d-bc8404426c72",
+                          "key": "event-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the event"
+                        }
+                      ]
+                    },
+                    "description": "Get the properties and relationships of the specified event object."
+                  },
+                  "response": [
+                    {
+                      "id": "d40f015c-2952-44e1-8ac4-0ea62891fdee",
+                      "name": "Event object",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/events/:event-id?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "events",
+                            ":event-id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "event-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:14.000Z",
+                      "updatedAt": "2026-07-28T02:13:14.000Z",
+                      "uid": "35240-d40f015c-2952-44e1-8ac4-0ea62891fdee"
+                    },
+                    {
+                      "id": "cedb5f85-e67b-48d5-9436-6bb90978a9f0",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/events/:event-id?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "events",
+                            ":event-id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "event-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:14.000Z",
+                      "updatedAt": "2026-07-28T02:13:14.000Z",
+                      "uid": "35240-cedb5f85-e67b-48d5-9436-6bb90978a9f0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-09506d1f-2b96-4328-8a4a-bc7c6a383c4c"
+                },
+                {
+                  "name": "Microsoft Update calendar event",
+                  "id": "51b67bf6-75a3-4e5a-94cf-bc0b8b54d4a9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events/:event-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events",
+                        ":event-id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1eb6be1c-9dc8-491d-bac8-1b06e0df711f",
+                          "key": "event-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the event"
+                        }
+                      ]
+                    },
+                    "description": "Update the properties of the event object."
+                  },
+                  "response": [
+                    {
+                      "id": "a70e0dc9-77ee-4431-a52e-e2eee543bdce",
+                      "name": "Event updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/me/events/:event-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "events",
+                            ":event-id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "event-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:14.000Z",
+                      "updatedAt": "2026-07-28T02:13:14.000Z",
+                      "uid": "35240-a70e0dc9-77ee-4431-a52e-e2eee543bdce"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-51b67bf6-75a3-4e5a-94cf-bc0b8b54d4a9"
+                },
+                {
+                  "name": "Microsoft Delete calendar event",
+                  "id": "c64ca7bc-bc42-446f-9411-3a0ffebab6cf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events/:event-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events",
+                        ":event-id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe4c559b-99b1-464a-882b-650caa4ceaf6",
+                          "key": "event-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the event"
+                        }
+                      ]
+                    },
+                    "description": "Remove the specified event from the user's calendar."
+                  },
+                  "response": [
+                    {
+                      "id": "ef82d3cc-3739-424b-866b-fd171caaeaa9",
+                      "name": "Event deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/events/:event-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "events",
+                            ":event-id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "event-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:14.000Z",
+                      "updatedAt": "2026-07-28T02:13:14.000Z",
+                      "uid": "35240-ef82d3cc-3739-424b-866b-fd171caaeaa9"
+                    },
+                    {
+                      "id": "76ff635b-86dc-488e-b017-f659eb8876e0",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/events/:event-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "events",
+                            ":event-id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "event-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:14.000Z",
+                      "updatedAt": "2026-07-28T02:13:14.000Z",
+                      "uid": "35240-76ff635b-86dc-488e-b017-f659eb8876e0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-c64ca7bc-bc42-446f-9411-3a0ffebab6cf"
+                }
+              ],
+              "id": "c392d65a-86e6-42c5-828c-f30aa52b47e9",
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-c392d65a-86e6-42c5-828c-f30aa52b47e9"
+            },
+            {
+              "name": "Microsoft List calendar events",
+              "id": "c35428ac-c8d1-4a48-a4ca-9cae530c5d4f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me/events?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of items to skip for pagination",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData order by expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters."
+              },
+              "response": [
+                {
+                  "id": "e2719088-3638-4590-ae8b-8ec99b928bcf",
+                  "name": "Collection of calendar events",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of items to skip for pagination",
+                          "key": "$skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "OData order by expression",
+                          "key": "$orderby",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"<string>\"\n      },\n      \"start\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\",\n        \"address\": {\n          \"street\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"countryOrRegion\": \"<string>\",\n          \"postalCode\": \"<string>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"accepted\",\n            \"time\": \"<dateTime>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"declined\",\n            \"time\": \"<dateTime>\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": \"<boolean>\",\n      \"isOrganizer\": \"<boolean>\",\n      \"showAs\": \"unknown\",\n      \"sensitivity\": \"personal\",\n      \"importance\": \"high\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"weekly\",\n          \"interval\": \"<integer>\",\n          \"daysOfWeek\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"noEnd\",\n          \"startDate\": \"<date>\",\n          \"endDate\": \"<date>\",\n          \"numberOfOccurrences\": \"<integer>\"\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"<uri>\"\n      },\n      \"isOnlineMeeting\": \"<boolean>\",\n      \"onlineMeetingProvider\": \"unknown\",\n      \"webLink\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"<string>\"\n      },\n      \"start\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\",\n        \"address\": {\n          \"street\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"countryOrRegion\": \"<string>\",\n          \"postalCode\": \"<string>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"tentativelyAccepted\",\n            \"time\": \"<dateTime>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"organizer\",\n            \"time\": \"<dateTime>\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": \"<boolean>\",\n      \"isOrganizer\": \"<boolean>\",\n      \"showAs\": \"busy\",\n      \"sensitivity\": \"personal\",\n      \"importance\": \"high\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"absoluteYearly\",\n          \"interval\": \"<integer>\",\n          \"daysOfWeek\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"endDate\",\n          \"startDate\": \"<date>\",\n          \"endDate\": \"<date>\",\n          \"numberOfOccurrences\": \"<integer>\"\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"<uri>\"\n      },\n      \"isOnlineMeeting\": \"<boolean>\",\n      \"onlineMeetingProvider\": \"skypeForBusiness\",\n      \"webLink\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-e2719088-3638-4590-ae8b-8ec99b928bcf"
+                },
+                {
+                  "id": "843bfc10-50e9-448e-ae9b-ad87905ed599",
+                  "name": "Unauthorized - authentication required or token expired",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of items to skip for pagination",
+                          "key": "$skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "OData order by expression",
+                          "key": "$orderby",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-843bfc10-50e9-448e-ae9b-ad87905ed599"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-c35428ac-c8d1-4a48-a4ca-9cae530c5d4f"
+            },
+            {
+              "name": "Microsoft Create calendar event",
+              "id": "8a5bc449-723b-413b-86f8-b841131e49bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/me/events",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "events"
+                  ]
+                },
+                "description": "Create an event in the user's default calendar or specified calendar. By default, the allowNewTimeProposals property is set to true."
+              },
+              "response": [
+                {
+                  "id": "9aaec537-0fae-43df-bbd7-e2d1e008622b",
+                  "name": "Event created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-9aaec537-0fae-43df-bbd7-e2d1e008622b"
+                },
+                {
+                  "id": "c45da78f-87da-47b5-a4f3-47ed505315e6",
+                  "name": "Bad request - invalid input or malformed request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"declined\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"isOrganizer\": \"<boolean>\",\n  \"showAs\": \"free\",\n  \"sensitivity\": \"private\",\n  \"importance\": \"high\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"relativeMonthly\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"noEnd\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"teamsForBusiness\",\n  \"webLink\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/events",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "events"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-c45da78f-87da-47b5-a4f3-47ed505315e6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-8a5bc449-723b-413b-86f8-b841131e49bb"
+            }
+          ],
+          "id": "012619e2-696a-452f-875d-4228c676d180",
+          "createdAt": "2026-07-28T02:13:14.000Z",
+          "updatedAt": "2026-07-28T02:13:14.000Z",
+          "uid": "35240-012619e2-696a-452f-875d-4228c676d180"
+        },
+        {
+          "name": "calendarView",
+          "item": [
+            {
+              "name": "Microsoft List calendar view",
+              "id": "d52e29fa-6570-4e7f-999a-9bb31da56940",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me/calendarView?startDateTime=<dateTime>&endDateTime=<dateTime>&$top=<integer>&$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "calendarView"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start date and time of the time range (ISO 8601 format)",
+                      "key": "startDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) End date and time of the time range (ISO 8601 format)",
+                      "key": "endDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range from the user's default calendar."
+              },
+              "response": [
+                {
+                  "id": "4ccc1d67-6db2-4863-a0fd-9ddf8a64ca41",
+                  "name": "Collection of calendar events in the specified time range",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/calendarView?startDateTime=<dateTime>&endDateTime=<dateTime>&$top=<integer>&$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "calendarView"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Start date and time of the time range (ISO 8601 format)",
+                          "key": "startDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) End date and time of the time range (ISO 8601 format)",
+                          "key": "endDateTime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"<string>\"\n      },\n      \"start\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\",\n        \"address\": {\n          \"street\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"countryOrRegion\": \"<string>\",\n          \"postalCode\": \"<string>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"none\",\n            \"time\": \"<dateTime>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"accepted\",\n            \"time\": \"<dateTime>\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": \"<boolean>\",\n      \"isOrganizer\": \"<boolean>\",\n      \"showAs\": \"tentative\",\n      \"sensitivity\": \"normal\",\n      \"importance\": \"normal\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"absoluteYearly\",\n          \"interval\": \"<integer>\",\n          \"daysOfWeek\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"noEnd\",\n          \"startDate\": \"<date>\",\n          \"endDate\": \"<date>\",\n          \"numberOfOccurrences\": \"<integer>\"\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"<uri>\"\n      },\n      \"isOnlineMeeting\": \"<boolean>\",\n      \"onlineMeetingProvider\": \"skypeForConsumer\",\n      \"webLink\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"<string>\"\n      },\n      \"start\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\",\n        \"address\": {\n          \"street\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"countryOrRegion\": \"<string>\",\n          \"postalCode\": \"<string>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"none\",\n            \"time\": \"<dateTime>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"organizer\",\n            \"time\": \"<dateTime>\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": \"<boolean>\",\n      \"isOrganizer\": \"<boolean>\",\n      \"showAs\": \"busy\",\n      \"sensitivity\": \"normal\",\n      \"importance\": \"high\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"relativeMonthly\",\n          \"interval\": \"<integer>\",\n          \"daysOfWeek\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"numbered\",\n          \"startDate\": \"<date>\",\n          \"endDate\": \"<date>\",\n          \"numberOfOccurrences\": \"<integer>\"\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"<uri>\"\n      },\n      \"isOnlineMeeting\": \"<boolean>\",\n      \"onlineMeetingProvider\": \"skypeForConsumer\",\n      \"webLink\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:14.000Z",
+                  "updatedAt": "2026-07-28T02:13:14.000Z",
+                  "uid": "35240-4ccc1d67-6db2-4863-a0fd-9ddf8a64ca41"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-d52e29fa-6570-4e7f-999a-9bb31da56940"
+            }
+          ],
+          "id": "5665bc62-938f-4d1f-8e53-721e8152f0f4",
+          "createdAt": "2026-07-28T02:13:14.000Z",
+          "updatedAt": "2026-07-28T02:13:14.000Z",
+          "uid": "35240-5665bc62-938f-4d1f-8e53-721e8152f0f4"
+        }
+      ],
+      "id": "b7d4a999-d761-49ee-8f8f-518ee9db4a0b",
+      "createdAt": "2026-07-28T02:13:14.000Z",
+      "updatedAt": "2026-07-28T02:13:14.000Z",
+      "uid": "35240-b7d4a999-d761-49ee-8f8f-518ee9db4a0b"
+    },
+    {
+      "name": "events",
+      "item": [
+        {
+          "name": "Microsoft List calendar events",
+          "id": "d68b1979-37a6-4c91-95b7-c8a13c20ece7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/events?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get events from the user's default calendar."
+          },
+          "response": [
+            {
+              "id": "dc3b930b-2ec7-4ddd-a656-c2ed490e6344",
+              "name": "List of events",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"start\": {\n        \"dateTime\": \"<dateTime>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<dateTime>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\"\n      },\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<string>\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"none\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<string>\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"accepted\"\n          }\n        }\n      ],\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": \"<boolean>\",\n      \"showAs\": \"free\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"start\": {\n        \"dateTime\": \"<dateTime>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<dateTime>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\"\n      },\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<string>\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"declined\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<string>\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"organizer\"\n          }\n        }\n      ],\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": \"<boolean>\",\n      \"showAs\": \"busy\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-dc3b930b-2ec7-4ddd-a656-c2ed490e6344"
+            },
+            {
+              "id": "cdbfe34e-e6d2-417c-8836-3c28efdbde2f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-cdbfe34e-e6d2-417c-8836-3c28efdbde2f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:14.000Z",
+          "updatedAt": "2026-07-28T02:13:14.000Z",
+          "uid": "35240-d68b1979-37a6-4c91-95b7-c8a13c20ece7"
+        },
+        {
+          "name": "Microsoft Create a calendar event",
+          "id": "491ce590-2468-4205-bbe5-6c6e364bb57a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/events",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "events"
+              ]
+            },
+            "description": "Create an event in the user's default calendar."
+          },
+          "response": [
+            {
+              "id": "9c5d84c2-18ed-43e3-bf8b-13bf66c305dc",
+              "name": "Event created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/events",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<dateTime>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<dateTime>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"optional\",\n      \"status\": {\n        \"response\": \"accepted\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"required\",\n      \"status\": {\n        \"response\": \"none\"\n      }\n    }\n  ],\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": \"<boolean>\",\n  \"showAs\": \"tentative\"\n}",
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-9c5d84c2-18ed-43e3-bf8b-13bf66c305dc"
+            },
+            {
+              "id": "9ffe9960-e5ab-4184-9214-e082d4de42e0",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/events",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-9ffe9960-e5ab-4184-9214-e082d4de42e0"
+            },
+            {
+              "id": "acbbab9c-bfb3-4a23-9c49-e516278aca55",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/events",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:14.000Z",
+              "updatedAt": "2026-07-28T02:13:14.000Z",
+              "uid": "35240-acbbab9c-bfb3-4a23-9c49-e516278aca55"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:14.000Z",
+          "updatedAt": "2026-07-28T02:13:14.000Z",
+          "uid": "35240-491ce590-2468-4205-bbe5-6c6e364bb57a"
+        }
+      ],
+      "id": "db95af7e-b07d-44c9-b06b-9cb907361f97",
+      "createdAt": "2026-07-28T02:13:14.000Z",
+      "updatedAt": "2026-07-28T02:13:14.000Z",
+      "uid": "35240-db95af7e-b07d-44c9-b06b-9cb907361f97"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

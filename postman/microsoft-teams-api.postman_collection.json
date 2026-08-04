@@ -1,0 +1,2169 @@
+{
+  "info": {
+    "_postman_id": "cbca4a2d-a56d-47eb-8012-df0fe1d6dcf2",
+    "name": "Microsoft Azure Cognitive Services Accounts Teams API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:46.000Z",
+    "updatedAt": "2026-07-28T02:14:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cbca4a2d-a56d-47eb-8012-df0fe1d6dcf2"
+  },
+  "item": [
+    {
+      "name": "teams",
+      "item": [
+        {
+          "name": "{team-id}",
+          "item": [
+            {
+              "name": "channels",
+              "item": [
+                {
+                  "name": "{channel-id}",
+                  "item": [
+                    {
+                      "name": "messages",
+                      "item": [
+                        {
+                          "name": "Microsoft List channel messages",
+                          "id": "c49b8b66-e6fa-46e0-b6e1-819d5e2bea55",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/teams/:team-id/channels/:channel-id/messages?$top=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "teams",
+                                ":team-id",
+                                "channels",
+                                ":channel-id",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Number of items to return (page size)",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c32456b4-aad7-4dda-bae9-ce3a624129c1",
+                                  "key": "team-id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the team"
+                                },
+                                {
+                                  "id": "1f552fe0-1d3b-4e94-ba45-4d7f150435fe",
+                                  "key": "channel-id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the channel"
+                                }
+                              ]
+                            },
+                            "description": "Retrieve the list of messages (without the replies) in a channel of a team. To get the replies for a message, call the list message replies or the get message reply API."
+                          },
+                          "response": [
+                            {
+                              "id": "8ee18459-d915-4d94-bd4c-b39ad93a52ca",
+                              "name": "Collection of chat messages",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/teams/:team-id/channels/:channel-id/messages?$top=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "teams",
+                                    ":team-id",
+                                    "channels",
+                                    ":channel-id",
+                                    "messages"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Number of items to return (page size)",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "team-id"
+                                    },
+                                    {
+                                      "key": "channel-id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"<string>\"\n      },\n      \"from\": {\n        \"user\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"userIdentityType\": \"<string>\"\n        }\n      },\n      \"messageType\": \"unknownFutureValue\",\n      \"importance\": \"high\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"subject\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"webUrl\": \"<uri>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"<string>\"\n      },\n      \"from\": {\n        \"user\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"userIdentityType\": \"<string>\"\n        }\n      },\n      \"messageType\": \"systemEventMessage\",\n      \"importance\": \"normal\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"subject\": \"<string>\",\n      \"summary\": \"<string>\",\n      \"webUrl\": \"<uri>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T02:14:46.000Z",
+                              "updatedAt": "2026-07-28T02:14:46.000Z",
+                              "uid": "35240-8ee18459-d915-4d94-bd4c-b39ad93a52ca"
+                            },
+                            {
+                              "id": "13547dae-cbe8-4ac3-9d27-0be5cc80a39b",
+                              "name": "Resource not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/teams/:team-id/channels/:channel-id/messages?$top=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "teams",
+                                    ":team-id",
+                                    "channels",
+                                    ":channel-id",
+                                    "messages"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Number of items to return (page size)",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "team-id"
+                                    },
+                                    {
+                                      "key": "channel-id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T02:14:46.000Z",
+                              "updatedAt": "2026-07-28T02:14:46.000Z",
+                              "uid": "35240-13547dae-cbe8-4ac3-9d27-0be5cc80a39b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:14:46.000Z",
+                          "updatedAt": "2026-07-28T02:14:46.000Z",
+                          "uid": "35240-c49b8b66-e6fa-46e0-b6e1-819d5e2bea55"
+                        },
+                        {
+                          "name": "Microsoft Send channel message",
+                          "id": "a0df1d9f-08ba-4caa-ac6d-e572458ba46c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"userIdentityType\": \"<string>\"\n    }\n  },\n  \"messageType\": \"message\",\n  \"importance\": \"high\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"subject\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"webUrl\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/teams/:team-id/channels/:channel-id/messages",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "teams",
+                                ":team-id",
+                                "channels",
+                                ":channel-id",
+                                "messages"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "6153202a-4645-4d53-8d16-d3a0d11eaff5",
+                                  "key": "team-id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the team"
+                                },
+                                {
+                                  "id": "71dfb0ad-2eb0-4eb5-a6e4-339bff39c8d0",
+                                  "key": "channel-id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the channel"
+                                }
+                              ]
+                            },
+                            "description": "Send a new chatMessage in the specified channel."
+                          },
+                          "response": [
+                            {
+                              "id": "5ba7f3d2-288b-41b0-b35a-04697d80e08e",
+                              "name": "Message sent",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"userIdentityType\": \"<string>\"\n    }\n  },\n  \"messageType\": \"message\",\n  \"importance\": \"high\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"subject\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"webUrl\": \"<uri>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/teams/:team-id/channels/:channel-id/messages",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "teams",
+                                    ":team-id",
+                                    "channels",
+                                    ":channel-id",
+                                    "messages"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "team-id"
+                                    },
+                                    {
+                                      "key": "channel-id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"userIdentityType\": \"<string>\"\n    }\n  },\n  \"messageType\": \"message\",\n  \"importance\": \"high\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"subject\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"webUrl\": \"<uri>\"\n}",
+                              "createdAt": "2026-07-28T02:14:46.000Z",
+                              "updatedAt": "2026-07-28T02:14:46.000Z",
+                              "uid": "35240-5ba7f3d2-288b-41b0-b35a-04697d80e08e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:14:46.000Z",
+                          "updatedAt": "2026-07-28T02:14:46.000Z",
+                          "uid": "35240-a0df1d9f-08ba-4caa-ac6d-e572458ba46c"
+                        }
+                      ],
+                      "id": "85a8c46c-942c-44e3-9c4b-d3a0919ca950",
+                      "createdAt": "2026-07-28T02:14:46.000Z",
+                      "updatedAt": "2026-07-28T02:14:46.000Z",
+                      "uid": "35240-85a8c46c-942c-44e3-9c4b-d3a0919ca950"
+                    }
+                  ],
+                  "id": "002eb80e-fd5e-42ff-9e98-2bef5aa3ca5d",
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-002eb80e-fd5e-42ff-9e98-2bef5aa3ca5d"
+                },
+                {
+                  "name": "Microsoft List channels",
+                  "id": "b491e5ff-a586-464a-8a66-b3c5b3b551d2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id/channels?$top=<integer>&$filter=<string>&$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id",
+                        "channels"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "83e36a79-501b-4e4e-8d88-0130071a6f3a",
+                          "key": "team-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the team"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the list of channels in this team."
+                  },
+                  "response": [
+                    {
+                      "id": "98759404-6515-498e-bc8a-e77445e0ad64",
+                      "name": "Collection of channels",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:team-id/channels?$top=<integer>&$filter=<string>&$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":team-id",
+                            "channels"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "OData filter expression",
+                              "key": "$filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "team-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"membershipType\": \"standard\",\n      \"email\": \"<email>\",\n      \"webUrl\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"membershipType\": \"private\",\n      \"email\": \"<email>\",\n      \"webUrl\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:14:46.000Z",
+                      "updatedAt": "2026-07-28T02:14:46.000Z",
+                      "uid": "35240-98759404-6515-498e-bc8a-e77445e0ad64"
+                    },
+                    {
+                      "id": "eb023672-ecdf-41f1-8ab6-16e534df37dc",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:team-id/channels?$top=<integer>&$filter=<string>&$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":team-id",
+                            "channels"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "OData filter expression",
+                              "key": "$filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "team-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:14:46.000Z",
+                      "updatedAt": "2026-07-28T02:14:46.000Z",
+                      "uid": "35240-eb023672-ecdf-41f1-8ab6-16e534df37dc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-b491e5ff-a586-464a-8a66-b3c5b3b551d2"
+                },
+                {
+                  "name": "Microsoft Create channel",
+                  "id": "03b205e2-77b5-4113-ba91-0715ac422daf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"membershipType\": \"private\",\n  \"email\": \"<email>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id/channels",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id",
+                        "channels"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5a1359f1-9035-4c28-a22e-df14615d1c6c",
+                          "key": "team-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the team"
+                        }
+                      ]
+                    },
+                    "description": "Create a new channel in a team as specified in the request body."
+                  },
+                  "response": [
+                    {
+                      "id": "9e1ec028-4654-4f0a-b10a-3f5cb9dddacd",
+                      "name": "Channel created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"membershipType\": \"private\",\n  \"email\": \"<email>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:team-id/channels",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":team-id",
+                            "channels"
+                          ],
+                          "variable": [
+                            {
+                              "key": "team-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"membershipType\": \"private\",\n  \"email\": \"<email>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:14:46.000Z",
+                      "updatedAt": "2026-07-28T02:14:46.000Z",
+                      "uid": "35240-9e1ec028-4654-4f0a-b10a-3f5cb9dddacd"
+                    },
+                    {
+                      "id": "2bf4e783-57c8-419d-a33f-c8a7a98c9082",
+                      "name": "Bad request - invalid input or malformed request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"membershipType\": \"private\",\n  \"email\": \"<email>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:team-id/channels",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":team-id",
+                            "channels"
+                          ],
+                          "variable": [
+                            {
+                              "key": "team-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:14:46.000Z",
+                      "updatedAt": "2026-07-28T02:14:46.000Z",
+                      "uid": "35240-2bf4e783-57c8-419d-a33f-c8a7a98c9082"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-03b205e2-77b5-4113-ba91-0715ac422daf"
+                }
+              ],
+              "id": "51148390-1261-447b-a466-0fdd61ad4ff5",
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-51148390-1261-447b-a466-0fdd61ad4ff5"
+            },
+            {
+              "name": "Microsoft Get team",
+              "id": "8a55a086-3eef-4c44-9a96-4a6223dad62b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:team-id?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":team-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "558b4834-ac16-4471-af69-e64bc82d8f94",
+                      "key": "team-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the team"
+                    }
+                  ]
+                },
+                "description": "Retrieve the properties and relationships of the specified team."
+              },
+              "response": [
+                {
+                  "id": "8699f270-4c78-4d39-8f62-d0edff6b8053",
+                  "name": "Team object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"internalId\": \"<string>\",\n  \"isArchived\": \"<boolean>\",\n  \"visibility\": \"private\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"memberSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\",\n    \"allowAddRemoveApps\": \"<boolean>\",\n    \"allowCreateUpdateRemoveTabs\": \"<boolean>\",\n    \"allowCreateUpdateRemoveConnectors\": \"<boolean>\"\n  },\n  \"guestSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\"\n  },\n  \"messagingSettings\": {\n    \"allowUserEditMessages\": \"<boolean>\",\n    \"allowUserDeleteMessages\": \"<boolean>\",\n    \"allowTeamMentions\": \"<boolean>\",\n    \"allowChannelMentions\": \"<boolean>\"\n  },\n  \"funSettings\": {\n    \"allowGiphy\": \"<boolean>\",\n    \"giphyContentRating\": \"moderate\",\n    \"allowStickersAndMemes\": \"<boolean>\",\n    \"allowCustomMemes\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-8699f270-4c78-4d39-8f62-d0edff6b8053"
+                },
+                {
+                  "id": "2c567631-37de-4802-b4e1-26800c6a090d",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-2c567631-37de-4802-b4e1-26800c6a090d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-8a55a086-3eef-4c44-9a96-4a6223dad62b"
+            },
+            {
+              "name": "Microsoft Update team",
+              "id": "b709f675-a1d5-46ae-b6fa-e1aa1e5a4dce",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"internalId\": \"<string>\",\n  \"isArchived\": \"<boolean>\",\n  \"visibility\": \"private\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"memberSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\",\n    \"allowAddRemoveApps\": \"<boolean>\",\n    \"allowCreateUpdateRemoveTabs\": \"<boolean>\",\n    \"allowCreateUpdateRemoveConnectors\": \"<boolean>\"\n  },\n  \"guestSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\"\n  },\n  \"messagingSettings\": {\n    \"allowUserEditMessages\": \"<boolean>\",\n    \"allowUserDeleteMessages\": \"<boolean>\",\n    \"allowTeamMentions\": \"<boolean>\",\n    \"allowChannelMentions\": \"<boolean>\"\n  },\n  \"funSettings\": {\n    \"allowGiphy\": \"<boolean>\",\n    \"giphyContentRating\": \"moderate\",\n    \"allowStickersAndMemes\": \"<boolean>\",\n    \"allowCustomMemes\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:team-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":team-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "04ada888-fece-43ea-a302-a54716437986",
+                      "key": "team-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the team"
+                    }
+                  ]
+                },
+                "description": "Update the properties of the specified team."
+              },
+              "response": [
+                {
+                  "id": "7f8bca04-c882-498c-b88d-802afc8007b4",
+                  "name": "Team updated successfully",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"internalId\": \"<string>\",\n  \"isArchived\": \"<boolean>\",\n  \"visibility\": \"private\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"memberSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\",\n    \"allowAddRemoveApps\": \"<boolean>\",\n    \"allowCreateUpdateRemoveTabs\": \"<boolean>\",\n    \"allowCreateUpdateRemoveConnectors\": \"<boolean>\"\n  },\n  \"guestSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\"\n  },\n  \"messagingSettings\": {\n    \"allowUserEditMessages\": \"<boolean>\",\n    \"allowUserDeleteMessages\": \"<boolean>\",\n    \"allowTeamMentions\": \"<boolean>\",\n    \"allowChannelMentions\": \"<boolean>\"\n  },\n  \"funSettings\": {\n    \"allowGiphy\": \"<boolean>\",\n    \"giphyContentRating\": \"moderate\",\n    \"allowStickersAndMemes\": \"<boolean>\",\n    \"allowCustomMemes\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-7f8bca04-c882-498c-b88d-802afc8007b4"
+                },
+                {
+                  "id": "26fc6f36-3051-4a7c-ba12-709885f8143a",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"internalId\": \"<string>\",\n  \"isArchived\": \"<boolean>\",\n  \"visibility\": \"private\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"memberSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\",\n    \"allowAddRemoveApps\": \"<boolean>\",\n    \"allowCreateUpdateRemoveTabs\": \"<boolean>\",\n    \"allowCreateUpdateRemoveConnectors\": \"<boolean>\"\n  },\n  \"guestSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\"\n  },\n  \"messagingSettings\": {\n    \"allowUserEditMessages\": \"<boolean>\",\n    \"allowUserDeleteMessages\": \"<boolean>\",\n    \"allowTeamMentions\": \"<boolean>\",\n    \"allowChannelMentions\": \"<boolean>\"\n  },\n  \"funSettings\": {\n    \"allowGiphy\": \"<boolean>\",\n    \"giphyContentRating\": \"moderate\",\n    \"allowStickersAndMemes\": \"<boolean>\",\n    \"allowCustomMemes\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-26fc6f36-3051-4a7c-ba12-709885f8143a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-b709f675-a1d5-46ae-b6fa-e1aa1e5a4dce"
+            },
+            {
+              "name": "Microsoft Delete team",
+              "id": "1c941d92-6114-4b18-b817-7b6bf4952979",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:team-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":team-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d2b84a38-3136-4480-aee7-89c434f316a4",
+                      "key": "team-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the team"
+                    }
+                  ]
+                },
+                "description": "Delete a team. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days."
+              },
+              "response": [
+                {
+                  "id": "264cbdd6-40b8-4c7c-99c1-5c300b5c135a",
+                  "name": "Team deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-264cbdd6-40b8-4c7c-99c1-5c300b5c135a"
+                },
+                {
+                  "id": "ae066077-751b-4fcf-96b2-3d9a6ff8875f",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:team-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":team-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "team-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-ae066077-751b-4fcf-96b2-3d9a6ff8875f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-1c941d92-6114-4b18-b817-7b6bf4952979"
+            }
+          ],
+          "id": "d42c5e63-69ef-47df-bd4e-b4c68dd00970",
+          "createdAt": "2026-07-28T02:14:46.000Z",
+          "updatedAt": "2026-07-28T02:14:46.000Z",
+          "uid": "35240-d42c5e63-69ef-47df-bd4e-b4c68dd00970"
+        },
+        {
+          "name": "{teamId}",
+          "item": [
+            {
+              "name": "Microsoft Get a team",
+              "id": "5b5bd7cd-2d41-468c-9a64-9dcf3054750c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:teamId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5d888293-9a1b-4591-877b-4d50c85fd372",
+                      "key": "teamId",
+                      "value": "<string>",
+                      "description": "(Required) Team unique identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve the properties and relationships of the specified team."
+              },
+              "response": [
+                {
+                  "id": "dbc0ac4a-4b83-477c-9aef-387cf1bdf77a",
+                  "name": "Team details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isArchived\": \"<boolean>\",\n  \"webUrl\": \"<string>\",\n  \"visibility\": \"public\",\n  \"funSettings\": {\n    \"allowGiphy\": \"<boolean>\",\n    \"allowStickersAndMemes\": \"<boolean>\"\n  },\n  \"memberSettings\": {\n    \"allowCreateUpdateChannels\": \"<boolean>\",\n    \"allowDeleteChannels\": \"<boolean>\",\n    \"allowAddRemoveApps\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-dbc0ac4a-4b83-477c-9aef-387cf1bdf77a"
+                },
+                {
+                  "id": "c78fb455-9c6e-42e2-bb4a-e208922fc180",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-c78fb455-9c6e-42e2-bb4a-e208922fc180"
+                },
+                {
+                  "id": "1c4d342d-54af-42f7-b7e9-05d52955ff74",
+                  "name": "Team not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-1c4d342d-54af-42f7-b7e9-05d52955ff74"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-5b5bd7cd-2d41-468c-9a64-9dcf3054750c"
+            },
+            {
+              "name": "Microsoft Update a team",
+              "id": "b30a0f20-9693-4d07-a229-6536c468768e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:teamId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4390f256-958d-4e4f-8f27-659fa86d7cf1",
+                      "key": "teamId",
+                      "value": "<string>",
+                      "description": "(Required) Team unique identifier"
+                    }
+                  ]
+                },
+                "description": "Update the properties of a team."
+              },
+              "response": [
+                {
+                  "id": "91e17b3f-0725-4151-b0c1-d941b2d80a92",
+                  "name": "Team updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-91e17b3f-0725-4151-b0c1-d941b2d80a92"
+                },
+                {
+                  "id": "a501551d-44a8-40b6-97e9-041e4889f68e",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-a501551d-44a8-40b6-97e9-041e4889f68e"
+                },
+                {
+                  "id": "de580cf3-10b5-4e0f-8db9-25c10cb65d12",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-de580cf3-10b5-4e0f-8db9-25c10cb65d12"
+                },
+                {
+                  "id": "26e9706c-ca0a-4e36-9e7e-c4e4c8587c84",
+                  "name": "Team not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-26e9706c-ca0a-4e36-9e7e-c4e4c8587c84"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-b30a0f20-9693-4d07-a229-6536c468768e"
+            },
+            {
+              "name": "Microsoft Delete a team",
+              "id": "9380179e-2b88-4d12-aded-b1e3d262f907",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:teamId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "9778254c-548b-4629-b854-01562f9761a3",
+                      "key": "teamId",
+                      "value": "<string>",
+                      "description": "(Required) Team unique identifier"
+                    }
+                  ]
+                },
+                "description": "Delete a team and its associated group."
+              },
+              "response": [
+                {
+                  "id": "3210fa7a-af81-4cff-b502-73199b997f62",
+                  "name": "Team deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-3210fa7a-af81-4cff-b502-73199b997f62"
+                },
+                {
+                  "id": "ca10efed-9d0b-4cde-b9f8-7bd16227e80b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-ca10efed-9d0b-4cde-b9f8-7bd16227e80b"
+                },
+                {
+                  "id": "48e7c429-9cfb-41a7-ae74-475ff716ceea",
+                  "name": "Team not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:46.000Z",
+                  "updatedAt": "2026-07-28T02:14:46.000Z",
+                  "uid": "35240-48e7c429-9cfb-41a7-ae74-475ff716ceea"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-9380179e-2b88-4d12-aded-b1e3d262f907"
+            }
+          ],
+          "id": "32b0e149-c0ef-418d-a095-ca9a98c19a17",
+          "createdAt": "2026-07-28T02:14:46.000Z",
+          "updatedAt": "2026-07-28T02:14:46.000Z",
+          "uid": "35240-32b0e149-c0ef-418d-a095-ca9a98c19a17"
+        },
+        {
+          "name": "Microsoft List teams",
+          "id": "a05b9610-851f-48c0-a623-80637c1043af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teams?$top=<integer>&$filter=<string>&$select=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ],
+              "query": [
+                {
+                  "description": "Number of items to return (page size)",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comma-separated list of properties to include in the response",
+                  "key": "$select",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List all teams in an organization."
+          },
+          "response": [
+            {
+              "id": "35a1c0d6-8bd8-469e-b41a-644a445e4e00",
+              "name": "Collection of teams",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?$top=<integer>&$filter=<string>&$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"internalId\": \"<string>\",\n      \"isArchived\": \"<boolean>\",\n      \"visibility\": \"private\",\n      \"webUrl\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"memberSettings\": {\n        \"allowCreateUpdateChannels\": \"<boolean>\",\n        \"allowDeleteChannels\": \"<boolean>\",\n        \"allowAddRemoveApps\": \"<boolean>\",\n        \"allowCreateUpdateRemoveTabs\": \"<boolean>\",\n        \"allowCreateUpdateRemoveConnectors\": \"<boolean>\"\n      },\n      \"guestSettings\": {\n        \"allowCreateUpdateChannels\": \"<boolean>\",\n        \"allowDeleteChannels\": \"<boolean>\"\n      },\n      \"messagingSettings\": {\n        \"allowUserEditMessages\": \"<boolean>\",\n        \"allowUserDeleteMessages\": \"<boolean>\",\n        \"allowTeamMentions\": \"<boolean>\",\n        \"allowChannelMentions\": \"<boolean>\"\n      },\n      \"funSettings\": {\n        \"allowGiphy\": \"<boolean>\",\n        \"giphyContentRating\": \"strict\",\n        \"allowStickersAndMemes\": \"<boolean>\",\n        \"allowCustomMemes\": \"<boolean>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"internalId\": \"<string>\",\n      \"isArchived\": \"<boolean>\",\n      \"visibility\": \"public\",\n      \"webUrl\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"memberSettings\": {\n        \"allowCreateUpdateChannels\": \"<boolean>\",\n        \"allowDeleteChannels\": \"<boolean>\",\n        \"allowAddRemoveApps\": \"<boolean>\",\n        \"allowCreateUpdateRemoveTabs\": \"<boolean>\",\n        \"allowCreateUpdateRemoveConnectors\": \"<boolean>\"\n      },\n      \"guestSettings\": {\n        \"allowCreateUpdateChannels\": \"<boolean>\",\n        \"allowDeleteChannels\": \"<boolean>\"\n      },\n      \"messagingSettings\": {\n        \"allowUserEditMessages\": \"<boolean>\",\n        \"allowUserDeleteMessages\": \"<boolean>\",\n        \"allowTeamMentions\": \"<boolean>\",\n        \"allowChannelMentions\": \"<boolean>\"\n      },\n      \"funSettings\": {\n        \"allowGiphy\": \"<boolean>\",\n        \"giphyContentRating\": \"moderate\",\n        \"allowStickersAndMemes\": \"<boolean>\",\n        \"allowCustomMemes\": \"<boolean>\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-35a1c0d6-8bd8-469e-b41a-644a445e4e00"
+            },
+            {
+              "id": "b799c048-0326-47b4-b322-de5e5fda0fac",
+              "name": "Unauthorized - authentication required or token expired",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?$top=<integer>&$filter=<string>&$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-b799c048-0326-47b4-b322-de5e5fda0fac"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:46.000Z",
+          "updatedAt": "2026-07-28T02:14:46.000Z",
+          "uid": "35240-a05b9610-851f-48c0-a623-80637c1043af"
+        },
+        {
+          "name": "Microsoft Create a team",
+          "id": "b62067ec-a8c8-4bb0-a603-2e75357cd347",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/teams",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ]
+            },
+            "description": "Create a new team."
+          },
+          "response": [
+            {
+              "id": "1a6917df-bef7-4a31-92dc-20394bcbe017",
+              "name": "Team creation accepted",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "URL to poll for team creation status",
+                    "type": "text/plain"
+                  },
+                  "key": "Location",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-1a6917df-bef7-4a31-92dc-20394bcbe017"
+            },
+            {
+              "id": "ff8a69be-3de8-489b-87d6-8578fb09bfa2",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-ff8a69be-3de8-489b-87d6-8578fb09bfa2"
+            },
+            {
+              "id": "0d7f8f1c-e198-41b5-8a5b-f065c8179993",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:46.000Z",
+              "updatedAt": "2026-07-28T02:14:46.000Z",
+              "uid": "35240-0d7f8f1c-e198-41b5-8a5b-f065c8179993"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:46.000Z",
+          "updatedAt": "2026-07-28T02:14:46.000Z",
+          "uid": "35240-b62067ec-a8c8-4bb0-a603-2e75357cd347"
+        }
+      ],
+      "id": "ac20f70a-053c-4a9e-a778-f038b1463dd0",
+      "createdAt": "2026-07-28T02:14:46.000Z",
+      "updatedAt": "2026-07-28T02:14:46.000Z",
+      "uid": "35240-ac20f70a-053c-4a9e-a778-f038b1463dd0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

@@ -1,0 +1,745 @@
+{
+  "info": {
+    "_postman_id": "795b01c7-e399-4d83-8f15-0e458780d757",
+    "name": "Microsoft Azure Cognitive Services Accounts Text Analytics API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:47.000Z",
+    "updatedAt": "2026-07-28T02:14:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-795b01c7-e399-4d83-8f15-0e458780d757"
+  },
+  "item": [
+    {
+      "name": "text",
+      "item": [
+        {
+          "name": "analytics",
+          "item": [
+            {
+              "name": "v3.1",
+              "item": [
+                {
+                  "name": "sentiment",
+                  "item": [
+                    {
+                      "name": "Microsoft Analyze sentiment",
+                      "id": "e8c0e9cb-9b71-42d3-b161-0ff777fb2a4f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/text/analytics/v3.1/sentiment",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "text",
+                            "analytics",
+                            "v3.1",
+                            "sentiment"
+                          ]
+                        },
+                        "description": "Analyze sentiment of the input text and return sentiment predictions for each sentence and the document as a whole."
+                      },
+                      "response": [
+                        {
+                          "id": "d86e85d0-ffbb-4a00-ba2f-01d62794cd11",
+                          "name": "Sentiment analysis results",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/text/analytics/v3.1/sentiment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "text",
+                                "analytics",
+                                "v3.1",
+                                "sentiment"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"sentiment\": \"negative\",\n      \"confidenceScores\": {\n        \"positive\": \"<number>\",\n        \"neutral\": \"<number>\",\n        \"negative\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"sentiment\": \"mixed\",\n      \"confidenceScores\": {\n        \"positive\": \"<number>\",\n        \"neutral\": \"<number>\",\n        \"negative\": \"<number>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-d86e85d0-ffbb-4a00-ba2f-01d62794cd11"
+                        },
+                        {
+                          "id": "1df5ff39-1725-425d-9e29-1c19d80e2f23",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/text/analytics/v3.1/sentiment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "text",
+                                "analytics",
+                                "v3.1",
+                                "sentiment"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-1df5ff39-1725-425d-9e29-1c19d80e2f23"
+                        },
+                        {
+                          "id": "94d49e50-0ee4-4444-bf21-60f1db1e1035",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/text/analytics/v3.1/sentiment",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "text",
+                                "analytics",
+                                "v3.1",
+                                "sentiment"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-94d49e50-0ee4-4444-bf21-60f1db1e1035"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:14:47.000Z",
+                      "updatedAt": "2026-07-28T02:14:47.000Z",
+                      "uid": "35240-e8c0e9cb-9b71-42d3-b161-0ff777fb2a4f"
+                    }
+                  ],
+                  "id": "4be09411-df64-4a55-aea8-d43444358415",
+                  "createdAt": "2026-07-28T02:14:47.000Z",
+                  "updatedAt": "2026-07-28T02:14:47.000Z",
+                  "uid": "35240-4be09411-df64-4a55-aea8-d43444358415"
+                },
+                {
+                  "name": "entities",
+                  "item": [
+                    {
+                      "name": "recognition",
+                      "item": [
+                        {
+                          "name": "general",
+                          "item": [
+                            {
+                              "name": "Microsoft Recognize named entities",
+                              "id": "490c0cff-47b4-4f68-8b26-66f0a71bc24b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/text/analytics/v3.1/entities/recognition/general",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "text",
+                                    "analytics",
+                                    "v3.1",
+                                    "entities",
+                                    "recognition",
+                                    "general"
+                                  ]
+                                },
+                                "description": "Identify and categorize entities in the input text as people, places, organizations, date/time, quantities, and more."
+                              },
+                              "response": [
+                                {
+                                  "id": "84973a93-31b4-40b5-b2e1-9b9d49727ecc",
+                                  "name": "Entity recognition results",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/text/analytics/v3.1/entities/recognition/general",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "text",
+                                        "analytics",
+                                        "v3.1",
+                                        "entities",
+                                        "recognition",
+                                        "general"
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"entities\": [\n        {\n          \"text\": \"<string>\",\n          \"category\": \"<string>\",\n          \"subcategory\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"length\": \"<integer>\",\n          \"confidenceScore\": \"<number>\"\n        },\n        {\n          \"text\": \"<string>\",\n          \"category\": \"<string>\",\n          \"subcategory\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"length\": \"<integer>\",\n          \"confidenceScore\": \"<number>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"entities\": [\n        {\n          \"text\": \"<string>\",\n          \"category\": \"<string>\",\n          \"subcategory\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"length\": \"<integer>\",\n          \"confidenceScore\": \"<number>\"\n        },\n        {\n          \"text\": \"<string>\",\n          \"category\": \"<string>\",\n          \"subcategory\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"length\": \"<integer>\",\n          \"confidenceScore\": \"<number>\"\n        }\n      ]\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T02:14:47.000Z",
+                                  "updatedAt": "2026-07-28T02:14:47.000Z",
+                                  "uid": "35240-84973a93-31b4-40b5-b2e1-9b9d49727ecc"
+                                },
+                                {
+                                  "id": "82e0b633-19c1-400e-815b-05dbaf7d9397",
+                                  "name": "Invalid request",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/text/analytics/v3.1/entities/recognition/general",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "text",
+                                        "analytics",
+                                        "v3.1",
+                                        "entities",
+                                        "recognition",
+                                        "general"
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T02:14:47.000Z",
+                                  "updatedAt": "2026-07-28T02:14:47.000Z",
+                                  "uid": "35240-82e0b633-19c1-400e-815b-05dbaf7d9397"
+                                },
+                                {
+                                  "id": "f86103a5-95ce-48f9-b3c1-5dd123b02891",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Ocp-Apim-Subscription-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/text/analytics/v3.1/entities/recognition/general",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "text",
+                                        "analytics",
+                                        "v3.1",
+                                        "entities",
+                                        "recognition",
+                                        "general"
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T02:14:47.000Z",
+                                  "updatedAt": "2026-07-28T02:14:47.000Z",
+                                  "uid": "35240-f86103a5-95ce-48f9-b3c1-5dd123b02891"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:14:47.000Z",
+                              "updatedAt": "2026-07-28T02:14:47.000Z",
+                              "uid": "35240-490c0cff-47b4-4f68-8b26-66f0a71bc24b"
+                            }
+                          ],
+                          "id": "016fe917-fb8f-4a2b-ae68-c01c03f6fb68",
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-016fe917-fb8f-4a2b-ae68-c01c03f6fb68"
+                        }
+                      ],
+                      "id": "c3ec65a3-92b1-48d3-b019-a9309c865ea3",
+                      "createdAt": "2026-07-28T02:14:47.000Z",
+                      "updatedAt": "2026-07-28T02:14:47.000Z",
+                      "uid": "35240-c3ec65a3-92b1-48d3-b019-a9309c865ea3"
+                    }
+                  ],
+                  "id": "7348f07d-7b8d-438c-8340-ffe7d5e59cbc",
+                  "createdAt": "2026-07-28T02:14:47.000Z",
+                  "updatedAt": "2026-07-28T02:14:47.000Z",
+                  "uid": "35240-7348f07d-7b8d-438c-8340-ffe7d5e59cbc"
+                },
+                {
+                  "name": "keyPhrases",
+                  "item": [
+                    {
+                      "name": "Microsoft Extract key phrases",
+                      "id": "6073b615-cded-4811-94a4-194c823550d3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/text/analytics/v3.1/keyPhrases",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "text",
+                            "analytics",
+                            "v3.1",
+                            "keyPhrases"
+                          ]
+                        },
+                        "description": "Extract key talking points from the input text."
+                      },
+                      "response": [
+                        {
+                          "id": "6d153bef-cb85-4c63-902d-fe9c901c080a",
+                          "name": "Key phrase extraction results",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/text/analytics/v3.1/keyPhrases",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "text",
+                                "analytics",
+                                "v3.1",
+                                "keyPhrases"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"keyPhrases\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"keyPhrases\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-6d153bef-cb85-4c63-902d-fe9c901c080a"
+                        },
+                        {
+                          "id": "fc553eed-707c-46b1-8330-2ae81839eca1",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/text/analytics/v3.1/keyPhrases",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "text",
+                                "analytics",
+                                "v3.1",
+                                "keyPhrases"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-fc553eed-707c-46b1-8330-2ae81839eca1"
+                        },
+                        {
+                          "id": "16318beb-62bb-4b01-8723-0911fc674ca8",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/text/analytics/v3.1/keyPhrases",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "text",
+                                "analytics",
+                                "v3.1",
+                                "keyPhrases"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:47.000Z",
+                          "updatedAt": "2026-07-28T02:14:47.000Z",
+                          "uid": "35240-16318beb-62bb-4b01-8723-0911fc674ca8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:14:47.000Z",
+                      "updatedAt": "2026-07-28T02:14:47.000Z",
+                      "uid": "35240-6073b615-cded-4811-94a4-194c823550d3"
+                    }
+                  ],
+                  "id": "9f0d8e5b-dedf-4130-914a-62c503d3f3c3",
+                  "createdAt": "2026-07-28T02:14:47.000Z",
+                  "updatedAt": "2026-07-28T02:14:47.000Z",
+                  "uid": "35240-9f0d8e5b-dedf-4130-914a-62c503d3f3c3"
+                }
+              ],
+              "id": "2cd587d6-a10f-4bf3-a1c6-54b5eedbf787",
+              "createdAt": "2026-07-28T02:14:47.000Z",
+              "updatedAt": "2026-07-28T02:14:47.000Z",
+              "uid": "35240-2cd587d6-a10f-4bf3-a1c6-54b5eedbf787"
+            }
+          ],
+          "id": "21b84172-a95e-4128-a241-ddb276f48c05",
+          "createdAt": "2026-07-28T02:14:47.000Z",
+          "updatedAt": "2026-07-28T02:14:47.000Z",
+          "uid": "35240-21b84172-a95e-4128-a241-ddb276f48c05"
+        }
+      ],
+      "id": "ab45ddbd-1ffe-4f42-8a6f-f78df899c5ba",
+      "createdAt": "2026-07-28T02:14:47.000Z",
+      "updatedAt": "2026-07-28T02:14:47.000Z",
+      "uid": "35240-ab45ddbd-1ffe-4f42-8a6f-f78df899c5ba"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

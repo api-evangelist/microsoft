@@ -1,0 +1,473 @@
+{
+  "info": {
+    "_postman_id": "9cff6f07-fd7d-4ca2-81bd-2889ce88be64",
+    "name": "Microsoft Azure Cognitive Services Accounts Dashboards API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:37.000Z",
+    "updatedAt": "2026-07-28T02:13:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9cff6f07-fd7d-4ca2-81bd-2889ce88be64"
+  },
+  "item": [
+    {
+      "name": "dashboards",
+      "item": [
+        {
+          "name": "{dashboardId}",
+          "item": [
+            {
+              "name": "tiles",
+              "item": [
+                {
+                  "name": "Microsoft List dashboard tiles",
+                  "id": "7dea67fe-352c-4d31-a1a9-6b95bd4ca140",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboardId/tiles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboardId",
+                        "tiles"
+                      ],
+                      "variable": [
+                        {
+                          "id": "07ef992b-136b-44e9-9d2c-af40dcc248d2",
+                          "key": "dashboardId",
+                          "value": "<string>",
+                          "description": "(Required) Dashboard unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of tiles within the specified dashboard."
+                  },
+                  "response": [
+                    {
+                      "id": "8f7160cb-0148-448f-b4cf-dc01fe2ac8fc",
+                      "name": "List of tiles",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboards/:dashboardId/tiles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboards",
+                            ":dashboardId",
+                            "tiles"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboardId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"embedUrl\": \"<string>\",\n      \"reportId\": \"<string>\",\n      \"datasetId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"embedUrl\": \"<string>\",\n      \"reportId\": \"<string>\",\n      \"datasetId\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:38.000Z",
+                      "updatedAt": "2026-07-28T02:13:38.000Z",
+                      "uid": "35240-8f7160cb-0148-448f-b4cf-dc01fe2ac8fc"
+                    },
+                    {
+                      "id": "d8998d1e-0aac-4d52-9636-faad42669276",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dashboards/:dashboardId/tiles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dashboards",
+                            ":dashboardId",
+                            "tiles"
+                          ],
+                          "variable": [
+                            {
+                              "key": "dashboardId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:38.000Z",
+                      "updatedAt": "2026-07-28T02:13:38.000Z",
+                      "uid": "35240-d8998d1e-0aac-4d52-9636-faad42669276"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:38.000Z",
+                  "updatedAt": "2026-07-28T02:13:38.000Z",
+                  "uid": "35240-7dea67fe-352c-4d31-a1a9-6b95bd4ca140"
+                }
+              ],
+              "id": "9a5fd010-7712-4d8d-8e33-db180874a882",
+              "createdAt": "2026-07-28T02:13:38.000Z",
+              "updatedAt": "2026-07-28T02:13:38.000Z",
+              "uid": "35240-9a5fd010-7712-4d8d-8e33-db180874a882"
+            },
+            {
+              "name": "Microsoft Get a dashboard",
+              "id": "b7587db5-186b-45fa-9e47-caf7b00a0904",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards/:dashboardId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards",
+                    ":dashboardId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "68cdab9f-e8c7-4800-b205-efc1912f0b5a",
+                      "key": "dashboardId",
+                      "value": "<string>",
+                      "description": "(Required) Dashboard unique identifier"
+                    }
+                  ]
+                },
+                "description": "Returns the specified dashboard from My workspace."
+              },
+              "response": [
+                {
+                  "id": "5f52f0b9-6ac7-489c-ad1b-13a103f0e683",
+                  "name": "Dashboard details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboardId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboardId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboardId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"embedUrl\": \"<string>\",\n  \"webUrl\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:13:38.000Z",
+                  "updatedAt": "2026-07-28T02:13:38.000Z",
+                  "uid": "35240-5f52f0b9-6ac7-489c-ad1b-13a103f0e683"
+                },
+                {
+                  "id": "e9bb240b-406a-4b50-9043-03221eb43e83",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboardId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboardId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboardId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:38.000Z",
+                  "updatedAt": "2026-07-28T02:13:38.000Z",
+                  "uid": "35240-e9bb240b-406a-4b50-9043-03221eb43e83"
+                },
+                {
+                  "id": "e6c0f370-cf6f-47d4-947e-cb17eeb99d90",
+                  "name": "Dashboard not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboards/:dashboardId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboards",
+                        ":dashboardId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dashboardId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:38.000Z",
+                  "updatedAt": "2026-07-28T02:13:38.000Z",
+                  "uid": "35240-e6c0f370-cf6f-47d4-947e-cb17eeb99d90"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:38.000Z",
+              "updatedAt": "2026-07-28T02:13:38.000Z",
+              "uid": "35240-b7587db5-186b-45fa-9e47-caf7b00a0904"
+            }
+          ],
+          "id": "fc5ffb63-6520-4daa-a213-cc544b9932af",
+          "createdAt": "2026-07-28T02:13:38.000Z",
+          "updatedAt": "2026-07-28T02:13:38.000Z",
+          "uid": "35240-fc5ffb63-6520-4daa-a213-cc544b9932af"
+        },
+        {
+          "name": "Microsoft List dashboards",
+          "id": "f740f8b0-1041-4eb9-b600-ab5777ce7f57",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboards",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboards"
+              ]
+            },
+            "description": "Returns a list of dashboards from My workspace."
+          },
+          "response": [
+            {
+              "id": "2d1292d3-e529-4308-b369-100846edf675",
+              "name": "List of dashboards",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"isReadOnly\": \"<boolean>\",\n      \"embedUrl\": \"<string>\",\n      \"webUrl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"isReadOnly\": \"<boolean>\",\n      \"embedUrl\": \"<string>\",\n      \"webUrl\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:13:38.000Z",
+              "updatedAt": "2026-07-28T02:13:38.000Z",
+              "uid": "35240-2d1292d3-e529-4308-b369-100846edf675"
+            },
+            {
+              "id": "7a585c32-53d3-4bd1-8ad4-9179d6af92d7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboards"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:38.000Z",
+              "updatedAt": "2026-07-28T02:13:38.000Z",
+              "uid": "35240-7a585c32-53d3-4bd1-8ad4-9179d6af92d7"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:38.000Z",
+          "updatedAt": "2026-07-28T02:13:38.000Z",
+          "uid": "35240-f740f8b0-1041-4eb9-b600-ab5777ce7f57"
+        }
+      ],
+      "id": "73cc6d5e-f2ea-40fc-9309-db23548852ce",
+      "createdAt": "2026-07-28T02:13:38.000Z",
+      "updatedAt": "2026-07-28T02:13:38.000Z",
+      "uid": "35240-73cc6d5e-f2ea-40fc-9309-db23548852ce"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

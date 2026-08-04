@@ -1,0 +1,343 @@
+{
+  "info": {
+    "_postman_id": "1d32b6f7-c4c9-4c71-ac91-2f1a41f6d074",
+    "name": "Microsoft Azure Cognitive Services Accounts OAuth2 Permissions API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:20.000Z",
+    "updatedAt": "2026-07-28T02:14:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1d32b6f7-c4c9-4c71-ac91-2f1a41f6d074"
+  },
+  "item": [
+    {
+      "name": "oauth2PermissionGrants",
+      "item": [
+        {
+          "name": "Microsoft List OAuth2 permission grants",
+          "id": "9faf86f7-b200-4c2b-b004-b7e89861bca4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/oauth2PermissionGrants?$filter=<string>&$top=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "oauth2PermissionGrants"
+              ],
+              "query": [
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of items",
+                  "key": "$top",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of oAuth2PermissionGrant objects."
+          },
+          "response": [
+            {
+              "id": "a1b8f95b-1132-4f46-b2a0-a4a3e2bae5aa",
+              "name": "List of permission grants",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2PermissionGrants?$filter=<string>&$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ],
+                  "query": [
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of items",
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"consentType\": \"Principal\",\n      \"principalId\": \"<string>\",\n      \"resourceId\": \"<string>\",\n      \"scope\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"consentType\": \"AllPrincipals\",\n      \"principalId\": \"<string>\",\n      \"resourceId\": \"<string>\",\n      \"scope\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:14:21.000Z",
+              "updatedAt": "2026-07-28T02:14:21.000Z",
+              "uid": "35240-a1b8f95b-1132-4f46-b2a0-a4a3e2bae5aa"
+            },
+            {
+              "id": "ac0670fd-d86d-4b0a-97e6-48fb30b1dc27",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2PermissionGrants?$filter=<string>&$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ],
+                  "query": [
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of items",
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:21.000Z",
+              "updatedAt": "2026-07-28T02:14:21.000Z",
+              "uid": "35240-ac0670fd-d86d-4b0a-97e6-48fb30b1dc27"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:21.000Z",
+          "updatedAt": "2026-07-28T02:14:21.000Z",
+          "uid": "35240-9faf86f7-b200-4c2b-b004-b7e89861bca4"
+        },
+        {
+          "name": "Microsoft Create a delegated permission grant",
+          "id": "6216ea8a-5427-44a2-a3b6-8b81ad9aa979",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"Principal\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/oauth2PermissionGrants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "oauth2PermissionGrants"
+              ]
+            },
+            "description": "Create a delegated permission grant."
+          },
+          "response": [
+            {
+              "id": "033f9b31-c5f3-475f-a4c1-9f864b1d0c4d",
+              "name": "Permission grant created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"Principal\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2PermissionGrants",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"Principal\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:14:21.000Z",
+              "updatedAt": "2026-07-28T02:14:21.000Z",
+              "uid": "35240-033f9b31-c5f3-475f-a4c1-9f864b1d0c4d"
+            },
+            {
+              "id": "0b89fbd3-020e-46f5-b6ee-6efc0dec635f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"consentType\": \"Principal\",\n  \"principalId\": \"<string>\",\n  \"resourceId\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2PermissionGrants",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2PermissionGrants"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:21.000Z",
+              "updatedAt": "2026-07-28T02:14:21.000Z",
+              "uid": "35240-0b89fbd3-020e-46f5-b6ee-6efc0dec635f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:21.000Z",
+          "updatedAt": "2026-07-28T02:14:21.000Z",
+          "uid": "35240-6216ea8a-5427-44a2-a3b6-8b81ad9aa979"
+        }
+      ],
+      "id": "7133b983-060a-42c7-b418-f36c8fc361c0",
+      "createdAt": "2026-07-28T02:14:21.000Z",
+      "updatedAt": "2026-07-28T02:14:21.000Z",
+      "uid": "35240-7133b983-060a-42c7-b418-f36c8fc361c0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

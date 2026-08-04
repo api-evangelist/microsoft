@@ -1,0 +1,763 @@
+{
+  "info": {
+    "_postman_id": "aeb89a16-491e-4ad7-9bb0-105651cb9e27",
+    "name": "Microsoft Azure Cognitive Services Accounts Audio API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:06.000Z",
+    "updatedAt": "2026-07-28T02:13:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aeb89a16-491e-4ad7-9bb0-105651cb9e27"
+  },
+  "item": [
+    {
+      "name": "deployments",
+      "item": [
+        {
+          "name": "{deployment-id}",
+          "item": [
+            {
+              "name": "audio",
+              "item": [
+                {
+                  "name": "transcriptions",
+                  "item": [
+                    {
+                      "name": "Microsoft Transcribe audio",
+                      "id": "15d254f4-ebc1-49cb-8467-046b3980725c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The audio file to transcribe",
+                              "key": "file",
+                              "type": "file",
+                              "value": null
+                            },
+                            {
+                              "description": "Language of the input audio in ISO-639-1 format",
+                              "key": "language",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "Optional text to guide the model's style",
+                              "key": "prompt",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                              "key": "response_format",
+                              "value": "json",
+                              "type": "text"
+                            },
+                            {
+                              "key": "temperature",
+                              "value": "<number>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/audio/transcriptions?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "audio",
+                            "transcriptions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "346ab27b-60f0-4fde-b605-7604c119cb18",
+                              "key": "deployment-id",
+                              "value": "<string>",
+                              "description": "(Required) The deployment name for the model"
+                            }
+                          ]
+                        },
+                        "description": "Transcribes audio into the input language."
+                      },
+                      "response": [
+                        {
+                          "id": "86964a28-c6f4-4ea4-a6ed-e6a4e06a9a1d",
+                          "name": "Transcription response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The audio file to transcribe",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "Language of the input audio in ISO-639-1 format",
+                                  "key": "language",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "Optional text to guide the model's style",
+                                  "key": "prompt",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                                  "key": "response_format",
+                                  "value": "json",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "temperature",
+                                  "value": "<number>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/audio/transcriptions?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "audio",
+                                "transcriptions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"text\": \"<string>\",\n  \"task\": \"<string>\",\n  \"language\": \"<string>\",\n  \"duration\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:13:06.000Z",
+                          "updatedAt": "2026-07-28T02:13:06.000Z",
+                          "uid": "35240-86964a28-c6f4-4ea4-a6ed-e6a4e06a9a1d"
+                        },
+                        {
+                          "id": "91bcb706-f865-414a-a6c4-173983201083",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The audio file to transcribe",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "Language of the input audio in ISO-639-1 format",
+                                  "key": "language",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "Optional text to guide the model's style",
+                                  "key": "prompt",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                                  "key": "response_format",
+                                  "value": "json",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "temperature",
+                                  "value": "<number>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/audio/transcriptions?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "audio",
+                                "transcriptions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:06.000Z",
+                          "updatedAt": "2026-07-28T02:13:06.000Z",
+                          "uid": "35240-91bcb706-f865-414a-a6c4-173983201083"
+                        },
+                        {
+                          "id": "314f2ec3-6769-4301-bc4c-83727b3a645d",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The audio file to transcribe",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "Language of the input audio in ISO-639-1 format",
+                                  "key": "language",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "Optional text to guide the model's style",
+                                  "key": "prompt",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                                  "key": "response_format",
+                                  "value": "json",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "temperature",
+                                  "value": "<number>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/audio/transcriptions?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "audio",
+                                "transcriptions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:06.000Z",
+                          "updatedAt": "2026-07-28T02:13:06.000Z",
+                          "uid": "35240-314f2ec3-6769-4301-bc4c-83727b3a645d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:06.000Z",
+                      "updatedAt": "2026-07-28T02:13:06.000Z",
+                      "uid": "35240-15d254f4-ebc1-49cb-8467-046b3980725c"
+                    }
+                  ],
+                  "id": "bf12d633-caf2-4737-9a2f-6322cf860b54",
+                  "createdAt": "2026-07-28T02:13:06.000Z",
+                  "updatedAt": "2026-07-28T02:13:06.000Z",
+                  "uid": "35240-bf12d633-caf2-4737-9a2f-6322cf860b54"
+                },
+                {
+                  "name": "translations",
+                  "item": [
+                    {
+                      "name": "Microsoft Translate audio",
+                      "id": "eb0c0fc3-86eb-40e2-8637-d84d49777e8d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The audio file to translate",
+                              "key": "file",
+                              "type": "file",
+                              "value": null
+                            },
+                            {
+                              "key": "prompt",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                              "key": "response_format",
+                              "value": "json",
+                              "type": "text"
+                            },
+                            {
+                              "key": "temperature",
+                              "value": "<number>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/audio/translations?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "audio",
+                            "translations"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "06f36fe5-d986-4175-91a2-b07cd4f54aba",
+                              "key": "deployment-id",
+                              "value": "<string>",
+                              "description": "(Required) The deployment name for the model"
+                            }
+                          ]
+                        },
+                        "description": "Transcribes and translates input audio into English text."
+                      },
+                      "response": [
+                        {
+                          "id": "99651eee-7ed7-4fd0-9bdb-e648c516b10b",
+                          "name": "Translation response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The audio file to translate",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "key": "prompt",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                                  "key": "response_format",
+                                  "value": "json",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "temperature",
+                                  "value": "<number>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/audio/translations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "audio",
+                                "translations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"text\": \"<string>\",\n  \"task\": \"<string>\",\n  \"language\": \"<string>\",\n  \"duration\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:13:06.000Z",
+                          "updatedAt": "2026-07-28T02:13:06.000Z",
+                          "uid": "35240-99651eee-7ed7-4fd0-9bdb-e648c516b10b"
+                        },
+                        {
+                          "id": "8f19218f-d746-4f99-ad09-7ba99b26fa85",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The audio file to translate",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "key": "prompt",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                                  "key": "response_format",
+                                  "value": "json",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "temperature",
+                                  "value": "<number>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/audio/translations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "audio",
+                                "translations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:06.000Z",
+                          "updatedAt": "2026-07-28T02:13:06.000Z",
+                          "uid": "35240-8f19218f-d746-4f99-ad09-7ba99b26fa85"
+                        },
+                        {
+                          "id": "043f0cf0-d17d-48c8-9ebb-ca16f1a97ccb",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The audio file to translate",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "key": "prompt",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": " (This can only be one of json,text,srt,verbose_json,vtt)",
+                                  "key": "response_format",
+                                  "value": "json",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "temperature",
+                                  "value": "<number>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/audio/translations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "audio",
+                                "translations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:06.000Z",
+                          "updatedAt": "2026-07-28T02:13:06.000Z",
+                          "uid": "35240-043f0cf0-d17d-48c8-9ebb-ca16f1a97ccb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:06.000Z",
+                      "updatedAt": "2026-07-28T02:13:06.000Z",
+                      "uid": "35240-eb0c0fc3-86eb-40e2-8637-d84d49777e8d"
+                    }
+                  ],
+                  "id": "a7f90cbb-06a0-4566-a1b7-08b1172b68f1",
+                  "createdAt": "2026-07-28T02:13:06.000Z",
+                  "updatedAt": "2026-07-28T02:13:06.000Z",
+                  "uid": "35240-a7f90cbb-06a0-4566-a1b7-08b1172b68f1"
+                }
+              ],
+              "id": "5676e7dc-a04c-426a-8fb7-5173f58d0a8c",
+              "createdAt": "2026-07-28T02:13:06.000Z",
+              "updatedAt": "2026-07-28T02:13:06.000Z",
+              "uid": "35240-5676e7dc-a04c-426a-8fb7-5173f58d0a8c"
+            }
+          ],
+          "id": "4c08bdfe-44f3-4e81-bed7-bd2694e33e60",
+          "createdAt": "2026-07-28T02:13:06.000Z",
+          "updatedAt": "2026-07-28T02:13:06.000Z",
+          "uid": "35240-4c08bdfe-44f3-4e81-bed7-bd2694e33e60"
+        }
+      ],
+      "id": "a9d7531c-1dba-4fae-a869-2f60a7a8e796",
+      "createdAt": "2026-07-28T02:13:06.000Z",
+      "updatedAt": "2026-07-28T02:13:06.000Z",
+      "uid": "35240-a9d7531c-1dba-4fae-a869-2f60a7a8e796"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

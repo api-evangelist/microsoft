@@ -1,0 +1,407 @@
+{
+  "info": {
+    "_postman_id": "9b808b11-5725-4e53-b370-53ca03df35d9",
+    "name": "Microsoft Azure Cognitive Services Accounts Opportunities API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:21.000Z",
+    "updatedAt": "2026-07-28T02:14:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9b808b11-5725-4e53-b370-53ca03df35d9"
+  },
+  "item": [
+    {
+      "name": "opportunities",
+      "item": [
+        {
+          "name": "Microsoft List opportunities",
+          "id": "0a470250-fe6a-48be-b65e-7dc7b86282dc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/opportunities?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opportunities"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Sort order",
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of opportunity records."
+          },
+          "response": [
+            {
+              "id": "9e9e48e9-eef3-4581-990c-e768be200d20",
+              "name": "List of opportunities",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/opportunities?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opportunities"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:14:22.000Z",
+              "updatedAt": "2026-07-28T02:14:22.000Z",
+              "uid": "35240-9e9e48e9-eef3-4581-990c-e768be200d20"
+            },
+            {
+              "id": "a3894016-119e-4d6b-9514-cc27a5c0c8e3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/opportunities?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opportunities"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:22.000Z",
+              "updatedAt": "2026-07-28T02:14:22.000Z",
+              "uid": "35240-a3894016-119e-4d6b-9514-cc27a5c0c8e3"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:22.000Z",
+          "updatedAt": "2026-07-28T02:14:22.000Z",
+          "uid": "35240-0a470250-fe6a-48be-b65e-7dc7b86282dc"
+        },
+        {
+          "name": "Microsoft Create an opportunity",
+          "id": "2a55da71-8977-42dc-ad25-f324de988285",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"opportunityid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"estimatedvalue\": \"<number>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"stepname\": \"<string>\",\n  \"description\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/opportunities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "opportunities"
+              ]
+            },
+            "description": "Create a new opportunity record."
+          },
+          "response": [
+            {
+              "id": "95bb50ef-8964-423b-b354-1cf72021bf3f",
+              "name": "Opportunity created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"opportunityid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"estimatedvalue\": \"<number>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"stepname\": \"<string>\",\n  \"description\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opportunities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opportunities"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:22.000Z",
+              "updatedAt": "2026-07-28T02:14:22.000Z",
+              "uid": "35240-95bb50ef-8964-423b-b354-1cf72021bf3f"
+            },
+            {
+              "id": "120dc812-bd28-4a61-88d7-9d1b0cca6d66",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"opportunityid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"estimatedvalue\": \"<number>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"stepname\": \"<string>\",\n  \"description\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opportunities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opportunities"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:22.000Z",
+              "updatedAt": "2026-07-28T02:14:22.000Z",
+              "uid": "35240-120dc812-bd28-4a61-88d7-9d1b0cca6d66"
+            },
+            {
+              "id": "fdd6f93b-36d9-4699-b534-1decd4f79890",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"opportunityid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"estimatedvalue\": \"<number>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"stepname\": \"<string>\",\n  \"description\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/opportunities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "opportunities"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:22.000Z",
+              "updatedAt": "2026-07-28T02:14:22.000Z",
+              "uid": "35240-fdd6f93b-36d9-4699-b534-1decd4f79890"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:22.000Z",
+          "updatedAt": "2026-07-28T02:14:22.000Z",
+          "uid": "35240-2a55da71-8977-42dc-ad25-f324de988285"
+        }
+      ],
+      "id": "d8e4a425-de0e-4cc5-8a52-4b9e56295c6f",
+      "createdAt": "2026-07-28T02:14:22.000Z",
+      "updatedAt": "2026-07-28T02:14:22.000Z",
+      "uid": "35240-d8e4a425-de0e-4cc5-8a52-4b9e56295c6f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

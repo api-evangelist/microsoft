@@ -1,0 +1,427 @@
+{
+  "info": {
+    "_postman_id": "9b2213b7-5180-4817-a0c4-879d20cec96a",
+    "name": "Microsoft Azure Cognitive Services Accounts Translator API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:48.000Z",
+    "updatedAt": "2026-07-28T02:14:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9b2213b7-5180-4817-a0c4-879d20cec96a"
+  },
+  "item": [
+    {
+      "name": "translate",
+      "item": [
+        {
+          "name": "Microsoft Translate text",
+          "id": "1612cced-9ac8-4dd8-a36e-a99dac3d0b70",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/translate?api-version=3.0&to=<string>&to=<string>&from=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "translate"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "api-version",
+                  "value": "3.0"
+                },
+                {
+                  "description": "(Required) Target language codes",
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Target language codes",
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Source language code",
+                  "key": "from",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Translate text into one or more languages."
+          },
+          "response": [
+            {
+              "id": "db2da91f-9ffc-438e-bfc5-c5fc0384863e",
+              "name": "Translation results",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/translate?api-version=3.0&to=<string>&from=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "translate"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "description": "(Required) Target language codes",
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Source language code",
+                      "key": "from",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"detectedLanguage\": {\n      \"language\": \"<string>\",\n      \"score\": \"<number>\"\n    },\n    \"translations\": [\n      {\n        \"text\": \"<string>\",\n        \"to\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\",\n        \"to\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"detectedLanguage\": {\n      \"language\": \"<string>\",\n      \"score\": \"<number>\"\n    },\n    \"translations\": [\n      {\n        \"text\": \"<string>\",\n        \"to\": \"<string>\"\n      },\n      {\n        \"text\": \"<string>\",\n        \"to\": \"<string>\"\n      }\n    ]\n  }\n]",
+              "createdAt": "2026-07-28T02:14:48.000Z",
+              "updatedAt": "2026-07-28T02:14:48.000Z",
+              "uid": "35240-db2da91f-9ffc-438e-bfc5-c5fc0384863e"
+            },
+            {
+              "id": "e566bd55-bd00-4e73-bd67-c34508622797",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/translate?api-version=3.0&to=<string>&from=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "translate"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "description": "(Required) Target language codes",
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Source language code",
+                      "key": "from",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:48.000Z",
+              "updatedAt": "2026-07-28T02:14:48.000Z",
+              "uid": "35240-e566bd55-bd00-4e73-bd67-c34508622797"
+            },
+            {
+              "id": "014a8659-a26b-464c-8004-667ad025d3c7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"Text\": \"<string>\"\n  },\n  {\n    \"Text\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/translate?api-version=3.0&to=<string>&from=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "translate"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "description": "(Required) Target language codes",
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Source language code",
+                      "key": "from",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:48.000Z",
+              "updatedAt": "2026-07-28T02:14:48.000Z",
+              "uid": "35240-014a8659-a26b-464c-8004-667ad025d3c7"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:48.000Z",
+          "updatedAt": "2026-07-28T02:14:48.000Z",
+          "uid": "35240-1612cced-9ac8-4dd8-a36e-a99dac3d0b70"
+        }
+      ],
+      "id": "45ba37e3-d84e-4c0f-9077-1bac28f3f280",
+      "createdAt": "2026-07-28T02:14:48.000Z",
+      "updatedAt": "2026-07-28T02:14:48.000Z",
+      "uid": "35240-45ba37e3-d84e-4c0f-9077-1bac28f3f280"
+    },
+    {
+      "name": "languages",
+      "item": [
+        {
+          "name": "Microsoft Get supported languages",
+          "id": "f00716e1-9be5-456e-b4a6-d21f85806f64",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/languages?api-version=3.0&scope=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "languages"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "api-version",
+                  "value": "3.0"
+                },
+                {
+                  "description": "Comma-separated group of language names",
+                  "key": "scope",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get the set of languages currently supported by the Translator."
+          },
+          "response": [
+            {
+              "id": "a79b10ea-e99b-46f2-9305-aa6b280e3419",
+              "name": "Supported languages",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/languages?api-version=3.0&scope=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "languages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "3.0"
+                    },
+                    {
+                      "description": "Comma-separated group of language names",
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T02:14:48.000Z",
+              "updatedAt": "2026-07-28T02:14:48.000Z",
+              "uid": "35240-a79b10ea-e99b-46f2-9305-aa6b280e3419"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:48.000Z",
+          "updatedAt": "2026-07-28T02:14:48.000Z",
+          "uid": "35240-f00716e1-9be5-456e-b4a6-d21f85806f64"
+        }
+      ],
+      "id": "d4dcfe03-a808-49dc-ab16-df6aa1b2a8fb",
+      "createdAt": "2026-07-28T02:14:48.000Z",
+      "updatedAt": "2026-07-28T02:14:48.000Z",
+      "uid": "35240-d4dcfe03-a808-49dc-ab16-df6aa1b2a8fb"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

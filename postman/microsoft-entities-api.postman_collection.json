@@ -1,0 +1,1132 @@
+{
+  "info": {
+    "_postman_id": "82d6f945-0abe-4268-863c-140f1c7d0843",
+    "name": "Microsoft Azure Cognitive Services Accounts Entities API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:46.000Z",
+    "updatedAt": "2026-07-28T02:13:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-82d6f945-0abe-4268-863c-140f1c7d0843"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "Microsoft List accounts",
+          "id": "aad5f042-79d6-4d15-bf70-f9b065829249",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Sort order",
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of account records."
+          },
+          "response": [
+            {
+              "id": "4e8283ee-0131-4fdf-a587-9410b44be588",
+              "name": "List of accounts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-4e8283ee-0131-4fdf-a587-9410b44be588"
+            },
+            {
+              "id": "59b3b9fb-1a9d-47d2-a32b-1f11731db03d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-59b3b9fb-1a9d-47d2-a32b-1f11731db03d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:46.000Z",
+          "updatedAt": "2026-07-28T02:13:46.000Z",
+          "uid": "35240-aad5f042-79d6-4d15-bf70-f9b065829249"
+        },
+        {
+          "name": "Microsoft Create an account",
+          "id": "e085a76a-544c-4162-9b92-1cee0b17da59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts"
+              ]
+            },
+            "description": "Create a new account record."
+          },
+          "response": [
+            {
+              "id": "4ec3ed8d-63f3-4d62-8223-9338827501dd",
+              "name": "Account created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "URI of the created record",
+                    "type": "text/plain"
+                  },
+                  "key": "OData-EntityId",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-4ec3ed8d-63f3-4d62-8223-9338827501dd"
+            },
+            {
+              "id": "a027fcc0-e43b-42b2-8d3f-3f5b7e61c6ce",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-a027fcc0-e43b-42b2-8d3f-3f5b7e61c6ce"
+            },
+            {
+              "id": "218b158a-d98d-4d6e-baf7-ebc8a9a4d915",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-218b158a-d98d-4d6e-baf7-ebc8a9a4d915"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:46.000Z",
+          "updatedAt": "2026-07-28T02:13:46.000Z",
+          "uid": "35240-e085a76a-544c-4162-9b92-1cee0b17da59"
+        }
+      ],
+      "id": "5886749e-c4fc-4436-b183-8b5d417793e7",
+      "createdAt": "2026-07-28T02:13:46.000Z",
+      "updatedAt": "2026-07-28T02:13:46.000Z",
+      "uid": "35240-5886749e-c4fc-4436-b183-8b5d417793e7"
+    },
+    {
+      "name": "accounts({accountid})",
+      "item": [
+        {
+          "name": "Microsoft Get an account",
+          "id": "2b531616-bc85-49d7-ad94-c77168c8b603",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts({{accountid}})?$select=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts({{accountid}})"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a specific account record."
+          },
+          "response": [
+            {
+              "id": "bbeb3e5d-6584-4343-8c7a-44ae4bd071c3",
+              "name": "Account details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-bbeb3e5d-6584-4343-8c7a-44ae4bd071c3"
+            },
+            {
+              "id": "732aecce-86e9-4b68-bab7-74719141bcea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-732aecce-86e9-4b68-bab7-74719141bcea"
+            },
+            {
+              "id": "fdf5a265-966b-40fc-9394-e296534bc9c5",
+              "name": "Account not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-fdf5a265-966b-40fc-9394-e296534bc9c5"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:46.000Z",
+          "updatedAt": "2026-07-28T02:13:46.000Z",
+          "uid": "35240-2b531616-bc85-49d7-ad94-c77168c8b603"
+        },
+        {
+          "name": "Microsoft Update an account",
+          "id": "8865f194-2154-494b-ba5d-d2d5941807a8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/accounts({{accountid}})",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts({{accountid}})"
+              ]
+            },
+            "description": "Update an existing account record."
+          },
+          "response": [
+            {
+              "id": "6e7c9900-9e0f-496b-95e6-7b8f030acfab",
+              "name": "Account updated",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-6e7c9900-9e0f-496b-95e6-7b8f030acfab"
+            },
+            {
+              "id": "c9047d02-2897-4041-8ba8-83a7d66a506c",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-c9047d02-2897-4041-8ba8-83a7d66a506c"
+            },
+            {
+              "id": "dc9e7411-98b2-4b95-a798-3b1aa5a230fb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-dc9e7411-98b2-4b95-a798-3b1aa5a230fb"
+            },
+            {
+              "id": "ea9351e1-7d62-4ecb-868c-cc439526096e",
+              "name": "Account not found",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountid\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"revenue\": \"<number>\",\n  \"numberofemployees\": \"<integer>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"industrycode\": \"<integer>\",\n  \"statecode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-ea9351e1-7d62-4ecb-868c-cc439526096e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:46.000Z",
+          "updatedAt": "2026-07-28T02:13:46.000Z",
+          "uid": "35240-8865f194-2154-494b-ba5d-d2d5941807a8"
+        },
+        {
+          "name": "Microsoft Delete an account",
+          "id": "d6beef03-9c76-4d54-9e8e-90c04a8aba9c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/accounts({{accountid}})",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts({{accountid}})"
+              ]
+            },
+            "description": "Delete an account record."
+          },
+          "response": [
+            {
+              "id": "56e51a45-a143-4489-9469-a8094a8d567d",
+              "name": "Account deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-56e51a45-a143-4489-9469-a8094a8d567d"
+            },
+            {
+              "id": "a8434ef0-c58f-4fb2-929a-102e53a850cf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-a8434ef0-c58f-4fb2-929a-102e53a850cf"
+            },
+            {
+              "id": "8b1486d8-f702-4e08-b8bd-56d8c2cc1c6e",
+              "name": "Account not found",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts({{accountid}})",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts({{accountid}})"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-8b1486d8-f702-4e08-b8bd-56d8c2cc1c6e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:46.000Z",
+          "updatedAt": "2026-07-28T02:13:46.000Z",
+          "uid": "35240-d6beef03-9c76-4d54-9e8e-90c04a8aba9c"
+        }
+      ],
+      "id": "b78b6f72-f14b-4771-af1e-303ab0dc504f",
+      "createdAt": "2026-07-28T02:13:46.000Z",
+      "updatedAt": "2026-07-28T02:13:46.000Z",
+      "uid": "35240-b78b6f72-f14b-4771-af1e-303ab0dc504f"
+    },
+    {
+      "name": "contacts",
+      "item": [
+        {
+          "name": "Microsoft List contacts",
+          "id": "dc772358-43e6-45ee-b70b-809e10ecb021",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contacts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contacts"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Sort order",
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of contact records."
+          },
+          "response": [
+            {
+              "id": "ce5d8799-384b-484d-bae1-f565c995b609",
+              "name": "List of contacts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-ce5d8799-384b-484d-bae1-f565c995b609"
+            },
+            {
+              "id": "54578831-2717-44b9-abea-53f54e8c9b27",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contacts?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Sort order",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:46.000Z",
+              "updatedAt": "2026-07-28T02:13:46.000Z",
+              "uid": "35240-54578831-2717-44b9-abea-53f54e8c9b27"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:46.000Z",
+          "updatedAt": "2026-07-28T02:13:46.000Z",
+          "uid": "35240-dc772358-43e6-45ee-b70b-809e10ecb021"
+        }
+      ],
+      "id": "f1a4a317-a806-47f5-b533-8306241b5b24",
+      "createdAt": "2026-07-28T02:13:46.000Z",
+      "updatedAt": "2026-07-28T02:13:46.000Z",
+      "uid": "35240-f1a4a317-a806-47f5-b533-8306241b5b24"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    },
+    {
+      "key": "accountid",
+      "value": "<uuid>"
+    }
+  ]
+}

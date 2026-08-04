@@ -1,0 +1,605 @@
+{
+  "info": {
+    "_postman_id": "1f10ac63-1adb-4e80-bfe2-5acc9fa9bb40",
+    "name": "Microsoft Azure Cognitive Services Accounts Work Items API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:51.000Z",
+    "updatedAt": "2026-07-28T02:14:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1f10ac63-1adb-4e80-bfe2-5acc9fa9bb40"
+  },
+  "item": [
+    {
+      "name": "{project}",
+      "item": [
+        {
+          "name": "_apis",
+          "item": [
+            {
+              "name": "wit",
+              "item": [
+                {
+                  "name": "workitems",
+                  "item": [
+                    {
+                      "name": "${type}",
+                      "item": [
+                        {
+                          "name": "Microsoft Create a work item",
+                          "id": "a1024984-70f1-4ddd-8b0b-b94dced94ed6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json-patch+json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"op\": \"replace\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/:project/_apis/wit/workitems/${{type}}?api-version=7.2-preview.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":project",
+                                "_apis",
+                                "wit",
+                                "workitems",
+                                "${{type}}"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Version of the API to use",
+                                  "key": "api-version",
+                                  "value": "7.2-preview.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2fe37a93-4df4-4d8c-aa89-33e6c79a9845",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) Project ID or name"
+                                }
+                              ]
+                            },
+                            "description": "Creates a single work item."
+                          },
+                          "response": [
+                            {
+                              "id": "76d92d89-63dc-448a-9b5c-3a0e217d9c52",
+                              "name": "Work item created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json-patch+json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "[\n  {\n    \"op\": \"replace\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/wit/workitems/${{type}}?api-version=7.2-preview.4",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "wit",
+                                    "workitems",
+                                    "${{type}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<integer>\",\n  \"rev\": \"<integer>\",\n  \"fields\": {\n    \"System.Title\": \"<string>\",\n    \"System.State\": \"<string>\",\n    \"System.WorkItemType\": \"<string>\",\n    \"System.AssignedTo\": {\n      \"displayName\": \"<string>\",\n      \"uniqueName\": \"<string>\"\n    },\n    \"System.Description\": \"<string>\",\n    \"System.CreatedDate\": \"<dateTime>\",\n    \"System.ChangedDate\": \"<dateTime>\"\n  },\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:14:52.000Z",
+                              "updatedAt": "2026-07-28T02:14:52.000Z",
+                              "uid": "35240-76d92d89-63dc-448a-9b5c-3a0e217d9c52"
+                            },
+                            {
+                              "id": "b2cbe525-affa-467a-a49e-97d9730686af",
+                              "name": "Invalid request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json-patch+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "[\n  {\n    \"op\": \"replace\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/wit/workitems/${{type}}?api-version=7.2-preview.4",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "wit",
+                                    "workitems",
+                                    "${{type}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:14:52.000Z",
+                              "updatedAt": "2026-07-28T02:14:52.000Z",
+                              "uid": "35240-b2cbe525-affa-467a-a49e-97d9730686af"
+                            },
+                            {
+                              "id": "487b0353-f412-43e7-8b03-e492c2f65cac",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json-patch+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "[\n  {\n    \"op\": \"replace\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/wit/workitems/${{type}}?api-version=7.2-preview.4",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "wit",
+                                    "workitems",
+                                    "${{type}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:14:52.000Z",
+                              "updatedAt": "2026-07-28T02:14:52.000Z",
+                              "uid": "35240-487b0353-f412-43e7-8b03-e492c2f65cac"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:14:52.000Z",
+                          "updatedAt": "2026-07-28T02:14:52.000Z",
+                          "uid": "35240-a1024984-70f1-4ddd-8b0b-b94dced94ed6"
+                        }
+                      ],
+                      "id": "26bf63fe-8e64-4bb2-991e-b6fff36d7406",
+                      "createdAt": "2026-07-28T02:14:52.000Z",
+                      "updatedAt": "2026-07-28T02:14:52.000Z",
+                      "uid": "35240-26bf63fe-8e64-4bb2-991e-b6fff36d7406"
+                    },
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "Microsoft Get a work item",
+                          "id": "933ca98e-7e5c-45a1-bc27-cadfdf26e58d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/:project/_apis/wit/workitems/:id?api-version=7.2-preview.4&$expand=None",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":project",
+                                "_apis",
+                                "wit",
+                                "workitems",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Version of the API to use",
+                                  "key": "api-version",
+                                  "value": "7.2-preview.4"
+                                },
+                                {
+                                  "description": "Expand work item relationships",
+                                  "key": "$expand",
+                                  "value": "None"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "afdaa306-61bf-4563-ad34-f2b3557aa1e4",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) Project ID or name"
+                                },
+                                {
+                                  "id": "e88aa183-79de-4750-9e10-707700aff33c",
+                                  "key": "id",
+                                  "value": "<integer>",
+                                  "description": "(Required) Work item ID"
+                                }
+                              ]
+                            },
+                            "description": "Returns a single work item."
+                          },
+                          "response": [
+                            {
+                              "id": "273747b6-b4a6-4644-b29c-8a35fe24eb38",
+                              "name": "Work item details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/wit/workitems/:id?api-version=7.2-preview.4&$expand=None",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "wit",
+                                    "workitems",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    },
+                                    {
+                                      "description": "Expand work item relationships",
+                                      "key": "$expand",
+                                      "value": "None"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<integer>\",\n  \"rev\": \"<integer>\",\n  \"fields\": {\n    \"System.Title\": \"<string>\",\n    \"System.State\": \"<string>\",\n    \"System.WorkItemType\": \"<string>\",\n    \"System.AssignedTo\": {\n      \"displayName\": \"<string>\",\n      \"uniqueName\": \"<string>\"\n    },\n    \"System.Description\": \"<string>\",\n    \"System.CreatedDate\": \"<dateTime>\",\n    \"System.ChangedDate\": \"<dateTime>\"\n  },\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:14:52.000Z",
+                              "updatedAt": "2026-07-28T02:14:52.000Z",
+                              "uid": "35240-273747b6-b4a6-4644-b29c-8a35fe24eb38"
+                            },
+                            {
+                              "id": "c9d00cf7-6367-4d81-b0e4-2fefc573faf5",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/wit/workitems/:id?api-version=7.2-preview.4&$expand=None",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "wit",
+                                    "workitems",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    },
+                                    {
+                                      "description": "Expand work item relationships",
+                                      "key": "$expand",
+                                      "value": "None"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:14:52.000Z",
+                              "updatedAt": "2026-07-28T02:14:52.000Z",
+                              "uid": "35240-c9d00cf7-6367-4d81-b0e4-2fefc573faf5"
+                            },
+                            {
+                              "id": "dc6c7301-4140-45c4-9864-e7606aee4890",
+                              "name": "Work item not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/wit/workitems/:id?api-version=7.2-preview.4&$expand=None",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "wit",
+                                    "workitems",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    },
+                                    {
+                                      "description": "Expand work item relationships",
+                                      "key": "$expand",
+                                      "value": "None"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:14:52.000Z",
+                              "updatedAt": "2026-07-28T02:14:52.000Z",
+                              "uid": "35240-dc6c7301-4140-45c4-9864-e7606aee4890"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:14:52.000Z",
+                          "updatedAt": "2026-07-28T02:14:52.000Z",
+                          "uid": "35240-933ca98e-7e5c-45a1-bc27-cadfdf26e58d"
+                        }
+                      ],
+                      "id": "b730e8c8-ca30-4723-a977-44509d4eda2a",
+                      "createdAt": "2026-07-28T02:14:52.000Z",
+                      "updatedAt": "2026-07-28T02:14:52.000Z",
+                      "uid": "35240-b730e8c8-ca30-4723-a977-44509d4eda2a"
+                    }
+                  ],
+                  "id": "855e43e7-6eaf-47c5-95b0-09cd2c6ed83d",
+                  "createdAt": "2026-07-28T02:14:52.000Z",
+                  "updatedAt": "2026-07-28T02:14:52.000Z",
+                  "uid": "35240-855e43e7-6eaf-47c5-95b0-09cd2c6ed83d"
+                }
+              ],
+              "id": "7a04fe87-4069-4e9e-aa12-5a230aea700f",
+              "createdAt": "2026-07-28T02:14:52.000Z",
+              "updatedAt": "2026-07-28T02:14:52.000Z",
+              "uid": "35240-7a04fe87-4069-4e9e-aa12-5a230aea700f"
+            }
+          ],
+          "id": "1006cb61-6d05-4a74-b4da-5067ba5e6aa8",
+          "createdAt": "2026-07-28T02:14:52.000Z",
+          "updatedAt": "2026-07-28T02:14:52.000Z",
+          "uid": "35240-1006cb61-6d05-4a74-b4da-5067ba5e6aa8"
+        }
+      ],
+      "id": "455e9cd4-37be-4f39-aaaa-4bcb0005c0d0",
+      "createdAt": "2026-07-28T02:14:52.000Z",
+      "updatedAt": "2026-07-28T02:14:52.000Z",
+      "uid": "35240-455e9cd4-37be-4f39-aaaa-4bcb0005c0d0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    },
+    {
+      "key": "type",
+      "value": "<string>"
+    }
+  ]
+}

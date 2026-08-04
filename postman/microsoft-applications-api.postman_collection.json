@@ -1,0 +1,1273 @@
+{
+  "info": {
+    "_postman_id": "73f5910d-74bc-4d6d-acc2-1019ba781eeb",
+    "name": "Microsoft Azure Cognitive Services Accounts Applications API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:04.000Z",
+    "updatedAt": "2026-07-28T02:13:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-73f5910d-74bc-4d6d-acc2-1019ba781eeb"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{applicationId}",
+          "item": [
+            {
+              "name": "Microsoft Get an application",
+              "id": "04757fb6-fa1d-4b19-85a5-b4d7c4fb918e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:applicationId?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a00cc7b5-13d4-46ff-b4ca-6275dd663d61",
+                      "key": "applicationId",
+                      "value": "<string>",
+                      "description": "(Required) Application object ID"
+                    }
+                  ]
+                },
+                "description": "Get the properties of an application object."
+              },
+              "response": [
+                {
+                  "id": "7b07d840-5425-41c0-80ff-5cccd5d1e0a4",
+                  "name": "Application details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Properties to include",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADandPersonalMicrosoftAccount\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<string>\"\n  },\n  \"api\": {\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"userConsentDisplayName\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"userConsentDisplayName\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-7b07d840-5425-41c0-80ff-5cccd5d1e0a4"
+                },
+                {
+                  "id": "4838e2ab-3ec3-4956-8370-082e02c3c137",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Properties to include",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-4838e2ab-3ec3-4956-8370-082e02c3c137"
+                },
+                {
+                  "id": "e7a5cdd0-ade2-4396-8c62-8b87bebb98d9",
+                  "name": "Application not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Properties to include",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-e7a5cdd0-ade2-4396-8c62-8b87bebb98d9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-04757fb6-fa1d-4b19-85a5-b4d7c4fb918e"
+            },
+            {
+              "name": "Microsoft Update an application",
+              "id": "38024e9b-c3d8-465b-849f-87dfeec8f1ed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:applicationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "22bcda9d-be10-46d0-a2bc-ec69c580a309",
+                      "key": "applicationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Update the properties of an application object."
+              },
+              "response": [
+                {
+                  "id": "8e313e52-fa7d-4a6c-be73-9972734f2872",
+                  "name": "Application updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-8e313e52-fa7d-4a6c-be73-9972734f2872"
+                },
+                {
+                  "id": "a40c63a6-9f86-44f6-a06d-82e0b4b19f39",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-a40c63a6-9f86-44f6-a06d-82e0b4b19f39"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-38024e9b-c3d8-465b-849f-87dfeec8f1ed"
+            },
+            {
+              "name": "Microsoft Delete an application",
+              "id": "242b9d0d-1b9f-4939-9f65-a304c322c5b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:applicationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "330fa48a-1d91-47c7-9440-9dce0a13d40a",
+                      "key": "applicationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Delete an application registration."
+              },
+              "response": [
+                {
+                  "id": "a1a645ce-8343-4fc4-820f-584afc9ae78c",
+                  "name": "Application deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-a1a645ce-8343-4fc4-820f-584afc9ae78c"
+                },
+                {
+                  "id": "2e9c4b3a-f56c-4227-911f-2e020d480f7e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-2e9c4b3a-f56c-4227-911f-2e020d480f7e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-242b9d0d-1b9f-4939-9f65-a304c322c5b2"
+            }
+          ],
+          "id": "cd7cd7c0-6afd-41cc-a18e-f283d2870566",
+          "createdAt": "2026-07-28T02:13:05.000Z",
+          "updatedAt": "2026-07-28T02:13:05.000Z",
+          "uid": "35240-cd7cd7c0-6afd-41cc-a18e-f283d2870566"
+        },
+        {
+          "name": "{application-id}",
+          "item": [
+            {
+              "name": "Microsoft Get application",
+              "id": "2e850d81-f959-4597-a183-aabe2472b30c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:application-id?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "1fc56d46-6dc1-4a26-9138-0118a6f59923",
+                      "key": "application-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the application"
+                    }
+                  ]
+                },
+                "description": "Get the properties and relationships of an application object."
+              },
+              "response": [
+                {
+                  "id": "146c51ee-a5dd-479d-95c0-08581b14568e",
+                  "name": "Application object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "application-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"identifierUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<uri>\"\n  },\n  \"api\": {\n    \"requestedAccessTokenVersion\": \"<integer>\",\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"<dateTime>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-146c51ee-a5dd-479d-95c0-08581b14568e"
+                },
+                {
+                  "id": "5ef3ff13-d2ad-4529-a85e-fe0ad1260b0d",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "application-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-5ef3ff13-d2ad-4529-a85e-fe0ad1260b0d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-2e850d81-f959-4597-a183-aabe2472b30c"
+            },
+            {
+              "name": "Microsoft Update application",
+              "id": "0c716ee0-21ef-4401-bb29-44baef887d1e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"identifierUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<uri>\"\n  },\n  \"api\": {\n    \"requestedAccessTokenVersion\": \"<integer>\",\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"<dateTime>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:application-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "78f2290b-354d-4605-bce2-c1f027dbe0e7",
+                      "key": "application-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the application"
+                    }
+                  ]
+                },
+                "description": "Update the properties of an application object."
+              },
+              "response": [
+                {
+                  "id": "61597501-0fe4-4db2-b7d3-e1dc95d1d8e7",
+                  "name": "Application updated successfully",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"identifierUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<uri>\"\n  },\n  \"api\": {\n    \"requestedAccessTokenVersion\": \"<integer>\",\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"<dateTime>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "application-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-61597501-0fe4-4db2-b7d3-e1dc95d1d8e7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-0c716ee0-21ef-4401-bb29-44baef887d1e"
+            },
+            {
+              "name": "Microsoft Delete application",
+              "id": "43e578ea-2bcc-46d7-80f6-8b674645eb34",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:application-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a0d85390-53ee-4021-aaac-a850b661c19c",
+                      "key": "application-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the application"
+                    }
+                  ]
+                },
+                "description": "Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days."
+              },
+              "response": [
+                {
+                  "id": "89a5a0c4-9d51-4263-98d7-651485f8baa3",
+                  "name": "Application deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "application-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-89a5a0c4-9d51-4263-98d7-651485f8baa3"
+                },
+                {
+                  "id": "6eae6d2f-0ea9-4e0b-a9d8-4f1ed2a33f1e",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:application-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":application-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "application-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:05.000Z",
+                  "updatedAt": "2026-07-28T02:13:05.000Z",
+                  "uid": "35240-6eae6d2f-0ea9-4e0b-a9d8-4f1ed2a33f1e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-43e578ea-2bcc-46d7-80f6-8b674645eb34"
+            }
+          ],
+          "id": "9e66badf-c732-445c-8d03-d9dca1d33f6d",
+          "createdAt": "2026-07-28T02:13:05.000Z",
+          "updatedAt": "2026-07-28T02:13:05.000Z",
+          "uid": "35240-9e66badf-c732-445c-8d03-d9dca1d33f6d"
+        },
+        {
+          "name": "Microsoft List applications",
+          "id": "2cf3e524-8bd6-4540-ac21-1a371a9c58d8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications?$select=<string>&$filter=<string>&$top=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of items",
+                  "key": "$top",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Get the list of applications in the organization."
+          },
+          "response": [
+            {
+              "id": "4e4ae66f-29b2-40b9-a04c-d0a3c7b997b7",
+              "name": "List of applications",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications?$select=<string>&$filter=<string>&$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of items",
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"appId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"signInAudience\": \"PersonalMicrosoftAccount\",\n      \"web\": {\n        \"redirectUris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"homePageUrl\": \"<string>\"\n      },\n      \"api\": {\n        \"oauth2PermissionScopes\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\",\n            \"type\": \"<string>\",\n            \"adminConsentDisplayName\": \"<string>\",\n            \"userConsentDisplayName\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\",\n            \"type\": \"<string>\",\n            \"adminConsentDisplayName\": \"<string>\",\n            \"userConsentDisplayName\": \"<string>\"\n          }\n        ]\n      },\n      \"requiredResourceAccess\": [\n        {\n          \"resourceAppId\": \"<string>\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Scope\"\n            }\n          ]\n        },\n        {\n          \"resourceAppId\": \"<string>\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Role\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Role\"\n            }\n          ]\n        }\n      ],\n      \"createdDateTime\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"appId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"signInAudience\": \"AzureADandPersonalMicrosoftAccount\",\n      \"web\": {\n        \"redirectUris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"homePageUrl\": \"<string>\"\n      },\n      \"api\": {\n        \"oauth2PermissionScopes\": [\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\",\n            \"type\": \"<string>\",\n            \"adminConsentDisplayName\": \"<string>\",\n            \"userConsentDisplayName\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"value\": \"<string>\",\n            \"type\": \"<string>\",\n            \"adminConsentDisplayName\": \"<string>\",\n            \"userConsentDisplayName\": \"<string>\"\n          }\n        ]\n      },\n      \"requiredResourceAccess\": [\n        {\n          \"resourceAppId\": \"<string>\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Role\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Scope\"\n            }\n          ]\n        },\n        {\n          \"resourceAppId\": \"<string>\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Role\"\n            },\n            {\n              \"id\": \"<string>\",\n              \"type\": \"Role\"\n            }\n          ]\n        }\n      ],\n      \"createdDateTime\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-4e4ae66f-29b2-40b9-a04c-d0a3c7b997b7"
+            },
+            {
+              "id": "4dc2c59c-2ad5-4be0-bef5-2757e7870b37",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications?$select=<string>&$filter=<string>&$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of items",
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-4dc2c59c-2ad5-4be0-bef5-2757e7870b37"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:05.000Z",
+          "updatedAt": "2026-07-28T02:13:05.000Z",
+          "uid": "35240-2cf3e524-8bd6-4540-ac21-1a371a9c58d8"
+        },
+        {
+          "name": "Microsoft Create an application",
+          "id": "ea996ad0-38ab-4fad-9015-97619a237922",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ]
+            },
+            "description": "Create a new application registration."
+          },
+          "response": [
+            {
+              "id": "df115d74-e7b3-44f1-841c-6c788619685b",
+              "name": "Application created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADandPersonalMicrosoftAccount\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<string>\"\n  },\n  \"api\": {\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"userConsentDisplayName\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"userConsentDisplayName\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-df115d74-e7b3-44f1-841c-6c788619685b"
+            },
+            {
+              "id": "731c4c63-ca58-4b29-8769-6c64f4c7f2f3",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-731c4c63-ca58-4b29-8769-6c64f4c7f2f3"
+            },
+            {
+              "id": "5e1e4149-00c9-4d52-8b44-3e3f639af5c4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:05.000Z",
+              "updatedAt": "2026-07-28T02:13:05.000Z",
+              "uid": "35240-5e1e4149-00c9-4d52-8b44-3e3f639af5c4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:05.000Z",
+          "updatedAt": "2026-07-28T02:13:05.000Z",
+          "uid": "35240-ea996ad0-38ab-4fad-9015-97619a237922"
+        }
+      ],
+      "id": "71e7c116-defd-4c38-a59a-ac9a94317429",
+      "createdAt": "2026-07-28T02:13:05.000Z",
+      "updatedAt": "2026-07-28T02:13:05.000Z",
+      "uid": "35240-71e7c116-defd-4c38-a59a-ac9a94317429"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

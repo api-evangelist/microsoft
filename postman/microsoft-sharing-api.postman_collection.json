@@ -1,0 +1,267 @@
+{
+  "info": {
+    "_postman_id": "536f4351-0078-4747-a1c8-47ef189a4169",
+    "name": "Microsoft Azure Cognitive Services Accounts Sharing API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:42.000Z",
+    "updatedAt": "2026-07-28T02:14:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-536f4351-0078-4747-a1c8-47ef189a4169"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "drive",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{itemId}",
+                  "item": [
+                    {
+                      "name": "createLink",
+                      "item": [
+                        {
+                          "name": "Microsoft Create a sharing link",
+                          "id": "8788345a-f3a8-453d-86d2-c898065843df",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"edit\",\n  \"scope\": \"organization\",\n  \"expirationDateTime\": \"<dateTime>\",\n  \"password\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId/createLink",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId",
+                                "createLink"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "75ba267a-3217-40e5-a275-7d5e967235a9",
+                                  "key": "itemId",
+                                  "value": "<string>",
+                                  "description": "(Required) Drive item unique identifier"
+                                }
+                              ]
+                            },
+                            "description": "Create a new sharing link for a DriveItem."
+                          },
+                          "response": [
+                            {
+                              "id": "1db2f046-4d4d-4037-ac04-2b00d81f3759",
+                              "name": "Sharing link created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"type\": \"edit\",\n  \"scope\": \"organization\",\n  \"expirationDateTime\": \"<dateTime>\",\n  \"password\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/createLink",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "createLink"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"link\": {\n    \"type\": \"<string>\",\n    \"scope\": \"<string>\",\n    \"webUrl\": \"<string>\"\n  },\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expirationDateTime\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T02:14:42.000Z",
+                              "updatedAt": "2026-07-28T02:14:42.000Z",
+                              "uid": "35240-1db2f046-4d4d-4037-ac04-2b00d81f3759"
+                            },
+                            {
+                              "id": "ae32f6c3-c04a-45ae-adf1-b74c1e32445e",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"type\": \"edit\",\n  \"scope\": \"organization\",\n  \"expirationDateTime\": \"<dateTime>\",\n  \"password\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/createLink",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "createLink"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:14:42.000Z",
+                              "updatedAt": "2026-07-28T02:14:42.000Z",
+                              "uid": "35240-ae32f6c3-c04a-45ae-adf1-b74c1e32445e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:14:42.000Z",
+                          "updatedAt": "2026-07-28T02:14:42.000Z",
+                          "uid": "35240-8788345a-f3a8-453d-86d2-c898065843df"
+                        }
+                      ],
+                      "id": "8ebdd3a0-a548-4930-9fd5-a2abd2c29357",
+                      "createdAt": "2026-07-28T02:14:42.000Z",
+                      "updatedAt": "2026-07-28T02:14:42.000Z",
+                      "uid": "35240-8ebdd3a0-a548-4930-9fd5-a2abd2c29357"
+                    }
+                  ],
+                  "id": "6bbf825c-c312-42c2-b92c-ec84e8de9346",
+                  "createdAt": "2026-07-28T02:14:42.000Z",
+                  "updatedAt": "2026-07-28T02:14:42.000Z",
+                  "uid": "35240-6bbf825c-c312-42c2-b92c-ec84e8de9346"
+                }
+              ],
+              "id": "55fbdf9a-fea4-4bcc-9132-63485f3e22c7",
+              "createdAt": "2026-07-28T02:14:42.000Z",
+              "updatedAt": "2026-07-28T02:14:42.000Z",
+              "uid": "35240-55fbdf9a-fea4-4bcc-9132-63485f3e22c7"
+            }
+          ],
+          "id": "6265b54c-7929-48c4-a1ad-9dc4b8b3e4d5",
+          "createdAt": "2026-07-28T02:14:42.000Z",
+          "updatedAt": "2026-07-28T02:14:42.000Z",
+          "uid": "35240-6265b54c-7929-48c4-a1ad-9dc4b8b3e4d5"
+        }
+      ],
+      "id": "923f1a83-5fd1-4e7c-a1e3-df63b77472de",
+      "createdAt": "2026-07-28T02:14:42.000Z",
+      "updatedAt": "2026-07-28T02:14:42.000Z",
+      "uid": "35240-923f1a83-5fd1-4e7c-a1e3-df63b77472de"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

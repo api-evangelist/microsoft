@@ -1,0 +1,802 @@
+{
+  "info": {
+    "_postman_id": "016df23a-fc2b-46c8-944f-b60261c9fa3a",
+    "name": "Microsoft Azure Cognitive Services Accounts Datasets API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:38.000Z",
+    "updatedAt": "2026-07-28T02:13:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-016df23a-fc2b-46c8-944f-b60261c9fa3a"
+  },
+  "item": [
+    {
+      "name": "datasets",
+      "item": [
+        {
+          "name": "{datasetId}",
+          "item": [
+            {
+              "name": "refreshes",
+              "item": [
+                {
+                  "name": "Microsoft Trigger dataset refresh",
+                  "id": "cf9e764d-5eb7-4d3c-a0d7-16e21098d5fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId/refreshes",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId",
+                        "refreshes"
+                      ],
+                      "variable": [
+                        {
+                          "id": "dad6cae1-2394-4bf6-95d0-d1426596e0e4",
+                          "key": "datasetId",
+                          "value": "<string>",
+                          "description": "(Required) Dataset unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Triggers a refresh for the specified dataset."
+                  },
+                  "response": [
+                    {
+                      "id": "adb2908c-6724-4137-9d20-7d88f5e6e07c",
+                      "name": "Refresh accepted",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/refreshes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "refreshes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:39.000Z",
+                      "updatedAt": "2026-07-28T02:13:39.000Z",
+                      "uid": "35240-adb2908c-6724-4137-9d20-7d88f5e6e07c"
+                    },
+                    {
+                      "id": "2ba4fffb-244c-4e09-8804-cc058908ffb2",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/refreshes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "refreshes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:39.000Z",
+                      "updatedAt": "2026-07-28T02:13:39.000Z",
+                      "uid": "35240-2ba4fffb-244c-4e09-8804-cc058908ffb2"
+                    },
+                    {
+                      "id": "f2caccaa-4316-4349-ac27-d853e1b458f1",
+                      "name": "Dataset not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/refreshes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "refreshes"
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:39.000Z",
+                      "updatedAt": "2026-07-28T02:13:39.000Z",
+                      "uid": "35240-f2caccaa-4316-4349-ac27-d853e1b458f1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-cf9e764d-5eb7-4d3c-a0d7-16e21098d5fc"
+                },
+                {
+                  "name": "Microsoft List refresh history",
+                  "id": "1da7f7a4-0add-4fda-b76e-30dd4de23275",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId/refreshes?$top=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId",
+                        "refreshes"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of entries to return",
+                          "key": "$top",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6ecd3d37-506e-4f97-94ef-896d0cd3f973",
+                          "key": "datasetId",
+                          "value": "<string>",
+                          "description": "(Required) Dataset unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Returns the refresh history for the specified dataset."
+                  },
+                  "response": [
+                    {
+                      "id": "26d725b7-89e5-497f-888a-d211748e0452",
+                      "name": "Refresh history",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/refreshes?$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "refreshes"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of entries to return",
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"requestId\": \"<string>\",\n      \"refreshType\": \"<string>\",\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"status\": \"Disabled\"\n    },\n    {\n      \"requestId\": \"<string>\",\n      \"refreshType\": \"<string>\",\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"status\": \"Completed\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:39.000Z",
+                      "updatedAt": "2026-07-28T02:13:39.000Z",
+                      "uid": "35240-26d725b7-89e5-497f-888a-d211748e0452"
+                    },
+                    {
+                      "id": "2c8aa9cb-0258-4476-a5f1-9cc2af8b8934",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/datasets/:datasetId/refreshes?$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "datasets",
+                            ":datasetId",
+                            "refreshes"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of entries to return",
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "datasetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:39.000Z",
+                      "updatedAt": "2026-07-28T02:13:39.000Z",
+                      "uid": "35240-2c8aa9cb-0258-4476-a5f1-9cc2af8b8934"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-1da7f7a4-0add-4fda-b76e-30dd4de23275"
+                }
+              ],
+              "id": "8ccb3b9f-bd65-45ce-b418-46dc918ba9ce",
+              "createdAt": "2026-07-28T02:13:39.000Z",
+              "updatedAt": "2026-07-28T02:13:39.000Z",
+              "uid": "35240-8ccb3b9f-bd65-45ce-b418-46dc918ba9ce"
+            },
+            {
+              "name": "Microsoft Get a dataset",
+              "id": "8acc0aec-762a-462c-844d-291a4349ffe7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets/:datasetId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "43c73be1-46d1-4b52-80df-637e31eb50c0",
+                      "key": "datasetId",
+                      "value": "<string>",
+                      "description": "(Required) Dataset unique identifier"
+                    }
+                  ]
+                },
+                "description": "Returns the specified dataset from My workspace."
+              },
+              "response": [
+                {
+                  "id": "41829fd3-8ba8-4c4f-8d5e-b901f31ae1a2",
+                  "name": "Dataset details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"configuredBy\": \"<string>\",\n  \"isRefreshable\": \"<boolean>\",\n  \"isEffectiveIdentityRequired\": \"<boolean>\",\n  \"isOnPremGatewayRequired\": \"<boolean>\",\n  \"addRowsAPIEnabled\": \"<boolean>\",\n  \"webUrl\": \"<string>\",\n  \"createdDate\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-41829fd3-8ba8-4c4f-8d5e-b901f31ae1a2"
+                },
+                {
+                  "id": "f4073c15-11bd-442f-b14d-0b687d1a3644",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-f4073c15-11bd-442f-b14d-0b687d1a3644"
+                },
+                {
+                  "id": "5394b309-2c00-4385-b931-6de0f6746077",
+                  "name": "Dataset not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-5394b309-2c00-4385-b931-6de0f6746077"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:39.000Z",
+              "updatedAt": "2026-07-28T02:13:39.000Z",
+              "uid": "35240-8acc0aec-762a-462c-844d-291a4349ffe7"
+            },
+            {
+              "name": "Microsoft Delete a dataset",
+              "id": "5d2e896a-98ef-4cba-8c3b-f37d20975d2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets/:datasetId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets",
+                    ":datasetId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1004d749-24dd-4ba9-b848-322721818116",
+                      "key": "datasetId",
+                      "value": "<string>",
+                      "description": "(Required) Dataset unique identifier"
+                    }
+                  ]
+                },
+                "description": "Deletes the specified dataset from My workspace."
+              },
+              "response": [
+                {
+                  "id": "7719447f-9994-4128-b2a1-9d222a6ad2a7",
+                  "name": "Dataset deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-7719447f-9994-4128-b2a1-9d222a6ad2a7"
+                },
+                {
+                  "id": "d4f927f6-6529-46fa-adb6-10500a9ca4ad",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-d4f927f6-6529-46fa-adb6-10500a9ca4ad"
+                },
+                {
+                  "id": "da596f7b-42e9-4f5f-bb6f-8674dbd2cd83",
+                  "name": "Dataset not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/datasets/:datasetId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "datasets",
+                        ":datasetId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "datasetId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-da596f7b-42e9-4f5f-bb6f-8674dbd2cd83"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:39.000Z",
+              "updatedAt": "2026-07-28T02:13:39.000Z",
+              "uid": "35240-5d2e896a-98ef-4cba-8c3b-f37d20975d2e"
+            }
+          ],
+          "id": "c6d5a1b9-6637-4f49-ab8c-725ee9a17f07",
+          "createdAt": "2026-07-28T02:13:39.000Z",
+          "updatedAt": "2026-07-28T02:13:39.000Z",
+          "uid": "35240-c6d5a1b9-6637-4f49-ab8c-725ee9a17f07"
+        },
+        {
+          "name": "Microsoft List datasets",
+          "id": "9f66ce4b-84ac-426f-bf3a-a13017d95ed4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/datasets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "datasets"
+              ]
+            },
+            "description": "Returns a list of datasets from My workspace."
+          },
+          "response": [
+            {
+              "id": "6974aaf9-b593-43c8-903d-bbbd23b507b7",
+              "name": "List of datasets",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"configuredBy\": \"<string>\",\n      \"isRefreshable\": \"<boolean>\",\n      \"isEffectiveIdentityRequired\": \"<boolean>\",\n      \"isOnPremGatewayRequired\": \"<boolean>\",\n      \"addRowsAPIEnabled\": \"<boolean>\",\n      \"webUrl\": \"<string>\",\n      \"createdDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"configuredBy\": \"<string>\",\n      \"isRefreshable\": \"<boolean>\",\n      \"isEffectiveIdentityRequired\": \"<boolean>\",\n      \"isOnPremGatewayRequired\": \"<boolean>\",\n      \"addRowsAPIEnabled\": \"<boolean>\",\n      \"webUrl\": \"<string>\",\n      \"createdDate\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:13:39.000Z",
+              "updatedAt": "2026-07-28T02:13:39.000Z",
+              "uid": "35240-6974aaf9-b593-43c8-903d-bbbd23b507b7"
+            },
+            {
+              "id": "b87377e8-b44c-48b8-b33a-f45ead5a3b96",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/datasets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "datasets"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:39.000Z",
+              "updatedAt": "2026-07-28T02:13:39.000Z",
+              "uid": "35240-b87377e8-b44c-48b8-b33a-f45ead5a3b96"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:39.000Z",
+          "updatedAt": "2026-07-28T02:13:39.000Z",
+          "uid": "35240-9f66ce4b-84ac-426f-bf3a-a13017d95ed4"
+        }
+      ],
+      "id": "2bac9ff2-b21c-4fa7-bc35-a64813b08ec3",
+      "createdAt": "2026-07-28T02:13:39.000Z",
+      "updatedAt": "2026-07-28T02:13:39.000Z",
+      "uid": "35240-2bac9ff2-b21c-4fa7-bc35-a64813b08ec3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

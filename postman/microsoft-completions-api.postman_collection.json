@@ -1,0 +1,386 @@
+{
+  "info": {
+    "_postman_id": "127b0674-238c-4ac9-a0f0-0d454fde1767",
+    "name": "Microsoft Azure Cognitive Services Accounts Completions API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:34.000Z",
+    "updatedAt": "2026-07-28T02:13:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-127b0674-238c-4ac9-a0f0-0d454fde1767"
+  },
+  "item": [
+    {
+      "name": "deployments",
+      "item": [
+        {
+          "name": "{deployment-id}",
+          "item": [
+            {
+              "name": "completions",
+              "item": [
+                {
+                  "name": "Microsoft Create completion",
+                  "id": "ca42a455-4bb1-4815-8274-46b3a80da433",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": 16,\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"n\": 1,\n  \"stream\": false,\n  \"stop\": \"<string>\",\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:deployment-id/completions?api-version=2024-10-21",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":deployment-id",
+                        "completions"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use",
+                          "key": "api-version",
+                          "value": "2024-10-21"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3afebf13-63d9-4e13-8652-e22d27cb61cc",
+                          "key": "deployment-id",
+                          "value": "<string>",
+                          "description": "(Required) The deployment name for the model"
+                        }
+                      ]
+                    },
+                    "description": "Creates a completion for the provided prompt and parameters."
+                  },
+                  "response": [
+                    {
+                      "id": "9658be9f-1b8a-4ddd-bf37-ac388ff60580",
+                      "name": "Completion response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": 16,\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"n\": 1,\n  \"stream\": false,\n  \"stop\": \"<string>\",\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/completions?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "completions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\",\n  \"created\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"choices\": [\n    {\n      \"text\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"finish_reason\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"finish_reason\": \"<string>\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": \"<integer>\",\n    \"completion_tokens\": \"<integer>\",\n    \"total_tokens\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:35.000Z",
+                      "updatedAt": "2026-07-28T02:13:35.000Z",
+                      "uid": "35240-9658be9f-1b8a-4ddd-bf37-ac388ff60580"
+                    },
+                    {
+                      "id": "25fd9ad4-2ed2-4823-beda-0bf314ca9892",
+                      "name": "Invalid request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": 16,\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"n\": 1,\n  \"stream\": false,\n  \"stop\": \"<string>\",\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/completions?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "completions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:35.000Z",
+                      "updatedAt": "2026-07-28T02:13:35.000Z",
+                      "uid": "35240-25fd9ad4-2ed2-4823-beda-0bf314ca9892"
+                    },
+                    {
+                      "id": "cfe1e74e-3705-4308-a239-84f044a1fbb7",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": 16,\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"n\": 1,\n  \"stream\": false,\n  \"stop\": \"<string>\",\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/completions?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "completions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:35.000Z",
+                      "updatedAt": "2026-07-28T02:13:35.000Z",
+                      "uid": "35240-cfe1e74e-3705-4308-a239-84f044a1fbb7"
+                    },
+                    {
+                      "id": "ad9de433-a8b7-4217-a7cb-38c4a1289a01",
+                      "name": "Rate limit exceeded",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": 16,\n  \"temperature\": 1,\n  \"top_p\": 1,\n  \"n\": 1,\n  \"stream\": false,\n  \"stop\": \"<string>\",\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/completions?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "completions"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:35.000Z",
+                      "updatedAt": "2026-07-28T02:13:35.000Z",
+                      "uid": "35240-ad9de433-a8b7-4217-a7cb-38c4a1289a01"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:35.000Z",
+                  "updatedAt": "2026-07-28T02:13:35.000Z",
+                  "uid": "35240-ca42a455-4bb1-4815-8274-46b3a80da433"
+                }
+              ],
+              "id": "7aa9877b-ce72-4101-9592-3cf405c6262f",
+              "createdAt": "2026-07-28T02:13:35.000Z",
+              "updatedAt": "2026-07-28T02:13:35.000Z",
+              "uid": "35240-7aa9877b-ce72-4101-9592-3cf405c6262f"
+            }
+          ],
+          "id": "5018ef31-ff86-4f8f-bf45-aae82f7d47f1",
+          "createdAt": "2026-07-28T02:13:35.000Z",
+          "updatedAt": "2026-07-28T02:13:35.000Z",
+          "uid": "35240-5018ef31-ff86-4f8f-bf45-aae82f7d47f1"
+        }
+      ],
+      "id": "59dd7ff2-a072-481f-ae5d-66f2fff9dddd",
+      "createdAt": "2026-07-28T02:13:35.000Z",
+      "updatedAt": "2026-07-28T02:13:35.000Z",
+      "uid": "35240-59dd7ff2-a072-481f-ae5d-66f2fff9dddd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

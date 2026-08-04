@@ -1,0 +1,1761 @@
+{
+  "info": {
+    "_postman_id": "2ce3480b-f12d-4689-b3c0-fe761f502e05",
+    "name": "Microsoft Azure Cognitive Services Accounts Users API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:49.000Z",
+    "updatedAt": "2026-07-28T02:14:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2ce3480b-f12d-4689-b3c0-fe761f502e05"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "{user-id}",
+          "item": [
+            {
+              "name": "manager",
+              "item": [
+                {
+                  "name": "Microsoft Get user's manager",
+                  "id": "b34743fa-f641-46e1-9b9b-1dbd4435d5fd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id/manager",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id",
+                        "manager"
+                      ],
+                      "variable": [
+                        {
+                          "id": "683493ad-98d2-43d2-a744-11fd27a74f8d",
+                          "key": "user-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user (GUID or userPrincipalName)"
+                        }
+                      ]
+                    },
+                    "description": "Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node."
+                  },
+                  "response": [
+                    {
+                      "id": "8da122bf-24b5-48d3-a7e3-acf4e2a0f107",
+                      "name": "Manager directory object",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user-id/manager",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user-id",
+                            "manager"
+                          ],
+                          "variable": [
+                            {
+                              "key": "user-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"@odata.type\": \"<string>\",\n  \"id\": \"<string>\",\n  \"deletedDateTime\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:14:49.000Z",
+                      "updatedAt": "2026-07-28T02:14:49.000Z",
+                      "uid": "35240-8da122bf-24b5-48d3-a7e3-acf4e2a0f107"
+                    },
+                    {
+                      "id": "f62ab124-ccea-4961-af25-6258103d770d",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user-id/manager",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user-id",
+                            "manager"
+                          ],
+                          "variable": [
+                            {
+                              "key": "user-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:14:49.000Z",
+                      "updatedAt": "2026-07-28T02:14:49.000Z",
+                      "uid": "35240-f62ab124-ccea-4961-af25-6258103d770d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-b34743fa-f641-46e1-9b9b-1dbd4435d5fd"
+                }
+              ],
+              "id": "9c448594-712c-43fa-b11d-f7cdb7fb391c",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-9c448594-712c-43fa-b11d-f7cdb7fb391c"
+            },
+            {
+              "name": "directReports",
+              "item": [
+                {
+                  "name": "Microsoft List user's direct reports",
+                  "id": "95a832ef-07a7-47ef-aa1a-8ce67772ebc1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id/directReports?$top=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id",
+                        "directReports"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "aff98999-eddb-492c-949d-b8bc166fde55",
+                          "key": "user-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user (GUID or userPrincipalName)"
+                        }
+                      ]
+                    },
+                    "description": "Get the users and organizational contacts that report to the user."
+                  },
+                  "response": [
+                    {
+                      "id": "bd9bdca5-895a-49d7-bf4c-ebdb0d1672b7",
+                      "name": "Collection of direct reports",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user-id/directReports?$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user-id",
+                            "directReports"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"@odata.type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"deletedDateTime\": \"<dateTime>\"\n    },\n    {\n      \"@odata.type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"deletedDateTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:14:49.000Z",
+                      "updatedAt": "2026-07-28T02:14:49.000Z",
+                      "uid": "35240-bd9bdca5-895a-49d7-bf4c-ebdb0d1672b7"
+                    },
+                    {
+                      "id": "3f5a9044-35fb-4cbe-a980-01975854c2b5",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user-id/directReports?$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user-id",
+                            "directReports"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:14:49.000Z",
+                      "updatedAt": "2026-07-28T02:14:49.000Z",
+                      "uid": "35240-3f5a9044-35fb-4cbe-a980-01975854c2b5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-95a832ef-07a7-47ef-aa1a-8ce67772ebc1"
+                }
+              ],
+              "id": "8bbd4dfe-4cab-4063-9148-d66cbaf01183",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-8bbd4dfe-4cab-4063-9148-d66cbaf01183"
+            },
+            {
+              "name": "memberOf",
+              "item": [
+                {
+                  "name": "Microsoft List user's group memberships",
+                  "id": "9d7bf4e9-e045-48d9-8fa4-5a2900d05976",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id/memberOf?$top=<integer>&$filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id",
+                        "memberOf"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "59062eec-cf65-4f1f-b0ae-adae257799c3",
+                          "key": "user-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user (GUID or userPrincipalName)"
+                        }
+                      ]
+                    },
+                    "description": "Get the groups, directory roles, and administrative units that the user is a direct member of."
+                  },
+                  "response": [
+                    {
+                      "id": "b4aa8db0-62ef-4b47-93de-7c39cc51b1ff",
+                      "name": "Collection of directory objects",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user-id/memberOf?$top=<integer>&$filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user-id",
+                            "memberOf"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "OData filter expression",
+                              "key": "$filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"@odata.type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"deletedDateTime\": \"<dateTime>\"\n    },\n    {\n      \"@odata.type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"deletedDateTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:14:49.000Z",
+                      "updatedAt": "2026-07-28T02:14:49.000Z",
+                      "uid": "35240-b4aa8db0-62ef-4b47-93de-7c39cc51b1ff"
+                    },
+                    {
+                      "id": "edfffe07-cacb-4066-aba3-f5c411ac678c",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user-id/memberOf?$top=<integer>&$filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user-id",
+                            "memberOf"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "OData filter expression",
+                              "key": "$filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:14:49.000Z",
+                      "updatedAt": "2026-07-28T02:14:49.000Z",
+                      "uid": "35240-edfffe07-cacb-4066-aba3-f5c411ac678c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-9d7bf4e9-e045-48d9-8fa4-5a2900d05976"
+                }
+              ],
+              "id": "90d07e80-5ba8-4cf4-bb4e-dbfb4ab32396",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-90d07e80-5ba8-4cf4-bb4e-dbfb4ab32396"
+            },
+            {
+              "name": "Microsoft Get user",
+              "id": "c76feb21-917b-42d1-92da-95b710a9ac8b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user-id?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user-id"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "dd8483c1-8306-4bb1-aee8-a8f23f1eee6a",
+                      "key": "user-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the user (GUID or userPrincipalName)"
+                    }
+                  ]
+                },
+                "description": "Retrieve the properties and relationships of a user object. Returns a default set of properties unless you use $select to specify specific properties."
+              },
+              "response": [
+                {
+                  "id": "b6595384-9e8e-4354-bb17-9dc60af6abd2",
+                  "name": "User object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-b6595384-9e8e-4354-bb17-9dc60af6abd2"
+                },
+                {
+                  "id": "e5171f8d-3e3b-430f-b571-28420b6c8b09",
+                  "name": "Unauthorized - authentication required or token expired",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-e5171f8d-3e3b-430f-b571-28420b6c8b09"
+                },
+                {
+                  "id": "f751da52-5bf5-4620-91ed-221d0e626a0b",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-f751da52-5bf5-4620-91ed-221d0e626a0b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-c76feb21-917b-42d1-92da-95b710a9ac8b"
+            },
+            {
+              "name": "Microsoft Update user",
+              "id": "b003d9f3-b849-4eea-80ea-f1de9c9e57b4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "43971875-35f8-47f8-b2cf-e8a4d6984001",
+                      "key": "user-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the user (GUID or userPrincipalName)"
+                    }
+                  ]
+                },
+                "description": "Update the properties of a user object. Not all properties can be updated by Member or Guest users with their default permissions."
+              },
+              "response": [
+                {
+                  "id": "262e1cf1-4f5d-49c1-836b-2dba07f7bd00",
+                  "name": "User updated successfully",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-262e1cf1-4f5d-49c1-836b-2dba07f7bd00"
+                },
+                {
+                  "id": "e8580c43-3fa5-4300-b9e1-886bc81eb6d9",
+                  "name": "Bad request - invalid input or malformed request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-e8580c43-3fa5-4300-b9e1-886bc81eb6d9"
+                },
+                {
+                  "id": "67652bf5-4e04-4773-99a7-3faf6e1e7650",
+                  "name": "Unauthorized - authentication required or token expired",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-67652bf5-4e04-4773-99a7-3faf6e1e7650"
+                },
+                {
+                  "id": "5c33e405-1a4f-43d5-bdd6-d001fd48e842",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-5c33e405-1a4f-43d5-bdd6-d001fd48e842"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-b003d9f3-b849-4eea-80ea-f1de9c9e57b4"
+            },
+            {
+              "name": "Microsoft Delete user",
+              "id": "ffee3853-0dd7-42f7-8e8f-38faf120d739",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/:user-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":user-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "aa7ecc42-04aa-4cd3-b4c2-0f4afdf7c5a8",
+                      "key": "user-id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the user (GUID or userPrincipalName)"
+                    }
+                  ]
+                },
+                "description": "Delete a user object. When deleted, user resources are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted."
+              },
+              "response": [
+                {
+                  "id": "9209b792-aceb-4f22-b1b2-f44277d8cd51",
+                  "name": "User deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-9209b792-aceb-4f22-b1b2-f44277d8cd51"
+                },
+                {
+                  "id": "4e7935aa-c47c-4ae4-895c-a293806b4621",
+                  "name": "Unauthorized - authentication required or token expired",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-4e7935aa-c47c-4ae4-895c-a293806b4621"
+                },
+                {
+                  "id": "8d8122b4-fd46-4e2c-9e22-00d9b36ae252",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "user-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:14:49.000Z",
+                  "updatedAt": "2026-07-28T02:14:49.000Z",
+                  "uid": "35240-8d8122b4-fd46-4e2c-9e22-00d9b36ae252"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-ffee3853-0dd7-42f7-8e8f-38faf120d739"
+            }
+          ],
+          "id": "4ac84cb5-a425-4e4f-b7fa-e779362c8755",
+          "createdAt": "2026-07-28T02:14:49.000Z",
+          "updatedAt": "2026-07-28T02:14:49.000Z",
+          "uid": "35240-4ac84cb5-a425-4e4f-b7fa-e779362c8755"
+        },
+        {
+          "name": "Microsoft List users",
+          "id": "e9050514-c2f0-4254-82a9-973f69a177a1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>&$count=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "description": "Number of items to return (page size)",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of items to skip for pagination",
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comma-separated list of properties to include in the response",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData order by expression",
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Search expression to filter results",
+                  "key": "$search",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Include count of items in the response",
+                  "key": "$count",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of user objects. By default, only a limited set of properties are returned. To return an alternative property set, specify the desired properties using the OData $select query parameter."
+          },
+          "response": [
+            {
+              "id": "41fcd71a-fb4c-48d8-8746-1e53ed5c2a56",
+              "name": "Collection of user objects",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>&$count=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of items to skip for pagination",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData order by expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search expression to filter results",
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include count of items in the response",
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"givenName\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"mail\": \"<email>\",\n      \"userPrincipalName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"department\": \"<string>\",\n      \"officeLocation\": \"<string>\",\n      \"businessPhones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mobilePhone\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"employeeId\": \"<string>\",\n      \"employeeType\": \"<string>\",\n      \"accountEnabled\": \"<boolean>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastPasswordChangeDateTime\": \"<dateTime>\",\n      \"preferredLanguage\": \"<string>\",\n      \"usageLocation\": \"<string>\",\n      \"mailNickname\": \"<string>\",\n      \"proxyAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"onPremisesSyncEnabled\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"givenName\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"mail\": \"<email>\",\n      \"userPrincipalName\": \"<string>\",\n      \"jobTitle\": \"<string>\",\n      \"department\": \"<string>\",\n      \"officeLocation\": \"<string>\",\n      \"businessPhones\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mobilePhone\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"employeeId\": \"<string>\",\n      \"employeeType\": \"<string>\",\n      \"accountEnabled\": \"<boolean>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastPasswordChangeDateTime\": \"<dateTime>\",\n      \"preferredLanguage\": \"<string>\",\n      \"usageLocation\": \"<string>\",\n      \"mailNickname\": \"<string>\",\n      \"proxyAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"onPremisesSyncEnabled\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-41fcd71a-fb4c-48d8-8746-1e53ed5c2a56"
+            },
+            {
+              "id": "7bc37acc-553a-4e3d-b19e-e197cd46bfce",
+              "name": "Unauthorized - authentication required or token expired",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>&$count=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of items to skip for pagination",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData order by expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search expression to filter results",
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include count of items in the response",
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-7bc37acc-553a-4e3d-b19e-e197cd46bfce"
+            },
+            {
+              "id": "0a5965a9-07f4-4c92-b1a5-eb02f1f4d917",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>&$count=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of items to skip for pagination",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData order by expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search expression to filter results",
+                      "key": "$search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include count of items in the response",
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-0a5965a9-07f4-4c92-b1a5-eb02f1f4d917"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:49.000Z",
+          "updatedAt": "2026-07-28T02:14:49.000Z",
+          "uid": "35240-e9050514-c2f0-4254-82a9-973f69a177a1"
+        },
+        {
+          "name": "Microsoft Create user",
+          "id": "26e840a2-c36b-4940-a862-c39136fdc5e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountEnabled\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"userPrincipalName\": \"<string>\",\n  \"passwordProfile\": {\n    \"password\": \"<string>\",\n    \"forceChangePasswordNextSignIn\": \"<boolean>\"\n  },\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"usageLocation\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Create a new user object. The request body contains the user to create. At a minimum, you must specify the required properties for the user, including displayName, mailNickname, userPrincipalName, and passwordProfile."
+          },
+          "response": [
+            {
+              "id": "1e34b583-21b9-4d78-8e4c-ebc07e1f0c54",
+              "name": "User created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountEnabled\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"userPrincipalName\": \"<string>\",\n  \"passwordProfile\": {\n    \"password\": \"<string>\",\n    \"forceChangePasswordNextSignIn\": \"<boolean>\"\n  },\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"usageLocation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"mail\": \"<email>\",\n  \"userPrincipalName\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"businessPhones\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mobilePhone\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"streetAddress\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"employeeId\": \"<string>\",\n  \"employeeType\": \"<string>\",\n  \"accountEnabled\": \"<boolean>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastPasswordChangeDateTime\": \"<dateTime>\",\n  \"preferredLanguage\": \"<string>\",\n  \"usageLocation\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"proxyAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"onPremisesSyncEnabled\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-1e34b583-21b9-4d78-8e4c-ebc07e1f0c54"
+            },
+            {
+              "id": "f408488e-729d-400d-8e64-ac0fdd0c7792",
+              "name": "Bad request - invalid input or malformed request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountEnabled\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"userPrincipalName\": \"<string>\",\n  \"passwordProfile\": {\n    \"password\": \"<string>\",\n    \"forceChangePasswordNextSignIn\": \"<boolean>\"\n  },\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"usageLocation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-f408488e-729d-400d-8e64-ac0fdd0c7792"
+            },
+            {
+              "id": "bbf579f3-5875-46eb-9a95-d3d5570dd3f4",
+              "name": "Unauthorized - authentication required or token expired",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountEnabled\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"mailNickname\": \"<string>\",\n  \"userPrincipalName\": \"<string>\",\n  \"passwordProfile\": {\n    \"password\": \"<string>\",\n    \"forceChangePasswordNextSignIn\": \"<boolean>\"\n  },\n  \"givenName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"department\": \"<string>\",\n  \"officeLocation\": \"<string>\",\n  \"usageLocation\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:14:49.000Z",
+              "updatedAt": "2026-07-28T02:14:49.000Z",
+              "uid": "35240-bbf579f3-5875-46eb-9a95-d3d5570dd3f4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:49.000Z",
+          "updatedAt": "2026-07-28T02:14:49.000Z",
+          "uid": "35240-26e840a2-c36b-4940-a862-c39136fdc5e0"
+        }
+      ],
+      "id": "284a44b7-f954-499d-9d90-9fefa5ce8bc1",
+      "createdAt": "2026-07-28T02:14:49.000Z",
+      "updatedAt": "2026-07-28T02:14:49.000Z",
+      "uid": "35240-284a44b7-f954-499d-9d90-9fefa5ce8bc1"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

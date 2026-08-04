@@ -1,0 +1,293 @@
+{
+  "info": {
+    "_postman_id": "51351bf6-7d6a-46fc-823a-b050c25f4b07",
+    "name": "Microsoft Azure Cognitive Services Accounts Imports API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:52.000Z",
+    "updatedAt": "2026-07-28T02:13:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-51351bf6-7d6a-46fc-823a-b050c25f4b07"
+  },
+  "item": [
+    {
+      "name": "imports",
+      "item": [
+        {
+          "name": "Microsoft Import a PBIX file",
+          "id": "1fa2c06a-9fa5-4a39-8ef5-77349d4dd69c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/imports?datasetDisplayName=<string>&nameConflict=Abort",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "imports"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Display name for the dataset",
+                  "key": "datasetDisplayName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Action on name conflict",
+                  "key": "nameConflict",
+                  "value": "Abort"
+                }
+              ]
+            },
+            "description": "Imports a Power BI .pbix file into My workspace."
+          },
+          "response": [
+            {
+              "id": "471b46b7-692e-46f2-ab45-2935a2e8f7ec",
+              "name": "Import details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/imports?datasetDisplayName=<string>&nameConflict=Abort",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imports"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Display name for the dataset",
+                      "key": "datasetDisplayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Action on name conflict",
+                      "key": "nameConflict",
+                      "value": "Abort"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"importState\": \"Succeeded\",\n  \"datasets\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"configuredBy\": \"<string>\",\n      \"isRefreshable\": \"<boolean>\",\n      \"isEffectiveIdentityRequired\": \"<boolean>\",\n      \"isOnPremGatewayRequired\": \"<boolean>\",\n      \"addRowsAPIEnabled\": \"<boolean>\",\n      \"webUrl\": \"<string>\",\n      \"createdDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"configuredBy\": \"<string>\",\n      \"isRefreshable\": \"<boolean>\",\n      \"isEffectiveIdentityRequired\": \"<boolean>\",\n      \"isOnPremGatewayRequired\": \"<boolean>\",\n      \"addRowsAPIEnabled\": \"<boolean>\",\n      \"webUrl\": \"<string>\",\n      \"createdDate\": \"<dateTime>\"\n    }\n  ],\n  \"reports\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"datasetId\": \"<string>\",\n      \"webUrl\": \"<string>\",\n      \"embedUrl\": \"<string>\",\n      \"reportType\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"datasetId\": \"<string>\",\n      \"webUrl\": \"<string>\",\n      \"embedUrl\": \"<string>\",\n      \"reportType\": \"<string>\"\n    }\n  ],\n  \"createdDateTime\": \"<dateTime>\",\n  \"updatedDateTime\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-471b46b7-692e-46f2-ab45-2935a2e8f7ec"
+            },
+            {
+              "id": "9c5fe79f-aad6-4fbc-b0c4-3e4be2ac6ec9",
+              "name": "Import accepted",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/imports?datasetDisplayName=<string>&nameConflict=Abort",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imports"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Display name for the dataset",
+                      "key": "datasetDisplayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Action on name conflict",
+                      "key": "nameConflict",
+                      "value": "Abort"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-9c5fe79f-aad6-4fbc-b0c4-3e4be2ac6ec9"
+            },
+            {
+              "id": "cdda2a3d-ca1e-4cf4-8d15-cbd73cd8d76d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/imports?datasetDisplayName=<string>&nameConflict=Abort",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imports"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Display name for the dataset",
+                      "key": "datasetDisplayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Action on name conflict",
+                      "key": "nameConflict",
+                      "value": "Abort"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-cdda2a3d-ca1e-4cf4-8d15-cbd73cd8d76d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:53.000Z",
+          "updatedAt": "2026-07-28T02:13:53.000Z",
+          "uid": "35240-1fa2c06a-9fa5-4a39-8ef5-77349d4dd69c"
+        }
+      ],
+      "id": "f1053bdb-6d68-43ae-8795-a4eb37a8a0aa",
+      "createdAt": "2026-07-28T02:13:52.000Z",
+      "updatedAt": "2026-07-28T02:13:52.000Z",
+      "uid": "35240-f1053bdb-6d68-43ae-8795-a4eb37a8a0aa"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

@@ -1,0 +1,903 @@
+{
+  "info": {
+    "_postman_id": "6231c3bb-5fac-4e92-8a7f-607767e6f145",
+    "name": "Microsoft Azure Cognitive Services Accounts Chat API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:15.000Z",
+    "updatedAt": "2026-07-28T02:13:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6231c3bb-5fac-4e92-8a7f-607767e6f145"
+  },
+  "item": [
+    {
+      "name": "chat",
+      "item": [
+        {
+          "name": "threads",
+          "item": [
+            {
+              "name": "{chatThreadId}",
+              "item": [
+                {
+                  "name": "messages",
+                  "item": [
+                    {
+                      "name": "Microsoft Send a chat message",
+                      "id": "a8e44617-d77e-439c-92a1-e54fae6457b3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "threads",
+                            ":chatThreadId",
+                            "messages"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API version",
+                              "key": "api-version",
+                              "value": "2024-03-15-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a94b814a-be29-48a6-92bb-cce984781438",
+                              "key": "chatThreadId",
+                              "value": "<string>",
+                              "description": "(Required) Chat thread ID"
+                            }
+                          ]
+                        },
+                        "description": "Send a message to a chat thread."
+                      },
+                      "response": [
+                        {
+                          "id": "163043b4-bebb-4e71-bad8-e07a54aac387",
+                          "name": "Message sent",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "chat",
+                                "threads",
+                                ":chatThreadId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API version",
+                                  "key": "api-version",
+                                  "value": "2024-03-15-preview"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "chatThreadId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:13:16.000Z",
+                          "updatedAt": "2026-07-28T02:13:16.000Z",
+                          "uid": "35240-163043b4-bebb-4e71-bad8-e07a54aac387"
+                        },
+                        {
+                          "id": "2f40e00e-af77-4d0d-ad2c-fb365729c3d2",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "chat",
+                                "threads",
+                                ":chatThreadId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API version",
+                                  "key": "api-version",
+                                  "value": "2024-03-15-preview"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "chatThreadId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:16.000Z",
+                          "updatedAt": "2026-07-28T02:13:16.000Z",
+                          "uid": "35240-2f40e00e-af77-4d0d-ad2c-fb365729c3d2"
+                        },
+                        {
+                          "id": "19c670c0-8f4e-4da3-a96e-02fc7d358e84",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"content\": \"<string>\",\n  \"senderDisplayName\": \"<string>\",\n  \"type\": \"text\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "chat",
+                                "threads",
+                                ":chatThreadId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API version",
+                                  "key": "api-version",
+                                  "value": "2024-03-15-preview"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "chatThreadId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:16.000Z",
+                          "updatedAt": "2026-07-28T02:13:16.000Z",
+                          "uid": "35240-19c670c0-8f4e-4da3-a96e-02fc7d358e84"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:16.000Z",
+                      "updatedAt": "2026-07-28T02:13:16.000Z",
+                      "uid": "35240-a8e44617-d77e-439c-92a1-e54fae6457b3"
+                    },
+                    {
+                      "name": "Microsoft List chat messages",
+                      "id": "3b4d00ec-28dc-4a8d-bd1f-a11c879a2f86",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview&maxPageSize=<integer>&startTime=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "chat",
+                            "threads",
+                            ":chatThreadId",
+                            "messages"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API version",
+                              "key": "api-version",
+                              "value": "2024-03-15-preview"
+                            },
+                            {
+                              "key": "maxPageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "startTime",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "59760966-4df5-4184-acee-217dd9127867",
+                              "key": "chatThreadId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "List messages in a chat thread."
+                      },
+                      "response": [
+                        {
+                          "id": "97975ef0-77ad-4acf-b47f-3c9fd615df01",
+                          "name": "List of messages",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview&maxPageSize=<integer>&startTime=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "chat",
+                                "threads",
+                                ":chatThreadId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API version",
+                                  "key": "api-version",
+                                  "value": "2024-03-15-preview"
+                                },
+                                {
+                                  "key": "maxPageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startTime",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "chatThreadId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"content\": {\n        \"message\": \"<string>\"\n      },\n      \"senderDisplayName\": \"<string>\",\n      \"createdOn\": \"<dateTime>\",\n      \"senderCommunicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"content\": {\n        \"message\": \"<string>\"\n      },\n      \"senderDisplayName\": \"<string>\",\n      \"createdOn\": \"<dateTime>\",\n      \"senderCommunicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:13:16.000Z",
+                          "updatedAt": "2026-07-28T02:13:16.000Z",
+                          "uid": "35240-97975ef0-77ad-4acf-b47f-3c9fd615df01"
+                        },
+                        {
+                          "id": "fb8058b6-865a-47c6-8c20-a02b762c78dc",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/chat/threads/:chatThreadId/messages?api-version=2024-03-15-preview&maxPageSize=<integer>&startTime=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "chat",
+                                "threads",
+                                ":chatThreadId",
+                                "messages"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API version",
+                                  "key": "api-version",
+                                  "value": "2024-03-15-preview"
+                                },
+                                {
+                                  "key": "maxPageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startTime",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "chatThreadId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:16.000Z",
+                          "updatedAt": "2026-07-28T02:13:16.000Z",
+                          "uid": "35240-fb8058b6-865a-47c6-8c20-a02b762c78dc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:16.000Z",
+                      "updatedAt": "2026-07-28T02:13:16.000Z",
+                      "uid": "35240-3b4d00ec-28dc-4a8d-bd1f-a11c879a2f86"
+                    }
+                  ],
+                  "id": "8389a072-a219-4905-842d-e80f840608a4",
+                  "createdAt": "2026-07-28T02:13:16.000Z",
+                  "updatedAt": "2026-07-28T02:13:16.000Z",
+                  "uid": "35240-8389a072-a219-4905-842d-e80f840608a4"
+                }
+              ],
+              "id": "5d4ae36b-a2f1-4c95-940f-b046f8475646",
+              "createdAt": "2026-07-28T02:13:16.000Z",
+              "updatedAt": "2026-07-28T02:13:16.000Z",
+              "uid": "35240-5d4ae36b-a2f1-4c95-940f-b046f8475646"
+            },
+            {
+              "name": "Microsoft Create a chat thread",
+              "id": "5344e06c-59e7-46bf-b289-28c38618baf4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ]
+                },
+                "description": "Create a new chat thread."
+              },
+              "response": [
+                {
+                  "id": "8348499d-1ec1-4fc4-a2ba-f37af0b7d953",
+                  "name": "Chat thread created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "chat",
+                        "threads"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"chatThread\": {\n    \"id\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"createdOn\": \"<dateTime>\",\n    \"createdByCommunicationIdentifier\": {\n      \"communicationUserId\": \"<string>\"\n    },\n    \"deletedOn\": \"<dateTime>\"\n  },\n  \"errors\": {}\n}",
+                  "createdAt": "2026-07-28T02:13:16.000Z",
+                  "updatedAt": "2026-07-28T02:13:16.000Z",
+                  "uid": "35240-8348499d-1ec1-4fc4-a2ba-f37af0b7d953"
+                },
+                {
+                  "id": "e4656fcd-7dfa-4008-951a-d8df3f60bbe3",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "chat",
+                        "threads"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:16.000Z",
+                  "updatedAt": "2026-07-28T02:13:16.000Z",
+                  "uid": "35240-e4656fcd-7dfa-4008-951a-d8df3f60bbe3"
+                },
+                {
+                  "id": "a5e3d48c-793b-4fdf-9c9b-bb8395f478b0",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"topic\": \"<string>\",\n  \"participants\": [\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    },\n    {\n      \"communicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"displayName\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "chat",
+                        "threads"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:16.000Z",
+                  "updatedAt": "2026-07-28T02:13:16.000Z",
+                  "uid": "35240-a5e3d48c-793b-4fdf-9c9b-bb8395f478b0"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:16.000Z",
+              "updatedAt": "2026-07-28T02:13:16.000Z",
+              "uid": "35240-5344e06c-59e7-46bf-b289-28c38618baf4"
+            },
+            {
+              "name": "Microsoft List chat threads",
+              "id": "9d4c46aa-a50e-48f2-8a95-63520b5d4234",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview&maxPageSize=<integer>&startTime=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "chat",
+                    "threads"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    },
+                    {
+                      "description": "Maximum number of threads per page",
+                      "key": "maxPageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Start time for the range query",
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "description": "List all chat threads for the authenticated user."
+              },
+              "response": [
+                {
+                  "id": "3315f9c3-dd13-4c59-ab08-02887a259588",
+                  "name": "List of chat threads",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview&maxPageSize=<integer>&startTime=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "chat",
+                        "threads"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        },
+                        {
+                          "description": "Maximum number of threads per page",
+                          "key": "maxPageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Start time for the range query",
+                          "key": "startTime",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"topic\": \"<string>\",\n      \"createdOn\": \"<dateTime>\",\n      \"createdByCommunicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"deletedOn\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"topic\": \"<string>\",\n      \"createdOn\": \"<dateTime>\",\n      \"createdByCommunicationIdentifier\": {\n        \"communicationUserId\": \"<string>\"\n      },\n      \"deletedOn\": \"<dateTime>\"\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:13:16.000Z",
+                  "updatedAt": "2026-07-28T02:13:16.000Z",
+                  "uid": "35240-3315f9c3-dd13-4c59-ab08-02887a259588"
+                },
+                {
+                  "id": "e81bba12-6057-48ec-a1f4-a9d46b0ee2ed",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/chat/threads?api-version=2024-03-15-preview&maxPageSize=<integer>&startTime=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "chat",
+                        "threads"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        },
+                        {
+                          "description": "Maximum number of threads per page",
+                          "key": "maxPageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Start time for the range query",
+                          "key": "startTime",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:16.000Z",
+                  "updatedAt": "2026-07-28T02:13:16.000Z",
+                  "uid": "35240-e81bba12-6057-48ec-a1f4-a9d46b0ee2ed"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:16.000Z",
+              "updatedAt": "2026-07-28T02:13:16.000Z",
+              "uid": "35240-9d4c46aa-a50e-48f2-8a95-63520b5d4234"
+            }
+          ],
+          "id": "28cba533-9117-4146-9433-44ea917891aa",
+          "createdAt": "2026-07-28T02:13:16.000Z",
+          "updatedAt": "2026-07-28T02:13:16.000Z",
+          "uid": "35240-28cba533-9117-4146-9433-44ea917891aa"
+        }
+      ],
+      "id": "b00ded45-54da-4849-b4f5-f2ac2b60a5a5",
+      "createdAt": "2026-07-28T02:13:16.000Z",
+      "updatedAt": "2026-07-28T02:13:16.000Z",
+      "uid": "35240-b00ded45-54da-4849-b4f5-f2ac2b60a5a5"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

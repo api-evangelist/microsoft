@@ -1,0 +1,320 @@
+{
+  "info": {
+    "_postman_id": "8830e520-2a38-4a11-ace9-f04f601c14d9",
+    "name": "Microsoft Azure Cognitive Services Accounts Web Search API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:51.000Z",
+    "updatedAt": "2026-07-28T02:14:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8830e520-2a38-4a11-ace9-f04f601c14d9"
+  },
+  "item": [
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "Microsoft Web search",
+          "id": "cf53445a-94a9-4bcd-850c-acd01f7cf1ca",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/search?q=<string>&count=10&offset=0&mkt=<string>&safeSearch=Moderate&responseFilter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "search"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The search query string",
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results to return (1-50)",
+                  "key": "count",
+                  "value": "10"
+                },
+                {
+                  "description": "Zero-based offset for pagination",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Market code (e.g., en-US)",
+                  "key": "mkt",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter adult content",
+                  "key": "safeSearch",
+                  "value": "Moderate"
+                },
+                {
+                  "description": "Comma-delimited list of answer types to include",
+                  "key": "responseFilter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns relevant web pages, images, videos, news, and more for a given search query."
+          },
+          "response": [
+            {
+              "id": "410033d5-098d-4fa3-9eec-84a551cf295d",
+              "name": "Search results",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?q=<string>&count=10&offset=0&mkt=<string>&safeSearch=Moderate&responseFilter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return (1-50)",
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Zero-based offset for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Market code (e.g., en-US)",
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter adult content",
+                      "key": "safeSearch",
+                      "value": "Moderate"
+                    },
+                    {
+                      "description": "Comma-delimited list of answer types to include",
+                      "key": "responseFilter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"_type\": \"<string>\",\n  \"queryContext\": {\n    \"originalQuery\": \"<string>\"\n  },\n  \"webPages\": {\n    \"totalEstimatedMatches\": \"<integer>\",\n    \"value\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"url\": \"<string>\",\n        \"snippet\": \"<string>\",\n        \"dateLastCrawled\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"url\": \"<string>\",\n        \"snippet\": \"<string>\",\n        \"dateLastCrawled\": \"<dateTime>\"\n      }\n    ]\n  },\n  \"rankingResponse\": {}\n}",
+              "createdAt": "2026-07-28T02:14:51.000Z",
+              "updatedAt": "2026-07-28T02:14:51.000Z",
+              "uid": "35240-410033d5-098d-4fa3-9eec-84a551cf295d"
+            },
+            {
+              "id": "71dc3722-1b11-4ce0-aa61-4e701302f0b5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?q=<string>&count=10&offset=0&mkt=<string>&safeSearch=Moderate&responseFilter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return (1-50)",
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Zero-based offset for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Market code (e.g., en-US)",
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter adult content",
+                      "key": "safeSearch",
+                      "value": "Moderate"
+                    },
+                    {
+                      "description": "Comma-delimited list of answer types to include",
+                      "key": "responseFilter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:51.000Z",
+              "updatedAt": "2026-07-28T02:14:51.000Z",
+              "uid": "35240-71dc3722-1b11-4ce0-aa61-4e701302f0b5"
+            },
+            {
+              "id": "2777caf4-dde1-419a-876f-73c0772eb980",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search?q=<string>&count=10&offset=0&mkt=<string>&safeSearch=Moderate&responseFilter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results to return (1-50)",
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Zero-based offset for pagination",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Market code (e.g., en-US)",
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter adult content",
+                      "key": "safeSearch",
+                      "value": "Moderate"
+                    },
+                    {
+                      "description": "Comma-delimited list of answer types to include",
+                      "key": "responseFilter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:51.000Z",
+              "updatedAt": "2026-07-28T02:14:51.000Z",
+              "uid": "35240-2777caf4-dde1-419a-876f-73c0772eb980"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:51.000Z",
+          "updatedAt": "2026-07-28T02:14:51.000Z",
+          "uid": "35240-cf53445a-94a9-4bcd-850c-acd01f7cf1ca"
+        }
+      ],
+      "id": "cc9261fa-b6a0-4f8f-93cf-4c90ad4dd4b5",
+      "createdAt": "2026-07-28T02:14:51.000Z",
+      "updatedAt": "2026-07-28T02:14:51.000Z",
+      "uid": "35240-cc9261fa-b6a0-4f8f-93cf-4c90ad4dd4b5"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

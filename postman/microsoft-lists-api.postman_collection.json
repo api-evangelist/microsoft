@@ -1,0 +1,331 @@
+{
+  "info": {
+    "_postman_id": "6fe3c86b-b1d9-4e9e-a279-905ad4485524",
+    "name": "Microsoft Azure Cognitive Services Accounts Lists API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:55.000Z",
+    "updatedAt": "2026-07-28T02:13:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6fe3c86b-b1d9-4e9e-a279-905ad4485524"
+  },
+  "item": [
+    {
+      "name": "web",
+      "item": [
+        {
+          "name": "lists",
+          "item": [
+            {
+              "name": "getbytitle('{listTitle}')",
+              "item": [
+                {
+                  "name": "Microsoft Get list by title",
+                  "id": "a3b0e66d-992b-4cb3-8b62-06596a90df7d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "web",
+                        "lists",
+                        "getbytitle('{{listTitle}}')"
+                      ]
+                    },
+                    "description": "Get a SharePoint list by its title."
+                  },
+                  "response": [
+                    {
+                      "id": "204ff1f0-35ad-44d7-ac7e-709c8f94fd56",
+                      "name": "List details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"d\": {\n    \"Id\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"ItemCount\": \"<integer>\",\n    \"Created\": \"<dateTime>\",\n    \"LastItemModifiedDate\": \"<dateTime>\",\n    \"Hidden\": \"<boolean>\",\n    \"BaseTemplate\": \"<integer>\",\n    \"ListItemEntityTypeFullName\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:56.000Z",
+                      "updatedAt": "2026-07-28T02:13:56.000Z",
+                      "uid": "35240-204ff1f0-35ad-44d7-ac7e-709c8f94fd56"
+                    },
+                    {
+                      "id": "3d49a13c-4dd0-451b-b09b-3346b772aca0",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:56.000Z",
+                      "updatedAt": "2026-07-28T02:13:56.000Z",
+                      "uid": "35240-3d49a13c-4dd0-451b-b09b-3346b772aca0"
+                    },
+                    {
+                      "id": "0fe0950b-3cd1-458d-91c7-17c7849722c7",
+                      "name": "List not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:56.000Z",
+                      "updatedAt": "2026-07-28T02:13:56.000Z",
+                      "uid": "35240-0fe0950b-3cd1-458d-91c7-17c7849722c7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:56.000Z",
+                  "updatedAt": "2026-07-28T02:13:56.000Z",
+                  "uid": "35240-a3b0e66d-992b-4cb3-8b62-06596a90df7d"
+                }
+              ],
+              "id": "b050ac25-e3ff-4911-8dfd-5065aedc4615",
+              "createdAt": "2026-07-28T02:13:56.000Z",
+              "updatedAt": "2026-07-28T02:13:56.000Z",
+              "uid": "35240-b050ac25-e3ff-4911-8dfd-5065aedc4615"
+            },
+            {
+              "name": "Microsoft List all lists",
+              "id": "1267d688-142c-4609-a265-852f1ae309dd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/web/lists",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "web",
+                    "lists"
+                  ]
+                },
+                "description": "Get all lists in the current SharePoint site."
+              },
+              "response": [
+                {
+                  "id": "d74fef81-7662-4735-af6f-675472358c72",
+                  "name": "List of SharePoint lists",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/web/lists",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "web",
+                        "lists"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"Id\": \"<string>\",\n        \"Title\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"ItemCount\": \"<integer>\",\n        \"Created\": \"<dateTime>\",\n        \"LastItemModifiedDate\": \"<dateTime>\",\n        \"Hidden\": \"<boolean>\",\n        \"BaseTemplate\": \"<integer>\",\n        \"ListItemEntityTypeFullName\": \"<string>\"\n      },\n      {\n        \"Id\": \"<string>\",\n        \"Title\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"ItemCount\": \"<integer>\",\n        \"Created\": \"<dateTime>\",\n        \"LastItemModifiedDate\": \"<dateTime>\",\n        \"Hidden\": \"<boolean>\",\n        \"BaseTemplate\": \"<integer>\",\n        \"ListItemEntityTypeFullName\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:56.000Z",
+                  "updatedAt": "2026-07-28T02:13:56.000Z",
+                  "uid": "35240-d74fef81-7662-4735-af6f-675472358c72"
+                },
+                {
+                  "id": "9cdb0d36-900f-4fb2-bee9-58936c2aeada",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/web/lists",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "web",
+                        "lists"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:56.000Z",
+                  "updatedAt": "2026-07-28T02:13:56.000Z",
+                  "uid": "35240-9cdb0d36-900f-4fb2-bee9-58936c2aeada"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:56.000Z",
+              "updatedAt": "2026-07-28T02:13:56.000Z",
+              "uid": "35240-1267d688-142c-4609-a265-852f1ae309dd"
+            }
+          ],
+          "id": "890fd5d2-0180-4239-b763-f0dd18fc07ca",
+          "createdAt": "2026-07-28T02:13:56.000Z",
+          "updatedAt": "2026-07-28T02:13:56.000Z",
+          "uid": "35240-890fd5d2-0180-4239-b763-f0dd18fc07ca"
+        }
+      ],
+      "id": "4869ed05-2568-462e-8be2-98455c12e591",
+      "createdAt": "2026-07-28T02:13:56.000Z",
+      "updatedAt": "2026-07-28T02:13:56.000Z",
+      "uid": "35240-4869ed05-2568-462e-8be2-98455c12e591"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    },
+    {
+      "key": "listTitle",
+      "value": "<string>"
+    }
+  ]
+}

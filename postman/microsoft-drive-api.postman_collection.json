@@ -1,0 +1,796 @@
+{
+  "info": {
+    "_postman_id": "fbc83a96-6a92-4303-85a5-7e4c04e48fd2",
+    "name": "Microsoft Azure Cognitive Services Accounts Drive API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:42.000Z",
+    "updatedAt": "2026-07-28T02:13:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fbc83a96-6a92-4303-85a5-7e4c04e48fd2"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "drive",
+          "item": [
+            {
+              "name": "root",
+              "item": [
+                {
+                  "name": "children",
+                  "item": [
+                    {
+                      "name": "Microsoft List items in drive root",
+                      "id": "8e9f64a0-0bcb-47a2-96e4-7d7e17be01b2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/root/children?$top=<integer>&$select=<string>&$orderby=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "root",
+                            "children"
+                          ],
+                          "query": [
+                            {
+                              "description": "Number of items to return (page size)",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "OData order by expression",
+                              "key": "$orderby",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Return a collection of DriveItems in the root of the signed-in user's OneDrive."
+                      },
+                      "response": [
+                        {
+                          "id": "ea9a2b09-6a6a-4127-b8d8-ee70ab460d60",
+                          "name": "Collection of drive items",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/root/children?$top=<integer>&$select=<string>&$orderby=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "root",
+                                "children"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Number of items to return (page size)",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Comma-separated list of properties to include in the response",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "OData order by expression",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"sha256Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"driveType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"application\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"device\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"user\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"application\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"device\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"user\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<uri>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"sha256Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"driveType\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"application\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"device\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"user\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"application\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"device\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        },\n        \"user\": {\n          \"id\": \"<string>\",\n          \"displayName\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:13:42.000Z",
+                          "updatedAt": "2026-07-28T02:13:42.000Z",
+                          "uid": "35240-ea9a2b09-6a6a-4127-b8d8-ee70ab460d60"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:42.000Z",
+                      "updatedAt": "2026-07-28T02:13:42.000Z",
+                      "uid": "35240-8e9f64a0-0bcb-47a2-96e4-7d7e17be01b2"
+                    }
+                  ],
+                  "id": "20b1516f-d8c3-4925-ba00-b0b2a7eb5502",
+                  "createdAt": "2026-07-28T02:13:42.000Z",
+                  "updatedAt": "2026-07-28T02:13:42.000Z",
+                  "uid": "35240-20b1516f-d8c3-4925-ba00-b0b2a7eb5502"
+                }
+              ],
+              "id": "4224dec1-ff08-4839-aa9b-3f7129ad5668",
+              "createdAt": "2026-07-28T02:13:42.000Z",
+              "updatedAt": "2026-07-28T02:13:42.000Z",
+              "uid": "35240-4224dec1-ff08-4839-aa9b-3f7129ad5668"
+            },
+            {
+              "name": "Microsoft Get current user's OneDrive",
+              "id": "6c477a05-9117-4009-a634-ad4b29d89e34",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me/drive",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "drive"
+                  ]
+                },
+                "description": "Retrieve the properties and relationships of a Drive resource for the signed-in user's OneDrive."
+              },
+              "response": [
+                {
+                  "id": "8596fc15-acc6-41fe-a7f3-dbfd9e166dfb",
+                  "name": "Drive object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/drive",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "drive"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"driveType\": \"business\",\n  \"owner\": {\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"quota\": {\n    \"total\": \"<long>\",\n    \"used\": \"<long>\",\n    \"remaining\": \"<long>\",\n    \"deleted\": \"<long>\",\n    \"state\": \"critical\"\n  },\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:13:42.000Z",
+                  "updatedAt": "2026-07-28T02:13:42.000Z",
+                  "uid": "35240-8596fc15-acc6-41fe-a7f3-dbfd9e166dfb"
+                },
+                {
+                  "id": "ce95e215-97e9-4f9c-abe2-d0e2a03f3bbe",
+                  "name": "Unauthorized - authentication required or token expired",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/drive",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "drive"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:42.000Z",
+                  "updatedAt": "2026-07-28T02:13:42.000Z",
+                  "uid": "35240-ce95e215-97e9-4f9c-abe2-d0e2a03f3bbe"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:42.000Z",
+              "updatedAt": "2026-07-28T02:13:42.000Z",
+              "uid": "35240-6c477a05-9117-4009-a634-ad4b29d89e34"
+            }
+          ],
+          "id": "31d8d14f-dad9-4318-8e87-9c61941fb73f",
+          "createdAt": "2026-07-28T02:13:42.000Z",
+          "updatedAt": "2026-07-28T02:13:42.000Z",
+          "uid": "35240-31d8d14f-dad9-4318-8e87-9c61941fb73f"
+        }
+      ],
+      "id": "85ab2459-442a-4204-92e8-0565a7ee9ad8",
+      "createdAt": "2026-07-28T02:13:42.000Z",
+      "updatedAt": "2026-07-28T02:13:42.000Z",
+      "uid": "35240-85ab2459-442a-4204-92e8-0565a7ee9ad8"
+    },
+    {
+      "name": "drives",
+      "item": [
+        {
+          "name": "{drive-id}",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{item-id}",
+                  "item": [
+                    {
+                      "name": "Microsoft Get drive item",
+                      "id": "b0ab38a5-ad2c-4fe9-8b55-7fddae42b81c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "drives",
+                            ":drive-id",
+                            "items",
+                            ":item-id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "01860936-481d-4121-b5cf-8b954b801aee",
+                              "key": "drive-id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the drive"
+                            },
+                            {
+                              "id": "751932ce-1a2c-459e-a1fa-efda4b1cad8a",
+                              "key": "item-id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the drive item"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the metadata for a DriveItem in a Drive by file system path or ID."
+                      },
+                      "response": [
+                        {
+                          "id": "c5be67a6-ae95-40b4-9823-5399960cbaab",
+                          "name": "Drive item object",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id?$select=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "drives",
+                                ":drive-id",
+                                "items",
+                                ":item-id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Comma-separated list of properties to include in the response",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "drive-id"
+                                },
+                                {
+                                  "key": "item-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:42.000Z",
+                          "updatedAt": "2026-07-28T02:13:42.000Z",
+                          "uid": "35240-c5be67a6-ae95-40b4-9823-5399960cbaab"
+                        },
+                        {
+                          "id": "6fd55ee3-8490-4bc9-bbf9-380f6c77de93",
+                          "name": "Resource not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id?$select=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "drives",
+                                ":drive-id",
+                                "items",
+                                ":item-id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Comma-separated list of properties to include in the response",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "drive-id"
+                                },
+                                {
+                                  "key": "item-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:42.000Z",
+                          "updatedAt": "2026-07-28T02:13:42.000Z",
+                          "uid": "35240-6fd55ee3-8490-4bc9-bbf9-380f6c77de93"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:42.000Z",
+                      "updatedAt": "2026-07-28T02:13:42.000Z",
+                      "uid": "35240-b0ab38a5-ad2c-4fe9-8b55-7fddae42b81c"
+                    },
+                    {
+                      "name": "Microsoft Update drive item",
+                      "id": "76961672-a598-4fd1-9ecf-62a5e009091e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "drives",
+                            ":drive-id",
+                            "items",
+                            ":item-id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3bcc95e7-9a2f-401a-b35b-fa7c4791fdeb",
+                              "key": "drive-id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the drive"
+                            },
+                            {
+                              "id": "c2a97ee6-cbbd-469e-9bbb-60e8d6b48b02",
+                              "key": "item-id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the drive item"
+                            }
+                          ]
+                        },
+                        "description": "Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the parentReference property."
+                      },
+                      "response": [
+                        {
+                          "id": "14a26ce6-d93d-4191-9628-3219096aa676",
+                          "name": "Drive item updated",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "drives",
+                                ":drive-id",
+                                "items",
+                                ":item-id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "drive-id"
+                                },
+                                {
+                                  "key": "item-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<uri>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:42.000Z",
+                          "updatedAt": "2026-07-28T02:13:42.000Z",
+                          "uid": "35240-14a26ce6-d93d-4191-9628-3219096aa676"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:42.000Z",
+                      "updatedAt": "2026-07-28T02:13:42.000Z",
+                      "uid": "35240-76961672-a598-4fd1-9ecf-62a5e009091e"
+                    },
+                    {
+                      "name": "Microsoft Delete drive item",
+                      "id": "9d6512e4-529a-4fb7-965e-80892e2b0d9f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "drives",
+                            ":drive-id",
+                            "items",
+                            ":item-id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "74708564-c6d3-471c-93f9-2b707f1b7637",
+                              "key": "drive-id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the drive"
+                            },
+                            {
+                              "id": "7539e24b-6c55-4696-8e4a-8a829971f5b0",
+                              "key": "item-id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the drive item"
+                            }
+                          ]
+                        },
+                        "description": "Delete a DriveItem by using its ID or path. Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item."
+                      },
+                      "response": [
+                        {
+                          "id": "2351d39a-fa20-440c-b5e8-faa11fbfbffc",
+                          "name": "Item deleted successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "drives",
+                                ":drive-id",
+                                "items",
+                                ":item-id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "drive-id"
+                                },
+                                {
+                                  "key": "item-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:42.000Z",
+                          "updatedAt": "2026-07-28T02:13:42.000Z",
+                          "uid": "35240-2351d39a-fa20-440c-b5e8-faa11fbfbffc"
+                        },
+                        {
+                          "id": "7be486db-0470-4d39-bdaa-0c6a34e8a6de",
+                          "name": "Resource not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/drives/:drive-id/items/:item-id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "drives",
+                                ":drive-id",
+                                "items",
+                                ":item-id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "drive-id"
+                                },
+                                {
+                                  "key": "item-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:42.000Z",
+                          "updatedAt": "2026-07-28T02:13:42.000Z",
+                          "uid": "35240-7be486db-0470-4d39-bdaa-0c6a34e8a6de"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:42.000Z",
+                      "updatedAt": "2026-07-28T02:13:42.000Z",
+                      "uid": "35240-9d6512e4-529a-4fb7-965e-80892e2b0d9f"
+                    }
+                  ],
+                  "id": "034c9c38-4c36-437f-8829-ab6a859e4520",
+                  "createdAt": "2026-07-28T02:13:42.000Z",
+                  "updatedAt": "2026-07-28T02:13:42.000Z",
+                  "uid": "35240-034c9c38-4c36-437f-8829-ab6a859e4520"
+                }
+              ],
+              "id": "87e7a6a8-a945-42fb-9dec-807cdf028117",
+              "createdAt": "2026-07-28T02:13:42.000Z",
+              "updatedAt": "2026-07-28T02:13:42.000Z",
+              "uid": "35240-87e7a6a8-a945-42fb-9dec-807cdf028117"
+            }
+          ],
+          "id": "6493df35-3012-4f6b-9b1c-9649ba8834b9",
+          "createdAt": "2026-07-28T02:13:42.000Z",
+          "updatedAt": "2026-07-28T02:13:42.000Z",
+          "uid": "35240-6493df35-3012-4f6b-9b1c-9649ba8834b9"
+        }
+      ],
+      "id": "fbb8d2ed-e715-43bc-a78f-3513aa0faa78",
+      "createdAt": "2026-07-28T02:13:42.000Z",
+      "updatedAt": "2026-07-28T02:13:42.000Z",
+      "uid": "35240-fbb8d2ed-e715-43bc-a78f-3513aa0faa78"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

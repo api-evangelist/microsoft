@@ -1,0 +1,447 @@
+{
+  "info": {
+    "_postman_id": "5c8dac60-a4ab-4871-9836-da5302e28b11",
+    "name": "Microsoft Azure Cognitive Services Accounts Reports API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:38.000Z",
+    "updatedAt": "2026-07-28T02:14:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5c8dac60-a4ab-4871-9836-da5302e28b11"
+  },
+  "item": [
+    {
+      "name": "reports",
+      "item": [
+        {
+          "name": "{reportId}",
+          "item": [
+            {
+              "name": "Microsoft Get a report",
+              "id": "bb304261-6116-4c06-8fb4-9ec9e42663ef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reports/:reportId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reports",
+                    ":reportId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "89b83af0-2634-4e06-a242-644999e4fa6e",
+                      "key": "reportId",
+                      "value": "<string>",
+                      "description": "(Required) Report unique identifier"
+                    }
+                  ]
+                },
+                "description": "Returns the specified report from My workspace."
+              },
+              "response": [
+                {
+                  "id": "495c8192-177d-4aa1-9011-efd289397364",
+                  "name": "Report details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/:reportId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        ":reportId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"datasetId\": \"<string>\",\n  \"webUrl\": \"<string>\",\n  \"embedUrl\": \"<string>\",\n  \"reportType\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:14:38.000Z",
+                  "updatedAt": "2026-07-28T02:14:38.000Z",
+                  "uid": "35240-495c8192-177d-4aa1-9011-efd289397364"
+                },
+                {
+                  "id": "617bcf66-4085-4001-a0b0-272239018813",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/:reportId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        ":reportId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:38.000Z",
+                  "updatedAt": "2026-07-28T02:14:38.000Z",
+                  "uid": "35240-617bcf66-4085-4001-a0b0-272239018813"
+                },
+                {
+                  "id": "7f78d165-133e-4266-8888-f5143b2b27dc",
+                  "name": "Report not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/:reportId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        ":reportId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:38.000Z",
+                  "updatedAt": "2026-07-28T02:14:38.000Z",
+                  "uid": "35240-7f78d165-133e-4266-8888-f5143b2b27dc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:38.000Z",
+              "updatedAt": "2026-07-28T02:14:38.000Z",
+              "uid": "35240-bb304261-6116-4c06-8fb4-9ec9e42663ef"
+            },
+            {
+              "name": "Microsoft Delete a report",
+              "id": "ad2350ef-76d6-40f2-9764-65efe2781124",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/reports/:reportId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reports",
+                    ":reportId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fc185011-9c89-4435-8e44-736121708596",
+                      "key": "reportId",
+                      "value": "<string>",
+                      "description": "(Required) Report unique identifier"
+                    }
+                  ]
+                },
+                "description": "Deletes the specified report from My workspace."
+              },
+              "response": [
+                {
+                  "id": "eb97c14a-9776-4840-bdfc-ff3c54e3a0de",
+                  "name": "Report deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/:reportId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        ":reportId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:38.000Z",
+                  "updatedAt": "2026-07-28T02:14:38.000Z",
+                  "uid": "35240-eb97c14a-9776-4840-bdfc-ff3c54e3a0de"
+                },
+                {
+                  "id": "503fb290-20aa-4c02-879e-1d63e32bf574",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/:reportId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        ":reportId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "reportId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:38.000Z",
+                  "updatedAt": "2026-07-28T02:14:38.000Z",
+                  "uid": "35240-503fb290-20aa-4c02-879e-1d63e32bf574"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:38.000Z",
+              "updatedAt": "2026-07-28T02:14:38.000Z",
+              "uid": "35240-ad2350ef-76d6-40f2-9764-65efe2781124"
+            }
+          ],
+          "id": "6f4b966d-6ede-4d99-bb15-c4993d436c85",
+          "createdAt": "2026-07-28T02:14:38.000Z",
+          "updatedAt": "2026-07-28T02:14:38.000Z",
+          "uid": "35240-6f4b966d-6ede-4d99-bb15-c4993d436c85"
+        },
+        {
+          "name": "Microsoft List reports",
+          "id": "531c02d6-68c3-4d31-a33a-72a78395206d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reports"
+              ]
+            },
+            "description": "Returns a list of reports from My workspace."
+          },
+          "response": [
+            {
+              "id": "7f4c318d-284e-45c0-b7ef-2265080d4cf7",
+              "name": "List of reports",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reports",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reports"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"datasetId\": \"<string>\",\n      \"webUrl\": \"<string>\",\n      \"embedUrl\": \"<string>\",\n      \"reportType\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"datasetId\": \"<string>\",\n      \"webUrl\": \"<string>\",\n      \"embedUrl\": \"<string>\",\n      \"reportType\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:14:38.000Z",
+              "updatedAt": "2026-07-28T02:14:38.000Z",
+              "uid": "35240-7f4c318d-284e-45c0-b7ef-2265080d4cf7"
+            },
+            {
+              "id": "f4474f90-1e93-4b19-b21b-0b958223ac99",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reports",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reports"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:38.000Z",
+              "updatedAt": "2026-07-28T02:14:38.000Z",
+              "uid": "35240-f4474f90-1e93-4b19-b21b-0b958223ac99"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:38.000Z",
+          "updatedAt": "2026-07-28T02:14:38.000Z",
+          "uid": "35240-531c02d6-68c3-4d31-a33a-72a78395206d"
+        }
+      ],
+      "id": "14ed19af-6906-41ba-a3ce-525b7fae545f",
+      "createdAt": "2026-07-28T02:14:38.000Z",
+      "updatedAt": "2026-07-28T02:14:38.000Z",
+      "uid": "35240-14ed19af-6906-41ba-a3ce-525b7fae545f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

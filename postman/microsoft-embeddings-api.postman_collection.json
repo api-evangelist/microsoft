@@ -1,0 +1,386 @@
+{
+  "info": {
+    "_postman_id": "afe73e44-3862-401f-b0d5-c52976148e3f",
+    "name": "Microsoft Azure Cognitive Services Accounts Embeddings API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:45.000Z",
+    "updatedAt": "2026-07-28T02:13:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-afe73e44-3862-401f-b0d5-c52976148e3f"
+  },
+  "item": [
+    {
+      "name": "deployments",
+      "item": [
+        {
+          "name": "{deployment-id}",
+          "item": [
+            {
+              "name": "embeddings",
+              "item": [
+                {
+                  "name": "Microsoft Create embeddings",
+                  "id": "97d029f5-e6c9-4c88-8792-6a83abcad51e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"input\": \"<string>\",\n  \"encoding_format\": \"float\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings?api-version=2024-10-21",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":deployment-id",
+                        "embeddings"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use",
+                          "key": "api-version",
+                          "value": "2024-10-21"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0dbd1960-3d64-4605-946b-3e396c39b2b3",
+                          "key": "deployment-id",
+                          "value": "<string>",
+                          "description": "(Required) The deployment name for the model"
+                        }
+                      ]
+                    },
+                    "description": "Get a vector representation of a given input that can be consumed by machine learning models and algorithms."
+                  },
+                  "response": [
+                    {
+                      "id": "231a3be0-6546-4ea9-ad56-bf7f1cea401c",
+                      "name": "Embedding response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"input\": \"<string>\",\n  \"encoding_format\": \"float\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "embeddings"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"list\",\n  \"data\": [\n    {\n      \"object\": \"embedding\",\n      \"embedding\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"index\": \"<integer>\"\n    },\n    {\n      \"object\": \"embedding\",\n      \"embedding\": [\n        \"<number>\",\n        \"<number>\"\n      ],\n      \"index\": \"<integer>\"\n    }\n  ],\n  \"model\": \"<string>\",\n  \"usage\": {\n    \"prompt_tokens\": \"<integer>\",\n    \"total_tokens\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:45.000Z",
+                      "updatedAt": "2026-07-28T02:13:45.000Z",
+                      "uid": "35240-231a3be0-6546-4ea9-ad56-bf7f1cea401c"
+                    },
+                    {
+                      "id": "2e2a80fd-8242-42ab-9707-afccb5e99fc0",
+                      "name": "Invalid request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"input\": \"<string>\",\n  \"encoding_format\": \"float\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "embeddings"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:45.000Z",
+                      "updatedAt": "2026-07-28T02:13:45.000Z",
+                      "uid": "35240-2e2a80fd-8242-42ab-9707-afccb5e99fc0"
+                    },
+                    {
+                      "id": "2aef84aa-3ba6-4766-a42b-f8532026a189",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"input\": \"<string>\",\n  \"encoding_format\": \"float\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "embeddings"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:45.000Z",
+                      "updatedAt": "2026-07-28T02:13:45.000Z",
+                      "uid": "35240-2aef84aa-3ba6-4766-a42b-f8532026a189"
+                    },
+                    {
+                      "id": "ab5cec18-e973-41ef-bbaf-8bd6fc65bb81",
+                      "name": "Rate limit exceeded",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"input\": \"<string>\",\n  \"encoding_format\": \"float\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "embeddings"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:45.000Z",
+                      "updatedAt": "2026-07-28T02:13:45.000Z",
+                      "uid": "35240-ab5cec18-e973-41ef-bbaf-8bd6fc65bb81"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:45.000Z",
+                  "updatedAt": "2026-07-28T02:13:45.000Z",
+                  "uid": "35240-97d029f5-e6c9-4c88-8792-6a83abcad51e"
+                }
+              ],
+              "id": "eebd4219-956a-4a38-9832-4aa5e6de7129",
+              "createdAt": "2026-07-28T02:13:45.000Z",
+              "updatedAt": "2026-07-28T02:13:45.000Z",
+              "uid": "35240-eebd4219-956a-4a38-9832-4aa5e6de7129"
+            }
+          ],
+          "id": "3467d9af-d9c4-4118-92a8-4b7edbe3afbf",
+          "createdAt": "2026-07-28T02:13:45.000Z",
+          "updatedAt": "2026-07-28T02:13:45.000Z",
+          "uid": "35240-3467d9af-d9c4-4118-92a8-4b7edbe3afbf"
+        }
+      ],
+      "id": "c3114b37-a169-40a5-aee1-0fcb90eb20c7",
+      "createdAt": "2026-07-28T02:13:45.000Z",
+      "updatedAt": "2026-07-28T02:13:45.000Z",
+      "uid": "35240-c3114b37-a169-40a5-aee1-0fcb90eb20c7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "info": {
+    "_postman_id": "2460b325-972a-45b8-bef7-c059f9e92e23",
+    "name": "Microsoft Azure Cognitive Services Accounts Metadata API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:18.000Z",
+    "updatedAt": "2026-07-28T02:14:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2460b325-972a-45b8-bef7-c059f9e92e23"
+  },
+  "item": [
+    {
+      "name": "EntityDefinitions",
+      "item": [
+        {
+          "name": "Microsoft List entity definitions",
+          "id": "ef066de0-6d9c-4a92-bec2-f98641035009",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EntityDefinitions?$select=<string>&$filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EntityDefinitions"
+              ],
+              "query": [
+                {
+                  "description": "Properties to include",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve metadata about all entities in the environment."
+          },
+          "response": [
+            {
+              "id": "2644df36-70af-45e2-b6a2-d92051a86747",
+              "name": "List of entity definitions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EntityDefinitions?$select=<string>&$filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EntityDefinitions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:14:18.000Z",
+              "updatedAt": "2026-07-28T02:14:18.000Z",
+              "uid": "35240-2644df36-70af-45e2-b6a2-d92051a86747"
+            },
+            {
+              "id": "019fdb65-ad4d-43f5-af39-fe13c6017665",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EntityDefinitions?$select=<string>&$filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EntityDefinitions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Properties to include",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:18.000Z",
+              "updatedAt": "2026-07-28T02:14:18.000Z",
+              "uid": "35240-019fdb65-ad4d-43f5-af39-fe13c6017665"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:18.000Z",
+          "updatedAt": "2026-07-28T02:14:18.000Z",
+          "uid": "35240-ef066de0-6d9c-4a92-bec2-f98641035009"
+        }
+      ],
+      "id": "6810d1b3-186c-4b9d-a2a9-a6f7fe74bd2c",
+      "createdAt": "2026-07-28T02:14:18.000Z",
+      "updatedAt": "2026-07-28T02:14:18.000Z",
+      "uid": "35240-6810d1b3-186c-4b9d-a2a9-a6f7fe74bd2c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

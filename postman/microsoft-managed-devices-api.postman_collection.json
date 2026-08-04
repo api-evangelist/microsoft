@@ -1,0 +1,725 @@
+{
+  "info": {
+    "_postman_id": "2ba579f7-14f4-4fd4-acef-3b2d169283c3",
+    "name": "Microsoft Azure Cognitive Services Accounts Managed Devices API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:02.000Z",
+    "updatedAt": "2026-07-28T02:14:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2ba579f7-14f4-4fd4-acef-3b2d169283c3"
+  },
+  "item": [
+    {
+      "name": "deviceManagement",
+      "item": [
+        {
+          "name": "managedDevices",
+          "item": [
+            {
+              "name": "{managedDeviceId}",
+              "item": [
+                {
+                  "name": "wipe",
+                  "item": [
+                    {
+                      "name": "Microsoft Wipe a managed device",
+                      "id": "131eb8e0-51b6-4ff7-9e44-0437123f8429",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/wipe",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deviceManagement",
+                            "managedDevices",
+                            ":managedDeviceId",
+                            "wipe"
+                          ],
+                          "variable": [
+                            {
+                              "id": "422dc44d-214f-44f0-aac8-57d47bdf5cec",
+                              "key": "managedDeviceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Wipe a device, removing all data and resetting to factory defaults."
+                      },
+                      "response": [
+                        {
+                          "id": "c4cb7cf2-ebe6-4add-a754-602b931580b2",
+                          "name": "Wipe initiated",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/wipe",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deviceManagement",
+                                "managedDevices",
+                                ":managedDeviceId",
+                                "wipe"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "managedDeviceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:02.000Z",
+                          "updatedAt": "2026-07-28T02:14:02.000Z",
+                          "uid": "35240-c4cb7cf2-ebe6-4add-a754-602b931580b2"
+                        },
+                        {
+                          "id": "ce46cfea-3a0e-4ca5-a242-d0448deffae4",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/wipe",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deviceManagement",
+                                "managedDevices",
+                                ":managedDeviceId",
+                                "wipe"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "managedDeviceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:02.000Z",
+                          "updatedAt": "2026-07-28T02:14:02.000Z",
+                          "uid": "35240-ce46cfea-3a0e-4ca5-a242-d0448deffae4"
+                        },
+                        {
+                          "id": "5cdae1c0-e2de-4672-a088-b3084ebfd1a4",
+                          "name": "Device not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/wipe",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deviceManagement",
+                                "managedDevices",
+                                ":managedDeviceId",
+                                "wipe"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "managedDeviceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:02.000Z",
+                          "updatedAt": "2026-07-28T02:14:02.000Z",
+                          "uid": "35240-5cdae1c0-e2de-4672-a088-b3084ebfd1a4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:14:02.000Z",
+                      "updatedAt": "2026-07-28T02:14:02.000Z",
+                      "uid": "35240-131eb8e0-51b6-4ff7-9e44-0437123f8429"
+                    }
+                  ],
+                  "id": "72127b39-109d-4b8e-befd-8f77840bb94a",
+                  "createdAt": "2026-07-28T02:14:02.000Z",
+                  "updatedAt": "2026-07-28T02:14:02.000Z",
+                  "uid": "35240-72127b39-109d-4b8e-befd-8f77840bb94a"
+                },
+                {
+                  "name": "retire",
+                  "item": [
+                    {
+                      "name": "Microsoft Retire a managed device",
+                      "id": "9820af3a-4219-43f7-983a-f61895e1e91a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/retire",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deviceManagement",
+                            "managedDevices",
+                            ":managedDeviceId",
+                            "retire"
+                          ],
+                          "variable": [
+                            {
+                              "id": "066f22c2-483c-4ea8-9eb5-799bdf531cdb",
+                              "key": "managedDeviceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retire a device, removing managed data while keeping personal data."
+                      },
+                      "response": [
+                        {
+                          "id": "45ae1c7d-8d57-41c1-93e3-0bc1020b6bb5",
+                          "name": "Retire initiated",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/retire",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deviceManagement",
+                                "managedDevices",
+                                ":managedDeviceId",
+                                "retire"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "managedDeviceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:02.000Z",
+                          "updatedAt": "2026-07-28T02:14:02.000Z",
+                          "uid": "35240-45ae1c7d-8d57-41c1-93e3-0bc1020b6bb5"
+                        },
+                        {
+                          "id": "c6040740-6f00-424c-8abb-a6e1c9d882fc",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId/retire",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deviceManagement",
+                                "managedDevices",
+                                ":managedDeviceId",
+                                "retire"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "managedDeviceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:14:02.000Z",
+                          "updatedAt": "2026-07-28T02:14:02.000Z",
+                          "uid": "35240-c6040740-6f00-424c-8abb-a6e1c9d882fc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:14:02.000Z",
+                      "updatedAt": "2026-07-28T02:14:02.000Z",
+                      "uid": "35240-9820af3a-4219-43f7-983a-f61895e1e91a"
+                    }
+                  ],
+                  "id": "a5670fa3-7511-47ec-a37c-3ce7f1b30cd0",
+                  "createdAt": "2026-07-28T02:14:02.000Z",
+                  "updatedAt": "2026-07-28T02:14:02.000Z",
+                  "uid": "35240-a5670fa3-7511-47ec-a37c-3ce7f1b30cd0"
+                },
+                {
+                  "name": "Microsoft Get a managed device",
+                  "id": "71d0a593-57b6-4c1d-8bd9-c05dc94f9f96",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deviceManagement",
+                        "managedDevices",
+                        ":managedDeviceId"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6caf79ba-bf0a-43ed-8e29-31fb2a41933e",
+                          "key": "managedDeviceId",
+                          "value": "<string>",
+                          "description": "(Required) Managed device unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Read properties of a managed device object."
+                  },
+                  "response": [
+                    {
+                      "id": "5970e386-ae4f-45f4-9dfc-e2d3186055b1",
+                      "name": "Managed device details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deviceManagement",
+                            "managedDevices",
+                            ":managedDeviceId"
+                          ],
+                          "query": [
+                            {
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "managedDeviceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"deviceName\": \"<string>\",\n  \"managedDeviceOwnerType\": \"unknown\",\n  \"operatingSystem\": \"<string>\",\n  \"osVersion\": \"<string>\",\n  \"complianceState\": \"unknown\",\n  \"model\": \"<string>\",\n  \"manufacturer\": \"<string>\",\n  \"serialNumber\": \"<string>\",\n  \"userPrincipalName\": \"<string>\",\n  \"userDisplayName\": \"<string>\",\n  \"emailAddress\": \"<string>\",\n  \"lastSyncDateTime\": \"<dateTime>\",\n  \"enrolledDateTime\": \"<dateTime>\",\n  \"managementAgent\": \"easMdm\",\n  \"isEncrypted\": \"<boolean>\",\n  \"isSupervised\": \"<boolean>\",\n  \"jailBroken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:14:02.000Z",
+                      "updatedAt": "2026-07-28T02:14:02.000Z",
+                      "uid": "35240-5970e386-ae4f-45f4-9dfc-e2d3186055b1"
+                    },
+                    {
+                      "id": "3ca2da9e-c8e3-48f5-b8cc-5e24c72781a9",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deviceManagement",
+                            "managedDevices",
+                            ":managedDeviceId"
+                          ],
+                          "query": [
+                            {
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "managedDeviceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:02.000Z",
+                      "updatedAt": "2026-07-28T02:14:02.000Z",
+                      "uid": "35240-3ca2da9e-c8e3-48f5-b8cc-5e24c72781a9"
+                    },
+                    {
+                      "id": "ff098aa9-1562-4ada-a95f-60606cbfd7e4",
+                      "name": "Device not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deviceManagement/managedDevices/:managedDeviceId?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deviceManagement",
+                            "managedDevices",
+                            ":managedDeviceId"
+                          ],
+                          "query": [
+                            {
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "managedDeviceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:02.000Z",
+                      "updatedAt": "2026-07-28T02:14:02.000Z",
+                      "uid": "35240-ff098aa9-1562-4ada-a95f-60606cbfd7e4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:02.000Z",
+                  "updatedAt": "2026-07-28T02:14:02.000Z",
+                  "uid": "35240-71d0a593-57b6-4c1d-8bd9-c05dc94f9f96"
+                }
+              ],
+              "id": "8ef9b84e-e3e6-4248-b598-9e68f2d05a12",
+              "createdAt": "2026-07-28T02:14:02.000Z",
+              "updatedAt": "2026-07-28T02:14:02.000Z",
+              "uid": "35240-8ef9b84e-e3e6-4248-b598-9e68f2d05a12"
+            },
+            {
+              "name": "Microsoft List managed devices",
+              "id": "2187cf3a-5a1a-4573-a155-799de23c1410",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deviceManagement/managedDevices?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deviceManagement",
+                    "managedDevices"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List properties and relationships of managed device objects."
+              },
+              "response": [
+                {
+                  "id": "166f1b99-5a5d-498d-8111-5d9ebdacb067",
+                  "name": "List of managed devices",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deviceManagement/managedDevices?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deviceManagement",
+                        "managedDevices"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "$orderby",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"managedDeviceOwnerType\": \"unknown\",\n      \"operatingSystem\": \"<string>\",\n      \"osVersion\": \"<string>\",\n      \"complianceState\": \"conflict\",\n      \"model\": \"<string>\",\n      \"manufacturer\": \"<string>\",\n      \"serialNumber\": \"<string>\",\n      \"userPrincipalName\": \"<string>\",\n      \"userDisplayName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"lastSyncDateTime\": \"<dateTime>\",\n      \"enrolledDateTime\": \"<dateTime>\",\n      \"managementAgent\": \"easMdm\",\n      \"isEncrypted\": \"<boolean>\",\n      \"isSupervised\": \"<boolean>\",\n      \"jailBroken\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"deviceName\": \"<string>\",\n      \"managedDeviceOwnerType\": \"company\",\n      \"operatingSystem\": \"<string>\",\n      \"osVersion\": \"<string>\",\n      \"complianceState\": \"conflict\",\n      \"model\": \"<string>\",\n      \"manufacturer\": \"<string>\",\n      \"serialNumber\": \"<string>\",\n      \"userPrincipalName\": \"<string>\",\n      \"userDisplayName\": \"<string>\",\n      \"emailAddress\": \"<string>\",\n      \"lastSyncDateTime\": \"<dateTime>\",\n      \"enrolledDateTime\": \"<dateTime>\",\n      \"managementAgent\": \"unknown\",\n      \"isEncrypted\": \"<boolean>\",\n      \"isSupervised\": \"<boolean>\",\n      \"jailBroken\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:14:02.000Z",
+                  "updatedAt": "2026-07-28T02:14:02.000Z",
+                  "uid": "35240-166f1b99-5a5d-498d-8111-5d9ebdacb067"
+                },
+                {
+                  "id": "55665695-706a-48be-86c2-1bb854db71b3",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deviceManagement/managedDevices?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deviceManagement",
+                        "managedDevices"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "$orderby",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:02.000Z",
+                  "updatedAt": "2026-07-28T02:14:02.000Z",
+                  "uid": "35240-55665695-706a-48be-86c2-1bb854db71b3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:02.000Z",
+              "updatedAt": "2026-07-28T02:14:02.000Z",
+              "uid": "35240-2187cf3a-5a1a-4573-a155-799de23c1410"
+            }
+          ],
+          "id": "0c17b5d0-95da-4a2e-96b3-fe81ca727ede",
+          "createdAt": "2026-07-28T02:14:02.000Z",
+          "updatedAt": "2026-07-28T02:14:02.000Z",
+          "uid": "35240-0c17b5d0-95da-4a2e-96b3-fe81ca727ede"
+        }
+      ],
+      "id": "511e9e37-5338-4de5-a157-6d83fa9921c1",
+      "createdAt": "2026-07-28T02:14:02.000Z",
+      "updatedAt": "2026-07-28T02:14:02.000Z",
+      "uid": "35240-511e9e37-5338-4de5-a157-6d83fa9921c1"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

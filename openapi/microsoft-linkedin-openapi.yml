@@ -184,7 +184,7 @@ paths:
           schema:
             type: string
             default: search
-        - name: search.status.values[0]:
+        - name: "search.status.values[0]:"
           in: query
           schema:
             type: string

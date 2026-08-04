@@ -1,0 +1,2129 @@
+{
+  "info": {
+    "_postman_id": "2bafb2d1-94e3-41a2-a448-ea3442143f23",
+    "name": "Microsoft Azure Cognitive Services Accounts Mail API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:57.000Z",
+    "updatedAt": "2026-07-28T02:13:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2bafb2d1-94e3-41a2-a448-ea3442143f23"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "messages",
+          "item": [
+            {
+              "name": "{message-id}",
+              "item": [
+                {
+                  "name": "Microsoft Get message",
+                  "id": "2761f579-8173-4a03-9f6f-770ccea8ea08",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages/:message-id?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages",
+                        ":message-id"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "392c3e5a-4413-41d6-879b-610ac2309729",
+                          "key": "message-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the message"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the properties and relationships of a message object. You can use $select to retrieve specific properties and $expand to expand supported relationships."
+                  },
+                  "response": [
+                    {
+                      "id": "83204ef4-feef-41f6-b16a-dfef80f0af3f",
+                      "name": "Message object",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/messages/:message-id?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "messages",
+                            ":message-id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "message-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:58.000Z",
+                      "updatedAt": "2026-07-28T02:13:58.000Z",
+                      "uid": "35240-83204ef4-feef-41f6-b16a-dfef80f0af3f"
+                    },
+                    {
+                      "id": "b2ea3b1c-e34c-4f63-95d2-00cec302326c",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/messages/:message-id?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "messages",
+                            ":message-id"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of properties to include in the response",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "message-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:58.000Z",
+                      "updatedAt": "2026-07-28T02:13:58.000Z",
+                      "uid": "35240-b2ea3b1c-e34c-4f63-95d2-00cec302326c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-2761f579-8173-4a03-9f6f-770ccea8ea08"
+                },
+                {
+                  "name": "Microsoft Update message",
+                  "id": "b493f73a-846a-495c-8367-32f317f6916c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages/:message-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages",
+                        ":message-id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6528a018-f732-431c-8a09-f78e3c717d00",
+                          "key": "message-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the message"
+                        }
+                      ]
+                    },
+                    "description": "Update the properties of a message object."
+                  },
+                  "response": [
+                    {
+                      "id": "ebb86ad7-afd6-41b4-b891-f1c5995a337e",
+                      "name": "Message updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/me/messages/:message-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "messages",
+                            ":message-id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "message-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:58.000Z",
+                      "updatedAt": "2026-07-28T02:13:58.000Z",
+                      "uid": "35240-ebb86ad7-afd6-41b4-b891-f1c5995a337e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-b493f73a-846a-495c-8367-32f317f6916c"
+                },
+                {
+                  "name": "Microsoft Delete message",
+                  "id": "4c0d3627-e0bf-4d78-8485-7e931d623d80",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages/:message-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages",
+                        ":message-id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fd594605-2918-458b-85fa-b16fc7bf1b8a",
+                          "key": "message-id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the message"
+                        }
+                      ]
+                    },
+                    "description": "Delete a message in the specified user's mailbox, or delete a relationship of the message."
+                  },
+                  "response": [
+                    {
+                      "id": "debe3d24-5060-407f-8ac0-993077bff703",
+                      "name": "Message deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/messages/:message-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "messages",
+                            ":message-id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "message-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:58.000Z",
+                      "updatedAt": "2026-07-28T02:13:58.000Z",
+                      "uid": "35240-debe3d24-5060-407f-8ac0-993077bff703"
+                    },
+                    {
+                      "id": "8cc21d4a-c6e7-4720-acdb-4def5d708fd2",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/messages/:message-id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "messages",
+                            ":message-id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "message-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:13:58.000Z",
+                      "updatedAt": "2026-07-28T02:13:58.000Z",
+                      "uid": "35240-8cc21d4a-c6e7-4720-acdb-4def5d708fd2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-4c0d3627-e0bf-4d78-8485-7e931d623d80"
+                }
+              ],
+              "id": "dac083c3-c732-4450-9857-f2778b94e9e9",
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-dac083c3-c732-4450-9857-f2778b94e9e9"
+            },
+            {
+              "name": "Microsoft List messages",
+              "id": "85d78624-e68e-44be-be1b-69f9e4f54a47",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me/messages?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of items to skip for pagination",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData order by expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search expression to filter results",
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get the messages in the signed-in user's mailbox, including the Deleted Items and Clutter folders. Returns messages from all mail folders."
+              },
+              "response": [
+                {
+                  "id": "0a8ce6d0-4561-48df-8afe-bea66c3f66e9",
+                  "name": "Collection of messages",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of items to skip for pagination",
+                          "key": "$skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "OData order by expression",
+                          "key": "$orderby",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search expression to filter results",
+                          "key": "$search",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"<string>\"\n      },\n      \"bodyPreview\": \"<string>\",\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"bccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"replyTo\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"importance\": \"low\",\n      \"isRead\": \"<boolean>\",\n      \"isDraft\": \"<boolean>\",\n      \"hasAttachments\": \"<boolean>\",\n      \"receivedDateTime\": \"<dateTime>\",\n      \"sentDateTime\": \"<dateTime>\",\n      \"conversationId\": \"<string>\",\n      \"internetMessageId\": \"<string>\",\n      \"webLink\": \"<uri>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"<string>\"\n      },\n      \"bodyPreview\": \"<string>\",\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"bccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"replyTo\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"importance\": \"normal\",\n      \"isRead\": \"<boolean>\",\n      \"isDraft\": \"<boolean>\",\n      \"hasAttachments\": \"<boolean>\",\n      \"receivedDateTime\": \"<dateTime>\",\n      \"sentDateTime\": \"<dateTime>\",\n      \"conversationId\": \"<string>\",\n      \"internetMessageId\": \"<string>\",\n      \"webLink\": \"<uri>\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-0a8ce6d0-4561-48df-8afe-bea66c3f66e9"
+                },
+                {
+                  "id": "97613469-d455-4bb4-99f9-d73f4acaed75",
+                  "name": "Unauthorized - authentication required or token expired",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>&$search=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of items to skip for pagination",
+                          "key": "$skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "OData order by expression",
+                          "key": "$orderby",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search expression to filter results",
+                          "key": "$search",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-97613469-d455-4bb4-99f9-d73f4acaed75"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-85d78624-e68e-44be-be1b-69f9e4f54a47"
+            },
+            {
+              "name": "Microsoft Create message draft",
+              "id": "b8ebd56c-baa7-45b2-8c42-0d4c340b2c38",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/me/messages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "messages"
+                  ]
+                },
+                "description": "Create a draft of a new message in either JSON or MIME format. When using JSON format, you can include an attachment and use a mention to call out another user."
+              },
+              "response": [
+                {
+                  "id": "5f3da6f1-9ffa-4d8d-93ac-68f632279fd3",
+                  "name": "Message draft created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-5f3da6f1-9ffa-4d8d-93ac-68f632279fd3"
+                },
+                {
+                  "id": "20d0bb91-ea49-4ee8-81c5-08539a5dd90d",
+                  "name": "Bad request - invalid input or malformed request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"text\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"<string>\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"high\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"<string>\",\n  \"webLink\": \"<uri>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/messages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "messages"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-20d0bb91-ea49-4ee8-81c5-08539a5dd90d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-b8ebd56c-baa7-45b2-8c42-0d4c340b2c38"
+            }
+          ],
+          "id": "11280a7b-c201-4f24-b89d-f9636b7de4f3",
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-11280a7b-c201-4f24-b89d-f9636b7de4f3"
+        },
+        {
+          "name": "sendMail",
+          "item": [
+            {
+              "name": "Microsoft Send mail",
+              "id": "d671888e-8246-4b64-9be5-d136daf47cd8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"id\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"bodyPreview\": \"<string>\",\n    \"from\": {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"bccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"replyTo\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"importance\": \"high\",\n    \"isRead\": \"<boolean>\",\n    \"isDraft\": \"<boolean>\",\n    \"hasAttachments\": \"<boolean>\",\n    \"receivedDateTime\": \"<dateTime>\",\n    \"sentDateTime\": \"<dateTime>\",\n    \"conversationId\": \"<string>\",\n    \"internetMessageId\": \"<string>\",\n    \"webLink\": \"<uri>\",\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/me/sendMail",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "sendMail"
+                  ]
+                },
+                "description": "Send the message specified in the request body using either JSON or MIME format. The message is saved in the Sent Items folder by default."
+              },
+              "response": [
+                {
+                  "id": "92b5e3d2-5e1a-47a9-b26d-2beeacacddb1",
+                  "name": "Mail sent successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"message\": {\n    \"id\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"bodyPreview\": \"<string>\",\n    \"from\": {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"bccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"replyTo\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"importance\": \"high\",\n    \"isRead\": \"<boolean>\",\n    \"isDraft\": \"<boolean>\",\n    \"hasAttachments\": \"<boolean>\",\n    \"receivedDateTime\": \"<dateTime>\",\n    \"sentDateTime\": \"<dateTime>\",\n    \"conversationId\": \"<string>\",\n    \"internetMessageId\": \"<string>\",\n    \"webLink\": \"<uri>\",\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/sendMail",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "sendMail"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-92b5e3d2-5e1a-47a9-b26d-2beeacacddb1"
+                },
+                {
+                  "id": "6b3b8fbd-c75c-4390-bc41-f0a6ffcd6e06",
+                  "name": "Bad request - invalid input or malformed request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"message\": {\n    \"id\": \"<string>\",\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"bodyPreview\": \"<string>\",\n    \"from\": {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"bccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"replyTo\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"importance\": \"high\",\n    \"isRead\": \"<boolean>\",\n    \"isDraft\": \"<boolean>\",\n    \"hasAttachments\": \"<boolean>\",\n    \"receivedDateTime\": \"<dateTime>\",\n    \"sentDateTime\": \"<dateTime>\",\n    \"conversationId\": \"<string>\",\n    \"internetMessageId\": \"<string>\",\n    \"webLink\": \"<uri>\",\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/me/sendMail",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "sendMail"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innerError\": {\n      \"date\": \"<dateTime>\",\n      \"request-id\": \"<string>\",\n      \"client-request-id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-6b3b8fbd-c75c-4390-bc41-f0a6ffcd6e06"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-d671888e-8246-4b64-9be5-d136daf47cd8"
+            }
+          ],
+          "id": "9bcdbd92-d67c-44af-8de7-e179d3eec0a8",
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-9bcdbd92-d67c-44af-8de7-e179d3eec0a8"
+        },
+        {
+          "name": "mailFolders",
+          "item": [
+            {
+              "name": "Microsoft List mail folders",
+              "id": "e985af0b-9cc1-43ad-b9f3-caba800f02d5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me/mailFolders?$top=<integer>&$filter=<string>&$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me",
+                    "mailFolders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of items to return (page size)",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Get the mail folder collection under the root folder of the signed-in user."
+              },
+              "response": [
+                {
+                  "id": "b4da48f3-2805-4183-9eed-98b66fb31f91",
+                  "name": "Collection of mail folders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/mailFolders?$top=<integer>&$filter=<string>&$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "mailFolders"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of items to return (page size)",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "OData filter expression",
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"parentFolderId\": \"<string>\",\n      \"childFolderCount\": \"<integer>\",\n      \"unreadItemCount\": \"<integer>\",\n      \"totalItemCount\": \"<integer>\",\n      \"isHidden\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"parentFolderId\": \"<string>\",\n      \"childFolderCount\": \"<integer>\",\n      \"unreadItemCount\": \"<integer>\",\n      \"totalItemCount\": \"<integer>\",\n      \"isHidden\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-b4da48f3-2805-4183-9eed-98b66fb31f91"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-e985af0b-9cc1-43ad-b9f3-caba800f02d5"
+            }
+          ],
+          "id": "a65acf7f-fe34-4646-9a4b-7d4ba4b6b373",
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-a65acf7f-fe34-4646-9a4b-7d4ba4b6b373"
+        }
+      ],
+      "id": "9e65fdbe-3cae-4f7d-8fd5-e5196c66fa46",
+      "createdAt": "2026-07-28T02:13:58.000Z",
+      "updatedAt": "2026-07-28T02:13:58.000Z",
+      "uid": "35240-9e65fdbe-3cae-4f7d-8fd5-e5196c66fa46"
+    },
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "{messageId}",
+          "item": [
+            {
+              "name": "Microsoft Get a message",
+              "id": "c6c11b30-6134-4c67-9f30-fde8c89082e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:messageId?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "97ce4d5b-6ae7-49d3-9d97-7a89bc2a7099",
+                      "key": "messageId",
+                      "value": "<string>",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "description": "Retrieve a specific message."
+              },
+              "response": [
+                {
+                  "id": "97309838-c083-4662-aa7d-5ae43abd8fc9",
+                  "name": "Message details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"bodyPreview\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"importance\": \"low\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-97309838-c083-4662-aa7d-5ae43abd8fc9"
+                },
+                {
+                  "id": "30b32cac-8ebd-48d7-afdb-9921c5f11b54",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-30b32cac-8ebd-48d7-afdb-9921c5f11b54"
+                },
+                {
+                  "id": "0fa8e537-a245-482a-b596-ee340d1ccd3c",
+                  "name": "Message not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-0fa8e537-a245-482a-b596-ee340d1ccd3c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-c6c11b30-6134-4c67-9f30-fde8c89082e3"
+            },
+            {
+              "name": "Microsoft Update a message",
+              "id": "405aba67-3b95-4b81-9880-e15f8b05d084",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"normal\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:messageId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "91c19539-64fa-424b-a702-27af487cc327",
+                      "key": "messageId",
+                      "value": "<string>",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "description": "Update the properties of a message."
+              },
+              "response": [
+                {
+                  "id": "e03d5fac-0c99-4f86-bab4-d4f4ca1184dc",
+                  "name": "Message updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"normal\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"bodyPreview\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"receivedDateTime\": \"<dateTime>\",\n  \"sentDateTime\": \"<dateTime>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": \"<boolean>\",\n  \"importance\": \"low\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-e03d5fac-0c99-4f86-bab4-d4f4ca1184dc"
+                },
+                {
+                  "id": "c72317ed-8967-4640-b004-7922e6572033",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"normal\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-c72317ed-8967-4640-b004-7922e6572033"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-405aba67-3b95-4b81-9880-e15f8b05d084"
+            },
+            {
+              "name": "Microsoft Delete a message",
+              "id": "9881e87b-45f9-48a5-8d98-8b27df487405",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:messageId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bfb6cc8d-7f9c-4bf8-b4dd-45ee85fad90e",
+                      "key": "messageId",
+                      "value": "<string>",
+                      "description": "(Required) Message unique identifier"
+                    }
+                  ]
+                },
+                "description": "Delete a message and move it to the Deleted Items folder."
+              },
+              "response": [
+                {
+                  "id": "a70be0e1-5e73-4bb7-883a-6adc41257b10",
+                  "name": "Message deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-a70be0e1-5e73-4bb7-883a-6adc41257b10"
+                },
+                {
+                  "id": "54e11d5c-467f-4881-9be9-965544663e58",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:58.000Z",
+                  "updatedAt": "2026-07-28T02:13:58.000Z",
+                  "uid": "35240-54e11d5c-467f-4881-9be9-965544663e58"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-9881e87b-45f9-48a5-8d98-8b27df487405"
+            }
+          ],
+          "id": "9f12166c-3a72-4b03-8b4e-0e74f85ca241",
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-9f12166c-3a72-4b03-8b4e-0e74f85ca241"
+        },
+        {
+          "name": "Microsoft List messages",
+          "id": "67266df5-d2ff-4ce3-845b-8161a86c043f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/messages?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>&$orderby=<string>&$search=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ],
+              "query": [
+                {
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "key": "$search",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get the messages in the signed-in user's mailbox."
+          },
+          "response": [
+            {
+              "id": "f60f451b-e111-484c-85f9-523e70f610a9",
+              "name": "List of messages",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>&$orderby=<string>&$search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"bodyPreview\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"<string>\"\n      },\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"receivedDateTime\": \"<dateTime>\",\n      \"sentDateTime\": \"<dateTime>\",\n      \"isRead\": \"<boolean>\",\n      \"isDraft\": \"<boolean>\",\n      \"hasAttachments\": \"<boolean>\",\n      \"importance\": \"normal\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"subject\": \"<string>\",\n      \"bodyPreview\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"<string>\"\n      },\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          }\n        }\n      ],\n      \"receivedDateTime\": \"<dateTime>\",\n      \"sentDateTime\": \"<dateTime>\",\n      \"isRead\": \"<boolean>\",\n      \"isDraft\": \"<boolean>\",\n      \"hasAttachments\": \"<boolean>\",\n      \"importance\": \"high\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-f60f451b-e111-484c-85f9-523e70f610a9"
+            },
+            {
+              "id": "60bf55fe-ff76-4edf-8627-b9f2844e1c9f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>&$orderby=<string>&$search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-60bf55fe-ff76-4edf-8627-b9f2844e1c9f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-67266df5-d2ff-4ce3-845b-8161a86c043f"
+        }
+      ],
+      "id": "3bac43cc-5509-44ec-928f-321331fd639d",
+      "createdAt": "2026-07-28T02:13:58.000Z",
+      "updatedAt": "2026-07-28T02:13:58.000Z",
+      "uid": "35240-3bac43cc-5509-44ec-928f-321331fd639d"
+    },
+    {
+      "name": "sendMail",
+      "item": [
+        {
+          "name": "Microsoft Send mail",
+          "id": "d3518807-5f1f-4376-aeec-b513929cc84c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sendMail",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sendMail"
+              ]
+            },
+            "description": "Send the message specified in the request body. The message is saved in the Sent Items folder by default."
+          },
+          "response": [
+            {
+              "id": "7e64dc6f-eed2-41dd-ae57-83ca592152cb",
+              "name": "Mail sent",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sendMail",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sendMail"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-7e64dc6f-eed2-41dd-ae57-83ca592152cb"
+            },
+            {
+              "id": "0f7363e8-f45a-4dc6-9181-039bcf7c971e",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sendMail",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sendMail"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-0f7363e8-f45a-4dc6-9181-039bcf7c971e"
+            },
+            {
+              "id": "8bb575aa-0b4f-43e9-8117-c443f2b0bee0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"text\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sendMail",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sendMail"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-8bb575aa-0b4f-43e9-8117-c443f2b0bee0"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-d3518807-5f1f-4376-aeec-b513929cc84c"
+        }
+      ],
+      "id": "8721de5f-debc-4428-b85d-f2da55616b10",
+      "createdAt": "2026-07-28T02:13:58.000Z",
+      "updatedAt": "2026-07-28T02:13:58.000Z",
+      "uid": "35240-8721de5f-debc-4428-b85d-f2da55616b10"
+    },
+    {
+      "name": "mailFolders",
+      "item": [
+        {
+          "name": "Microsoft List mail folders",
+          "id": "90a5f0fc-d23f-47f6-846b-58b4b52036a1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/mailFolders?$top=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mailFolders"
+              ],
+              "query": [
+                {
+                  "key": "$top",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Get the mail folder collection under the root folder."
+          },
+          "response": [
+            {
+              "id": "9f8df8d4-580d-497f-990e-c603883fa5c7",
+              "name": "List of mail folders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/mailFolders?$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "mailFolders"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"totalItemCount\": \"<integer>\",\n      \"unreadItemCount\": \"<integer>\",\n      \"parentFolderId\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"totalItemCount\": \"<integer>\",\n      \"unreadItemCount\": \"<integer>\",\n      \"parentFolderId\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-9f8df8d4-580d-497f-990e-c603883fa5c7"
+            },
+            {
+              "id": "dada04d8-9057-4559-a5e0-317d66f6bb78",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/mailFolders?$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "mailFolders"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:58.000Z",
+              "updatedAt": "2026-07-28T02:13:58.000Z",
+              "uid": "35240-dada04d8-9057-4559-a5e0-317d66f6bb78"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:58.000Z",
+          "updatedAt": "2026-07-28T02:13:58.000Z",
+          "uid": "35240-90a5f0fc-d23f-47f6-846b-58b4b52036a1"
+        }
+      ],
+      "id": "1695d0e7-dc6c-4115-9906-229b786868ce",
+      "createdAt": "2026-07-28T02:13:58.000Z",
+      "updatedAt": "2026-07-28T02:13:58.000Z",
+      "uid": "35240-1695d0e7-dc6c-4115-9906-229b786868ce"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "info": {
+    "_postman_id": "ca44ff4a-3f8e-40fa-9bdf-91e7bdfded84",
+    "name": "Microsoft Azure Cognitive Services Accounts Image Search API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:50.000Z",
+    "updatedAt": "2026-07-28T02:13:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ca44ff4a-3f8e-40fa-9bdf-91e7bdfded84"
+  },
+  "item": [
+    {
+      "name": "images",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Microsoft Image search",
+              "id": "af8d9311-b990-4670-b53e-9172b4e9b71d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/images/search?q=<string>&count=35&offset=0&mkt=<string>&size=Wallpaper&imageType=Shopping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "images",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of images to return",
+                      "key": "count",
+                      "value": "35"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter images by size",
+                      "key": "size",
+                      "value": "Wallpaper"
+                    },
+                    {
+                      "description": "Filter images by type",
+                      "key": "imageType",
+                      "value": "Shopping"
+                    }
+                  ]
+                },
+                "description": "Returns images relevant to the given search query."
+              },
+              "response": [
+                {
+                  "id": "606ed889-126d-4989-b204-e6d8f27889db",
+                  "name": "Image search results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/search?q=<string>&count=35&offset=0&mkt=<string>&size=Wallpaper&imageType=Shopping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query string",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of images to return",
+                          "key": "count",
+                          "value": "35"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "mkt",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter images by size",
+                          "key": "size",
+                          "value": "Wallpaper"
+                        },
+                        {
+                          "description": "Filter images by type",
+                          "key": "imageType",
+                          "value": "Shopping"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"_type\": \"<string>\",\n  \"totalEstimatedMatches\": \"<integer>\",\n  \"value\": [\n    {\n      \"name\": \"<string>\",\n      \"contentUrl\": \"<string>\",\n      \"thumbnailUrl\": \"<string>\",\n      \"hostPageUrl\": \"<string>\",\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"encodingFormat\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"contentUrl\": \"<string>\",\n      \"thumbnailUrl\": \"<string>\",\n      \"hostPageUrl\": \"<string>\",\n      \"width\": \"<integer>\",\n      \"height\": \"<integer>\",\n      \"encodingFormat\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:51.000Z",
+                  "updatedAt": "2026-07-28T02:13:51.000Z",
+                  "uid": "35240-606ed889-126d-4989-b204-e6d8f27889db"
+                },
+                {
+                  "id": "283094ea-adc5-4a98-ad46-2baa69afffde",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/images/search?q=<string>&count=35&offset=0&mkt=<string>&size=Wallpaper&imageType=Shopping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "images",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query string",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of images to return",
+                          "key": "count",
+                          "value": "35"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "mkt",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter images by size",
+                          "key": "size",
+                          "value": "Wallpaper"
+                        },
+                        {
+                          "description": "Filter images by type",
+                          "key": "imageType",
+                          "value": "Shopping"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:51.000Z",
+                  "updatedAt": "2026-07-28T02:13:51.000Z",
+                  "uid": "35240-283094ea-adc5-4a98-ad46-2baa69afffde"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:51.000Z",
+              "updatedAt": "2026-07-28T02:13:51.000Z",
+              "uid": "35240-af8d9311-b990-4670-b53e-9172b4e9b71d"
+            }
+          ],
+          "id": "43ace679-6bb0-49ff-a58f-3e83902ca5a4",
+          "createdAt": "2026-07-28T02:13:51.000Z",
+          "updatedAt": "2026-07-28T02:13:51.000Z",
+          "uid": "35240-43ace679-6bb0-49ff-a58f-3e83902ca5a4"
+        }
+      ],
+      "id": "49905bd6-27f8-4ef9-83f4-a7820a954ef0",
+      "createdAt": "2026-07-28T02:13:51.000Z",
+      "updatedAt": "2026-07-28T02:13:51.000Z",
+      "uid": "35240-49905bd6-27f8-4ef9-83f4-a7820a954ef0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

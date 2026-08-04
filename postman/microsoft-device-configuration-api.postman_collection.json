@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "8f3dde50-8989-40a0-a0c5-4fece55e057c",
+    "name": "Microsoft Azure Cognitive Services Accounts Device Configuration API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:41.000Z",
+    "updatedAt": "2026-07-28T02:13:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8f3dde50-8989-40a0-a0c5-4fece55e057c"
+  },
+  "item": [
+    {
+      "name": "deviceManagement",
+      "item": [
+        {
+          "name": "deviceConfigurations",
+          "item": [
+            {
+              "name": "Microsoft List device configurations",
+              "id": "3ba06166-19a9-4c92-b5fa-36131da644d9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deviceManagement/deviceConfigurations?$select=<string>&$filter=<string>&$top=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deviceManagement",
+                    "deviceConfigurations"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "List properties and relationships of device configuration objects."
+              },
+              "response": [
+                {
+                  "id": "91d06e3a-58f3-4cec-b855-c550a7bdee26",
+                  "name": "List of device configurations",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deviceManagement/deviceConfigurations?$select=<string>&$filter=<string>&$top=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deviceManagement",
+                        "deviceConfigurations"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$top",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"version\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"version\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:13:41.000Z",
+                  "updatedAt": "2026-07-28T02:13:41.000Z",
+                  "uid": "35240-91d06e3a-58f3-4cec-b855-c550a7bdee26"
+                },
+                {
+                  "id": "bdc8f28e-1fa1-4441-ae8d-5f3465eadad6",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deviceManagement/deviceConfigurations?$select=<string>&$filter=<string>&$top=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deviceManagement",
+                        "deviceConfigurations"
+                      ],
+                      "query": [
+                        {
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "$top",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:41.000Z",
+                  "updatedAt": "2026-07-28T02:13:41.000Z",
+                  "uid": "35240-bdc8f28e-1fa1-4441-ae8d-5f3465eadad6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:41.000Z",
+              "updatedAt": "2026-07-28T02:13:41.000Z",
+              "uid": "35240-3ba06166-19a9-4c92-b5fa-36131da644d9"
+            }
+          ],
+          "id": "92ed03e6-bf77-45bf-85f3-d1c131a8d968",
+          "createdAt": "2026-07-28T02:13:41.000Z",
+          "updatedAt": "2026-07-28T02:13:41.000Z",
+          "uid": "35240-92ed03e6-bf77-45bf-85f3-d1c131a8d968"
+        }
+      ],
+      "id": "d78adaa4-4a73-4045-8d27-0cf0ec8f0625",
+      "createdAt": "2026-07-28T02:13:41.000Z",
+      "updatedAt": "2026-07-28T02:13:41.000Z",
+      "uid": "35240-d78adaa4-4a73-4045-8d27-0cf0ec8f0625"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

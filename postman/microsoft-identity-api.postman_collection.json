@@ -1,0 +1,623 @@
+{
+  "info": {
+    "_postman_id": "3e36e3e3-254e-4b38-9999-3ebeb96f1d0f",
+    "name": "Microsoft Azure Cognitive Services Accounts Identity API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:49.000Z",
+    "updatedAt": "2026-07-28T02:13:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3e36e3e3-254e-4b38-9999-3ebeb96f1d0f"
+  },
+  "item": [
+    {
+      "name": "identities",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": ":issueAccessToken",
+              "item": [
+                {
+                  "name": "Microsoft Issue an access token",
+                  "id": "8e51b7f8-76bd-4f75-83e0-89328208bf27",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scopes\": [\n    \"voip\",\n    \"chat\"\n  ],\n  \"expiresInMinutes\": 1440\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identities/:id/:issueAccessToken?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identities",
+                        ":id",
+                        ":issueAccessToken"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5866d6c3-d3f1-4203-a746-f3c5235ffa2e",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "6ca1d7c9-3659-4108-acee-f4bbff002a8f",
+                          "key": "issueAccessToken"
+                        }
+                      ]
+                    },
+                    "description": "Issue a new access token for an identity."
+                  },
+                  "response": [
+                    {
+                      "id": "0b103c32-3092-44ba-b437-820614afa54c",
+                      "name": "Access token issued",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scopes\": [\n    \"voip\",\n    \"chat\"\n  ],\n  \"expiresInMinutes\": 1440\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:id/:issueAccessToken?api-version=2024-03-15-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":id",
+                            ":issueAccessToken"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API version",
+                              "key": "api-version",
+                              "value": "2024-03-15-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            },
+                            {
+                              "key": "issueAccessToken"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"token\": \"<string>\",\n  \"expiresOn\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:13:50.000Z",
+                      "updatedAt": "2026-07-28T02:13:50.000Z",
+                      "uid": "35240-0b103c32-3092-44ba-b437-820614afa54c"
+                    },
+                    {
+                      "id": "a35b39f5-400f-459e-9c3d-6ab24f4c54d9",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scopes\": [\n    \"voip\",\n    \"chat\"\n  ],\n  \"expiresInMinutes\": 1440\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:id/:issueAccessToken?api-version=2024-03-15-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":id",
+                            ":issueAccessToken"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API version",
+                              "key": "api-version",
+                              "value": "2024-03-15-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            },
+                            {
+                              "key": "issueAccessToken"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:50.000Z",
+                      "updatedAt": "2026-07-28T02:13:50.000Z",
+                      "uid": "35240-a35b39f5-400f-459e-9c3d-6ab24f4c54d9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:50.000Z",
+                  "updatedAt": "2026-07-28T02:13:50.000Z",
+                  "uid": "35240-8e51b7f8-76bd-4f75-83e0-89328208bf27"
+                }
+              ],
+              "id": "2dba58af-6f2d-4bcc-8322-709537780014",
+              "createdAt": "2026-07-28T02:13:50.000Z",
+              "updatedAt": "2026-07-28T02:13:50.000Z",
+              "uid": "35240-2dba58af-6f2d-4bcc-8322-709537780014"
+            },
+            {
+              "name": "Microsoft Delete an identity",
+              "id": "bf19685c-680b-444b-a711-2f4574d79afa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/identities/:id?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identities",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "bb5b9368-756a-4eb8-a6ee-f2e812173afc",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Identifier of the identity to delete"
+                    }
+                  ]
+                },
+                "description": "Delete a Communication Services identity and revoke all tokens."
+              },
+              "response": [
+                {
+                  "id": "30bb7d77-4030-429f-8f35-469e55f5b81c",
+                  "name": "Identity deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/identities/:id?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identities",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:50.000Z",
+                  "updatedAt": "2026-07-28T02:13:50.000Z",
+                  "uid": "35240-30bb7d77-4030-429f-8f35-469e55f5b81c"
+                },
+                {
+                  "id": "0a2786b1-67f1-4730-99da-f8a6c2b4d675",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/identities/:id?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identities",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:50.000Z",
+                  "updatedAt": "2026-07-28T02:13:50.000Z",
+                  "uid": "35240-0a2786b1-67f1-4730-99da-f8a6c2b4d675"
+                },
+                {
+                  "id": "0c276621-2068-4b78-8169-2a02bd04b362",
+                  "name": "Identity not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/identities/:id?api-version=2024-03-15-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identities",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API version",
+                          "key": "api-version",
+                          "value": "2024-03-15-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:13:50.000Z",
+                  "updatedAt": "2026-07-28T02:13:50.000Z",
+                  "uid": "35240-0c276621-2068-4b78-8169-2a02bd04b362"
+                }
+              ],
+              "createdAt": "2026-07-28T02:13:50.000Z",
+              "updatedAt": "2026-07-28T02:13:50.000Z",
+              "uid": "35240-bf19685c-680b-444b-a711-2f4574d79afa"
+            }
+          ],
+          "id": "4c51b6ef-60ee-4899-9a8f-c1ed506f6849",
+          "createdAt": "2026-07-28T02:13:50.000Z",
+          "updatedAt": "2026-07-28T02:13:50.000Z",
+          "uid": "35240-4c51b6ef-60ee-4899-9a8f-c1ed506f6849"
+        },
+        {
+          "name": "Microsoft Create an identity",
+          "id": "9fe03ca9-d2ef-4c05-8534-3639676958ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createTokenWithScopes\": [\n    \"chat\",\n    \"voip\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/identities?api-version=2024-03-15-preview",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "identities"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API version",
+                  "key": "api-version",
+                  "value": "2024-03-15-preview"
+                }
+              ]
+            },
+            "description": "Create a new Communication Services identity."
+          },
+          "response": [
+            {
+              "id": "bdf42907-2fd1-42ea-88e4-cb23d5ff0f00",
+              "name": "Identity created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createTokenWithScopes\": [\n    \"chat\",\n    \"voip\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identities?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identities"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"identity\": {\n    \"id\": \"<string>\"\n  },\n  \"accessToken\": {\n    \"token\": \"<string>\",\n    \"expiresOn\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:13:50.000Z",
+              "updatedAt": "2026-07-28T02:13:50.000Z",
+              "uid": "35240-bdf42907-2fd1-42ea-88e4-cb23d5ff0f00"
+            },
+            {
+              "id": "73a2b1a4-25ef-4a2e-bcb5-e79d97841957",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createTokenWithScopes\": [\n    \"chat\",\n    \"voip\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identities?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identities"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:13:50.000Z",
+              "updatedAt": "2026-07-28T02:13:50.000Z",
+              "uid": "35240-73a2b1a4-25ef-4a2e-bcb5-e79d97841957"
+            }
+          ],
+          "createdAt": "2026-07-28T02:13:50.000Z",
+          "updatedAt": "2026-07-28T02:13:50.000Z",
+          "uid": "35240-9fe03ca9-d2ef-4c05-8534-3639676958ab"
+        }
+      ],
+      "id": "a2719d22-b201-4efe-b243-d2ff793cd29f",
+      "createdAt": "2026-07-28T02:13:50.000Z",
+      "updatedAt": "2026-07-28T02:13:50.000Z",
+      "uid": "35240-a2719d22-b201-4efe-b243-d2ff793cd29f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

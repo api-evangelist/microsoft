@@ -1,0 +1,2764 @@
+{
+  "info": {
+    "_postman_id": "ffba00b7-fd34-4378-bd11-54c15b96a58f",
+    "name": "Microsoft Azure Cognitive Services Accounts Items API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:53.000Z",
+    "updatedAt": "2026-07-28T02:13:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ffba00b7-fd34-4378-bd11-54c15b96a58f"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "drive",
+          "item": [
+            {
+              "name": "root",
+              "item": [
+                {
+                  "name": "children",
+                  "item": [
+                    {
+                      "name": "Microsoft List root folder children",
+                      "id": "21aedf25-b449-47ae-891a-989ef54db5e3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/root/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "root",
+                            "children"
+                          ],
+                          "query": [
+                            {
+                              "description": "Properties to include",
+                              "key": "$select",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of items to return",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Sort order",
+                              "key": "$orderby",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Return a collection of DriveItems in the children relationship of the root folder."
+                      },
+                      "response": [
+                        {
+                          "id": "d97eb10d-5916-499c-8dfe-bbf23a1b828c",
+                          "name": "List of drive items",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/root/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "root",
+                                "children"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Properties to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of items to return",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort order",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"id\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"id\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-d97eb10d-5916-499c-8dfe-bbf23a1b828c"
+                        },
+                        {
+                          "id": "74d49fe2-74cf-4909-b3a7-587c8e3d061e",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/root/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "root",
+                                "children"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Properties to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of items to return",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort order",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-74d49fe2-74cf-4909-b3a7-587c8e3d061e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-21aedf25-b449-47ae-891a-989ef54db5e3"
+                    }
+                  ],
+                  "id": "b2de28b4-9311-46e1-86a5-e3008f0126c4",
+                  "createdAt": "2026-07-28T02:13:53.000Z",
+                  "updatedAt": "2026-07-28T02:13:53.000Z",
+                  "uid": "35240-b2de28b4-9311-46e1-86a5-e3008f0126c4"
+                }
+              ],
+              "id": "aa4d63c4-0373-48aa-804b-4ac75fc39709",
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-aa4d63c4-0373-48aa-804b-4ac75fc39709"
+            },
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{itemId}",
+                  "item": [
+                    {
+                      "name": "children",
+                      "item": [
+                        {
+                          "name": "Microsoft List children of a folder",
+                          "id": "a19e4755-f799-402e-98c6-3de58a1d21a9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId",
+                                "children"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Properties to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of items to return",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort order",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "688e632e-df8c-4895-9797-a9259bf74a26",
+                                  "key": "itemId",
+                                  "value": "<string>",
+                                  "description": "(Required) Drive item unique identifier"
+                                }
+                              ]
+                            },
+                            "description": "Return a collection of DriveItems in the children of a DriveItem."
+                          },
+                          "response": [
+                            {
+                              "id": "3483cc0e-0cc3-4cad-8653-0f20d2d4d005",
+                              "name": "List of child items",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "children"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Properties to include",
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of items to return",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Sort order",
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"id\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"id\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-3483cc0e-0cc3-4cad-8653-0f20d2d4d005"
+                            },
+                            {
+                              "id": "28485285-a5f5-497e-ac7e-4ccf93e1faaa",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "children"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Properties to include",
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of items to return",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Sort order",
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-28485285-a5f5-497e-ac7e-4ccf93e1faaa"
+                            },
+                            {
+                              "id": "1559d2e6-df7f-4c91-8659-62ab7ec8b0a9",
+                              "name": "Folder not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/children?$select=<string>&$top=<integer>&$orderby=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "children"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Properties to include",
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of items to return",
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Sort order",
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-1559d2e6-df7f-4c91-8659-62ab7ec8b0a9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-a19e4755-f799-402e-98c6-3de58a1d21a9"
+                        }
+                      ],
+                      "id": "94dc0e6b-8b6e-4bab-93f7-253c0246c1f6",
+                      "createdAt": "2026-07-28T02:13:53.000Z",
+                      "updatedAt": "2026-07-28T02:13:53.000Z",
+                      "uid": "35240-94dc0e6b-8b6e-4bab-93f7-253c0246c1f6"
+                    },
+                    {
+                      "name": "content",
+                      "item": [
+                        {
+                          "name": "Microsoft Download file content",
+                          "id": "c3d949a7-65f9-49af-8337-4eb07c84edb1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/octet-stream"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId",
+                                "content"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a9541234-dc14-4741-afb5-d6d8b8f070d3",
+                                  "key": "itemId",
+                                  "value": "<string>",
+                                  "description": "(Required) Drive item unique identifier"
+                                }
+                              ]
+                            },
+                            "description": "Download the contents of a DriveItem."
+                          },
+                          "response": [
+                            {
+                              "id": "9477242f-9065-40c4-869c-2a224a12c559",
+                              "name": "File content",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/octet-stream"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<binary>",
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-9477242f-9065-40c4-869c-2a224a12c559"
+                            },
+                            {
+                              "id": "6bc72cab-047e-4e28-93f6-f644a6e38477",
+                              "name": "Redirect to pre-authenticated download URL",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Found",
+                              "code": 302,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-6bc72cab-047e-4e28-93f6-f644a6e38477"
+                            },
+                            {
+                              "id": "b80af207-6e7c-447a-89d2-8b175aab5f93",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-b80af207-6e7c-447a-89d2-8b175aab5f93"
+                            },
+                            {
+                              "id": "24377a04-5351-47eb-b4b8-64e065543b80",
+                              "name": "Item not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-24377a04-5351-47eb-b4b8-64e065543b80"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-c3d949a7-65f9-49af-8337-4eb07c84edb1"
+                        },
+                        {
+                          "name": "Microsoft Upload file content",
+                          "id": "27e03ce2-0d94-48a1-bf40-260fd0dc7157",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/octet-stream"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "<binary>"
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId",
+                                "content"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4ba8aa72-5752-4e4b-afab-053ff5ab2db4",
+                                  "key": "itemId",
+                                  "value": "<string>",
+                                  "description": "(Required) Drive item unique identifier"
+                                }
+                              ]
+                            },
+                            "description": "Upload a new file or replace the contents of an existing file. Simple upload for files up to 4MB."
+                          },
+                          "response": [
+                            {
+                              "id": "725baa09-d1c2-42aa-a966-57747b91cb03",
+                              "name": "File updated",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "<binary>"
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<string>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"id\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-725baa09-d1c2-42aa-a966-57747b91cb03"
+                            },
+                            {
+                              "id": "68556ff4-d945-49ab-bdf5-a8fd43564aa6",
+                              "name": "File created",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "<binary>"
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<string>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"id\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-68556ff4-d945-49ab-bdf5-a8fd43564aa6"
+                            },
+                            {
+                              "id": "b7ae4d5d-9a26-4a4f-8a7e-663031fe7c97",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/octet-stream"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "<binary>"
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:itemId/content",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":itemId",
+                                    "content"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "itemId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:13:54.000Z",
+                              "updatedAt": "2026-07-28T02:13:54.000Z",
+                              "uid": "35240-b7ae4d5d-9a26-4a4f-8a7e-663031fe7c97"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-27e03ce2-0d94-48a1-bf40-260fd0dc7157"
+                        }
+                      ],
+                      "id": "01ba329b-3c61-40c4-b943-05032b4133ba",
+                      "createdAt": "2026-07-28T02:13:53.000Z",
+                      "updatedAt": "2026-07-28T02:13:53.000Z",
+                      "uid": "35240-01ba329b-3c61-40c4-b943-05032b4133ba"
+                    },
+                    {
+                      "name": "Microsoft Get a drive item",
+                      "id": "fc9eae0d-f8b7-4f9a-9485-d060ebe3716b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/items/:itemId?$select=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "items",
+                            ":itemId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Properties to include",
+                              "key": "$select",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "64739103-16b9-400c-aefc-1ad380a9d972",
+                              "key": "itemId",
+                              "value": "<string>",
+                              "description": "(Required) Drive item unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve the metadata for a DriveItem by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "004cb9ff-f982-4bb2-9fc1-aafd104d1abd",
+                          "name": "Drive item details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId?$select=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Properties to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<string>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"id\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-004cb9ff-f982-4bb2-9fc1-aafd104d1abd"
+                        },
+                        {
+                          "id": "be26a7cd-9bd5-4bcc-aa7c-c3af2fcb754c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId?$select=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Properties to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-be26a7cd-9bd5-4bcc-aa7c-c3af2fcb754c"
+                        },
+                        {
+                          "id": "6428b7de-c51a-4ee8-9ce0-119420eee919",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId?$select=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Properties to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-6428b7de-c51a-4ee8-9ce0-119420eee919"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-fc9eae0d-f8b7-4f9a-9485-d060ebe3716b"
+                    },
+                    {
+                      "name": "Microsoft Update a drive item",
+                      "id": "aabeec90-0b8a-4d23-be78-e6b1923044e9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "items",
+                            ":itemId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b8149125-365d-4bc1-befc-67d0610579ee",
+                              "key": "itemId",
+                              "value": "<string>",
+                              "description": "(Required) Drive item unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Update the metadata for a DriveItem by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "82a96dff-0385-42b8-b6d3-8d518a7efda5",
+                          "name": "Drive item updated",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"size\": \"<long>\",\n  \"webUrl\": \"<string>\",\n  \"createdDateTime\": \"<dateTime>\",\n  \"lastModifiedDateTime\": \"<dateTime>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"id\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-82a96dff-0385-42b8-b6d3-8d518a7efda5"
+                        },
+                        {
+                          "id": "11aa8acb-5927-4b01-9a2f-48c185551b4f",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-11aa8acb-5927-4b01-9a2f-48c185551b4f"
+                        },
+                        {
+                          "id": "f8189ac9-faf4-4269-a544-a86e47f22313",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-f8189ac9-faf4-4269-a544-a86e47f22313"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-aabeec90-0b8a-4d23-be78-e6b1923044e9"
+                    },
+                    {
+                      "name": "Microsoft Delete a drive item",
+                      "id": "edec3146-ef62-491c-9463-bf6a9f43a7b3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "items",
+                            ":itemId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d2e09748-b2ae-4712-8791-36e0369293ac",
+                              "key": "itemId",
+                              "value": "<string>",
+                              "description": "(Required) Drive item unique identifier"
+                            }
+                          ]
+                        },
+                        "description": "Delete a DriveItem by ID. Deleted items are moved to the recycle bin."
+                      },
+                      "response": [
+                        {
+                          "id": "56f7d2e4-6371-49cb-9940-0b21a40104ae",
+                          "name": "Item deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-56f7d2e4-6371-49cb-9940-0b21a40104ae"
+                        },
+                        {
+                          "id": "10bbcbc1-7cd8-4706-9d8c-28539ab7d499",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-10bbcbc1-7cd8-4706-9d8c-28539ab7d499"
+                        },
+                        {
+                          "id": "b1f5d712-a623-4a9a-a45f-d0ea02b982d1",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/me/drive/items/:itemId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "me",
+                                "drive",
+                                "items",
+                                ":itemId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "itemId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-b1f5d712-a623-4a9a-a45f-d0ea02b982d1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-edec3146-ef62-491c-9463-bf6a9f43a7b3"
+                    }
+                  ],
+                  "id": "4dc98a12-dd35-492a-9914-8e041f2542fe",
+                  "createdAt": "2026-07-28T02:13:53.000Z",
+                  "updatedAt": "2026-07-28T02:13:53.000Z",
+                  "uid": "35240-4dc98a12-dd35-492a-9914-8e041f2542fe"
+                }
+              ],
+              "id": "e602eebb-b74d-46f7-9560-1e8861979dec",
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-e602eebb-b74d-46f7-9560-1e8861979dec"
+            },
+            {
+              "name": "search(q='{searchText}')",
+              "item": [
+                {
+                  "name": "Microsoft Search for items",
+                  "id": "18ab6f14-9484-4685-b68b-5e60408dc8eb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/me/drive/search(q='{{searchText}}')?$select=<string>&$top=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "me",
+                        "drive",
+                        "search(q='{{searchText}}')"
+                      ],
+                      "query": [
+                        {
+                          "description": "Properties to include",
+                          "key": "$select",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of items to return",
+                          "key": "$top",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Search the hierarchy of items for items matching a query."
+                  },
+                  "response": [
+                    {
+                      "id": "55111d74-4eb3-43c2-ade0-4c54f1bda485",
+                      "name": "Search results",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/search(q='{{searchText}}')?$select=<string>&$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "search(q='{{searchText}}')"
+                          ],
+                          "query": [
+                            {
+                              "description": "Properties to include",
+                              "key": "$select",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of items to return",
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"@odata.context\": \"<string>\",\n  \"@odata.nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"id\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"size\": \"<long>\",\n      \"webUrl\": \"<string>\",\n      \"createdDateTime\": \"<dateTime>\",\n      \"lastModifiedDateTime\": \"<dateTime>\",\n      \"file\": {\n        \"mimeType\": \"<string>\",\n        \"hashes\": {\n          \"sha1Hash\": \"<string>\",\n          \"quickXorHash\": \"<string>\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": \"<integer>\"\n      },\n      \"parentReference\": {\n        \"driveId\": \"<string>\",\n        \"id\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"<string>\",\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-55111d74-4eb3-43c2-ade0-4c54f1bda485"
+                    },
+                    {
+                      "id": "f57eb9db-bd01-4463-a480-a7bb92bd26c2",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/me/drive/search(q='{{searchText}}')?$select=<string>&$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "me",
+                            "drive",
+                            "search(q='{{searchText}}')"
+                          ],
+                          "query": [
+                            {
+                              "description": "Properties to include",
+                              "key": "$select",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of items to return",
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-f57eb9db-bd01-4463-a480-a7bb92bd26c2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:13:54.000Z",
+                  "updatedAt": "2026-07-28T02:13:54.000Z",
+                  "uid": "35240-18ab6f14-9484-4685-b68b-5e60408dc8eb"
+                }
+              ],
+              "id": "1190172b-f5bc-4b9b-b451-35211d150bff",
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-1190172b-f5bc-4b9b-b451-35211d150bff"
+            }
+          ],
+          "id": "b7965c9c-e1a8-41c9-9941-68bbd2354eda",
+          "createdAt": "2026-07-28T02:13:53.000Z",
+          "updatedAt": "2026-07-28T02:13:53.000Z",
+          "uid": "35240-b7965c9c-e1a8-41c9-9941-68bbd2354eda"
+        }
+      ],
+      "id": "8a496b9b-a5bc-44a7-900c-60050a1e799f",
+      "createdAt": "2026-07-28T02:13:53.000Z",
+      "updatedAt": "2026-07-28T02:13:53.000Z",
+      "uid": "35240-8a496b9b-a5bc-44a7-900c-60050a1e799f"
+    },
+    {
+      "name": "web",
+      "item": [
+        {
+          "name": "lists",
+          "item": [
+            {
+              "name": "getbytitle('{listTitle}')",
+              "item": [
+                {
+                  "name": "items",
+                  "item": [
+                    {
+                      "name": "Microsoft List items in a list",
+                      "id": "97fdf25d-761a-44fe-a0b5-7c48102432c4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')",
+                            "items"
+                          ],
+                          "query": [
+                            {
+                              "description": "Fields to include",
+                              "key": "$select",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "OData filter expression",
+                              "key": "$filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of items",
+                              "key": "$top",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Sort order",
+                              "key": "$orderby",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Get all items from a SharePoint list."
+                      },
+                      "response": [
+                        {
+                          "id": "b76693fc-4427-439b-9cef-4410ee992352",
+                          "name": "List items",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Fields to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "OData filter expression",
+                                  "key": "$filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of items",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort order",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"__metadata\": {\n          \"type\": \"<string>\"\n        },\n        \"Id\": \"<integer>\",\n        \"Title\": \"<string>\",\n        \"Created\": \"<dateTime>\",\n        \"Modified\": \"<dateTime>\",\n        \"AuthorId\": \"<integer>\",\n        \"EditorId\": \"<integer>\"\n      },\n      {\n        \"__metadata\": {\n          \"type\": \"<string>\"\n        },\n        \"Id\": \"<integer>\",\n        \"Title\": \"<string>\",\n        \"Created\": \"<dateTime>\",\n        \"Modified\": \"<dateTime>\",\n        \"AuthorId\": \"<integer>\",\n        \"EditorId\": \"<integer>\"\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-b76693fc-4427-439b-9cef-4410ee992352"
+                        },
+                        {
+                          "id": "9ece45fb-148b-40f0-9aea-41a33a27f75d",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items?$select=<string>&$filter=<string>&$top=<integer>&$orderby=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Fields to include",
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "OData filter expression",
+                                  "key": "$filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of items",
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Sort order",
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-9ece45fb-148b-40f0-9aea-41a33a27f75d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-97fdf25d-761a-44fe-a0b5-7c48102432c4"
+                    },
+                    {
+                      "name": "Microsoft Create a list item",
+                      "id": "54ad3b65-c8f4-44c9-a834-57bf0f3050a6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')",
+                            "items"
+                          ]
+                        },
+                        "description": "Add a new item to a SharePoint list."
+                      },
+                      "response": [
+                        {
+                          "id": "5d28b128-8066-44da-8baa-26630beef71b",
+                          "name": "Item created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"d\": {\n    \"__metadata\": {\n      \"type\": \"<string>\"\n    },\n    \"Id\": \"<integer>\",\n    \"Title\": \"<string>\",\n    \"Created\": \"<dateTime>\",\n    \"Modified\": \"<dateTime>\",\n    \"AuthorId\": \"<integer>\",\n    \"EditorId\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-5d28b128-8066-44da-8baa-26630beef71b"
+                        },
+                        {
+                          "id": "12a04af9-921f-45b4-9178-256b2a680223",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-12a04af9-921f-45b4-9178-256b2a680223"
+                        },
+                        {
+                          "id": "7868602a-8999-47c1-b828-c9c3a67ee26f",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-7868602a-8999-47c1-b828-c9c3a67ee26f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-54ad3b65-c8f4-44c9-a834-57bf0f3050a6"
+                    }
+                  ],
+                  "id": "53340f6b-9c5d-4965-a8fd-96d28aaf6a06",
+                  "createdAt": "2026-07-28T02:13:53.000Z",
+                  "updatedAt": "2026-07-28T02:13:53.000Z",
+                  "uid": "35240-53340f6b-9c5d-4965-a8fd-96d28aaf6a06"
+                },
+                {
+                  "name": "items({itemId})",
+                  "item": [
+                    {
+                      "name": "Microsoft Get a list item",
+                      "id": "0bd5ce00-115d-4adb-9173-33b711551225",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')",
+                            "items({{itemId}})"
+                          ]
+                        },
+                        "description": "Get a specific item from a SharePoint list."
+                      },
+                      "response": [
+                        {
+                          "id": "7a87b07c-4abf-4756-a1ff-7f3f5f9201fa",
+                          "name": "List item details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"d\": {\n    \"__metadata\": {\n      \"type\": \"<string>\"\n    },\n    \"Id\": \"<integer>\",\n    \"Title\": \"<string>\",\n    \"Created\": \"<dateTime>\",\n    \"Modified\": \"<dateTime>\",\n    \"AuthorId\": \"<integer>\",\n    \"EditorId\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-7a87b07c-4abf-4756-a1ff-7f3f5f9201fa"
+                        },
+                        {
+                          "id": "d1a7ec07-d956-447d-915f-4263e1eaa621",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-d1a7ec07-d956-447d-915f-4263e1eaa621"
+                        },
+                        {
+                          "id": "df807ca8-3818-4d39-b821-affa69fc0879",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-df807ca8-3818-4d39-b821-affa69fc0879"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-0bd5ce00-115d-4adb-9173-33b711551225"
+                    },
+                    {
+                      "name": "Microsoft Update a list item",
+                      "id": "09f16a74-898e-4787-a251-b65c7892c3f6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) ",
+                            "key": "X-HTTP-Method",
+                            "value": "MERGE"
+                          },
+                          {
+                            "description": "(Required) ETag value for concurrency control",
+                            "key": "If-Match",
+                            "value": "*"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')",
+                            "items({{itemId}})"
+                          ]
+                        },
+                        "description": "Update an existing item in a SharePoint list."
+                      },
+                      "response": [
+                        {
+                          "id": "82ea178e-dfb3-40e8-aff9-923946a8ecf9",
+                          "name": "Item updated",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "X-HTTP-Method",
+                                "value": "MERGE"
+                              },
+                              {
+                                "description": "(Required) ETag value for concurrency control",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-82ea178e-dfb3-40e8-aff9-923946a8ecf9"
+                        },
+                        {
+                          "id": "bd78a558-fc70-4043-a645-63b754680408",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "X-HTTP-Method",
+                                "value": "MERGE"
+                              },
+                              {
+                                "description": "(Required) ETag value for concurrency control",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-bd78a558-fc70-4043-a645-63b754680408"
+                        },
+                        {
+                          "id": "e964fccf-f818-4f66-95e2-40dd33d6ec36",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "X-HTTP-Method",
+                                "value": "MERGE"
+                              },
+                              {
+                                "description": "(Required) ETag value for concurrency control",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-e964fccf-f818-4f66-95e2-40dd33d6ec36"
+                        },
+                        {
+                          "id": "7a64d9b4-c133-4116-a7d1-cfb3591bddfc",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "X-HTTP-Method",
+                                "value": "MERGE"
+                              },
+                              {
+                                "description": "(Required) ETag value for concurrency control",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"__metadata\": {\n    \"type\": \"<string>\"\n  },\n  \"Id\": \"<integer>\",\n  \"Title\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\",\n  \"AuthorId\": \"<integer>\",\n  \"EditorId\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-7a64d9b4-c133-4116-a7d1-cfb3591bddfc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-09f16a74-898e-4787-a251-b65c7892c3f6"
+                    },
+                    {
+                      "name": "Microsoft Delete a list item",
+                      "id": "67a038c6-5ecc-44e0-b03d-b3afe98513b3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) ",
+                            "key": "If-Match",
+                            "value": "*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "web",
+                            "lists",
+                            "getbytitle('{{listTitle}}')",
+                            "items({{itemId}})"
+                          ]
+                        },
+                        "description": "Delete an item from a SharePoint list."
+                      },
+                      "response": [
+                        {
+                          "id": "d345e229-d303-4191-9787-10926b8e5a80",
+                          "name": "Item deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-d345e229-d303-4191-9787-10926b8e5a80"
+                        },
+                        {
+                          "id": "02621108-7d60-4b25-ad2a-47d46f863382",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-02621108-7d60-4b25-ad2a-47d46f863382"
+                        },
+                        {
+                          "id": "cd94b057-c397-4aa3-9d82-69b230dbe109",
+                          "name": "Item not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "(Required) ",
+                                "key": "If-Match",
+                                "value": "*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/web/lists/getbytitle('{{listTitle}}')/items({{itemId}})",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "web",
+                                "lists",
+                                "getbytitle('{{listTitle}}')",
+                                "items({{itemId}})"
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:54.000Z",
+                          "updatedAt": "2026-07-28T02:13:54.000Z",
+                          "uid": "35240-cd94b057-c397-4aa3-9d82-69b230dbe109"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:54.000Z",
+                      "updatedAt": "2026-07-28T02:13:54.000Z",
+                      "uid": "35240-67a038c6-5ecc-44e0-b03d-b3afe98513b3"
+                    }
+                  ],
+                  "id": "22262c82-e299-4e9d-b9b5-83fae696d2b7",
+                  "createdAt": "2026-07-28T02:13:53.000Z",
+                  "updatedAt": "2026-07-28T02:13:53.000Z",
+                  "uid": "35240-22262c82-e299-4e9d-b9b5-83fae696d2b7"
+                }
+              ],
+              "id": "1cfd19ee-216f-417d-a441-07d6c403e8f9",
+              "createdAt": "2026-07-28T02:13:53.000Z",
+              "updatedAt": "2026-07-28T02:13:53.000Z",
+              "uid": "35240-1cfd19ee-216f-417d-a441-07d6c403e8f9"
+            }
+          ],
+          "id": "dde5edb3-3990-4086-8713-eb55c62bab0a",
+          "createdAt": "2026-07-28T02:13:53.000Z",
+          "updatedAt": "2026-07-28T02:13:53.000Z",
+          "uid": "35240-dde5edb3-3990-4086-8713-eb55c62bab0a"
+        }
+      ],
+      "id": "be21d608-04d5-4d1a-a39d-37f05cde5987",
+      "createdAt": "2026-07-28T02:13:53.000Z",
+      "updatedAt": "2026-07-28T02:13:53.000Z",
+      "uid": "35240-be21d608-04d5-4d1a-a39d-37f05cde5987"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    },
+    {
+      "key": "searchText",
+      "value": "<string>"
+    },
+    {
+      "key": "listTitle",
+      "value": "<string>"
+    },
+    {
+      "key": "itemId",
+      "value": "<integer>"
+    }
+  ]
+}

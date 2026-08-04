@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "cf64e2d5-7476-4278-8370-286f51dc1e14",
+    "name": "Microsoft Azure Cognitive Services Accounts Sites API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:43.000Z",
+    "updatedAt": "2026-07-28T02:14:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cf64e2d5-7476-4278-8370-286f51dc1e14"
+  },
+  "item": [
+    {
+      "name": "web",
+      "item": [
+        {
+          "name": "Microsoft Get current web",
+          "id": "af968282-6de8-4407-9287-c2a88a20c379",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/web",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "web"
+              ]
+            },
+            "description": "Get the properties of the current SharePoint site."
+          },
+          "response": [
+            {
+              "id": "93b87d7a-7e6a-4919-b741-b34a74ed88b3",
+              "name": "Web properties",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/web",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "web"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"Url\": \"<string>\",\n  \"Created\": \"<dateTime>\",\n  \"Language\": \"<integer>\",\n  \"WebTemplate\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:14:43.000Z",
+              "updatedAt": "2026-07-28T02:14:43.000Z",
+              "uid": "35240-93b87d7a-7e6a-4919-b741-b34a74ed88b3"
+            },
+            {
+              "id": "8b7317a0-3db5-44b3-a146-b54df4e011b8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/web",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "web"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:43.000Z",
+              "updatedAt": "2026-07-28T02:14:43.000Z",
+              "uid": "35240-8b7317a0-3db5-44b3-a146-b54df4e011b8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:43.000Z",
+          "updatedAt": "2026-07-28T02:14:43.000Z",
+          "uid": "35240-af968282-6de8-4407-9287-c2a88a20c379"
+        }
+      ],
+      "id": "9be2e9aa-9020-4d40-ab22-c58e7045c905",
+      "createdAt": "2026-07-28T02:14:43.000Z",
+      "updatedAt": "2026-07-28T02:14:43.000Z",
+      "uid": "35240-9be2e9aa-9020-4d40-ab22-c58e7045c905"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

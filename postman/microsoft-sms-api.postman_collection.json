@@ -1,0 +1,276 @@
+{
+  "info": {
+    "_postman_id": "28a62f8c-e7ec-48ae-9b8c-0c1e320eac85",
+    "name": "Microsoft Azure Cognitive Services Accounts SMS API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:44.000Z",
+    "updatedAt": "2026-07-28T02:14:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-28a62f8c-e7ec-48ae-9b8c-0c1e320eac85"
+  },
+  "item": [
+    {
+      "name": "sms",
+      "item": [
+        {
+          "name": "Microsoft Send an SMS message",
+          "id": "4314e460-cf58-4241-ae84-02d30de2ac93",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sms?api-version=2024-03-15-preview",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sms"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API version",
+                  "key": "api-version",
+                  "value": "2024-03-15-preview"
+                }
+              ]
+            },
+            "description": "Send a single SMS message or a batch of SMS messages."
+          },
+          "response": [
+            {
+              "id": "9ded9e08-2ec1-4e8e-b47d-b44e8b57e0e9",
+              "name": "SMS accepted for delivery",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sms?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sms"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"to\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"httpStatusCode\": \"<integer>\",\n      \"successful\": \"<boolean>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"httpStatusCode\": \"<integer>\",\n      \"successful\": \"<boolean>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:14:44.000Z",
+              "updatedAt": "2026-07-28T02:14:44.000Z",
+              "uid": "35240-9ded9e08-2ec1-4e8e-b47d-b44e8b57e0e9"
+            },
+            {
+              "id": "71dabf84-92f5-4f1e-8b7d-03e941a72186",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sms?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sms"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:44.000Z",
+              "updatedAt": "2026-07-28T02:14:44.000Z",
+              "uid": "35240-71dabf84-92f5-4f1e-8b7d-03e941a72186"
+            },
+            {
+              "id": "42cc731b-514d-4b26-9e6a-a8a303faf9c4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from\": \"<string>\",\n  \"smsRecipients\": [\n    {\n      \"to\": \"<string>\"\n    },\n    {\n      \"to\": \"<string>\"\n    }\n  ],\n  \"message\": \"<string>\",\n  \"smsSendOptions\": {\n    \"enableDeliveryReport\": false,\n    \"tag\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sms?api-version=2024-03-15-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sms"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API version",
+                      "key": "api-version",
+                      "value": "2024-03-15-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:14:44.000Z",
+              "updatedAt": "2026-07-28T02:14:44.000Z",
+              "uid": "35240-42cc731b-514d-4b26-9e6a-a8a303faf9c4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:14:44.000Z",
+          "updatedAt": "2026-07-28T02:14:44.000Z",
+          "uid": "35240-4314e460-cf58-4241-ae84-02d30de2ac93"
+        }
+      ],
+      "id": "044bdac8-895b-436e-8428-43b95142b893",
+      "createdAt": "2026-07-28T02:14:44.000Z",
+      "updatedAt": "2026-07-28T02:14:44.000Z",
+      "uid": "35240-044bdac8-895b-436e-8428-43b95142b893"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

@@ -1,0 +1,400 @@
+{
+  "info": {
+    "_postman_id": "96f8e725-424e-4aae-a6de-617305ef5cb0",
+    "name": "Microsoft Azure Cognitive Services Accounts Images API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:51.000Z",
+    "updatedAt": "2026-07-28T02:13:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-96f8e725-424e-4aae-a6de-617305ef5cb0"
+  },
+  "item": [
+    {
+      "name": "deployments",
+      "item": [
+        {
+          "name": "{deployment-id}",
+          "item": [
+            {
+              "name": "images",
+              "item": [
+                {
+                  "name": "generations",
+                  "item": [
+                    {
+                      "name": "Microsoft Generate images",
+                      "id": "a557ec56-6df5-46f5-b2d7-201f267ada0a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"n\": 1,\n  \"size\": \"1024x1024\",\n  \"quality\": \"standard\",\n  \"style\": \"vivid\",\n  \"response_format\": \"url\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/images/generations?api-version=2024-10-21",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "images",
+                            "generations"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use",
+                              "key": "api-version",
+                              "value": "2024-10-21"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a20c134c-1b5d-411c-8874-bb1706af49cb",
+                              "key": "deployment-id",
+                              "value": "<string>",
+                              "description": "(Required) The deployment name for the model"
+                            }
+                          ]
+                        },
+                        "description": "Creates an image given a prompt using DALL-E models."
+                      },
+                      "response": [
+                        {
+                          "id": "571f150e-cab3-4ef3-a226-3e3969fbb7a9",
+                          "name": "Image generation response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"prompt\": \"<string>\",\n  \"n\": 1,\n  \"size\": \"1024x1024\",\n  \"quality\": \"standard\",\n  \"style\": \"vivid\",\n  \"response_format\": \"url\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/images/generations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "images",
+                                "generations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"created\": \"<integer>\",\n  \"data\": [\n    {\n      \"url\": \"<string>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"b64_json\": \"<string>\",\n      \"revised_prompt\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:13:52.000Z",
+                          "updatedAt": "2026-07-28T02:13:52.000Z",
+                          "uid": "35240-571f150e-cab3-4ef3-a226-3e3969fbb7a9"
+                        },
+                        {
+                          "id": "dc524040-0949-4b07-ad6d-57ab22d9ad46",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"prompt\": \"<string>\",\n  \"n\": 1,\n  \"size\": \"1024x1024\",\n  \"quality\": \"standard\",\n  \"style\": \"vivid\",\n  \"response_format\": \"url\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/images/generations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "images",
+                                "generations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:52.000Z",
+                          "updatedAt": "2026-07-28T02:13:52.000Z",
+                          "uid": "35240-dc524040-0949-4b07-ad6d-57ab22d9ad46"
+                        },
+                        {
+                          "id": "075af52c-09e0-41f6-a262-8bf88ecf21d0",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"prompt\": \"<string>\",\n  \"n\": 1,\n  \"size\": \"1024x1024\",\n  \"quality\": \"standard\",\n  \"style\": \"vivid\",\n  \"response_format\": \"url\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/images/generations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "images",
+                                "generations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:52.000Z",
+                          "updatedAt": "2026-07-28T02:13:52.000Z",
+                          "uid": "35240-075af52c-09e0-41f6-a262-8bf88ecf21d0"
+                        },
+                        {
+                          "id": "fad19acf-104d-4fa9-9312-4d792a69715f",
+                          "name": "Rate limit exceeded",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Ocp-Apim-Subscription-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"prompt\": \"<string>\",\n  \"n\": 1,\n  \"size\": \"1024x1024\",\n  \"quality\": \"standard\",\n  \"style\": \"vivid\",\n  \"response_format\": \"url\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/images/generations?api-version=2024-10-21",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "images",
+                                "generations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use",
+                                  "key": "api-version",
+                                  "value": "2024-10-21"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:13:52.000Z",
+                          "updatedAt": "2026-07-28T02:13:52.000Z",
+                          "uid": "35240-fad19acf-104d-4fa9-9312-4d792a69715f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:13:52.000Z",
+                      "updatedAt": "2026-07-28T02:13:52.000Z",
+                      "uid": "35240-a557ec56-6df5-46f5-b2d7-201f267ada0a"
+                    }
+                  ],
+                  "id": "74dabc22-d314-4984-9011-197e5d7ed8c0",
+                  "createdAt": "2026-07-28T02:13:52.000Z",
+                  "updatedAt": "2026-07-28T02:13:52.000Z",
+                  "uid": "35240-74dabc22-d314-4984-9011-197e5d7ed8c0"
+                }
+              ],
+              "id": "f75311c7-160c-45d6-aacb-698e54d576ea",
+              "createdAt": "2026-07-28T02:13:52.000Z",
+              "updatedAt": "2026-07-28T02:13:52.000Z",
+              "uid": "35240-f75311c7-160c-45d6-aacb-698e54d576ea"
+            }
+          ],
+          "id": "6d23f35a-7162-4ab7-81e3-e268a9daa342",
+          "createdAt": "2026-07-28T02:13:52.000Z",
+          "updatedAt": "2026-07-28T02:13:52.000Z",
+          "uid": "35240-6d23f35a-7162-4ab7-81e3-e268a9daa342"
+        }
+      ],
+      "id": "638ab08d-b3af-4fbe-a670-dfdfa08e8431",
+      "createdAt": "2026-07-28T02:13:52.000Z",
+      "updatedAt": "2026-07-28T02:13:52.000Z",
+      "uid": "35240-638ab08d-b3af-4fbe-a670-dfdfa08e8431"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

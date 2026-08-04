@@ -1,0 +1,501 @@
+{
+  "info": {
+    "_postman_id": "0cfa5608-fd64-488c-9d75-56c4dbc84ad6",
+    "name": "Microsoft Azure Cognitive Services Accounts Deployments API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:13:39.000Z",
+    "updatedAt": "2026-07-28T02:13:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0cfa5608-fd64-488c-9d75-56c4dbc84ad6"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourcegroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.Resources",
+                          "item": [
+                            {
+                              "name": "deployments",
+                              "item": [
+                                {
+                                  "name": "{deploymentName}",
+                                  "item": [
+                                    {
+                                      "name": "Microsoft Create or update a deployment",
+                                      "id": "32042472-5667-49f2-b597-a9a4f06837f7",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"properties\": {\n    \"mode\": \"Complete\",\n    \"template\": {},\n    \"templateLink\": {\n      \"uri\": \"<string>\",\n      \"contentVersion\": \"<string>\"\n    },\n    \"parameters\": {}\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourcegroups/:resourceGroupName/providers/Microsoft.Resources/deployments/:deploymentName?api-version=2024-03-01",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourcegroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.Resources",
+                                            "deployments",
+                                            ":deploymentName"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) The API version to use for this operation",
+                                              "key": "api-version",
+                                              "value": "2024-03-01"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "aa256b27-e4b6-4c6c-9bae-e2a4083103da",
+                                              "key": "subscriptionId",
+                                              "value": "<uuid>",
+                                              "description": "(Required) The ID of the target subscription"
+                                            },
+                                            {
+                                              "id": "c056b7e3-09d8-4fa7-a155-96fa19a0681f",
+                                              "key": "resourceGroupName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the resource group"
+                                            },
+                                            {
+                                              "id": "2b1ea0a3-1bb7-4273-bfe0-ba7869df915d",
+                                              "key": "deploymentName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the deployment"
+                                            }
+                                          ]
+                                        },
+                                        "description": "Deploy resources to a resource group using an ARM template."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "f25ac6a6-c333-4e78-913b-1c0c490159f9",
+                                          "name": "Deployment updated",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "Ocp-Apim-Subscription-Key",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {\n    \"mode\": \"Complete\",\n    \"template\": {},\n    \"templateLink\": {\n      \"uri\": \"<string>\",\n      \"contentVersion\": \"<string>\"\n    },\n    \"parameters\": {}\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourcegroups/:resourceGroupName/providers/Microsoft.Resources/deployments/:deploymentName?api-version=2024-03-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourcegroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.Resources",
+                                                "deployments",
+                                                ":deploymentName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) The API version to use for this operation",
+                                                  "key": "api-version",
+                                                  "value": "2024-03-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "deploymentName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"timestamp\": \"<dateTime>\",\n    \"correlationId\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T02:13:40.000Z",
+                                          "updatedAt": "2026-07-28T02:13:40.000Z",
+                                          "uid": "35240-f25ac6a6-c333-4e78-913b-1c0c490159f9"
+                                        },
+                                        {
+                                          "id": "5075699b-c015-4142-9072-0303b9c2ed7e",
+                                          "name": "Deployment created",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "Ocp-Apim-Subscription-Key",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {\n    \"mode\": \"Complete\",\n    \"template\": {},\n    \"templateLink\": {\n      \"uri\": \"<string>\",\n      \"contentVersion\": \"<string>\"\n    },\n    \"parameters\": {}\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourcegroups/:resourceGroupName/providers/Microsoft.Resources/deployments/:deploymentName?api-version=2024-03-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourcegroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.Resources",
+                                                "deployments",
+                                                ":deploymentName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) The API version to use for this operation",
+                                                  "key": "api-version",
+                                                  "value": "2024-03-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "deploymentName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Created",
+                                          "code": 201,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"timestamp\": \"<dateTime>\",\n    \"correlationId\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T02:13:40.000Z",
+                                          "updatedAt": "2026-07-28T02:13:40.000Z",
+                                          "uid": "35240-5075699b-c015-4142-9072-0303b9c2ed7e"
+                                        },
+                                        {
+                                          "id": "8d77d69d-a325-495b-a8d2-c674330af19b",
+                                          "name": "Invalid request",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "Ocp-Apim-Subscription-Key",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {\n    \"mode\": \"Complete\",\n    \"template\": {},\n    \"templateLink\": {\n      \"uri\": \"<string>\",\n      \"contentVersion\": \"<string>\"\n    },\n    \"parameters\": {}\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourcegroups/:resourceGroupName/providers/Microsoft.Resources/deployments/:deploymentName?api-version=2024-03-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourcegroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.Resources",
+                                                "deployments",
+                                                ":deploymentName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) The API version to use for this operation",
+                                                  "key": "api-version",
+                                                  "value": "2024-03-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "deploymentName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Bad Request",
+                                          "code": 400,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T02:13:40.000Z",
+                                          "updatedAt": "2026-07-28T02:13:40.000Z",
+                                          "uid": "35240-8d77d69d-a325-495b-a8d2-c674330af19b"
+                                        },
+                                        {
+                                          "id": "db323df7-1620-4e2d-9b82-3abb8d1ae8fc",
+                                          "name": "Unauthorized",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: apikey",
+                                                "key": "Ocp-Apim-Subscription-Key",
+                                                "value": "<API Key>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"properties\": {\n    \"mode\": \"Complete\",\n    \"template\": {},\n    \"templateLink\": {\n      \"uri\": \"<string>\",\n      \"contentVersion\": \"<string>\"\n    },\n    \"parameters\": {}\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourcegroups/:resourceGroupName/providers/Microsoft.Resources/deployments/:deploymentName?api-version=2024-03-01",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourcegroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.Resources",
+                                                "deployments",
+                                                ":deploymentName"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "(Required) The API version to use for this operation",
+                                                  "key": "api-version",
+                                                  "value": "2024-03-01"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "deploymentName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unauthorized",
+                                          "code": 401,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T02:13:40.000Z",
+                                          "updatedAt": "2026-07-28T02:13:40.000Z",
+                                          "uid": "35240-db323df7-1620-4e2d-9b82-3abb8d1ae8fc"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T02:13:40.000Z",
+                                      "updatedAt": "2026-07-28T02:13:40.000Z",
+                                      "uid": "35240-32042472-5667-49f2-b597-a9a4f06837f7"
+                                    }
+                                  ],
+                                  "id": "0f1bc0b5-b378-48e5-b775-9eebcec05f02",
+                                  "createdAt": "2026-07-28T02:13:39.000Z",
+                                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                                  "uid": "35240-0f1bc0b5-b378-48e5-b775-9eebcec05f02"
+                                }
+                              ],
+                              "id": "5a2bdf7e-ac93-42bb-9bf3-d53f50bea54a",
+                              "createdAt": "2026-07-28T02:13:39.000Z",
+                              "updatedAt": "2026-07-28T02:13:39.000Z",
+                              "uid": "35240-5a2bdf7e-ac93-42bb-9bf3-d53f50bea54a"
+                            }
+                          ],
+                          "id": "0a66c292-81e5-4f4f-95ee-8438b1634736",
+                          "createdAt": "2026-07-28T02:13:39.000Z",
+                          "updatedAt": "2026-07-28T02:13:39.000Z",
+                          "uid": "35240-0a66c292-81e5-4f4f-95ee-8438b1634736"
+                        }
+                      ],
+                      "id": "fb323c13-a247-447e-8fcc-223801ba7b5b",
+                      "createdAt": "2026-07-28T02:13:39.000Z",
+                      "updatedAt": "2026-07-28T02:13:39.000Z",
+                      "uid": "35240-fb323c13-a247-447e-8fcc-223801ba7b5b"
+                    }
+                  ],
+                  "id": "ad3c41b2-863f-4668-9487-02c28ebf8e4f",
+                  "createdAt": "2026-07-28T02:13:39.000Z",
+                  "updatedAt": "2026-07-28T02:13:39.000Z",
+                  "uid": "35240-ad3c41b2-863f-4668-9487-02c28ebf8e4f"
+                }
+              ],
+              "id": "5055b789-17da-4822-8f8f-adea60185d8e",
+              "createdAt": "2026-07-28T02:13:39.000Z",
+              "updatedAt": "2026-07-28T02:13:39.000Z",
+              "uid": "35240-5055b789-17da-4822-8f8f-adea60185d8e"
+            }
+          ],
+          "id": "1da6a721-e54b-4c3e-823b-d7f8e6b49db2",
+          "createdAt": "2026-07-28T02:13:39.000Z",
+          "updatedAt": "2026-07-28T02:13:39.000Z",
+          "uid": "35240-1da6a721-e54b-4c3e-823b-d7f8e6b49db2"
+        }
+      ],
+      "id": "647baec4-2e15-445f-b718-11ae451d7893",
+      "createdAt": "2026-07-28T02:13:39.000Z",
+      "updatedAt": "2026-07-28T02:13:39.000Z",
+      "uid": "35240-647baec4-2e15-445f-b718-11ae451d7893"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

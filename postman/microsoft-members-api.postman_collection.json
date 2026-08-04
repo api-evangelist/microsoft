@@ -1,0 +1,427 @@
+{
+  "info": {
+    "_postman_id": "9ab24969-d861-43d2-b51c-9364e6e8c8ee",
+    "name": "Microsoft Azure Cognitive Services Accounts Members API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:16.000Z",
+    "updatedAt": "2026-07-28T02:14:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9ab24969-d861-43d2-b51c-9364e6e8c8ee"
+  },
+  "item": [
+    {
+      "name": "teams",
+      "item": [
+        {
+          "name": "{teamId}",
+          "item": [
+            {
+              "name": "members",
+              "item": [
+                {
+                  "name": "Microsoft List team members",
+                  "id": "65ad337d-7efb-4efd-84f5-dc09673a5f77",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "id": "616c4392-65b1-441f-996c-f11ca0d49881",
+                          "key": "teamId",
+                          "value": "<string>",
+                          "description": "(Required) Team unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Get the members of a team."
+                  },
+                  "response": [
+                    {
+                      "id": "9c146dc4-e22a-4281-9aee-d3a5213e998d",
+                      "name": "List of team members",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "teamId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userId\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"userId\": \"<string>\",\n      \"email\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:14:16.000Z",
+                      "updatedAt": "2026-07-28T02:14:16.000Z",
+                      "uid": "35240-9c146dc4-e22a-4281-9aee-d3a5213e998d"
+                    },
+                    {
+                      "id": "9b5862ba-3d2d-46d7-b4e4-3ec8b201c7ea",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "teamId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:16.000Z",
+                      "updatedAt": "2026-07-28T02:14:16.000Z",
+                      "uid": "35240-9b5862ba-3d2d-46d7-b4e4-3ec8b201c7ea"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:16.000Z",
+                  "updatedAt": "2026-07-28T02:14:16.000Z",
+                  "uid": "35240-65ad337d-7efb-4efd-84f5-dc09673a5f77"
+                },
+                {
+                  "name": "Microsoft Add a team member",
+                  "id": "cc96c6c2-884f-4b53-bfa7-68fb969daaec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user@odata.bind\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cb73bddc-17b8-4206-a7ff-d766a9bc7daa",
+                          "key": "teamId",
+                          "value": "<string>",
+                          "description": "(Required) Team unique identifier"
+                        }
+                      ]
+                    },
+                    "description": "Add a new member to a team."
+                  },
+                  "response": [
+                    {
+                      "id": "5c075700-5a95-45e6-a161-f113116892d9",
+                      "name": "Member added",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user@odata.bind\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "teamId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userId\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:14:16.000Z",
+                      "updatedAt": "2026-07-28T02:14:16.000Z",
+                      "uid": "35240-5c075700-5a95-45e6-a161-f113116892d9"
+                    },
+                    {
+                      "id": "85db4c15-744d-4651-85f4-8b5f02707c65",
+                      "name": "Invalid request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user@odata.bind\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "teamId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:16.000Z",
+                      "updatedAt": "2026-07-28T02:14:16.000Z",
+                      "uid": "35240-85db4c15-744d-4651-85f4-8b5f02707c65"
+                    },
+                    {
+                      "id": "dad4aa13-07b3-4859-b00c-031aafc5c4c3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user@odata.bind\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/teams/:teamId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "teams",
+                            ":teamId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "teamId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:16.000Z",
+                      "updatedAt": "2026-07-28T02:14:16.000Z",
+                      "uid": "35240-dad4aa13-07b3-4859-b00c-031aafc5c4c3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:16.000Z",
+                  "updatedAt": "2026-07-28T02:14:16.000Z",
+                  "uid": "35240-cc96c6c2-884f-4b53-bfa7-68fb969daaec"
+                }
+              ],
+              "id": "f293ec30-4014-438a-87d6-c14ac26169cd",
+              "createdAt": "2026-07-28T02:14:16.000Z",
+              "updatedAt": "2026-07-28T02:14:16.000Z",
+              "uid": "35240-f293ec30-4014-438a-87d6-c14ac26169cd"
+            }
+          ],
+          "id": "70f5a75a-19dc-44dd-97c2-dab9cbfbb49b",
+          "createdAt": "2026-07-28T02:14:16.000Z",
+          "updatedAt": "2026-07-28T02:14:16.000Z",
+          "uid": "35240-70f5a75a-19dc-44dd-97c2-dab9cbfbb49b"
+        }
+      ],
+      "id": "741e3840-8f5d-4039-a745-4358d388dc6f",
+      "createdAt": "2026-07-28T02:14:16.000Z",
+      "updatedAt": "2026-07-28T02:14:16.000Z",
+      "uid": "35240-741e3840-8f5d-4039-a745-4358d388dc6f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

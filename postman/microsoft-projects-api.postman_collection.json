@@ -1,0 +1,671 @@
+{
+  "info": {
+    "_postman_id": "a0d813ac-c2c1-4325-85ff-6dd31c92edcd",
+    "name": "Microsoft Azure Cognitive Services Accounts Projects API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:33.000Z",
+    "updatedAt": "2026-07-28T02:14:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a0d813ac-c2c1-4325-85ff-6dd31c92edcd"
+  },
+  "item": [
+    {
+      "name": "_apis",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectId}",
+              "item": [
+                {
+                  "name": "Microsoft Get a project",
+                  "id": "164d7aaf-f878-4655-958b-b8d270801a32",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/_apis/projects/:projectId?api-version=7.2-preview.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_apis",
+                        "projects",
+                        ":projectId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a5a61d25-a1b0-4786-9d1f-000c65227a83",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) Project ID or name"
+                        }
+                      ]
+                    },
+                    "description": "Get project with the specified id or name."
+                  },
+                  "response": [
+                    {
+                      "id": "9e0e8875-bd2e-47ac-b39f-992c45f457c7",
+                      "name": "Project details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/_apis/projects/:projectId?api-version=7.2-preview.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_apis",
+                            "projects",
+                            ":projectId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Version of the API to use",
+                              "key": "api-version",
+                              "value": "7.2-preview.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"url\": \"<string>\",\n  \"state\": \"unchanged\",\n  \"visibility\": \"public\",\n  \"lastUpdateTime\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:14:33.000Z",
+                      "updatedAt": "2026-07-28T02:14:33.000Z",
+                      "uid": "35240-9e0e8875-bd2e-47ac-b39f-992c45f457c7"
+                    },
+                    {
+                      "id": "73d2ce15-b7d0-43e9-9d69-b8358f43607e",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/_apis/projects/:projectId?api-version=7.2-preview.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_apis",
+                            "projects",
+                            ":projectId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Version of the API to use",
+                              "key": "api-version",
+                              "value": "7.2-preview.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:33.000Z",
+                      "updatedAt": "2026-07-28T02:14:33.000Z",
+                      "uid": "35240-73d2ce15-b7d0-43e9-9d69-b8358f43607e"
+                    },
+                    {
+                      "id": "57affdec-1db1-4d38-b7a2-d41e7d40b82a",
+                      "name": "Project not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/_apis/projects/:projectId?api-version=7.2-preview.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "_apis",
+                            "projects",
+                            ":projectId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Version of the API to use",
+                              "key": "api-version",
+                              "value": "7.2-preview.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:33.000Z",
+                      "updatedAt": "2026-07-28T02:14:33.000Z",
+                      "uid": "35240-57affdec-1db1-4d38-b7a2-d41e7d40b82a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:33.000Z",
+                  "updatedAt": "2026-07-28T02:14:33.000Z",
+                  "uid": "35240-164d7aaf-f878-4655-958b-b8d270801a32"
+                }
+              ],
+              "id": "c54bec45-be20-4fcf-b5c4-70c7d060c677",
+              "createdAt": "2026-07-28T02:14:33.000Z",
+              "updatedAt": "2026-07-28T02:14:33.000Z",
+              "uid": "35240-c54bec45-be20-4fcf-b5c4-70c7d060c677"
+            },
+            {
+              "name": "Microsoft List projects",
+              "id": "a44d519b-3baa-48d7-87bc-b677894fbbca",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4&$top=<integer>&$skip=<integer>&stateFilter=wellFormed",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "_apis",
+                    "projects"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Version of the API to use",
+                      "key": "api-version",
+                      "value": "7.2-preview.4"
+                    },
+                    {
+                      "description": "Maximum number of projects to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of projects to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter on team project state",
+                      "key": "stateFilter",
+                      "value": "wellFormed"
+                    }
+                  ]
+                },
+                "description": "Get all projects in the organization."
+              },
+              "response": [
+                {
+                  "id": "8f493a6b-d127-4287-b3d7-f3837814ce32",
+                  "name": "List of projects",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4&$top=<integer>&$skip=<integer>&stateFilter=wellFormed",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_apis",
+                        "projects"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        },
+                        {
+                          "description": "Maximum number of projects to return",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of projects to skip",
+                          "key": "$skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter on team project state",
+                          "key": "stateFilter",
+                          "value": "wellFormed"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"value\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"url\": \"<string>\",\n      \"state\": \"wellFormed\",\n      \"visibility\": \"public\",\n      \"lastUpdateTime\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"url\": \"<string>\",\n      \"state\": \"createPending\",\n      \"visibility\": \"private\",\n      \"lastUpdateTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:14:33.000Z",
+                  "updatedAt": "2026-07-28T02:14:33.000Z",
+                  "uid": "35240-8f493a6b-d127-4287-b3d7-f3837814ce32"
+                },
+                {
+                  "id": "fc74feb9-04a1-4bac-a155-f1f7d6138941",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4&$top=<integer>&$skip=<integer>&stateFilter=wellFormed",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_apis",
+                        "projects"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        },
+                        {
+                          "description": "Maximum number of projects to return",
+                          "key": "$top",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of projects to skip",
+                          "key": "$skip",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter on team project state",
+                          "key": "stateFilter",
+                          "value": "wellFormed"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:33.000Z",
+                  "updatedAt": "2026-07-28T02:14:33.000Z",
+                  "uid": "35240-fc74feb9-04a1-4bac-a155-f1f7d6138941"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:33.000Z",
+              "updatedAt": "2026-07-28T02:14:33.000Z",
+              "uid": "35240-a44d519b-3baa-48d7-87bc-b677894fbbca"
+            },
+            {
+              "name": "Microsoft Create a project",
+              "id": "b8966ed0-85a1-4b7e-bc04-dfc7e2878540",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\",\n  \"capabilities\": {\n    \"versioncontrol\": {\n      \"sourceControlType\": \"Git\"\n    },\n    \"processTemplate\": {\n      \"templateTypeId\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "_apis",
+                    "projects"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Version of the API to use",
+                      "key": "api-version",
+                      "value": "7.2-preview.4"
+                    }
+                  ]
+                },
+                "description": "Queue a project creation operation."
+              },
+              "response": [
+                {
+                  "id": "529f0347-51f6-4c6e-a15a-bb257ecad367",
+                  "name": "Project creation queued",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\",\n  \"capabilities\": {\n    \"versioncontrol\": {\n      \"sourceControlType\": \"Git\"\n    },\n    \"processTemplate\": {\n      \"templateTypeId\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_apis",
+                        "projects"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:14:33.000Z",
+                  "updatedAt": "2026-07-28T02:14:33.000Z",
+                  "uid": "35240-529f0347-51f6-4c6e-a15a-bb257ecad367"
+                },
+                {
+                  "id": "f7d5a44d-e5c4-4520-885b-147e4a30182b",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\",\n  \"capabilities\": {\n    \"versioncontrol\": {\n      \"sourceControlType\": \"Git\"\n    },\n    \"processTemplate\": {\n      \"templateTypeId\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_apis",
+                        "projects"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:33.000Z",
+                  "updatedAt": "2026-07-28T02:14:33.000Z",
+                  "uid": "35240-f7d5a44d-e5c4-4520-885b-147e4a30182b"
+                },
+                {
+                  "id": "b093da4e-748c-4c1b-8854-081713cab8d7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"visibility\": \"private\",\n  \"capabilities\": {\n    \"versioncontrol\": {\n      \"sourceControlType\": \"Git\"\n    },\n    \"processTemplate\": {\n      \"templateTypeId\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/_apis/projects?api-version=7.2-preview.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "_apis",
+                        "projects"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:33.000Z",
+                  "updatedAt": "2026-07-28T02:14:33.000Z",
+                  "uid": "35240-b093da4e-748c-4c1b-8854-081713cab8d7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:33.000Z",
+              "updatedAt": "2026-07-28T02:14:33.000Z",
+              "uid": "35240-b8966ed0-85a1-4b7e-bc04-dfc7e2878540"
+            }
+          ],
+          "id": "4bb87d42-8c8b-41e4-b0eb-5429e74492e6",
+          "createdAt": "2026-07-28T02:14:33.000Z",
+          "updatedAt": "2026-07-28T02:14:33.000Z",
+          "uid": "35240-4bb87d42-8c8b-41e4-b0eb-5429e74492e6"
+        }
+      ],
+      "id": "b93cc1e6-e178-4088-ac03-ecb2fd0669ca",
+      "createdAt": "2026-07-28T02:14:33.000Z",
+      "updatedAt": "2026-07-28T02:14:33.000Z",
+      "uid": "35240-b93cc1e6-e178-4088-ac03-ecb2fd0669ca"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "info": {
+    "_postman_id": "28463f3e-b606-483f-9f00-ec2fee22fc58",
+    "name": "Microsoft Azure Cognitive Services Accounts Video Search API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:50.000Z",
+    "updatedAt": "2026-07-28T02:14:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-28463f3e-b606-483f-9f00-ec2fee22fc58"
+  },
+  "item": [
+    {
+      "name": "videos",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Microsoft Video search",
+              "id": "66269594-008d-4d30-b86c-229dd4eb750a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/videos/search?q=<string>&count=35&offset=0&mkt=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "videos",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query string",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "35"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns videos relevant to the given search query."
+              },
+              "response": [
+                {
+                  "id": "f1552522-bd1b-48c0-9d0d-bb67aa332233",
+                  "name": "Video search results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/videos/search?q=<string>&count=35&offset=0&mkt=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "videos",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query string",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "count",
+                          "value": "35"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "mkt",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"_type\": \"<string>\",\n  \"totalEstimatedMatches\": \"<integer>\",\n  \"value\": [\n    {\n      \"name\": \"<string>\",\n      \"contentUrl\": \"<string>\",\n      \"thumbnailUrl\": \"<string>\",\n      \"hostPageUrl\": \"<string>\",\n      \"duration\": \"<string>\",\n      \"datePublished\": \"<dateTime>\",\n      \"publisher\": [\n        {\n          \"name\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\"\n        }\n      ],\n      \"viewCount\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"contentUrl\": \"<string>\",\n      \"thumbnailUrl\": \"<string>\",\n      \"hostPageUrl\": \"<string>\",\n      \"duration\": \"<string>\",\n      \"datePublished\": \"<dateTime>\",\n      \"publisher\": [\n        {\n          \"name\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\"\n        }\n      ],\n      \"viewCount\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:14:50.000Z",
+                  "updatedAt": "2026-07-28T02:14:50.000Z",
+                  "uid": "35240-f1552522-bd1b-48c0-9d0d-bb67aa332233"
+                },
+                {
+                  "id": "fe4e5bb8-8cc6-425a-8351-8ebc684f5492",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Ocp-Apim-Subscription-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/videos/search?q=<string>&count=35&offset=0&mkt=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "videos",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query string",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "count",
+                          "value": "35"
+                        },
+                        {
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "key": "mkt",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:14:50.000Z",
+                  "updatedAt": "2026-07-28T02:14:50.000Z",
+                  "uid": "35240-fe4e5bb8-8cc6-425a-8351-8ebc684f5492"
+                }
+              ],
+              "createdAt": "2026-07-28T02:14:50.000Z",
+              "updatedAt": "2026-07-28T02:14:50.000Z",
+              "uid": "35240-66269594-008d-4d30-b86c-229dd4eb750a"
+            }
+          ],
+          "id": "774337c3-36c4-4e28-93d7-b87d27ed254e",
+          "createdAt": "2026-07-28T02:14:50.000Z",
+          "updatedAt": "2026-07-28T02:14:50.000Z",
+          "uid": "35240-774337c3-36c4-4e28-93d7-b87d27ed254e"
+        }
+      ],
+      "id": "6b491f87-937b-47d6-9ca5-0a3721b70547",
+      "createdAt": "2026-07-28T02:14:50.000Z",
+      "updatedAt": "2026-07-28T02:14:50.000Z",
+      "uid": "35240-6b491f87-937b-47d6-9ca5-0a3721b70547"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}

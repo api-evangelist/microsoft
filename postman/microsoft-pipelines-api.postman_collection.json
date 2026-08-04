@@ -1,0 +1,463 @@
+{
+  "info": {
+    "_postman_id": "6fd2a72d-08e9-4eab-8b89-5c6025e6141c",
+    "name": "Microsoft Azure Cognitive Services Accounts Pipelines API",
+    "description": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:14:32.000Z",
+    "updatedAt": "2026-07-28T02:14:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6fd2a72d-08e9-4eab-8b89-5c6025e6141c"
+  },
+  "item": [
+    {
+      "name": "{project}",
+      "item": [
+        {
+          "name": "_apis",
+          "item": [
+            {
+              "name": "pipelines",
+              "item": [
+                {
+                  "name": "{pipelineId}",
+                  "item": [
+                    {
+                      "name": "runs",
+                      "item": [
+                        {
+                          "name": "Microsoft Run a pipeline",
+                          "id": "1746ff1b-0f7e-453b-8a43-d9c70cd1d5eb",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"resources\": {\n    \"repositories\": {\n      \"self\": {\n        \"refName\": \"<string>\"\n      }\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/:project/_apis/pipelines/:pipelineId/runs?api-version=7.2-preview.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":project",
+                                "_apis",
+                                "pipelines",
+                                ":pipelineId",
+                                "runs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Version of the API to use",
+                                  "key": "api-version",
+                                  "value": "7.2-preview.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0adc8366-0bb6-4534-ab0d-e9381b096069",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) Project ID or name"
+                                },
+                                {
+                                  "id": "d1a6b83c-1c11-4933-b6ea-e17fc2e2b7ca",
+                                  "key": "pipelineId",
+                                  "value": "<integer>",
+                                  "description": "(Required) Pipeline ID"
+                                }
+                              ]
+                            },
+                            "description": "Runs a pipeline."
+                          },
+                          "response": [
+                            {
+                              "id": "f4c1009c-e739-4062-aa01-90368c8077d6",
+                              "name": "Pipeline run started",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"resources\": {\n    \"repositories\": {\n      \"self\": {\n        \"refName\": \"<string>\"\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/pipelines/:pipelineId/runs?api-version=7.2-preview.4",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "pipelines",
+                                    ":pipelineId",
+                                    "runs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "pipelineId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"state\": \"canceling\",\n  \"result\": \"canceled\",\n  \"createdDate\": \"<dateTime>\",\n  \"finishedDate\": \"<dateTime>\",\n  \"url\": \"<string>\",\n  \"pipeline\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"folder\": \"<string>\",\n    \"revision\": \"<integer>\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:14:32.000Z",
+                              "updatedAt": "2026-07-28T02:14:32.000Z",
+                              "uid": "35240-f4c1009c-e739-4062-aa01-90368c8077d6"
+                            },
+                            {
+                              "id": "1811e4c3-b578-4a9f-aea8-6c3bb863dd5a",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"resources\": {\n    \"repositories\": {\n      \"self\": {\n        \"refName\": \"<string>\"\n      }\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:project/_apis/pipelines/:pipelineId/runs?api-version=7.2-preview.4",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":project",
+                                    "_apis",
+                                    "pipelines",
+                                    ":pipelineId",
+                                    "runs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) Version of the API to use",
+                                      "key": "api-version",
+                                      "value": "7.2-preview.4"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "pipelineId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:14:32.000Z",
+                              "updatedAt": "2026-07-28T02:14:32.000Z",
+                              "uid": "35240-1811e4c3-b578-4a9f-aea8-6c3bb863dd5a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:14:32.000Z",
+                          "updatedAt": "2026-07-28T02:14:32.000Z",
+                          "uid": "35240-1746ff1b-0f7e-453b-8a43-d9c70cd1d5eb"
+                        }
+                      ],
+                      "id": "f5dc98a3-1848-45c3-af26-c752e2ba981c",
+                      "createdAt": "2026-07-28T02:14:32.000Z",
+                      "updatedAt": "2026-07-28T02:14:32.000Z",
+                      "uid": "35240-f5dc98a3-1848-45c3-af26-c752e2ba981c"
+                    }
+                  ],
+                  "id": "89d84fcd-065b-4c3c-ab9d-b365369cc7c8",
+                  "createdAt": "2026-07-28T02:14:32.000Z",
+                  "updatedAt": "2026-07-28T02:14:32.000Z",
+                  "uid": "35240-89d84fcd-065b-4c3c-ab9d-b365369cc7c8"
+                },
+                {
+                  "name": "Microsoft List pipelines",
+                  "id": "0bc152ab-a2d9-42a4-8f30-eae05e44e706",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:project/_apis/pipelines?api-version=7.2-preview.4&$top=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":project",
+                        "_apis",
+                        "pipelines"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Version of the API to use",
+                          "key": "api-version",
+                          "value": "7.2-preview.4"
+                        },
+                        {
+                          "key": "$top",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7c781d90-e212-4590-bcc7-8133173fa4f6",
+                          "key": "project",
+                          "value": "<string>",
+                          "description": "(Required) Project ID or name"
+                        }
+                      ]
+                    },
+                    "description": "Get a list of pipelines for a project."
+                  },
+                  "response": [
+                    {
+                      "id": "1d2cffbf-05e1-4c2f-b3dd-3bc987ff7470",
+                      "name": "List of pipelines",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:project/_apis/pipelines?api-version=7.2-preview.4&$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":project",
+                            "_apis",
+                            "pipelines"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Version of the API to use",
+                              "key": "api-version",
+                              "value": "7.2-preview.4"
+                            },
+                            {
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "project"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"count\": \"<integer>\",\n  \"value\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"folder\": \"<string>\",\n      \"revision\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"folder\": \"<string>\",\n      \"revision\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:14:32.000Z",
+                      "updatedAt": "2026-07-28T02:14:32.000Z",
+                      "uid": "35240-1d2cffbf-05e1-4c2f-b3dd-3bc987ff7470"
+                    },
+                    {
+                      "id": "00fa7c02-4e74-408e-b1f1-6ee0dc1e3509",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Ocp-Apim-Subscription-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:project/_apis/pipelines?api-version=7.2-preview.4&$top=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":project",
+                            "_apis",
+                            "pipelines"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Version of the API to use",
+                              "key": "api-version",
+                              "value": "7.2-preview.4"
+                            },
+                            {
+                              "key": "$top",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "project"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:14:32.000Z",
+                      "updatedAt": "2026-07-28T02:14:32.000Z",
+                      "uid": "35240-00fa7c02-4e74-408e-b1f1-6ee0dc1e3509"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:14:32.000Z",
+                  "updatedAt": "2026-07-28T02:14:32.000Z",
+                  "uid": "35240-0bc152ab-a2d9-42a4-8f30-eae05e44e706"
+                }
+              ],
+              "id": "e1edde2b-2cab-49c9-a51b-8f0ad96c3469",
+              "createdAt": "2026-07-28T02:14:32.000Z",
+              "updatedAt": "2026-07-28T02:14:32.000Z",
+              "uid": "35240-e1edde2b-2cab-49c9-a51b-8f0ad96c3469"
+            }
+          ],
+          "id": "a76a229f-517c-4488-9172-98067a9f0e66",
+          "createdAt": "2026-07-28T02:14:32.000Z",
+          "updatedAt": "2026-07-28T02:14:32.000Z",
+          "uid": "35240-a76a229f-517c-4488-9172-98067a9f0e66"
+        }
+      ],
+      "id": "b4ded94d-2cf9-4505-87bd-126cd95ef1c2",
+      "createdAt": "2026-07-28T02:14:32.000Z",
+      "updatedAt": "2026-07-28T02:14:32.000Z",
+      "uid": "35240-b4ded94d-2cf9-4505-87bd-126cd95ef1c2"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eastus"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{region}}.api.cognitive.microsoft.com"
+    }
+  ]
+}
