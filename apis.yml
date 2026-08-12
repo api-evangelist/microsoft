@@ -9370,6 +9370,46 @@ apis:
     url: https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk-get-started
   - type: JSONSchema
     url: json-schema/microsoft-managed-device-schema.json
+- aid: microsoft:microsoft-marketing-api
+  name: Microsoft Marketing API
+  description: LinkedIn Marketing APIs
+  humanURL: https://developer.microsoft.com/en-us/graph
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Marketing
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-marketing-api-openapi.yml
+- aid: microsoft:microsoft-organizations-api
+  name: Microsoft Organizations API
+  description: Manage organization pages
+  humanURL: https://developer.microsoft.com/en-us/graph
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-organizations-api-openapi.yml
+- aid: microsoft:microsoft-posts-api
+  name: Microsoft Posts API
+  description: Create and manage posts
+  humanURL: https://developer.microsoft.com/en-us/graph
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Posts
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-posts-api-openapi.yml
+- aid: microsoft:microsoft-profile-api
+  name: Microsoft Profile API
+  description: Access member profile information
+  humanURL: https://developer.microsoft.com/en-us/graph
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-profile-api-openapi.yml
 integrations:
 - name: Microsoft
 - name: Two people looking at a computer.
