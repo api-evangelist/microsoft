@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Chat API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Chat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List chat threads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/chat/threads",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              },
+              {
+                "name": "maxPageSize",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of threads per page"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time for the range query"
+              }
+            ]
+          },
+          "docs": "List all chat threads for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a chat thread",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/chat/threads",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new chat thread."
+        },
+        {
+          "info": {
+            "name": "Microsoft List chat messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/chat/threads/:chatThreadId/messages",
+            "params": [
+              {
+                "name": "chatThreadId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              },
+              {
+                "name": "maxPageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List messages in a chat thread."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send a chat message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/chat/threads/:chatThreadId/messages",
+            "params": [
+              {
+                "name": "chatThreadId",
+                "value": "",
+                "type": "path",
+                "description": "Chat thread ID"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a message to a chat thread."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1501 @@
+{
+  "item": [
+    {
+      "id": "116822f9-06fd-4267-a2d5-d43f3d9b1054",
+      "name": "Applications",
+      "description": {
+        "content": "Manage application registrations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3935d7aa-205d-4a50-8223-105e1c0b467d",
+          "name": "Microsoft List applications",
+          "request": {
+            "name": "Microsoft List applications",
+            "description": {
+              "content": "Get the list of applications in the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Properties to include"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of items"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58e8620d-1a78-405b-83f6-0dda6e573f2d",
+              "name": "List of applications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"signInAudience\": \"AzureADMultipleOrgs\",\n      \"web\": {\n        \"redirectUris\": [\n          \"string\",\n          \"string\"\n        ],\n        \"homePageUrl\": \"string\"\n      },\n      \"api\": {\n        \"oauth2PermissionScopes\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          }\n        ]\n      },\n      \"requiredResourceAccess\": [\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            }\n          ]\n        },\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            }\n          ]\n        }\n      ],\n      \"createdDateTime\": \"2022-04-02T14:51:55.511Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"appId\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"signInAudience\": \"PersonalMicrosoftAccount\",\n      \"web\": {\n        \"redirectUris\": [\n          \"string\",\n          \"string\"\n        ],\n        \"homePageUrl\": \"string\"\n      },\n      \"api\": {\n        \"oauth2PermissionScopes\": [\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"value\": \"string\",\n            \"type\": \"string\",\n            \"adminConsentDisplayName\": \"string\",\n            \"userConsentDisplayName\": \"string\"\n          }\n        ]\n      },\n      \"requiredResourceAccess\": [\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            }\n          ]\n        },\n        {\n          \"resourceAppId\": \"string\",\n          \"resourceAccess\": [\n            {\n              \"id\": \"string\",\n              \"type\": \"Scope\"\n            },\n            {\n              \"id\": \"string\",\n              \"type\": \"Role\"\n            }\n          ]\n        }\n      ],\n      \"createdDateTime\": \"1948-10-26T23:19:41.437Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e8e9b7a-5f82-4288-827f-1241bb122fae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0186101-2deb-4049-8b13-783b9a49d8ca",
+          "name": "Microsoft Create an application",
+          "request": {
+            "name": "Microsoft Create an application",
+            "description": {
+              "content": "Create a new application registration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "86c938c6-b52d-49cc-9d1d-6e7740ddfabd",
+              "name": "Application created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"appId\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"homePageUrl\": \"string\"\n  },\n  \"api\": {\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"1977-03-13T02:45:09.822Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63b9a980-6dfa-4a08-a304-b4a38f402a3a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c8e7750-50b5-4db7-8552-224b39b4854e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2d4de4d-08ed-4940-a718-3ad3a2512b03",
+          "name": "Microsoft Get an application",
+          "request": {
+            "name": "Microsoft Get an application",
+            "description": {
+              "content": "Get the properties of an application object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Properties to include"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationId",
+                  "description": "(Required) Application object ID"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b326086f-ba00-4fb2-845c-ed6daf3642a2",
+              "name": "Application details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) Application object ID"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"appId\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"web\": {\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"homePageUrl\": \"string\"\n  },\n  \"api\": {\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"userConsentDisplayName\": \"string\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"1977-03-13T02:45:09.822Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e27e0ff6-6142-40ef-b776-d18374fd08a0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) Application object ID"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "236e7aa9-8ea2-4b2d-b678-4539b17141ea",
+              "name": "Application not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) Application object ID"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5183375c-3fa0-4631-91ac-1e0334ab9087",
+          "name": "Microsoft Update an application",
+          "request": {
+            "name": "Microsoft Update an application",
+            "description": {
+              "content": "Update the properties of an application object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b29c3ed-3072-403e-863b-9baf83b15f57",
+              "name": "Application updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f094388-c4c4-4684-b35f-adf168a0168a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89e2f26e-5b0e-4b86-927b-19ff3a8cea83",
+          "name": "Microsoft Delete an application",
+          "request": {
+            "name": "Microsoft Delete an application",
+            "description": {
+              "content": "Delete an application registration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":applicationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0177a984-e9a0-432f-beb6-54ccc8c5a158",
+              "name": "Application deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad903690-dff3-4e7a-a784-63a507f27e93",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4961a8df-66a0-49c9-871d-19719d284e47",
+          "name": "Microsoft Get application",
+          "request": {
+            "name": "Microsoft Get application",
+            "description": {
+              "content": "Get the properties and relationships of an application object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":application-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-id",
+                  "description": "(Required) Unique identifier of the application"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49c8fa81-210f-4547-a2bb-ce7a472b32f3",
+              "name": "Application object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-id",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"appId\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"signInAudience\": \"AzureADMyOrg\",\n  \"identifierUris\": [\n    \"string\",\n    \"string\"\n  ],\n  \"web\": {\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"homePageUrl\": \"https://gPgSeEGIfHOI.myorwAe5JWmi-\"\n  },\n  \"api\": {\n    \"requestedAccessTokenVersion\": 9496,\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"adminConsentDescription\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"value\": \"string\",\n        \"type\": \"string\",\n        \"adminConsentDisplayName\": \"string\",\n        \"adminConsentDescription\": \"string\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"string\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"Scope\"\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"Role\"\n        }\n      ]\n    }\n  ],\n  \"createdDateTime\": \"2020-08-30T12:25:01.539Z\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02c9d4ad-0456-463e-9c10-12b8b16d1fe2",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-id",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1982-12-08T14:23:46.476Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56c99ec7-eb88-49a4-b132-7cb41ba0ce0c",
+          "name": "Microsoft Update application",
+          "request": {
+            "name": "Microsoft Update application",
+            "description": {
+              "content": "Update the properties of an application object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":application-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-id",
+                  "description": "(Required) Unique identifier of the application"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"identifierUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<uri>\"\n  },\n  \"api\": {\n    \"requestedAccessTokenVersion\": \"<integer>\",\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4093e838-29af-496b-a997-416d737598aa",
+              "name": "Application updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-id",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"signInAudience\": \"<string>\",\n  \"identifierUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"web\": {\n    \"redirectUris\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"homePageUrl\": \"<uri>\"\n  },\n  \"api\": {\n    \"requestedAccessTokenVersion\": \"<integer>\",\n    \"oauth2PermissionScopes\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"adminConsentDisplayName\": \"<string>\",\n        \"adminConsentDescription\": \"<string>\"\n      }\n    ]\n  },\n  \"requiredResourceAccess\": [\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"resourceAppId\": \"<string>\",\n      \"resourceAccess\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5642afa-446c-4a96-9873-000b4db1d253",
+          "name": "Microsoft Delete application",
+          "request": {
+            "name": "Microsoft Delete application",
+            "description": {
+              "content": "Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "applications",
+                ":application-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "application-id",
+                  "description": "(Required) Unique identifier of the application"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7ffde20-e071-4005-b79f-6dadda134981",
+              "name": "Application deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-id",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4e01091-9d1f-4878-816c-f4abd58c95a9",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "applications",
+                    ":application-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "application-id",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1982-12-08T14:23:46.476Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9a5a3aa8-c344-4113-9598-0449b3549581",
+    "name": "Microsoft Azure Cognitive Services Accounts Applications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "2495b20c-ea6d-4192-9cae-a74f36c314d2",
+      "name": "Web Search",
+      "description": {
+        "content": "Search the web for relevant results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a24210b-b57d-47c2-9ab4-4d6cd0d41667",
+          "name": "Microsoft Web search",
+          "request": {
+            "name": "Microsoft Web search",
+            "description": {
+              "content": "Returns relevant web pages, images, videos, news, and more for a given search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) The search query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10",
+                  "description": "Number of results to return (1-50)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Zero-based offset for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "mkt",
+                  "value": "<string>",
+                  "description": "Market code (e.g., en-US)"
+                },
+                {
+                  "disabled": false,
+                  "key": "safeSearch",
+                  "value": "Moderate",
+                  "description": "Filter adult content"
+                },
+                {
+                  "disabled": false,
+                  "key": "responseFilter",
+                  "value": "<string>",
+                  "description": "Comma-delimited list of answer types to include"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b91ceae9-cff6-47c8-a370-d22edcc2a033",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "safeSearch",
+                      "value": "Moderate"
+                    },
+                    {
+                      "key": "responseFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_type\": \"string\",\n  \"queryContext\": {\n    \"originalQuery\": \"string\"\n  },\n  \"webPages\": {\n    \"totalEstimatedMatches\": 9253,\n    \"value\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"string\",\n        \"snippet\": \"string\",\n        \"dateLastCrawled\": \"1992-06-11T00:14:58.254Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"string\",\n        \"snippet\": \"string\",\n        \"dateLastCrawled\": \"1981-12-15T22:31:17.023Z\"\n      }\n    ]\n  },\n  \"rankingResponse\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0a05c41-bf04-4131-8a31-fcb27bd14fa0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "safeSearch",
+                      "value": "Moderate"
+                    },
+                    {
+                      "key": "responseFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ce57c27-299f-4897-8887-ca5076838254",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "safeSearch",
+                      "value": "Moderate"
+                    },
+                    {
+                      "key": "responseFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f476ebd4-8810-4340-897a-f6190a799989",
+    "name": "Microsoft Azure Cognitive Services Accounts Web Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

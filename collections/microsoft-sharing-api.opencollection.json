@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Sharing API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sharing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Create a sharing link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId/createLink",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new sharing link for a DriveItem."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

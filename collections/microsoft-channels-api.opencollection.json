@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Channels API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/teams/:teamId/channels",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Retrieve the list of channels in a team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/teams/:teamId/channels",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new channel in a team."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/teams/:teamId/channels/:channelId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "path",
+                "description": "Channel unique identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties of a channel."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/teams/:teamId/channels/:channelId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Team unique identifier"
+              },
+              {
+                "name": "channelId",
+                "value": "",
+                "type": "path",
+                "description": "Channel unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a channel in a team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

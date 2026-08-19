@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Managed Devices API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Managed Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List managed devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/deviceManagement/managedDevices",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List properties and relationships of managed device objects."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a managed device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/deviceManagement/managedDevices/:managedDeviceId",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "Managed device unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Read properties of a managed device object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Wipe a managed device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/deviceManagement/managedDevices/:managedDeviceId/wipe",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Wipe a device, removing all data and resetting to factory defaults."
+        },
+        {
+          "info": {
+            "name": "Microsoft Retire a managed device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/deviceManagement/managedDevices/:managedDeviceId/retire",
+            "params": [
+              {
+                "name": "managedDeviceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retire a device, removing managed data while keeping personal data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

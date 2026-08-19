@@ -1,0 +1,105 @@
+openapi: 3.2.0
+info:
+  title: LinkedIn Profile API
+  description: APIs for LinkedIn integrations covering member profile, posts, shares, organizations, and marketing solutions.
+  version: '2.0'
+  contact:
+    name: LinkedIn Developer Support
+    url: https://developer.linkedin.com/
+  termsOfService: https://www.linkedin.com/legal/l/api-terms-of-use
+servers:
+- url: https://api.linkedin.com/v2
+  description: LinkedIn REST API v2
+security:
+- oauth2: []
+tags:
+- name: Profile
+  description: Access member profile information
+paths:
+  /me:
+    get:
+      operationId: getCurrentMember
+      summary: Get current member profile
+      description: Returns the profile of the authenticated member.
+      tags:
+      - Profile
+      parameters:
+      - name: projection
+        in: query
+        description: Fields to return
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Member profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberProfile'
+        '401':
+          description: Unauthorized
+  /people/(id:{personId}):
+    get:
+      operationId: getMemberById
+      summary: Get member by ID
+      description: Returns the profile of a member by their person ID.
+      tags:
+      - Profile
+      parameters:
+      - name: personId
+        in: path
+        required: true
+        description: Member person ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Member profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberProfile'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Member not found
+components:
+  schemas:
+    MemberProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        localizedFirstName:
+          type: string
+        localizedLastName:
+          type: string
+        localizedHeadline:
+          type: string
+        vanityName:
+          type: string
+        profilePicture:
+          type: object
+          properties:
+            displayImage:
+              type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: LinkedIn OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.linkedin.com/oauth/v2/authorization
+          tokenUrl: https://www.linkedin.com/oauth/v2/accessToken
+          scopes:
+            openid: OpenID Connect
+            profile: Read member profile
+            email: Read member email
+            w_member_social: Post, comment, and like on behalf of member
+            r_organization_social: Read organization posts
+            w_organization_social: Write organization posts
+            r_ads: Read advertising data
+            rw_ads: Read and write advertising data
+externalDocs:
+  description: LinkedIn API Documentation
+  url: https://learn.microsoft.com/en-us/linkedin/

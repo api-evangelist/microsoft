@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Lists API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List all lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists"
+          },
+          "docs": "Get all lists in the current SharePoint site."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get list by title",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists/getbytitle(':listTitle')",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path",
+                "description": "Title of the list"
+              }
+            ]
+          },
+          "docs": "Get a SharePoint list by its title."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

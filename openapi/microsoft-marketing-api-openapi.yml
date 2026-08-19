@@ -1,0 +1,100 @@
+openapi: 3.2.0
+info:
+  title: LinkedIn Marketing API
+  description: APIs for LinkedIn integrations covering member profile, posts, shares, organizations, and marketing solutions.
+  version: '2.0'
+  contact:
+    name: LinkedIn Developer Support
+    url: https://developer.linkedin.com/
+  termsOfService: https://www.linkedin.com/legal/l/api-terms-of-use
+servers:
+- url: https://api.linkedin.com/v2
+  description: LinkedIn REST API v2
+security:
+- oauth2: []
+tags:
+- name: Marketing
+  description: LinkedIn Marketing APIs
+paths:
+  /adAccounts:
+    get:
+      operationId: listAdAccounts
+      summary: List ad accounts
+      description: List the LinkedIn Ad Accounts associated with the authenticated user.
+      tags:
+      - Marketing
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+          default: search
+      - name: 'search.status.values[0]:'
+        in: query
+        schema:
+          type: string
+          default: ACTIVE
+      responses:
+        '200':
+          description: List of ad accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AdAccount'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    AdAccount:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - CANCELED
+          - DRAFT
+          - REMOVED
+        type:
+          type: string
+          enum:
+          - BUSINESS
+          - ENTERPRISE
+        currency:
+          type: string
+        reference:
+          type: string
+        servingStatuses:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: LinkedIn OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.linkedin.com/oauth/v2/authorization
+          tokenUrl: https://www.linkedin.com/oauth/v2/accessToken
+          scopes:
+            openid: OpenID Connect
+            profile: Read member profile
+            email: Read member email
+            w_member_social: Post, comment, and like on behalf of member
+            r_organization_social: Read organization posts
+            w_organization_social: Write organization posts
+            r_ads: Read advertising data
+            rw_ads: Read and write advertising data
+externalDocs:
+  description: LinkedIn API Documentation
+  url: https://learn.microsoft.com/en-us/linkedin/

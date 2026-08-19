@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Groups API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -210,7 +210,98 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    groupId:
+      name: group-id
+      in: path
+      required: true
+      description: Unique identifier of the group
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      required: false
+      description: Include count of items in the response
+      schema:
+        type: boolean
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+  responses:
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   schemas:
+    DirectoryObject:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+          description: OData type annotation
+        id:
+          type: string
+          description: Unique identifier (GUID)
+        deletedDateTime:
+          type: string
+          format: date-time
+          description: Date and time when object was deleted
     Group:
       type: object
       properties:
@@ -371,97 +462,6 @@ components:
           items:
             type: string
           description: URLs of owners to add
-    DirectoryObject:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
-          description: OData type annotation
-        id:
-          type: string
-          description: Unique identifier (GUID)
-        deletedDateTime:
-          type: string
-          format: date-time
-          description: Date and time when object was deleted
-  parameters:
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    groupId:
-      name: group-id
-      in: path
-      required: true
-      description: Unique identifier of the group
-      schema:
-        type: string
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    count:
-      name: $count
-      in: query
-      required: false
-      description: Include count of items in the response
-      schema:
-        type: boolean
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    search:
-      name: $search
-      in: query
-      required: false
-      description: Search expression to filter results
-      schema:
-        type: string
-  responses:
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
   securitySchemes:
     apiKey:
       type: apiKey

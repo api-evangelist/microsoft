@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Entities API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -163,22 +163,10 @@ paths:
           description: Unauthorized
 components:
   parameters:
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
     orderby:
       name: $orderby
       in: query
       description: Sort order
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
       schema:
         type: string
     top:
@@ -187,18 +175,19 @@ components:
       description: Maximum number of records to return
       schema:
         type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
   schemas:
-    EntityCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            type: object
     Account:
       type: object
       properties:
@@ -233,6 +222,17 @@ components:
         statecode:
           type: integer
           description: Status of the account (0=Active, 1=Inactive)
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
   securitySchemes:
     apiKey:
       type: apiKey

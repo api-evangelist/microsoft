@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Drive API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -116,79 +116,31 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    itemId:
-      name: item-id
-      in: path
-      required: true
-      description: Unique identifier of the drive item
-      schema:
-        type: string
-    driveId:
-      name: drive-id
-      in: path
-      required: true
-      description: Unique identifier of the drive
-      schema:
-        type: string
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-  responses:
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
   schemas:
-    ODataError:
+    IdentitySet:
       type: object
       properties:
-        error:
+        application:
           type: object
           properties:
-            code:
+            id:
               type: string
-              description: Error code
-            message:
+            displayName:
               type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
+        device:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
     Drive:
       type: object
       properties:
@@ -257,6 +209,28 @@ components:
           type: string
           format: date-time
           readOnly: true
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
     DriveItem:
       type: object
       properties:
@@ -329,30 +303,56 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
-    IdentitySet:
-      type: object
-      properties:
-        application:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
-        device:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
-        user:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
+  parameters:
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    driveId:
+      name: drive-id
+      in: path
+      required: true
+      description: Unique identifier of the drive
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    itemId:
+      name: item-id
+      in: path
+      required: true
+      description: Unique identifier of the drive item
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
     apiKey:
       type: apiKey

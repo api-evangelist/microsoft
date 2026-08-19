@@ -1,0 +1,879 @@
+{
+  "item": [
+    {
+      "id": "2fb61c37-33fc-4cdb-81bb-98b660d2f6db",
+      "name": "Drive",
+      "description": {
+        "content": "Access OneDrive files and folders",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a470eea4-713f-4a26-94f9-401847176024",
+          "name": "Microsoft Get current user's OneDrive",
+          "request": {
+            "name": "Microsoft Get current user's OneDrive",
+            "description": {
+              "content": "Retrieve the properties and relationships of a Drive resource for the signed-in user's OneDrive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "drive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "094fa357-f560-4615-a6a0-816b4ca4421d",
+              "name": "Drive object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "drive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"driveType\": \"documentLibrary\",\n  \"owner\": {\n    \"user\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  },\n  \"quota\": {\n    \"total\": 3560,\n    \"used\": 30,\n    \"remaining\": 1742,\n    \"deleted\": 7006,\n    \"state\": \"nearing\"\n  },\n  \"webUrl\": \"http://U.xoimWkv6oyYgA2llBJjsg2rqexM+WdS7cWfsm5\",\n  \"createdDateTime\": \"2006-08-27T22:29:06.699Z\",\n  \"lastModifiedDateTime\": \"2020-05-06T15:08:59.680Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44273eac-807b-4aa6-872d-589aafb6cd58",
+              "name": "Unauthorized - authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "drive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2011-06-24T12:32:19.331Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "916ddcc6-a7b8-43a5-992b-19edac9b0e0d",
+          "name": "Microsoft List items in drive root",
+          "request": {
+            "name": "Microsoft List items in drive root",
+            "description": {
+              "content": "Return a collection of DriveItems in the root of the signed-in user's OneDrive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "drive",
+                "root",
+                "children"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return (page size)"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData order by expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d10fc9d0-2eaa-4d6f-9e3d-4e316864b1d0",
+              "name": "Collection of drive items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "drive",
+                    "root",
+                    "children"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"size\": 2144,\n      \"webUrl\": \"http://ZJXUlTKuReDyXTEnhheX.pknnNqTopFW.xEwTTLy17xYZWW2i\",\n      \"createdDateTime\": \"1947-08-10T03:40:38.230Z\",\n      \"lastModifiedDateTime\": \"1947-07-17T03:16:52.389Z\",\n      \"file\": {\n        \"mimeType\": \"string\",\n        \"hashes\": {\n          \"sha1Hash\": \"string\",\n          \"sha256Hash\": \"string\",\n          \"quickXorHash\": \"string\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": 8148\n      },\n      \"parentReference\": {\n        \"driveId\": \"string\",\n        \"driveType\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"path\": \"string\"\n      },\n      \"createdBy\": {\n        \"application\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"device\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"user\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"application\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"device\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"user\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"size\": 4583,\n      \"webUrl\": \"https://LE.xkEmSxDpmiSBfM82VQuwC5Jo4dYt\",\n      \"createdDateTime\": \"1968-11-24T18:47:30.236Z\",\n      \"lastModifiedDateTime\": \"1995-10-11T08:18:43.482Z\",\n      \"file\": {\n        \"mimeType\": \"string\",\n        \"hashes\": {\n          \"sha1Hash\": \"string\",\n          \"sha256Hash\": \"string\",\n          \"quickXorHash\": \"string\"\n        }\n      },\n      \"folder\": {\n        \"childCount\": 4441\n      },\n      \"parentReference\": {\n        \"driveId\": \"string\",\n        \"driveType\": \"string\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"path\": \"string\"\n      },\n      \"createdBy\": {\n        \"application\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"device\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"user\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"application\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"device\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"user\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a671ebd-4cf4-4bf8-8170-61f5d310bfc6",
+          "name": "Microsoft Get drive item",
+          "request": {
+            "name": "Microsoft Get drive item",
+            "description": {
+              "content": "Retrieve the metadata for a DriveItem in a Drive by file system path or ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "drives",
+                ":drive-id",
+                "items",
+                ":item-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "drive-id",
+                  "description": "(Required) Unique identifier of the drive"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item-id",
+                  "description": "(Required) Unique identifier of the drive item"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37a44814-800f-4709-96c7-376a08c92798",
+              "name": "Drive item object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":drive-id",
+                    "items",
+                    ":item-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "drive-id",
+                      "description": "(Required) Unique identifier of the drive"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item-id",
+                      "description": "(Required) Unique identifier of the drive item"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"size\": 7255,\n  \"webUrl\": \"http://Gqwld.rcbAfyFJwgTvWA\",\n  \"createdDateTime\": \"1968-08-21T19:22:54.711Z\",\n  \"lastModifiedDateTime\": \"2009-11-05T01:28:57.646Z\",\n  \"file\": {\n    \"mimeType\": \"string\",\n    \"hashes\": {\n      \"sha1Hash\": \"string\",\n      \"sha256Hash\": \"string\",\n      \"quickXorHash\": \"string\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": 1691\n  },\n  \"parentReference\": {\n    \"driveId\": \"string\",\n    \"driveType\": \"string\",\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"path\": \"string\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"device\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"device\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a995321-de99-447a-b34c-856b269c7fa8",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":drive-id",
+                    "items",
+                    ":item-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "drive-id",
+                      "description": "(Required) Unique identifier of the drive"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item-id",
+                      "description": "(Required) Unique identifier of the drive item"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2011-06-24T12:32:19.331Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c31a3865-52e8-4f74-b7fd-f16c7c09aac4",
+          "name": "Microsoft Update drive item",
+          "request": {
+            "name": "Microsoft Update drive item",
+            "description": {
+              "content": "Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the parentReference property.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "drives",
+                ":drive-id",
+                "items",
+                ":item-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "drive-id",
+                  "description": "(Required) Unique identifier of the drive"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item-id",
+                  "description": "(Required) Unique identifier of the drive item"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77d162f0-3db9-4565-9ce5-0d06fecaf249",
+              "name": "Drive item updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":drive-id",
+                    "items",
+                    ":item-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "drive-id",
+                      "description": "(Required) Unique identifier of the drive"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item-id",
+                      "description": "(Required) Unique identifier of the drive item"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"size\": 5411,\n  \"webUrl\": \"http://MCrcDLYJsjK.laizAyVCHMtZDOyZtFDFS.jLTSCtRldEguK+wR-DTR8us8kv,H4ogk8ErPJa7Z4bHL7-Fs9opUZ.dEkNac\",\n  \"createdDateTime\": \"1999-04-02T15:56:01.455Z\",\n  \"lastModifiedDateTime\": \"2010-11-19T04:00:04.071Z\",\n  \"file\": {\n    \"mimeType\": \"<string>\",\n    \"hashes\": {\n      \"sha1Hash\": \"<string>\",\n      \"sha256Hash\": \"<string>\",\n      \"quickXorHash\": \"<string>\"\n    }\n  },\n  \"folder\": {\n    \"childCount\": \"<integer>\"\n  },\n  \"parentReference\": {\n    \"driveId\": \"<string>\",\n    \"driveType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"application\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"device\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c274c14-0213-4200-83f9-45e8ce0de373",
+          "name": "Microsoft Delete drive item",
+          "request": {
+            "name": "Microsoft Delete drive item",
+            "description": {
+              "content": "Delete a DriveItem by using its ID or path. Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "drives",
+                ":drive-id",
+                "items",
+                ":item-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "drive-id",
+                  "description": "(Required) Unique identifier of the drive"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "item-id",
+                  "description": "(Required) Unique identifier of the drive item"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "918baa43-8046-4798-a064-5f58af0c491b",
+              "name": "Item deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":drive-id",
+                    "items",
+                    ":item-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "drive-id",
+                      "description": "(Required) Unique identifier of the drive"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item-id",
+                      "description": "(Required) Unique identifier of the drive item"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b5f0f1c-1cf2-4048-a26b-b3e5caf98423",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":drive-id",
+                    "items",
+                    ":item-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "drive-id",
+                      "description": "(Required) Unique identifier of the drive"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "item-id",
+                      "description": "(Required) Unique identifier of the drive item"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2011-06-24T12:32:19.331Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a26cc2c7-0373-4b5c-9261-5de58599feba",
+    "name": "Microsoft Azure Cognitive Services Accounts Drive API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

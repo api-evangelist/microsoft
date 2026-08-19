@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Drive API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Drive",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Get current user's OneDrive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive"
+          },
+          "docs": "Retrieve the properties and relationships of a Drive resource for the signed-in user's OneDrive."
+        },
+        {
+          "info": {
+            "name": "Microsoft List items in drive root",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/root/children",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              }
+            ]
+          },
+          "docs": "Return a collection of DriveItems in the root of the signed-in user's OneDrive."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/drives/:drive-id/items/:item-id",
+            "params": [
+              {
+                "name": "drive-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive"
+              },
+              {
+                "name": "item-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive item"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the metadata for a DriveItem in a Drive by file system path or ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{region}.api.cognitive.microsoft.com/drives/:drive-id/items/:item-id",
+            "params": [
+              {
+                "name": "drive-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive"
+              },
+              {
+                "name": "item-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive item"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the metadata for a DriveItem by ID or path. You can also use update to move an item to another parent by updating the parentReference property."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/drives/:drive-id/items/:item-id",
+            "params": [
+              {
+                "name": "drive-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive"
+              },
+              {
+                "name": "item-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the drive item"
+              }
+            ]
+          },
+          "docs": "Delete a DriveItem by using its ID or path. Deleting items using this method moves the items to the recycle bin instead of permanently deleting the item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

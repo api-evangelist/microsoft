@@ -1,0 +1,345 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Mail API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/messages",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query",
+                "description": "Search expression to filter results"
+              }
+            ]
+          },
+          "docs": "Get the messages in the signed-in user's mailbox, including the Deleted Items and Clutter folders. Returns messages from all mail folders."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create message draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a draft of a new message in either JSON or MIME format. When using JSON format, you can include an attachment and use a mention to call out another user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/messages/:message-id",
+            "params": [
+              {
+                "name": "message-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the message"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Retrieve the properties and relationships of a message object. You can use $select to retrieve specific properties and $expand to expand supported relationships."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/messages/:message-id",
+            "params": [
+              {
+                "name": "message-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the message"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a message object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/messages/:message-id",
+            "params": [
+              {
+                "name": "message-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the message"
+              }
+            ]
+          },
+          "docs": "Delete a message in the specified user's mailbox, or delete a relationship of the message."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/sendMail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send the message specified in the request body using either JSON or MIME format. The message is saved in the Sent Items folder by default."
+        },
+        {
+          "info": {
+            "name": "Microsoft List mail folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/mailFolders",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the mail folder collection under the root folder of the signed-in user."
+        },
+        {
+          "info": {
+            "name": "Microsoft List messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/messages",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$search",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the messages in the signed-in user's mailbox."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/messages/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "Message unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific message."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{region}.api.cognitive.microsoft.com/messages/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "Message unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a message."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/messages/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "Message unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a message and move it to the Deleted Items folder."
+        },
+        {
+          "info": {
+            "name": "Microsoft Send mail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/sendMail",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send the message specified in the request body. The message is saved in the Sent Items folder by default."
+        },
+        {
+          "info": {
+            "name": "Microsoft List mail folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/mailFolders",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the mail folder collection under the root folder."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

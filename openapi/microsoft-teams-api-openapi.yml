@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Teams API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -280,15 +280,68 @@ paths:
           description: Team not found
 components:
   schemas:
-    UpdateTeamRequest:
+    ChatMessage:
       type: object
       properties:
-        displayName:
+        id:
           type: string
-        description:
+          description: Unique identifier of the message
+          readOnly: true
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+            content:
+              type: string
+        from:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+                userIdentityType:
+                  type: string
+        messageType:
           type: string
-        visibility:
+          enum:
+          - message
+          - chatEvent
+          - typing
+          - unknownFutureValue
+          - systemEventMessage
+          description: Type of chat message
+        importance:
           type: string
+          enum:
+          - normal
+          - high
+          - urgent
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        subject:
+          type: string
+          description: Subject of the chat message (only for channel messages)
+        summary:
+          type: string
+          description: Summary text for push notifications and previews
+        webUrl:
+          type: string
+          format: uri
+          readOnly: true
     Team_2:
       type: object
       properties:
@@ -403,6 +456,20 @@ components:
               type: boolean
             allowCustomMemes:
               type: boolean
+    CreateTeamRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
     ODataError:
       type: object
       properties:
@@ -425,20 +492,6 @@ components:
                   type: string
                 client-request-id:
                   type: string
-    CreateTeamRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
     Channel:
       type: object
       properties:
@@ -473,95 +526,21 @@ components:
           type: string
           format: date-time
           readOnly: true
-    ChatMessage:
+    UpdateTeamRequest:
       type: object
       properties:
-        id:
+        displayName:
           type: string
-          description: Unique identifier of the message
-          readOnly: true
-        body:
-          type: object
-          properties:
-            contentType:
-              type: string
-              enum:
-              - text
-              - html
-            content:
-              type: string
-        from:
-          type: object
-          properties:
-            user:
-              type: object
-              properties:
-                id:
-                  type: string
-                displayName:
-                  type: string
-                userIdentityType:
-                  type: string
-        messageType:
+        description:
           type: string
-          enum:
-          - message
-          - chatEvent
-          - typing
-          - unknownFutureValue
-          - systemEventMessage
-          description: Type of chat message
-        importance:
+        visibility:
           type: string
-          enum:
-          - normal
-          - high
-          - urgent
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        lastModifiedDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        subject:
-          type: string
-          description: Subject of the chat message (only for channel messages)
-        summary:
-          type: string
-          description: Summary text for push notifications and previews
-        webUrl:
-          type: string
-          format: uri
-          readOnly: true
   parameters:
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
     channelId:
       name: channel-id
       in: path
       required: true
       description: Unique identifier of the channel
-      schema:
-        type: string
-    teamId:
-      name: team-id
-      in: path
-      required: true
-      description: Unique identifier of the team
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
       schema:
         type: string
     top:
@@ -579,15 +558,36 @@ components:
       description: Team unique identifier
       schema:
         type: string
+    teamId:
+      name: team-id
+      in: path
+      required: true
+      description: Unique identifier of the team
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
   responses:
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
+    BadRequest:
+      description: Bad request - invalid input or malformed request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Bad request - invalid input or malformed request
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
       content:
         application/json:
           schema:

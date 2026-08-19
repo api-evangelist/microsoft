@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Datasets API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/datasets"
+          },
+          "docs": "Returns a list of datasets from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/datasets/:datasetId",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns the specified dataset from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/datasets/:datasetId",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              }
+            ]
+          },
+          "docs": "Deletes the specified dataset from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft List refresh history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/datasets/:datasetId/refreshes",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of entries to return"
+              }
+            ]
+          },
+          "docs": "Returns the refresh history for the specified dataset."
+        },
+        {
+          "info": {
+            "name": "Microsoft Trigger dataset refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/datasets/:datasetId/refreshes",
+            "params": [
+              {
+                "name": "datasetId",
+                "value": "",
+                "type": "path",
+                "description": "Dataset unique identifier"
+              }
+            ]
+          },
+          "docs": "Triggers a refresh for the specified dataset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

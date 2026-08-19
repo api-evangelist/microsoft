@@ -1,0 +1,2408 @@
+{
+  "item": [
+    {
+      "id": "9e488765-d467-4b29-9e75-c7626ff7ee55",
+      "name": "Mail",
+      "description": {
+        "content": "Access and manage Outlook mail messages and folders",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67edd3eb-3f56-45f8-8648-77625daffbad",
+          "name": "Microsoft List messages",
+          "request": {
+            "name": "Microsoft List messages",
+            "description": {
+              "content": "Get the messages in the signed-in user's mailbox, including the Deleted Items and Clutter folders. Returns messages from all mail folders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return (page size)"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of items to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData order by expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$search",
+                  "value": "<string>",
+                  "description": "Search expression to filter results"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10abf39f-f609-4b9f-9a5b-81147d3ee25e",
+              "name": "Collection of messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"string\"\n      },\n      \"bodyPreview\": \"string\",\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"E7DP1efpvPp46@ejtwGJVnYvydodDJLrVKsbXgJyuoBqK.gyj\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"yveh0IaATIe@YDRtaq.hqb\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"vSW2g0Il5cDf@yVDPEfcbGGGHmSJIrKyGldrUplxgSmm.isr\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"c3q0Ik@LWgzoPDCmvDp.lobp\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"sSd8uWF4VrdY@FlFRcqIPwaIDYDs.weyo\"\n          }\n        }\n      ],\n      \"bccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"eRFT@PffPpUGnv.pr\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"uHu7YbsbnLXk@YdBrWZXaxCFtGYJIukAWs.zzu\"\n          }\n        }\n      ],\n      \"replyTo\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"JL6d7ZRM@gPMBOqaaz.iio\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"Q66nqFQ7A3nol@RkXPvW.yfd\"\n          }\n        }\n      ],\n      \"importance\": \"low\",\n      \"isRead\": true,\n      \"isDraft\": true,\n      \"hasAttachments\": true,\n      \"receivedDateTime\": \"1950-08-25T15:41:57.770Z\",\n      \"sentDateTime\": \"1949-11-02T01:24:16.564Z\",\n      \"conversationId\": \"string\",\n      \"internetMessageId\": \"string\",\n      \"webLink\": \"http://fisnJwuNluRLFKcfseWOqUR.lvmySQEgylk\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"string\"\n      },\n      \"bodyPreview\": \"string\",\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"pqwgF9oSkVUC@uDGlbSQrZGqZWdapByUV.sm\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"4UyubqQ1@gMczdfSOsYowQpqkYcGSzRPReQPnvEt.itr\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"NfctSziOFIRnuqc@KQBULLDSvaRzFb.xekp\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"F3dh@ThzONhiHbdDuXuVgIxQlgHoCRQ.chbe\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"iirw-wqA1L@AlnzWbFV.gui\"\n          }\n        }\n      ],\n      \"bccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"wDjHhJSmfBdG@OfMRkiQHJRsTBdvmEtZSFHIuZsRs.qrpb\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"uYC@SPTuzcRGnjgBmFJRQaTxGY.tolx\"\n          }\n        }\n      ],\n      \"replyTo\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"wTrNsG3u@edXbLsQSzwPvSuxOYP.nc\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"VsIFkt@FTTElZKVtZRxGYNFHc.qp\"\n          }\n        }\n      ],\n      \"importance\": \"low\",\n      \"isRead\": true,\n      \"isDraft\": false,\n      \"hasAttachments\": true,\n      \"receivedDateTime\": \"2000-03-19T00:36:58.549Z\",\n      \"sentDateTime\": \"1951-11-07T04:10:42.489Z\",\n      \"conversationId\": \"string\",\n      \"internetMessageId\": \"string\",\n      \"webLink\": \"https://aNzLQpXRqXkotqn.yhdpbdV,khWOmgXXboIxq5ceYLDSavcUue12pAO-yR4uxehAuSmgUJ,maIO\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64fae344-4824-4391-acba-5b534773d72a",
+              "name": "Unauthorized - authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1968-09-25T20:41:22.827Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdc4368c-89f8-4814-848b-a9d9d4752eef",
+          "name": "Microsoft Create message draft",
+          "request": {
+            "name": "Microsoft Create message draft",
+            "description": {
+              "content": "Create a draft of a new message in either JSON or MIME format. When using JSON format, you can include an attachment and use a mention to call out another user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"conversationId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2c64000-852e-4f7d-803d-9de6599bc998",
+              "name": "Message draft created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"conversationId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"string\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": false,\n  \"receivedDateTime\": \"1946-11-25T05:20:29.007Z\",\n  \"sentDateTime\": \"1993-10-31T20:22:54.509Z\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"string\",\n  \"webLink\": \"https://ZEEAYxZSoFqTXHJ.vgNE.HwcRDjrSSIYBBGk28VXPrpydYVZjAFKYja1RNwkSqpeAFvioQI.t0Cgl+drFH0XwsaFe-\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5839481a-1f82-4e57-b4a6-3ac7260f240a",
+              "name": "Bad request - invalid input or malformed request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"conversationId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1968-09-25T20:41:22.827Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65f551c3-85fe-472c-b7a1-73bc516b3568",
+          "name": "Microsoft Get message",
+          "request": {
+            "name": "Microsoft Get message",
+            "description": {
+              "content": "Retrieve the properties and relationships of a message object. You can use $select to retrieve specific properties and $expand to expand supported relationships.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "messages",
+                ":message-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message-id",
+                  "description": "(Required) Unique identifier of the message"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78d558b9-7871-40c2-a9f6-2bb15df53a7c",
+              "name": "Message object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages",
+                    ":message-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message-id",
+                      "description": "(Required) Unique identifier of the message"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"string\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": false,\n  \"receivedDateTime\": \"1946-11-25T05:20:29.007Z\",\n  \"sentDateTime\": \"1993-10-31T20:22:54.509Z\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"string\",\n  \"webLink\": \"https://ZEEAYxZSoFqTXHJ.vgNE.HwcRDjrSSIYBBGk28VXPrpydYVZjAFKYja1RNwkSqpeAFvioQI.t0Cgl+drFH0XwsaFe-\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b340407-de91-48e5-8619-708719965aea",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages",
+                    ":message-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message-id",
+                      "description": "(Required) Unique identifier of the message"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1968-09-25T20:41:22.827Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a45d0099-5322-4b12-82e8-f3fa53ed2c90",
+          "name": "Microsoft Update message",
+          "request": {
+            "name": "Microsoft Update message",
+            "description": {
+              "content": "Update the properties of a message object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "messages",
+                ":message-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message-id",
+                  "description": "(Required) Unique identifier of the message"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"conversationId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7cc9eba-d3fb-447c-9fd7-1acbb86b7052",
+              "name": "Message updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages",
+                    ":message-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message-id",
+                      "description": "(Required) Unique identifier of the message"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"conversationId\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"bodyPreview\": \"string\",\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"bccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"replyTo\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    }\n  ],\n  \"importance\": \"<string>\",\n  \"isRead\": \"<boolean>\",\n  \"isDraft\": \"<boolean>\",\n  \"hasAttachments\": false,\n  \"receivedDateTime\": \"1946-11-25T05:20:29.007Z\",\n  \"sentDateTime\": \"1993-10-31T20:22:54.509Z\",\n  \"conversationId\": \"<string>\",\n  \"internetMessageId\": \"string\",\n  \"webLink\": \"https://ZEEAYxZSoFqTXHJ.vgNE.HwcRDjrSSIYBBGk28VXPrpydYVZjAFKYja1RNwkSqpeAFvioQI.t0Cgl+drFH0XwsaFe-\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de0e988f-a2d8-4187-9b31-725af82920ca",
+          "name": "Microsoft Delete message",
+          "request": {
+            "name": "Microsoft Delete message",
+            "description": {
+              "content": "Delete a message in the specified user's mailbox, or delete a relationship of the message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "messages",
+                ":message-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message-id",
+                  "description": "(Required) Unique identifier of the message"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f5c996b-150e-4cf4-90bb-18abdbe72528",
+              "name": "Message deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages",
+                    ":message-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message-id",
+                      "description": "(Required) Unique identifier of the message"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e880518a-eb05-4ec5-9108-8b9ef1c36a91",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "messages",
+                    ":message-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message-id",
+                      "description": "(Required) Unique identifier of the message"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1968-09-25T20:41:22.827Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee0772ce-5c29-4ebf-b8b3-0418d3f37502",
+          "name": "Microsoft Send mail",
+          "request": {
+            "name": "Microsoft Send mail",
+            "description": {
+              "content": "Send the message specified in the request body using either JSON or MIME format. The message is saved in the Sent Items folder by default.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "sendMail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"from\": {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"bccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"replyTo\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"importance\": \"<string>\",\n    \"isRead\": \"<boolean>\",\n    \"isDraft\": \"<boolean>\",\n    \"conversationId\": \"<string>\",\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2aba8256-0794-453f-81ee-bbc5c2a64ee3",
+              "name": "Mail sent successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"from\": {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"bccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"replyTo\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"importance\": \"<string>\",\n    \"isRead\": \"<boolean>\",\n    \"isDraft\": \"<boolean>\",\n    \"conversationId\": \"<string>\",\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c8f311c-9332-4ca8-9111-5613d33552bd",
+              "name": "Bad request - invalid input or malformed request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"from\": {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      }\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"bccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"replyTo\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"importance\": \"<string>\",\n    \"isRead\": \"<boolean>\",\n    \"isDraft\": \"<boolean>\",\n    \"conversationId\": \"<string>\",\n    \"categories\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"1968-09-25T20:41:22.827Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79ac861c-e9cc-41d6-bc50-f5d03a72bf5a",
+          "name": "Microsoft List mail folders",
+          "request": {
+            "name": "Microsoft List mail folders",
+            "description": {
+              "content": "Get the mail folder collection under the root folder of the signed-in user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "mailFolders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return (page size)"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac7050b7-f5b6-4a28-8ccf-b3bae425a197",
+              "name": "Collection of mail folders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "mailFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"parentFolderId\": \"string\",\n      \"childFolderCount\": 4013,\n      \"unreadItemCount\": 4603,\n      \"totalItemCount\": 748,\n      \"isHidden\": true\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"parentFolderId\": \"string\",\n      \"childFolderCount\": 1668,\n      \"unreadItemCount\": 1431,\n      \"totalItemCount\": 7409,\n      \"isHidden\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa074d0a-883d-4644-a136-fc6c8536c210",
+          "name": "Microsoft List messages",
+          "request": {
+            "name": "Microsoft List messages",
+            "description": {
+              "content": "Get the messages in the signed-in user's mailbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bf39584-9677-4968-928f-3247e9f170b7",
+              "name": "List of messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"bodyPreview\": \"string\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"string\"\n      },\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"xdm6h1ivhF7qBC@zZJkqYgXdgCJQpGSdOeSyHDiJUGYkNzh.tz\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"TaRY@rREraU.mxn\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"Xtn21KsWR@aCvCWJPVkuAhYlBkSyzbjlql.wbsj\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"sh1f2wA@vYqUsGZ.vzdw\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"AtoqGeAd0RXphvw@vnKQWXQvIxYnCfQQGwzobnriCrceH.wj\"\n          }\n        }\n      ],\n      \"receivedDateTime\": \"2021-08-31T10:31:25.937Z\",\n      \"sentDateTime\": \"1957-07-06T03:07:23.422Z\",\n      \"isRead\": true,\n      \"isDraft\": false,\n      \"hasAttachments\": true,\n      \"importance\": \"low\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"bodyPreview\": \"string\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"string\"\n      },\n      \"from\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"H5O-s0uGR@WfgngyPsNNPwUsUHsVnaBdkRDDgxSE.wry\"\n        }\n      },\n      \"toRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"p1i6r1W3Kr@DdoiuFxmGk.vi\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"PUNFs4Z0juHR@RzoyAhprdVQTlmINtr.mmdt\"\n          }\n        }\n      ],\n      \"ccRecipients\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"3Sw3jF7@N.ter\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"QJHQJHpvwNDax@AYULFyJjmGAVBUBVWYTTNiHFBDyzMaCjB.zzs\"\n          }\n        }\n      ],\n      \"receivedDateTime\": \"1963-12-30T06:34:14.539Z\",\n      \"sentDateTime\": \"1974-05-12T05:29:55.441Z\",\n      \"isRead\": true,\n      \"isDraft\": false,\n      \"hasAttachments\": false,\n      \"importance\": \"low\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0c214a0-ad42-4fa0-a3cb-d138520905fa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b2ca894-0d65-4db8-8cf0-afe8c9591fef",
+          "name": "Microsoft Get a message",
+          "request": {
+            "name": "Microsoft Get a message",
+            "description": {
+              "content": "Retrieve a specific message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) Message unique identifier"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a30d4ec-7e55-4986-87bf-49ff387a51c8",
+              "name": "Message details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"string\",\n  \"bodyPreview\": \"string\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"string\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"string\",\n      \"address\": \"JbpGdDdNUhcR@ikYlfgYa.rf\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"zJD-iUzO81I@AcrolWUmpJjjDufkOUyPi.ry\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"Jn6hAGfBg@kePxzMHhdsnQJdMxPUX.bg\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"KPqUfvWM9VvX@dKmdMxuzVusylbXHtCWJ.kvg\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"QwE5MZ@oaDkmSzpsUdvpLrEIwCUYUFyJFsMgONn.zt\"\n      }\n    }\n  ],\n  \"receivedDateTime\": \"1997-01-10T01:02:42.753Z\",\n  \"sentDateTime\": \"1973-10-17T23:25:07.369Z\",\n  \"isRead\": false,\n  \"isDraft\": false,\n  \"hasAttachments\": false,\n  \"importance\": \"low\",\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c2a84b8-0dce-483e-a823-400d621c84ec",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b5367ef-df32-4059-b9ec-821c510d6301",
+              "name": "Message not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccd9ec7e-63c2-4827-891b-a3499e52a3cb",
+          "name": "Microsoft Update a message",
+          "request": {
+            "name": "Microsoft Update a message",
+            "description": {
+              "content": "Update the properties of a message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) Message unique identifier"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ec3dab50-3ba5-4cdb-87f5-34a032c31900",
+              "name": "Message updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"string\",\n  \"bodyPreview\": \"string\",\n  \"body\": {\n    \"contentType\": \"html\",\n    \"content\": \"string\"\n  },\n  \"from\": {\n    \"emailAddress\": {\n      \"name\": \"string\",\n      \"address\": \"JbpGdDdNUhcR@ikYlfgYa.rf\"\n    }\n  },\n  \"toRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"zJD-iUzO81I@AcrolWUmpJjjDufkOUyPi.ry\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"Jn6hAGfBg@kePxzMHhdsnQJdMxPUX.bg\"\n      }\n    }\n  ],\n  \"ccRecipients\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"KPqUfvWM9VvX@dKmdMxuzVusylbXHtCWJ.kvg\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"QwE5MZ@oaDkmSzpsUdvpLrEIwCUYUFyJFsMgONn.zt\"\n      }\n    }\n  ],\n  \"receivedDateTime\": \"1997-01-10T01:02:42.753Z\",\n  \"sentDateTime\": \"1973-10-17T23:25:07.369Z\",\n  \"isRead\": false,\n  \"isDraft\": false,\n  \"hasAttachments\": false,\n  \"importance\": \"low\",\n  \"categories\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc34fc84-7c06-4fcf-a40a-f63ef501a03b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isRead\": \"<boolean>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"importance\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc047a9e-aa5b-4fed-8b56-326e271bdd7e",
+          "name": "Microsoft Delete a message",
+          "request": {
+            "name": "Microsoft Delete a message",
+            "description": {
+              "content": "Delete a message and move it to the Deleted Items folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":messageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "messageId",
+                  "description": "(Required) Message unique identifier"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "688a82f6-b70e-4364-b69b-ac2af0a68d02",
+              "name": "Message deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "715c751c-05d4-4e56-b788-7bff9aa406b2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "messageId",
+                      "description": "(Required) Message unique identifier"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93b26390-f562-4397-aed6-1825bcb33645",
+          "name": "Microsoft Send mail",
+          "request": {
+            "name": "Microsoft Send mail",
+            "description": {
+              "content": "Send the message specified in the request body. The message is saved in the Sent Items folder by default.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sendMail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "816552d8-8340-495e-bf4c-901b1f94f4ea",
+              "name": "Mail sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c297e35e-f266-4504-bcc8-1649896b52e5",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "070f9582-7c05-44e5-8393-4e98aa803a02",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sendMail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": {\n    \"subject\": \"<string>\",\n    \"body\": {\n      \"contentType\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    \"toRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ],\n    \"ccRecipients\": [\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      }\n    ]\n  },\n  \"saveToSentItems\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bdcb1b9-1b13-496e-9dde-cd6de3d038f4",
+          "name": "Microsoft List mail folders",
+          "request": {
+            "name": "Microsoft List mail folders",
+            "description": {
+              "content": "Get the mail folder collection under the root folder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mailFolders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d0fa04a-b207-4600-8deb-d7bc5926f79a",
+              "name": "List of mail folders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mailFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"totalItemCount\": 8114,\n      \"unreadItemCount\": 7953,\n      \"parentFolderId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"totalItemCount\": 2568,\n      \"unreadItemCount\": 4795,\n      \"parentFolderId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf134c2a-4f66-4283-8ffc-a56371a63d8e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mailFolders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "82f37c96-0f45-4e52-9878-660b74fd93ef",
+    "name": "Microsoft Azure Cognitive Services Accounts Mail API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Audio API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -123,22 +123,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use
-      schema:
-        type: string
-        default: '2024-10-21'
-    deploymentId:
-      name: deployment-id
-      in: path
-      required: true
-      description: The deployment name for the model
-      schema:
-        type: string
   schemas:
     TranscriptionResponse:
       type: object
@@ -152,6 +136,22 @@ components:
           type: string
         duration:
           type: number
+  parameters:
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
   securitySchemes:
     apiKey:
       type: apiKey

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Projects API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -109,25 +109,6 @@ paths:
           description: Project not found
 components:
   schemas:
-    OperationReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        status:
-          type: string
-        url:
-          type: string
-    ProjectCollection:
-      type: object
-      properties:
-        count:
-          type: integer
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
     CreateProjectRequest:
       type: object
       required:
@@ -188,6 +169,25 @@ components:
         lastUpdateTime:
           type: string
           format: date-time
+    OperationReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        url:
+          type: string
+    ProjectCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
   parameters:
     apiVersion:
       name: api-version

@@ -1,0 +1,97 @@
+openapi: 3.2.0
+info:
+  title: LinkedIn Posts API
+  description: APIs for LinkedIn integrations covering member profile, posts, shares, organizations, and marketing solutions.
+  version: '2.0'
+  contact:
+    name: LinkedIn Developer Support
+    url: https://developer.linkedin.com/
+  termsOfService: https://www.linkedin.com/legal/l/api-terms-of-use
+servers:
+- url: https://api.linkedin.com/v2
+  description: LinkedIn REST API v2
+security:
+- oauth2: []
+tags:
+- name: Posts
+  description: Create and manage posts
+paths:
+  /posts:
+    post:
+      operationId: createPost
+      summary: Create a post
+      description: Create a new post on LinkedIn.
+      tags:
+      - Posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePostRequest'
+      responses:
+        '201':
+          description: Post created
+          headers:
+            x-restli-id:
+              schema:
+                type: string
+              description: URN of the created post
+        '400':
+          description: Invalid request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    CreatePostRequest:
+      type: object
+      required:
+      - author
+      - lifecycleState
+      - visibility
+      - commentary
+      properties:
+        author:
+          type: string
+          description: URN of the author (person or organization)
+        lifecycleState:
+          type: string
+          enum:
+          - PUBLISHED
+          - DRAFT
+        visibility:
+          type: string
+          enum:
+          - PUBLIC
+          - CONNECTIONS
+        commentary:
+          type: string
+          description: Post text content
+        distribution:
+          type: object
+          properties:
+            feedDistribution:
+              type: string
+              enum:
+              - MAIN_FEED
+              - NONE
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: LinkedIn OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.linkedin.com/oauth/v2/authorization
+          tokenUrl: https://www.linkedin.com/oauth/v2/accessToken
+          scopes:
+            openid: OpenID Connect
+            profile: Read member profile
+            email: Read member email
+            w_member_social: Post, comment, and like on behalf of member
+            r_organization_social: Read organization posts
+            w_organization_social: Write organization posts
+            r_ads: Read advertising data
+            rw_ads: Read and write advertising data
+externalDocs:
+  description: LinkedIn API Documentation
+  url: https://learn.microsoft.com/en-us/linkedin/

@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Dashboards API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/dashboards"
+          },
+          "docs": "Returns a list of dashboards from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/dashboards/:dashboardId",
+            "params": [
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "path",
+                "description": "Dashboard unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns the specified dashboard from My workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft List dashboard tiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/dashboards/:dashboardId/tiles",
+            "params": [
+              {
+                "name": "dashboardId",
+                "value": "",
+                "type": "path",
+                "description": "Dashboard unique identifier"
+              }
+            ]
+          },
+          "docs": "Returns a list of tiles within the specified dashboard."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Computer Vision API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Computer Vision",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Analyze image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/vision/v3.2/analyze",
+            "params": [
+              {
+                "name": "visualFeatures",
+                "value": "",
+                "type": "query",
+                "description": "Visual features to analyze"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language for response"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Extract visual features from an image including objects, faces, tags, categories, descriptions, and color information."
+        },
+        {
+          "info": {
+            "name": "Microsoft Optical character recognition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/vision/v3.2/ocr",
+            "params": [
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "BCP-47 language code of the text to detect"
+              },
+              {
+                "name": "detectOrientation",
+                "value": "",
+                "type": "query",
+                "description": "Whether to detect text orientation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect and extract text from an image using optical character recognition."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Applications API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -393,17 +393,29 @@ components:
           type: string
           format: date-time
   parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    select_2:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
     filter:
       name: $filter
       in: query
       description: OData filter expression
       schema:
         type: string
-    select_2:
+    select:
       name: $select
       in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
+      description: Properties to include
       schema:
         type: string
     applicationId:
@@ -413,18 +425,6 @@ components:
       description: Unique identifier of the application
       schema:
         type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items
-      schema:
-        type: integer
   responses:
     NotFound:
       description: Resource not found

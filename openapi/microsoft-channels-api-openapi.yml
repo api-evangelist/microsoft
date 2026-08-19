@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts Channels API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -104,10 +104,11 @@ paths:
           description: Channel not found
 components:
   parameters:
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
+    channelId:
+      name: channelId
+      in: path
+      required: true
+      description: Channel unique identifier
       schema:
         type: string
     teamId:
@@ -117,17 +118,16 @@ components:
       description: Team unique identifier
       schema:
         type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
     select:
       name: $select
       in: query
       description: Properties to include in the response
-      schema:
-        type: string
-    channelId:
-      name: channelId
-      in: path
-      required: true
-      description: Channel unique identifier
       schema:
         type: string
   schemas:
@@ -140,21 +140,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Channel'
-    CreateChannelRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        membershipType:
-          type: string
-          enum:
-          - standard
-          - private
-          - shared
     Channel:
       type: object
       properties:
@@ -174,6 +159,21 @@ components:
           type: string
         webUrl:
           type: string
+    CreateChannelRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
   securitySchemes:
     apiKey:
       type: apiKey

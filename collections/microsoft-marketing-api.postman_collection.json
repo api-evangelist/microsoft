@@ -1,0 +1,200 @@
+{
+  "item": [
+    {
+      "id": "ec8192c7-05d5-46bc-8f13-dd9b687566b0",
+      "name": "Marketing",
+      "description": {
+        "content": "LinkedIn Marketing APIs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3546c4bf-119c-4020-b492-f0a06f053d81",
+          "name": "List ad accounts",
+          "request": {
+            "name": "List ad accounts",
+            "description": {
+              "content": "List the LinkedIn Ad Accounts associated with the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "adAccounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "search",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "search.status.values[0]:",
+                  "value": "ACTIVE"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53921f11-d2b0-48b9-883e-8904f4c083b0",
+              "name": "List of ad accounts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "adAccounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "search"
+                    },
+                    {
+                      "key": "search.status.values[0]:",
+                      "value": "ACTIVE"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elements\": [\n    {\n      \"id\": 2492,\n      \"name\": \"string\",\n      \"status\": \"CANCELED\",\n      \"type\": \"BUSINESS\",\n      \"currency\": \"string\",\n      \"reference\": \"string\",\n      \"servingStatuses\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 2554,\n      \"name\": \"string\",\n      \"status\": \"ACTIVE\",\n      \"type\": \"BUSINESS\",\n      \"currency\": \"string\",\n      \"reference\": \"string\",\n      \"servingStatuses\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "266cf241-7b20-4586-9c1f-ff46f1c9ce66",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "adAccounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "search"
+                    },
+                    {
+                      "key": "search.status.values[0]:",
+                      "value": "ACTIVE"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.linkedin.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid profile email w_member_social r_organization_social w_organization_social r_ads rw_ads"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://www.linkedin.com/oauth/v2/accessToken"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://www.linkedin.com/oauth/v2/authorization"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "240f70da-4288-4d23-b8a5-4e839b3973f6",
+    "name": "LinkedIn Marketing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for LinkedIn integrations covering member profile, posts, shares, organizations, and marketing solutions.\n\nContact Support:\n Name: LinkedIn Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

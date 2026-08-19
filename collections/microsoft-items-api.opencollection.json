@@ -1,0 +1,385 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Items API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List root folder children",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/root/children",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Return a collection of DriveItems in the children relationship of the root folder."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              }
+            ]
+          },
+          "docs": "Retrieve the metadata for a DriveItem by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update a drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the metadata for a DriveItem by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ]
+          },
+          "docs": "Delete a DriveItem by ID. Deleted items are moved to the recycle bin."
+        },
+        {
+          "info": {
+            "name": "Microsoft List children of a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId/children",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Return a collection of DriveItems in the children of a DriveItem."
+        },
+        {
+          "info": {
+            "name": "Microsoft Download file content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId/content",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ]
+          },
+          "docs": "Download the contents of a DriveItem."
+        },
+        {
+          "info": {
+            "name": "Microsoft Upload file content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/items/:itemId/content",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Drive item unique identifier"
+              }
+            ]
+          },
+          "docs": "Upload a new file or replace the contents of an existing file. Simple upload for files up to 4MB."
+        },
+        {
+          "info": {
+            "name": "Microsoft Search for items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/drive/search(q=':searchText')",
+            "params": [
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "path",
+                "description": "Search query text"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return"
+              }
+            ]
+          },
+          "docs": "Search the hierarchy of items for items matching a query."
+        },
+        {
+          "info": {
+            "name": "Microsoft List items in a list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists/getbytitle(':listTitle')/items",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path",
+                "description": "Title of the list"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Fields to include"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort order"
+              }
+            ]
+          },
+          "docs": "Get all items from a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists/getbytitle(':listTitle')/items",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new item to a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists/getbytitle(':listTitle')/items(:itemId)",
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Item ID"
+              }
+            ]
+          },
+          "docs": "Get a specific item from a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists/getbytitle(':listTitle')/items(:itemId)",
+            "headers": [
+              {
+                "name": "X-HTTP-Method",
+                "value": ""
+              },
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing item in a SharePoint list."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete a list item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/web/lists/getbytitle(':listTitle')/items(:itemId)",
+            "headers": [
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listTitle",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an item from a SharePoint list."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,269 @@
+{
+  "item": [
+    {
+      "id": "530f38f3-5c6f-4583-b3d2-0824c759c9d3",
+      "name": "News Search",
+      "description": {
+        "content": "Search for news articles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddf4dc1a-23fc-42ec-a749-b198b6a1c1a1",
+          "name": "Microsoft News search",
+          "request": {
+            "name": "Microsoft News search",
+            "description": {
+              "content": "Returns news articles relevant to the given search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) The search query string"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "mkt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "freshness",
+                  "value": "<string>",
+                  "description": "Filter by article freshness"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61c3aac6-1faf-40e4-815d-76767bdf3222",
+              "name": "News search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "freshness",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_type\": \"string\",\n  \"totalEstimatedMatches\": 2301,\n  \"value\": [\n    {\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"description\": \"string\",\n      \"datePublished\": \"1976-05-03T11:10:53.403Z\",\n      \"provider\": [\n        {\n          \"_type\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"_type\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"category\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"description\": \"string\",\n      \"datePublished\": \"1990-02-03T01:21:34.304Z\",\n      \"provider\": [\n        {\n          \"_type\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"_type\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"category\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9bf0cc1-4e51-4306-a5ff-12b32f6af9b0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "10"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "mkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "freshness",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bee6b36e-966e-4bfa-9998-b58b939b9a50",
+    "name": "Microsoft Azure Cognitive Services Accounts News Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

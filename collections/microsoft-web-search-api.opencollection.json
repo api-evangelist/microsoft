@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Web Search API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Web Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Web search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query string"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (1-50)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for pagination"
+              },
+              {
+                "name": "mkt",
+                "value": "",
+                "type": "query",
+                "description": "Market code (e.g., en-US)"
+              },
+              {
+                "name": "safeSearch",
+                "value": "",
+                "type": "query",
+                "description": "Filter adult content"
+              },
+              {
+                "name": "responseFilter",
+                "value": "",
+                "type": "query",
+                "description": "Comma-delimited list of answer types to include"
+              }
+            ]
+          },
+          "docs": "Returns relevant web pages, images, videos, news, and more for a given search query."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

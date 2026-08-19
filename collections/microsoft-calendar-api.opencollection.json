@@ -1,0 +1,236 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Azure Cognitive Services Accounts Calendar API",
+    "version": "3.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Ocp-Apim-Subscription-Key",
+      "value": "{{Ocp-Apim-Subscription-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calendar",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft List calendar events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/events",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to skip for pagination"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData order by expression"
+              }
+            ]
+          },
+          "docs": "Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an event in the user's default calendar or specified calendar. By default, the allowNewTimeProposals property is set to true."
+        },
+        {
+          "info": {
+            "name": "Microsoft Get calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/events/:event-id",
+            "params": [
+              {
+                "name": "event-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the event"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the properties and relationships of the specified event object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Update calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/events/:event-id",
+            "params": [
+              {
+                "name": "event-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the event"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of the event object."
+        },
+        {
+          "info": {
+            "name": "Microsoft Delete calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/events/:event-id",
+            "params": [
+              {
+                "name": "event-id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the event"
+              }
+            ]
+          },
+          "docs": "Remove the specified event from the user's calendar."
+        },
+        {
+          "info": {
+            "name": "Microsoft List calendar view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/me/calendarView",
+            "params": [
+              {
+                "name": "startDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Start date and time of the time range (ISO 8601 format)"
+              },
+              {
+                "name": "endDateTime",
+                "value": "",
+                "type": "query",
+                "description": "End date and time of the time range (ISO 8601 format)"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return (page size)"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              }
+            ]
+          },
+          "docs": "Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range from the user's default calendar."
+        },
+        {
+          "info": {
+            "name": "Microsoft List calendar events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{region}.api.cognitive.microsoft.com/events",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get events from the user's default calendar."
+        },
+        {
+          "info": {
+            "name": "Microsoft Create a calendar event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{region}.api.cognitive.microsoft.com/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an event in the user's default calendar."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

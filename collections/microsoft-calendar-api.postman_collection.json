@@ -1,0 +1,1482 @@
+{
+  "item": [
+    {
+      "id": "a20baf6e-d439-49fe-9743-267e22957b93",
+      "name": "Calendar",
+      "description": {
+        "content": "Access and manage Outlook calendar events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9cb796d9-669d-45d9-bee2-4a3683022d49",
+          "name": "Microsoft List calendar events",
+          "request": {
+            "name": "Microsoft List calendar events",
+            "description": {
+              "content": "Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return (page size)"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of items to skip for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData order by expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69861aef-e2aa-42c9-9e9d-0c85c66c1725",
+              "name": "Collection of calendar events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"@odata.nextLink\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"body\": {\n        \"contentType\": \"text\",\n        \"content\": \"string\"\n      },\n      \"start\": {\n        \"dateTime\": \"string\",\n        \"timeZone\": \"string\"\n      },\n      \"end\": {\n        \"dateTime\": \"string\",\n        \"timeZone\": \"string\"\n      },\n      \"location\": {\n        \"displayName\": \"string\",\n        \"address\": {\n          \"street\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"countryOrRegion\": \"string\",\n          \"postalCode\": \"string\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"p9o@Jj.it\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"tentativelyAccepted\",\n            \"time\": \"1967-01-27T01:00:22.212Z\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"8oio1wIa3c@oNmiqwmOuVK.usr\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"declined\",\n            \"time\": \"1972-02-10T07:21:11.666Z\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"cwG0hiCwicPOFj@ptKltjoxnthRKbkRfd.hm\"\n        }\n      },\n      \"isAllDay\": true,\n      \"isCancelled\": false,\n      \"isOrganizer\": true,\n      \"showAs\": \"free\",\n      \"sensitivity\": \"normal\",\n      \"importance\": \"high\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"relativeYearly\",\n          \"interval\": 5964,\n          \"daysOfWeek\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"noEnd\",\n          \"startDate\": \"2002-02-10\",\n          \"endDate\": \"1956-06-22\",\n          \"numberOfOccurrences\": 319\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"https://gFtQXVeWsOiyWdhvvL.dyJayIawMNzYAlwO2WgQwOxgOK3TYJl-N\"\n      },\n      \"isOnlineMeeting\": true,\n      \"onlineMeetingProvider\": \"skypeForBusiness\",\n      \"webLink\": \"https://wyrshapWncOFSCwRhQNfvUj.mpmOfI2HmSQOO5AQso\",\n      \"createdDateTime\": \"1961-06-28T11:15:26.428Z\",\n      \"lastModifiedDateTime\": \"1998-10-31T21:03:28.730Z\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"body\": {\n        \"contentType\": \"html\",\n        \"content\": \"string\"\n      },\n      \"start\": {\n        \"dateTime\": \"string\",\n        \"timeZone\": \"string\"\n      },\n      \"end\": {\n        \"dateTime\": \"string\",\n        \"timeZone\": \"string\"\n      },\n      \"location\": {\n        \"displayName\": \"string\",\n        \"address\": {\n          \"street\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"countryOrRegion\": \"string\",\n          \"postalCode\": \"string\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"oQcEO@GiZDUESjLXMSJlobVbOJHQaID.evob\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"declined\",\n            \"time\": \"1999-07-19T07:02:06.445Z\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"j5BrAXTdA@KyfySAgVXfQIrJyJgoMiS.ti\"\n          },\n          \"type\": \"optional\",\n          \"status\": {\n            \"response\": \"organizer\",\n            \"time\": \"1964-09-19T23:31:49.762Z\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"tKkXJw5w@CmzkzQyqBKLWjv.iw\"\n        }\n      },\n      \"isAllDay\": false,\n      \"isCancelled\": false,\n      \"isOrganizer\": false,\n      \"showAs\": \"workingElsewhere\",\n      \"sensitivity\": \"personal\",\n      \"importance\": \"high\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"absoluteMonthly\",\n          \"interval\": 5200,\n          \"daysOfWeek\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"numbered\",\n          \"startDate\": \"1959-08-20\",\n          \"endDate\": \"1956-12-10\",\n          \"numberOfOccurrences\": 1813\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"https://sFIyhjIsMhSuyNawHLqUEZJRdtRVp.mvhWw2\"\n      },\n      \"isOnlineMeeting\": false,\n      \"onlineMeetingProvider\": \"teamsForBusiness\",\n      \"webLink\": \"http://ZlEIdBJlEKtLby.aqatvjypShxB55IhzdnEf2d.stwA.NyLDVqSRusEwgObnfO8+CQmb0GhoN5Hqoss9gH3Yz\",\n      \"createdDateTime\": \"1993-07-22T22:22:59.437Z\",\n      \"lastModifiedDateTime\": \"1991-10-21T13:28:40.158Z\",\n      \"categories\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9dfd7b5c-29a8-45cd-949f-a3f467ebe43b",
+              "name": "Unauthorized - authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2021-12-21T18:22:08.615Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d858a11-d8c0-4c65-be20-05c3a352ca06",
+          "name": "Microsoft Create calendar event",
+          "request": {
+            "name": "Microsoft Create calendar event",
+            "description": {
+              "content": "Create an event in the user's default calendar or specified calendar. By default, the allowNewTimeProposals property is set to true.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b2f944b-7be0-4b4a-8c6a-b1358c49e064",
+              "name": "Event created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": true,\n  \"isOrganizer\": true,\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"webLink\": \"https://ExPqZeKcVRBngPjsIurfPwbC.kszZtA1jkgwv+AubgQ0IFX9UwV-JcFskB8.n\",\n  \"createdDateTime\": \"1995-07-11T07:06:22.549Z\",\n  \"lastModifiedDateTime\": \"1965-06-18T00:03:40.022Z\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2296bbda-f3ba-4a55-b74c-0256871175ea",
+              "name": "Bad request - invalid input or malformed request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2021-12-21T18:22:08.615Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc04ea20-831b-4439-b3f5-344688cbddf9",
+          "name": "Microsoft Get calendar event",
+          "request": {
+            "name": "Microsoft Get calendar event",
+            "description": {
+              "content": "Get the properties and relationships of the specified event object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "events",
+                ":event-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "event-id",
+                  "description": "(Required) Unique identifier of the event"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc8d6506-2cd2-41cd-bb94-bb22fe726383",
+              "name": "Event object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events",
+                    ":event-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event-id",
+                      "description": "(Required) Unique identifier of the event"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": true,\n  \"isOrganizer\": true,\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"webLink\": \"https://ExPqZeKcVRBngPjsIurfPwbC.kszZtA1jkgwv+AubgQ0IFX9UwV-JcFskB8.n\",\n  \"createdDateTime\": \"1995-07-11T07:06:22.549Z\",\n  \"lastModifiedDateTime\": \"1965-06-18T00:03:40.022Z\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea5b31f1-dab4-4490-9993-b3a54c491b95",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events",
+                    ":event-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event-id",
+                      "description": "(Required) Unique identifier of the event"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2021-12-21T18:22:08.615Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "959cc586-66e9-4289-ae13-17390554e93b",
+          "name": "Microsoft Update calendar event",
+          "request": {
+            "name": "Microsoft Update calendar event",
+            "description": {
+              "content": "Update the properties of the event object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "events",
+                ":event-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "event-id",
+                  "description": "(Required) Unique identifier of the event"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae618e74-1463-474a-bdda-4dcb9f1647fc",
+              "name": "Event updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events",
+                    ":event-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event-id",
+                      "description": "(Required) Unique identifier of the event"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"<string>\",\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\",\n    \"address\": {\n      \"street\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"countryOrRegion\": \"<string>\",\n      \"postalCode\": \"<string>\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<email>\"\n      },\n      \"type\": \"<string>\",\n      \"status\": {\n        \"response\": \"<string>\",\n        \"time\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"<string>\",\n      \"address\": \"<email>\"\n    }\n  },\n  \"isAllDay\": \"<boolean>\",\n  \"isCancelled\": true,\n  \"isOrganizer\": true,\n  \"showAs\": \"<string>\",\n  \"sensitivity\": \"<string>\",\n  \"importance\": \"<string>\",\n  \"recurrence\": {\n    \"pattern\": {\n      \"type\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"range\": {\n      \"type\": \"<string>\",\n      \"startDate\": \"<date>\",\n      \"endDate\": \"<date>\",\n      \"numberOfOccurrences\": \"<integer>\"\n    }\n  },\n  \"onlineMeeting\": {\n    \"joinUrl\": \"<uri>\"\n  },\n  \"isOnlineMeeting\": \"<boolean>\",\n  \"onlineMeetingProvider\": \"<string>\",\n  \"webLink\": \"https://ExPqZeKcVRBngPjsIurfPwbC.kszZtA1jkgwv+AubgQ0IFX9UwV-JcFskB8.n\",\n  \"createdDateTime\": \"1995-07-11T07:06:22.549Z\",\n  \"lastModifiedDateTime\": \"1965-06-18T00:03:40.022Z\",\n  \"categories\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c83c446-5ce5-4732-bd85-bbc03c1a1421",
+          "name": "Microsoft Delete calendar event",
+          "request": {
+            "name": "Microsoft Delete calendar event",
+            "description": {
+              "content": "Remove the specified event from the user's calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "events",
+                ":event-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "event-id",
+                  "description": "(Required) Unique identifier of the event"
+                },
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88354a58-df63-4978-9994-a0d639508172",
+              "name": "Event deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events",
+                    ":event-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event-id",
+                      "description": "(Required) Unique identifier of the event"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad8b1608-13a5-45df-8215-e1ff9dab5fc6",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "events",
+                    ":event-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "event-id",
+                      "description": "(Required) Unique identifier of the event"
+                    },
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"innerError\": {\n      \"date\": \"2021-12-21T18:22:08.615Z\",\n      \"request-id\": \"string\",\n      \"client-request-id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ff1a70a-3e8d-43f3-8c56-de6e9efbe6b6",
+          "name": "Microsoft List calendar view",
+          "request": {
+            "name": "Microsoft List calendar view",
+            "description": {
+              "content": "Get the occurrences, exceptions, and single instances of events in a calendar view defined by a time range from the user's default calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "calendarView"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDateTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) Start date and time of the time range (ISO 8601 format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDateTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) End date and time of the time range (ISO 8601 format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Number of items to return (page size)"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24b4d9b6-99da-4620-a00c-376a2817487f",
+              "name": "Collection of calendar events in the specified time range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "calendarView"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endDateTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      \"start\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\",\n        \"address\": {\n          \"street\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"countryOrRegion\": \"<string>\",\n          \"postalCode\": \"<string>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"<string>\",\n          \"status\": {\n            \"response\": \"<string>\",\n            \"time\": \"<dateTime>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"<string>\",\n          \"status\": {\n            \"response\": \"<string>\",\n            \"time\": \"<dateTime>\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": false,\n      \"isOrganizer\": false,\n      \"showAs\": \"<string>\",\n      \"sensitivity\": \"<string>\",\n      \"importance\": \"<string>\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"<string>\",\n          \"interval\": \"<integer>\",\n          \"daysOfWeek\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"<string>\",\n          \"startDate\": \"<date>\",\n          \"endDate\": \"<date>\",\n          \"numberOfOccurrences\": \"<integer>\"\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"<uri>\"\n      },\n      \"isOnlineMeeting\": \"<boolean>\",\n      \"onlineMeetingProvider\": \"<string>\",\n      \"webLink\": \"https://UlFrRtCEyptTRkklsNfc.rustBD2xJazuhR9PymA\",\n      \"createdDateTime\": \"1992-03-17T19:10:03.144Z\",\n      \"lastModifiedDateTime\": \"2023-07-03T13:58:36.637Z\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"<string>\",\n      \"body\": {\n        \"contentType\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      \"start\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"end\": {\n        \"dateTime\": \"<string>\",\n        \"timeZone\": \"<string>\"\n      },\n      \"location\": {\n        \"displayName\": \"<string>\",\n        \"address\": {\n          \"street\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"countryOrRegion\": \"<string>\",\n          \"postalCode\": \"<string>\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"<string>\",\n          \"status\": {\n            \"response\": \"<string>\",\n            \"time\": \"<dateTime>\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"<string>\",\n            \"address\": \"<email>\"\n          },\n          \"type\": \"<string>\",\n          \"status\": {\n            \"response\": \"<string>\",\n            \"time\": \"<dateTime>\"\n          }\n        }\n      ],\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"<string>\",\n          \"address\": \"<email>\"\n        }\n      },\n      \"isAllDay\": \"<boolean>\",\n      \"isCancelled\": true,\n      \"isOrganizer\": true,\n      \"showAs\": \"<string>\",\n      \"sensitivity\": \"<string>\",\n      \"importance\": \"<string>\",\n      \"recurrence\": {\n        \"pattern\": {\n          \"type\": \"<string>\",\n          \"interval\": \"<integer>\",\n          \"daysOfWeek\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"range\": {\n          \"type\": \"<string>\",\n          \"startDate\": \"<date>\",\n          \"endDate\": \"<date>\",\n          \"numberOfOccurrences\": \"<integer>\"\n        }\n      },\n      \"onlineMeeting\": {\n        \"joinUrl\": \"<uri>\"\n      },\n      \"isOnlineMeeting\": \"<boolean>\",\n      \"onlineMeetingProvider\": \"<string>\",\n      \"webLink\": \"https://WaUyYK.urjlCYMhu2xCq1dImpT6DieMRdPku8,mp\",\n      \"createdDateTime\": \"1986-12-03T14:47:05.024Z\",\n      \"lastModifiedDateTime\": \"2010-09-19T01:33:31.563Z\",\n      \"categories\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e909056d-41e5-4b66-8169-ad95ae82fc2c",
+          "name": "Microsoft List calendar events",
+          "request": {
+            "name": "Microsoft List calendar events",
+            "description": {
+              "content": "Get events from the user's default calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "116048f6-cadd-4175-8bf4-167e3595ca46",
+              "name": "List of events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"@odata.context\": \"string\",\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"start\": {\n        \"dateTime\": \"1977-08-21T17:51:28.130Z\",\n        \"timeZone\": \"string\"\n      },\n      \"end\": {\n        \"dateTime\": \"1960-02-04T11:17:23.496Z\",\n        \"timeZone\": \"string\"\n      },\n      \"location\": {\n        \"displayName\": \"string\"\n      },\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"dNERMU@IGGglebedsQ.lkp\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"tentativelyAccepted\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"required\",\n          \"status\": {\n            \"response\": \"accepted\"\n          }\n        }\n      ],\n      \"isAllDay\": true,\n      \"isCancelled\": false,\n      \"showAs\": \"busy\"\n    },\n    {\n      \"id\": \"string\",\n      \"subject\": \"string\",\n      \"start\": {\n        \"dateTime\": \"1955-08-29T05:11:39.303Z\",\n        \"timeZone\": \"string\"\n      },\n      \"end\": {\n        \"dateTime\": \"2016-08-22T10:40:08.396Z\",\n        \"timeZone\": \"string\"\n      },\n      \"location\": {\n        \"displayName\": \"string\"\n      },\n      \"organizer\": {\n        \"emailAddress\": {\n          \"name\": \"string\",\n          \"address\": \"7R1IEaEum@ioMhdABaQyoTXY.pc\"\n        }\n      },\n      \"attendees\": [\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"tentativelyAccepted\"\n          }\n        },\n        {\n          \"emailAddress\": {\n            \"name\": \"string\",\n            \"address\": \"string\"\n          },\n          \"type\": \"resource\",\n          \"status\": {\n            \"response\": \"organizer\"\n          }\n        }\n      ],\n      \"isAllDay\": true,\n      \"isCancelled\": false,\n      \"showAs\": \"workingElsewhere\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79c35118-7b27-4740-a170-4b59aa680277",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91ccccab-c158-47e4-a3f4-90073e36cdd9",
+          "name": "Microsoft Create a calendar event",
+          "request": {
+            "name": "Microsoft Create a calendar event",
+            "description": {
+              "content": "Create an event in the user's default calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Azure region for the Cognitive Services resource",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eadfc900-2cdd-4460-a0ad-d63646b2953d",
+              "name": "Event created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"subject\": \"string\",\n  \"start\": {\n    \"dateTime\": \"2014-03-14T00:26:18.711Z\",\n    \"timeZone\": \"string\"\n  },\n  \"end\": {\n    \"dateTime\": \"2022-05-03T18:16:19.938Z\",\n    \"timeZone\": \"string\"\n  },\n  \"location\": {\n    \"displayName\": \"string\"\n  },\n  \"organizer\": {\n    \"emailAddress\": {\n      \"name\": \"string\",\n      \"address\": \"9FylLl0lUJ6Rpyo@OKPMxDKCDeTAhIsdGbbtLgbMgQyv.tbs\"\n    }\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"string\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"tentativelyAccepted\"\n      }\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"string\",\n        \"address\": \"string\"\n      },\n      \"type\": \"resource\",\n      \"status\": {\n        \"response\": \"notResponded\"\n      }\n    }\n  ],\n  \"isAllDay\": true,\n  \"isCancelled\": true,\n  \"showAs\": \"workingElsewhere\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1cdde506-c33c-475f-9f3a-29b095607a8c",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "684e3144-bdb6-4e43-ae81-a6c072edde27",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Azure region for the Cognitive Services resource",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Ocp-Apim-Subscription-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"start\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"end\": {\n    \"dateTime\": \"<string>\",\n    \"timeZone\": \"<string>\"\n  },\n  \"body\": {\n    \"contentType\": \"<string>\",\n    \"content\": \"<string>\"\n  },\n  \"location\": {\n    \"displayName\": \"<string>\"\n  },\n  \"attendees\": [\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"emailAddress\": {\n        \"name\": \"<string>\",\n        \"address\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"isOnlineMeeting\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Azure region for the Cognitive Services resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eastus",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://{{region}}.api.cognitive.microsoft.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Ocp-Apim-Subscription-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c777b2b5-9d1c-42db-b138-cf4023b8f95e",
+    "name": "Microsoft Azure Cognitive Services Accounts Calendar API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}

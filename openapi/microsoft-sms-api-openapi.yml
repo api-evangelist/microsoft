@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Azure Cognitive Services Accounts SMS API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
@@ -47,15 +47,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: API version
-      schema:
-        type: string
-        default: 2024-03-15-preview
   schemas:
     SendSmsRequest:
       type: object
@@ -107,6 +98,15 @@ components:
                 type: boolean
               errorMessage:
                 type: string
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
   securitySchemes:
     apiKey:
       type: apiKey
