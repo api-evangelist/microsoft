@@ -27,6 +27,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -197,6 +199,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -1387,6 +1391,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Computer-Vision
+  tags_raw:
   - Computer Vision
   properties:
   - type: OpenAPI
@@ -2067,6 +2073,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
@@ -2577,6 +2585,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Drives
+  tags_raw:
   - Drive
   properties:
   - type: OpenAPI
@@ -3597,6 +3607,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -4107,6 +4119,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -4447,6 +4461,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -4787,6 +4803,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
@@ -5467,6 +5485,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
@@ -6657,6 +6677,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -8017,6 +8039,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
@@ -8187,6 +8211,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
@@ -8697,6 +8723,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -9387,6 +9415,8 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
