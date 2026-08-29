@@ -109,7 +109,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -150,7 +150,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -281,7 +281,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -322,7 +322,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -451,7 +451,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -492,7 +492,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -621,7 +621,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -662,7 +662,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -791,7 +791,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -832,7 +832,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -961,7 +961,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -1002,7 +1002,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -1131,7 +1131,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -1172,7 +1172,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -1301,7 +1301,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -1342,7 +1342,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -1473,7 +1473,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -1514,7 +1514,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -1643,7 +1643,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -1684,7 +1684,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -1813,7 +1813,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -1854,7 +1854,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -1983,7 +1983,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -2024,7 +2024,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -2155,7 +2155,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -2196,7 +2196,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -2325,7 +2325,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -2366,7 +2366,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -2495,7 +2495,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -2536,7 +2536,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -2667,7 +2667,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -2708,7 +2708,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -2837,7 +2837,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -2878,7 +2878,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -3007,7 +3007,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -3048,7 +3048,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -3177,7 +3177,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -3218,7 +3218,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -3347,7 +3347,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -3388,7 +3388,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -3517,7 +3517,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -3558,7 +3558,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -3689,7 +3689,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -3730,7 +3730,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -3859,7 +3859,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -3900,7 +3900,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -4029,7 +4029,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -4070,7 +4070,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -4201,7 +4201,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -4242,7 +4242,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -4371,7 +4371,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -4412,7 +4412,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -4543,7 +4543,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -4584,7 +4584,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -4713,7 +4713,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -4754,7 +4754,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -4885,7 +4885,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -4926,7 +4926,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -5055,7 +5055,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -5096,7 +5096,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -5225,7 +5225,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -5266,7 +5266,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -5395,7 +5395,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -5436,7 +5436,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -5567,7 +5567,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -5608,7 +5608,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -5737,7 +5737,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -5778,7 +5778,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -5907,7 +5907,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -5948,7 +5948,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -6077,7 +6077,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -6118,7 +6118,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -6247,7 +6247,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -6288,7 +6288,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -6417,7 +6417,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -6458,7 +6458,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -6587,7 +6587,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -6628,7 +6628,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -6759,7 +6759,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -6800,7 +6800,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -6929,7 +6929,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -6970,7 +6970,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -7099,7 +7099,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -7140,7 +7140,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -7269,7 +7269,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -7310,7 +7310,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -7439,7 +7439,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -7480,7 +7480,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -7609,7 +7609,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -7650,7 +7650,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -7779,7 +7779,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -7820,7 +7820,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -7949,7 +7949,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -7990,7 +7990,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -8121,7 +8121,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -8162,7 +8162,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -8293,7 +8293,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -8334,7 +8334,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -8463,7 +8463,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -8504,7 +8504,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -8633,7 +8633,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -8674,7 +8674,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -8805,7 +8805,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -8846,7 +8846,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -8975,7 +8975,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -9016,7 +9016,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -9145,7 +9145,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -9186,7 +9186,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
@@ -9315,7 +9315,7 @@ apis:
     url: https://learn.microsoft.com/en-us/onedrive/developer/
   - type: APIReference
     url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/
-  - type: Samples
+  - type: Examples
     url: https://github.com/OneDrive/samples
   - type: JSONSchema
     url: json-schema/microsoft-drive-item-schema.json
@@ -9356,7 +9356,7 @@ apis:
   - type: Authentication
     url: >-
       https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
-  - type: Samples
+  - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
