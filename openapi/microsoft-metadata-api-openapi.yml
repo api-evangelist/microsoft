@@ -1,21 +1,21 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Metadata API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Power Platform Metadata API
+  description: APIs for Power Apps, Power Automate, and Power BI including environment management, connector management, and flow operations via the Dataverse Web API.
+  version: '9.2'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Microsoft Power Platform Support
+    url: https://learn.microsoft.com/en-us/power-platform/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{org}.api.crm.dynamics.com/api/data/v9.2
+  description: Dataverse Web API
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    org:
+      default: your-org
+      description: Your Dataverse organization name
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Metadata
   description: Entity and attribute metadata
@@ -66,11 +66,15 @@ components:
           items:
             type: object
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://org.crm.dynamics.com/.default: Access Dataverse
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Power Platform API Documentation
+  url: https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview

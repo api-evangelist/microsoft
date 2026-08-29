@@ -1,21 +1,18 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Calendar API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Calendar API
+  version: '1.0'
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  description: 'Operations tagged Calendar across 2 of this provider''s published API definitions: microsoft-graph-openapi.yml, microsoft-outlook-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 (General Availability)
+- url: https://graph.microsoft.com/beta
+  description: Microsoft Graph Beta (Preview)
+- url: https://graph.microsoft.com/v1.0/me
+  description: Microsoft Graph v1.0 (current user context)
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Calendar
   description: Access and manage Outlook calendar events
@@ -72,6 +69,11 @@ paths:
                 $ref: '#/components/schemas/Event'
         '400':
           $ref: '#/components/responses/BadRequest'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /me/events/{event-id}:
     get:
       operationId: getEvent
@@ -125,6 +127,11 @@ paths:
           description: Event deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /me/calendarView:
     get:
       operationId: listCalendarView
@@ -161,6 +168,11 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Event'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /events:
     get:
       operationId: listEvents
@@ -205,179 +217,20 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0/me
+      description: Microsoft Graph v1.0 (current user context)
 components:
-  parameters:
-    orderby_2:
-      name: $orderby
-      in: query
-      schema:
-        type: string
-    filter_2:
-      name: $filter
-      in: query
-      schema:
-        type: string
-    select_2:
-      name: $select
-      in: query
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    eventId:
-      name: event-id
-      in: path
-      required: true
-      description: Unique identifier of the event
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
   schemas:
-    Event_2:
+    DateTimeTimeZone:
       type: object
       properties:
-        id:
+        dateTime:
           type: string
-        subject:
+          description: Date and time in ISO 8601 format
+        timeZone:
           type: string
-        start:
-          type: object
-          properties:
-            dateTime:
-              type: string
-              format: date-time
-            timeZone:
-              type: string
-        end:
-          type: object
-          properties:
-            dateTime:
-              type: string
-              format: date-time
-            timeZone:
-              type: string
-        location:
-          type: object
-          properties:
-            displayName:
-              type: string
-        organizer:
-          $ref: '#/components/schemas/Recipient_2'
-        attendees:
-          type: array
-          items:
-            type: object
-            properties:
-              emailAddress:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  address:
-                    type: string
-              type:
-                type: string
-                enum:
-                - required
-                - optional
-                - resource
-              status:
-                type: object
-                properties:
-                  response:
-                    type: string
-                    enum:
-                    - none
-                    - organizer
-                    - tentativelyAccepted
-                    - accepted
-                    - declined
-                    - notResponded
-        isAllDay:
-          type: boolean
-        isCancelled:
-          type: boolean
-        showAs:
-          type: string
-          enum:
-          - free
-          - tentative
-          - busy
-          - oof
-          - workingElsewhere
-          - unknown
-    Recipient_2:
-      type: object
-      properties:
-        emailAddress:
-          type: object
-          properties:
-            name:
-              type: string
-            address:
-              type: string
-              format: email
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
+          description: Time zone for the date-time value (Windows or IANA format)
     Event:
       type: object
       properties:
@@ -567,15 +420,6 @@ components:
           items:
             type: string
           description: Categories associated with the event
-    EventCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event_2'
     Recipient:
       type: object
       properties:
@@ -589,15 +433,37 @@ components:
               type: string
               format: email
               description: Email address of the recipient
-    DateTimeTimeZone:
+    ODataError:
       type: object
       properties:
-        dateTime:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    EventCollection:
+      type: object
+      properties:
+        '@odata.context':
           type: string
-          description: Date and time in ISO 8601 format
-        timeZone:
-          type: string
-          description: Time zone for the date-time value (Windows or IANA format)
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event_2'
     CreateEventRequest:
       type: object
       required:
@@ -649,13 +515,156 @@ components:
                 type: string
         isOnlineMeeting:
           type: boolean
+    Recipient_2:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+            address:
+              type: string
+              format: email
+    Event_2:
+      type: object
+      properties:
+        id:
+          type: string
+        subject:
+          type: string
+        start:
+          type: object
+          properties:
+            dateTime:
+              type: string
+              format: date-time
+            timeZone:
+              type: string
+        end:
+          type: object
+          properties:
+            dateTime:
+              type: string
+              format: date-time
+            timeZone:
+              type: string
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+        organizer:
+          $ref: '#/components/schemas/Recipient_2'
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+              type:
+                type: string
+                enum:
+                - required
+                - optional
+                - resource
+              status:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    enum:
+                    - none
+                    - organizer
+                    - tentativelyAccepted
+                    - accepted
+                    - declined
+                    - notResponded
+        isAllDay:
+          type: boolean
+        isCancelled:
+          type: boolean
+        showAs:
+          type: string
+          enum:
+          - free
+          - tentative
+          - busy
+          - oof
+          - workingElsewhere
+          - unknown
+  parameters:
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    eventId:
+      name: event-id
+      in: path
+      required: true
+      description: Unique identifier of the event
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
   responses:
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
     Unauthorized:
       description: Unauthorized - authentication required or token expired
       content:
@@ -668,12 +677,45 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            User.Read: Read the signed-in user's profile
+            User.ReadWrite: Read and update the signed-in user's profile
+            User.Read.All: Read all users' full profiles
+            User.ReadWrite.All: Read and write all users' full profiles
+            Group.Read.All: Read all groups
+            Group.ReadWrite.All: Read and write all groups
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail as a user
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files that user can access
+            Team.ReadBasic.All: Read the names and descriptions of teams
+            Channel.ReadBasic.All: Read channel names and descriptions
+            ChannelMessage.Read.All: Read all channel messages
+            ChannelMessage.Send: Send channel messages
+            Application.Read.All: Read all applications
+            Application.ReadWrite.All: Read and write all applications
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Default scope for application permissions
+x-refined-from:
+- microsoft-graph-openapi.yml
+- microsoft-outlook-openapi.yml

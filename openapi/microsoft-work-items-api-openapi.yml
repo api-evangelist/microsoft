@@ -1,21 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Work Items API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure DevOps REST Work Items API
+  description: REST APIs for managing Azure DevOps Services including projects, Git repositories, pipelines, builds, and work items.
+  version: '7.2'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Azure DevOps Support
+    url: https://learn.microsoft.com/en-us/rest/api/azure/devops/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://dev.azure.com/{organization}
+  description: Azure DevOps Services
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    organization:
+      default: your-org
+      description: Your Azure DevOps organization name
 security:
-- apiKey: []
+- basicAuth: []
+- oauth2: []
 tags:
 - name: Work Items
   description: Manage work items and queries
@@ -106,22 +107,6 @@ paths:
         '404':
           description: Work item not found
 components:
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Version of the API to use
-      schema:
-        type: string
-        default: 7.2-preview.4
-    project:
-      name: project
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
   schemas:
     WorkItem:
       type: object
@@ -156,12 +141,39 @@ components:
               format: date-time
         url:
           type: string
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Personal Access Token (PAT) as password with empty username
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.vssps.visualstudio.com/oauth2/authorize
+          tokenUrl: https://app.vssps.visualstudio.com/oauth2/token
+          scopes:
+            vso.project: Read projects
+            vso.code: Read source code
+            vso.build_execute: Execute builds
+            vso.work_write: Read and write work items
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure DevOps REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/azure/devops/

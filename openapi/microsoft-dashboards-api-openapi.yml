@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Dashboards API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Power BI REST Dashboards API
+  description: REST APIs for embedded analytics, administration, governance, and content management in Power BI including datasets, reports, dashboards, groups, and imports.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Power BI Developer Support
+    url: https://learn.microsoft.com/en-us/power-bi/developer/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://api.powerbi.com/v1.0/myorg
+  description: Power BI REST API
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Dashboards
   description: Manage Power BI dashboards
@@ -125,11 +121,15 @@ components:
       schema:
         type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://analysis.windows.net/powerbi/api/.default: Access Power BI
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Power BI REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/power-bi/

@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Drives API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft OneDrive Drives API
+  description: Access and manage files stored in OneDrive and SharePoint through Microsoft Graph. Upload, download, share, and organize files and folders.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: OneDrive Developer Support
+    url: https://developer.microsoft.com/en-us/onedrive
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 Production
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Drives
   description: Access drives (OneDrive or document libraries)
@@ -81,11 +77,18 @@ components:
               - critical
               - exceeded
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 via Microsoft identity platform
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files user can access
+            Files.ReadWrite.All: Full access to all files
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: OneDrive REST API Reference
+  url: https://learn.microsoft.com/en-us/onedrive/developer/rest-api/

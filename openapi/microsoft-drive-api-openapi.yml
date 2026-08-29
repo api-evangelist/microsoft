@@ -1,21 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Drive API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Graph Drive API
+  description: Unified API endpoint for accessing Microsoft 365 services including users, groups, mail, calendar, files, and teams. Microsoft Graph provides a single endpoint (https://graph.microsoft.com) to access data and intelligence from Microsoft cloud services.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Microsoft Graph Support
+    url: https://developer.microsoft.com/en-us/graph/support
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  license:
+    name: Microsoft API License
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 (General Availability)
+- url: https://graph.microsoft.com/beta
+  description: Microsoft Graph Beta (Preview)
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Drive
   description: Access OneDrive files and folders
@@ -116,31 +117,44 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    itemId:
+      name: item-id
+      in: path
+      required: true
+      description: Unique identifier of the drive item
+      schema:
+        type: string
+    driveId:
+      name: drive-id
+      in: path
+      required: true
+      description: Unique identifier of the drive
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
   schemas:
-    IdentitySet:
-      type: object
-      properties:
-        application:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
-        device:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
-        user:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
     Drive:
       type: object
       properties:
@@ -209,28 +223,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
     DriveItem:
       type: object
       properties:
@@ -303,43 +295,52 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
-  parameters:
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    driveId:
-      name: drive-id
-      in: path
-      required: true
-      description: Unique identifier of the drive
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    itemId:
-      name: item-id
-      in: path
-      required: true
-      description: Unique identifier of the drive item
-      schema:
-        type: string
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        device:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
   responses:
     Unauthorized:
       description: Unauthorized - authentication required or token expired
@@ -354,11 +355,38 @@ components:
           schema:
             $ref: '#/components/schemas/ODataError'
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            User.Read: Read the signed-in user's profile
+            User.ReadWrite: Read and update the signed-in user's profile
+            User.Read.All: Read all users' full profiles
+            User.ReadWrite.All: Read and write all users' full profiles
+            Group.Read.All: Read all groups
+            Group.ReadWrite.All: Read and write all groups
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail as a user
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files that user can access
+            Team.ReadBasic.All: Read the names and descriptions of teams
+            Channel.ReadBasic.All: Read channel names and descriptions
+            ChannelMessage.Read.All: Read all channel messages
+            ChannelMessage.Send: Send channel messages
+            Application.Read.All: Read all applications
+            Application.ReadWrite.All: Read and write all applications
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Default scope for application permissions
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Microsoft Graph API Documentation
+  url: https://learn.microsoft.com/en-us/graph/overview

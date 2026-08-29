@@ -1,21 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Applications API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Applications API
+  version: '1.0'
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  description: 'Operations tagged Applications across 2 of this provider''s published API definitions: microsoft-entra-id-openapi.yml, microsoft-graph-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0
+- url: https://graph.microsoft.com/beta
+  description: Microsoft Graph Beta (Preview)
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Applications
   description: Manage application registrations
@@ -70,6 +65,9 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0
   /applications/{applicationId}:
     get:
       operationId: getApplication
@@ -136,6 +134,9 @@ paths:
           description: Application deleted
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0
   /applications/{application-id}:
     get:
       operationId: getApplication
@@ -185,8 +186,167 @@ paths:
           description: Application deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
 components:
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      required: false
+      description: Include count of items in the response
+      schema:
+        type: boolean
+    top_2:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    applicationId:
+      name: application-id
+      in: path
+      required: true
+      description: Unique identifier of the application
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
   schemas:
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Object ID of the application
+        appId:
+          type: string
+          description: Application (client) ID
+        displayName:
+          type: string
+          description: Display name of the application
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+          - AzureADMyOrg
+          - AzureADMultipleOrgs
+          - AzureADandPersonalMicrosoftAccount
+          - PersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
+            homePageUrl:
+              type: string
+        api:
+          type: object
+          properties:
+            oauth2PermissionScopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  value:
+                    type: string
+                  type:
+                    type: string
+                  adminConsentDisplayName:
+                    type: string
+                  userConsentDisplayName:
+                    type: string
+        requiredResourceAccess:
+          type: array
+          items:
+            type: object
+            properties:
+              resourceAppId:
+                type: string
+              resourceAccess:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                      enum:
+                      - Role
+                      - Scope
+        createdDateTime:
+          type: string
+          format: date-time
+    CreateApplicationRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+          - AzureADMyOrg
+          - AzureADMultipleOrgs
+          - AzureADandPersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
     Application_2:
       type: object
       properties:
@@ -278,28 +438,6 @@ components:
           items:
             type: string
           description: Custom strings for categorizing the application
-    CreateApplicationRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        signInAudience:
-          type: string
-          enum:
-          - AzureADMyOrg
-          - AzureADMultipleOrgs
-          - AzureADandPersonalMicrosoftAccount
-        web:
-          type: object
-          properties:
-            redirectUris:
-              type: array
-              items:
-                type: string
     ODataError:
       type: object
       properties:
@@ -322,122 +460,36 @@ components:
                   type: string
                 client-request-id:
                   type: string
-    Application:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Object ID of the application
-        appId:
-          type: string
-          description: Application (client) ID
-        displayName:
-          type: string
-          description: Display name of the application
-        description:
-          type: string
-        signInAudience:
-          type: string
-          enum:
-          - AzureADMyOrg
-          - AzureADMultipleOrgs
-          - AzureADandPersonalMicrosoftAccount
-          - PersonalMicrosoftAccount
-        web:
-          type: object
-          properties:
-            redirectUris:
-              type: array
-              items:
-                type: string
-            homePageUrl:
-              type: string
-        api:
-          type: object
-          properties:
-            oauth2PermissionScopes:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  value:
-                    type: string
-                  type:
-                    type: string
-                  adminConsentDisplayName:
-                    type: string
-                  userConsentDisplayName:
-                    type: string
-        requiredResourceAccess:
-          type: array
-          items:
-            type: object
-            properties:
-              resourceAppId:
-                type: string
-              resourceAccess:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    type:
-                      type: string
-                      enum:
-                      - Role
-                      - Scope
-        createdDateTime:
-          type: string
-          format: date-time
-  parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items
-      schema:
-        type: integer
-    select_2:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
-    applicationId:
-      name: application-id
-      in: path
-      required: true
-      description: Unique identifier of the application
-      schema:
-        type: string
   responses:
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
     NotFound:
       description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Access Microsoft Graph
+            Application.ReadWrite.All: Read and write all applications
+            Directory.ReadWrite.All: Read and write directory data
+x-refined-from:
+- microsoft-entra-id-openapi.yml
+- microsoft-graph-openapi.yml

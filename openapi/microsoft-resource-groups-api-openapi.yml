@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Resource Groups API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure REST Resource Groups API
+  description: REST APIs for managing Azure resources and services including subscriptions, resource groups, and deployments through the Azure Resource Manager.
+  version: '2024-03-01'
   contact:
     name: Microsoft Azure Support
     url: https://azure.microsoft.com/en-us/support/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://management.azure.com
+  description: Azure Resource Manager Production
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Resource Groups
   description: Manage Azure resource groups
@@ -117,20 +113,19 @@ paths:
           description: Resource group not found
 components:
   parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The name of the resource group
+      schema:
+        type: string
     filterParam:
       name: $filter
       in: query
       description: OData filter expression
       schema:
         type: string
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The ID of the target subscription
-      schema:
-        type: string
-        format: uuid
     topParam:
       name: $top
       in: query
@@ -145,14 +140,24 @@ components:
       schema:
         type: string
         default: '2024-03-01'
-    resourceGroupName:
-      name: resourceGroupName
+    subscriptionId:
+      name: subscriptionId
       in: path
       required: true
-      description: The name of the resource group
+      description: The ID of the target subscription
       schema:
         type: string
+        format: uuid
   schemas:
+    ResourceGroupListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceGroup'
+        nextLink:
+          type: string
     ResourceGroup:
       type: object
       required:
@@ -185,21 +190,15 @@ components:
               type: string
               description: The provisioning state
               readOnly: true
-    ResourceGroupListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceGroup'
-        nextLink:
-          type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/azure/

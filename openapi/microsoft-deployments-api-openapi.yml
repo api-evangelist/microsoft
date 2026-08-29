@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Deployments API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure REST Deployments API
+  description: REST APIs for managing Azure resources and services including subscriptions, resource groups, and deployments through the Azure Resource Manager.
+  version: '2024-03-01'
   contact:
     name: Microsoft Azure Support
     url: https://azure.microsoft.com/en-us/support/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://management.azure.com
+  description: Azure Resource Manager Production
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Deployments
   description: Manage ARM template deployments
@@ -61,6 +57,30 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The name of the resource group
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
   schemas:
     DeploymentExtended:
       type: object
@@ -110,36 +130,15 @@ components:
               - Incremental
               - Complete
               description: The deployment mode
-  parameters:
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The ID of the target subscription
-      schema:
-        type: string
-        format: uuid
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use for this operation
-      schema:
-        type: string
-        default: '2024-03-01'
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      required: true
-      description: The name of the resource group
-      schema:
-        type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/azure/

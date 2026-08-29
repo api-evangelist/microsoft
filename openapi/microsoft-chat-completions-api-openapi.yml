@@ -1,21 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Chat Completions API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure OpenAI Service Chat Completions API
+  description: Access to OpenAI's powerful language models through Azure including chat completions, completions, embeddings, image generation, and audio transcription and translation services.
+  version: '2024-10-21'
   contact:
     name: Microsoft Azure Support
     url: https://azure.microsoft.com/en-us/support/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{resource-name}.openai.azure.com/openai
+  description: Azure OpenAI Service Endpoint
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    resource-name:
+      default: your-resource-name
+      description: Your Azure OpenAI resource name
 security:
 - apiKey: []
+- oauth2: []
 tags:
 - name: Chat Completions
   description: Create chat completions using conversational models
@@ -51,15 +52,42 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    Usage:
+    ChatCompletionResponse:
       type: object
       properties:
-        prompt_tokens:
+        id:
+          type: string
+        object:
+          type: string
+          enum:
+          - chat.completion
+        created:
           type: integer
-        completion_tokens:
-          type: integer
-        total_tokens:
-          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+                enum:
+                - stop
+                - length
+                - content_filter
+                - tool_calls
+        usage:
+          $ref: '#/components/schemas/Usage'
     ChatCompletionRequest:
       type: object
       required:
@@ -148,50 +176,16 @@ components:
               enum:
               - text
               - json_object
-    ChatCompletionResponse:
+    Usage:
       type: object
       properties:
-        id:
-          type: string
-        object:
-          type: string
-          enum:
-          - chat.completion
-        created:
+        prompt_tokens:
           type: integer
-        model:
-          type: string
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-              message:
-                type: object
-                properties:
-                  role:
-                    type: string
-                  content:
-                    type: string
-              finish_reason:
-                type: string
-                enum:
-                - stop
-                - length
-                - content_filter
-                - tool_calls
-        usage:
-          $ref: '#/components/schemas/Usage'
+        completion_tokens:
+          type: integer
+        total_tokens:
+          type: integer
   parameters:
-    deploymentId:
-      name: deployment-id
-      in: path
-      required: true
-      description: The deployment name for the model
-      schema:
-        type: string
     apiVersion:
       name: api-version
       in: query
@@ -200,12 +194,27 @@ components:
       schema:
         type: string
         default: '2024-10-21'
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey
-      name: Ocp-Apim-Subscription-Key
+      name: api-key
       in: header
-      description: Azure Cognitive Services subscription key
+      description: Azure OpenAI API key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://cognitiveservices.azure.com/.default: Access Azure OpenAI
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure OpenAI Service REST API Reference
+  url: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference

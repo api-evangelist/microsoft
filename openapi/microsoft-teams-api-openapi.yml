@@ -1,21 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Teams API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Teams API
+  version: '1.0'
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  description: 'Operations tagged Teams across 2 of this provider''s published API definitions: microsoft-graph-openapi.yml, microsoft-teams-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 (General Availability)
+- url: https://graph.microsoft.com/beta
+  description: Microsoft Graph Beta (Preview)
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Teams
   description: Manage Microsoft Teams resources
@@ -73,6 +68,11 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /teams/{team-id}:
     get:
       operationId: getTeam
@@ -124,6 +124,11 @@ paths:
           description: Team deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /teams/{team-id}/channels:
     get:
       operationId: listChannels
@@ -173,6 +178,11 @@ paths:
                 $ref: '#/components/schemas/Channel'
         '400':
           $ref: '#/components/responses/BadRequest'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /teams/{team-id}/channels/{channel-id}/messages:
     get:
       operationId: listChannelMessages
@@ -220,6 +230,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ChatMessage'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /teams/{teamId}:
     get:
       operationId: getTeam
@@ -278,7 +293,72 @@ paths:
           description: Unauthorized
         '404':
           description: Team not found
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 Production
 components:
+  parameters:
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    channelId:
+      name: channel-id
+      in: path
+      required: true
+      description: Unique identifier of the channel
+      schema:
+        type: string
+    teamId:
+      name: team-id
+      in: path
+      required: true
+      description: Unique identifier of the team
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+    filter_2:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    teamId_2:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      description: Properties to include in the response
+      schema:
+        type: string
   schemas:
     ChatMessage:
       type: object
@@ -342,40 +422,40 @@ components:
           type: string
           format: uri
           readOnly: true
-    Team_2:
+    Channel:
       type: object
       properties:
         id:
           type: string
+          description: Channel unique identifier
+          readOnly: true
         displayName:
           type: string
+          description: Channel name as it appears in Microsoft Teams
         description:
           type: string
-        isArchived:
-          type: boolean
-        webUrl:
-          type: string
-        visibility:
+          description: Optional textual description for the channel
+        membershipType:
           type: string
           enum:
+          - standard
           - private
-          - public
-        funSettings:
-          type: object
-          properties:
-            allowGiphy:
-              type: boolean
-            allowStickersAndMemes:
-              type: boolean
-        memberSettings:
-          type: object
-          properties:
-            allowCreateUpdateChannels:
-              type: boolean
-            allowDeleteChannels:
-              type: boolean
-            allowAddRemoveApps:
-              type: boolean
+          - shared
+          description: Type of channel
+        email:
+          type: string
+          format: email
+          description: Email address for sending messages to the channel
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink for the channel in Microsoft Teams
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
     Team:
       type: object
       properties:
@@ -456,20 +536,6 @@ components:
               type: boolean
             allowCustomMemes:
               type: boolean
-    CreateTeamRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
     ODataError:
       type: object
       properties:
@@ -492,40 +558,6 @@ components:
                   type: string
                 client-request-id:
                   type: string
-    Channel:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Channel unique identifier
-          readOnly: true
-        displayName:
-          type: string
-          description: Channel name as it appears in Microsoft Teams
-        description:
-          type: string
-          description: Optional textual description for the channel
-        membershipType:
-          type: string
-          enum:
-          - standard
-          - private
-          - shared
-          description: Type of channel
-        email:
-          type: string
-          format: email
-          description: Email address for sending messages to the channel
-          readOnly: true
-        webUrl:
-          type: string
-          format: uri
-          description: Hyperlink for the channel in Microsoft Teams
-          readOnly: true
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
     UpdateTeamRequest:
       type: object
       properties:
@@ -535,57 +567,64 @@ components:
           type: string
         visibility:
           type: string
-  parameters:
-    channelId:
-      name: channel-id
-      in: path
-      required: true
-      description: Unique identifier of the channel
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    teamId_2:
-      name: teamId
-      in: path
-      required: true
-      description: Team unique identifier
-      schema:
-        type: string
-    teamId:
-      name: team-id
-      in: path
-      required: true
-      description: Unique identifier of the team
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
+    CreateTeamRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+    Team_2:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        isArchived:
+          type: boolean
+        webUrl:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        funSettings:
+          type: object
+          properties:
+            allowGiphy:
+              type: boolean
+            allowStickersAndMemes:
+              type: boolean
+        memberSettings:
+          type: object
+          properties:
+            allowCreateUpdateChannels:
+              type: boolean
+            allowDeleteChannels:
+              type: boolean
+            allowAddRemoveApps:
+              type: boolean
+    TeamCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Team_2'
   responses:
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
     Unauthorized:
       description: Unauthorized - authentication required or token expired
       content:
@@ -598,12 +637,45 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            User.Read: Read the signed-in user's profile
+            User.ReadWrite: Read and update the signed-in user's profile
+            User.Read.All: Read all users' full profiles
+            User.ReadWrite.All: Read and write all users' full profiles
+            Group.Read.All: Read all groups
+            Group.ReadWrite.All: Read and write all groups
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail as a user
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files that user can access
+            Team.ReadBasic.All: Read the names and descriptions of teams
+            Channel.ReadBasic.All: Read channel names and descriptions
+            ChannelMessage.Read.All: Read all channel messages
+            ChannelMessage.Send: Send channel messages
+            Application.Read.All: Read all applications
+            Application.ReadWrite.All: Read and write all applications
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Default scope for application permissions
+x-refined-from:
+- microsoft-graph-openapi.yml
+- microsoft-teams-openapi.yml

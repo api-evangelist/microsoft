@@ -1,19 +1,15 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Image Search API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Bing Search Image Search API
+  description: Integrate Bing search capabilities into applications including web search, image search, news search, and video search.
+  version: '7.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Bing Search APIs Support
+    url: https://www.microsoft.com/en-us/bing/apis/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://api.bing.microsoft.com/v7.0
+  description: Bing Search API v7
 security:
 - apiKey: []
 tags:
@@ -114,7 +110,7 @@ components:
       type: apiKey
       name: Ocp-Apim-Subscription-Key
       in: header
-      description: Azure Cognitive Services subscription key
+      description: Bing Search API subscription key
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Bing Search APIs Documentation
+  url: https://learn.microsoft.com/en-us/bing/search-apis/

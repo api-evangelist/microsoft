@@ -1,21 +1,21 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Leads API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Dynamics 365 REST Leads API
+  description: REST APIs for Dynamics 365 business applications including Customer Engagement and Dataverse Web API for managing accounts, contacts, opportunities, and custom entities.
+  version: '9.2'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Dynamics 365 Support
+    url: https://learn.microsoft.com/en-us/rest/dynamics365/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{org}.api.crm.dynamics.com/api/data/v9.2
+  description: Dynamics 365 Dataverse Web API
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    org:
+      default: your-org
+      description: Your Dynamics 365 organization name
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Leads
   description: Manage leads
@@ -61,31 +61,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
   schemas:
     Lead:
       type: object
@@ -124,12 +99,41 @@ components:
           type: array
           items:
             type: object
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://org.api.crm.dynamics.com/.default: Access Dynamics 365
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Dynamics 365 REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/dynamics365/

@@ -1,21 +1,20 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Items API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Items API
+  version: '1.0'
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  description: 'Operations tagged Items across 2 of this provider''s published API definitions: microsoft-onedrive-openapi.yml, microsoft-sharepoint-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 Production
+- url: https://{tenant}.sharepoint.com/_api
+  description: SharePoint REST API
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    tenant:
+      default: your-tenant
+      description: Your SharePoint Online tenant name
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Items
   description: Manage files and folders
@@ -40,6 +39,9 @@ paths:
                 $ref: '#/components/schemas/DriveItemCollection'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 Production
   /me/drive/items/{itemId}:
     get:
       operationId: getDriveItem
@@ -106,6 +108,9 @@ paths:
           description: Unauthorized
         '404':
           description: Item not found
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 Production
   /me/drive/items/{itemId}/children:
     get:
       operationId: listChildren
@@ -129,6 +134,9 @@ paths:
           description: Unauthorized
         '404':
           description: Folder not found
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 Production
   /me/drive/items/{itemId}/content:
     get:
       operationId: downloadFile
@@ -182,6 +190,9 @@ paths:
                 $ref: '#/components/schemas/DriveItem'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 Production
   /me/drive/search(q='{searchText}'):
     get:
       operationId: searchDriveItems
@@ -207,6 +218,9 @@ paths:
                 $ref: '#/components/schemas/DriveItemCollection'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 Production
   /web/lists/getbytitle('{listTitle}')/items:
     get:
       operationId: listItems
@@ -290,6 +304,13 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{tenant}.sharepoint.com/_api
+      description: SharePoint REST API
+      variables:
+        tenant:
+          default: your-tenant
+          description: Your SharePoint Online tenant name
   /web/lists/getbytitle('{listTitle}')/items({itemId}):
     get:
       operationId: getListItem
@@ -398,12 +419,20 @@ paths:
           description: Unauthorized
         '404':
           description: Item not found
+    servers:
+    - url: https://{tenant}.sharepoint.com/_api
+      description: SharePoint REST API
+      variables:
+        tenant:
+          default: your-tenant
+          description: Your SharePoint Online tenant name
 components:
   parameters:
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
+    itemId:
+      name: itemId
+      in: path
+      required: true
+      description: Drive item unique identifier
       schema:
         type: string
     top:
@@ -412,31 +441,19 @@ components:
       description: Maximum number of items to return
       schema:
         type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
     select:
       name: $select
       in: query
       description: Properties to include
       schema:
         type: string
-    itemId:
-      name: itemId
-      in: path
-      required: true
-      description: Drive item unique identifier
-      schema:
-        type: string
   schemas:
-    DriveItemCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/DriveItem'
     DriveItem:
       type: object
       properties:
@@ -501,6 +518,17 @@ components:
                   type: string
                 id:
                   type: string
+    DriveItemCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DriveItem'
     ListItem:
       type: object
       properties:
@@ -524,11 +552,18 @@ components:
         EditorId:
           type: integer
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 via Microsoft identity platform
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files user can access
+            Files.ReadWrite.All: Full access to all files
+x-refined-from:
+- microsoft-onedrive-openapi.yml
+- microsoft-sharepoint-openapi.yml

@@ -1,21 +1,18 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Groups API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Groups API
+  version: '1.0'
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  description: 'Operations tagged Groups across 2 of this provider''s published API definitions: microsoft-graph-openapi.yml, microsoft-power-bi-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 (General Availability)
+- url: https://graph.microsoft.com/beta
+  description: Microsoft Graph Beta (Preview)
+- url: https://api.powerbi.com/v1.0/myorg
+  description: Power BI REST API
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Groups
   description: Manage Microsoft Entra groups including Microsoft 365 groups and security groups
@@ -76,6 +73,11 @@ paths:
           $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/Unauthorized'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /groups/{group-id}:
     get:
       operationId: getGroup
@@ -131,6 +133,11 @@ paths:
           description: Group deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /groups/{group-id}/members:
     get:
       operationId: listGroupMembers
@@ -156,6 +163,11 @@ paths:
                       $ref: '#/components/schemas/DirectoryObject'
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /groups/{group-id}/members/$ref:
     post:
       operationId: addGroupMember
@@ -185,6 +197,11 @@ paths:
           $ref: '#/components/responses/BadRequest'
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /groups/{group-id}/owners:
     get:
       operationId: listGroupOwners
@@ -209,99 +226,59 @@ paths:
                       $ref: '#/components/schemas/DirectoryObject'
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
 components:
-  parameters:
-    search:
-      name: $search
-      in: query
-      required: false
-      description: Search expression to filter results
-      schema:
-        type: string
-    groupId:
-      name: group-id
-      in: path
-      required: true
-      description: Unique identifier of the group
-      schema:
-        type: string
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    count:
-      name: $count
-      in: query
-      required: false
-      description: Include count of items in the response
-      schema:
-        type: boolean
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
-  responses:
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
   schemas:
-    DirectoryObject:
+    GroupCreate:
       type: object
+      required:
+      - displayName
+      - mailEnabled
+      - mailNickname
+      - securityEnabled
       properties:
-        '@odata.type':
+        displayName:
           type: string
-          description: OData type annotation
-        id:
+          description: Display name for the group
+          maxLength: 256
+        description:
           type: string
-          description: Unique identifier (GUID)
-        deletedDateTime:
+          description: Optional description
+        mailEnabled:
+          type: boolean
+          description: Whether the group is mail-enabled
+        mailNickname:
           type: string
-          format: date-time
-          description: Date and time when object was deleted
+          description: Mail alias for the group
+          maxLength: 64
+        securityEnabled:
+          type: boolean
+          description: Whether the group is a security group
+        groupTypes:
+          type: array
+          items:
+            type: string
+          description: Group types (include 'Unified' for Microsoft 365 group)
+        visibility:
+          type: string
+          enum:
+          - Public
+          - Private
+          - HiddenMembership
+        members@odata.bind:
+          type: array
+          items:
+            type: string
+          description: URLs of members to add
+        owners@odata.bind:
+          type: array
+          items:
+            type: string
+          description: URLs of owners to add
     Group:
       type: object
       properties:
@@ -394,6 +371,19 @@ components:
           - Orange
           - Red
           description: Microsoft 365 group color theme
+    DirectoryObject:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+          description: OData type annotation
+        id:
+          type: string
+          description: Unique identifier (GUID)
+        deletedDateTime:
+          type: string
+          format: date-time
+          description: Date and time when object was deleted
     ODataError:
       type: object
       properties:
@@ -416,58 +406,139 @@ components:
                   type: string
                 client-request-id:
                   type: string
-    GroupCreate:
+    GroupCollection:
       type: object
-      required:
-      - displayName
-      - mailEnabled
-      - mailNickname
-      - securityEnabled
       properties:
-        displayName:
+        '@odata.context':
           type: string
-          description: Display name for the group
-          maxLength: 256
-        description:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group_2'
+    Group_2:
+      type: object
+      properties:
+        id:
           type: string
-          description: Optional description
-        mailEnabled:
+        name:
+          type: string
+        isReadOnly:
           type: boolean
-          description: Whether the group is mail-enabled
-        mailNickname:
-          type: string
-          description: Mail alias for the group
-          maxLength: 64
-        securityEnabled:
+        isOnDedicatedCapacity:
           type: boolean
-          description: Whether the group is a security group
-        groupTypes:
-          type: array
-          items:
-            type: string
-          description: Group types (include 'Unified' for Microsoft 365 group)
-        visibility:
+        type:
           type: string
-          enum:
-          - Public
-          - Private
-          - HiddenMembership
-        members@odata.bind:
-          type: array
-          items:
-            type: string
-          description: URLs of members to add
-        owners@odata.bind:
-          type: array
-          items:
-            type: string
-          description: URLs of owners to add
+  parameters:
+    count:
+      name: $count
+      in: query
+      required: false
+      description: Include count of items in the response
+      schema:
+        type: boolean
+    groupId:
+      name: group-id
+      in: path
+      required: true
+      description: Unique identifier of the group
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            User.Read: Read the signed-in user's profile
+            User.ReadWrite: Read and update the signed-in user's profile
+            User.Read.All: Read all users' full profiles
+            User.ReadWrite.All: Read and write all users' full profiles
+            Group.Read.All: Read all groups
+            Group.ReadWrite.All: Read and write all groups
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail as a user
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files that user can access
+            Team.ReadBasic.All: Read the names and descriptions of teams
+            Channel.ReadBasic.All: Read channel names and descriptions
+            ChannelMessage.Read.All: Read all channel messages
+            ChannelMessage.Send: Send channel messages
+            Application.Read.All: Read all applications
+            Application.ReadWrite.All: Read and write all applications
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Default scope for application permissions
+x-refined-from:
+- microsoft-graph-openapi.yml
+- microsoft-power-bi-openapi.yml

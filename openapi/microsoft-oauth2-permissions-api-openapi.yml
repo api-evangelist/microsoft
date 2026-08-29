@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts OAuth2 Permissions API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Entra ID OAuth2 Permissions API
+  description: APIs for identity and access management including user authentication, authorization, application registrations, service principals, and directory services via Microsoft Graph.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Microsoft Entra Support
+    url: https://learn.microsoft.com/en-us/entra/identity-platform/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: OAuth2 Permissions
   description: Manage OAuth2 permission grants
@@ -66,19 +62,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items
-      schema:
-        type: integer
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
   schemas:
     OAuth2PermissionGrant:
       type: object
@@ -101,12 +84,30 @@ components:
         scope:
           type: string
           description: Space-delimited list of scopes
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Access Microsoft Graph
+            Application.ReadWrite.All: Read and write all applications
+            Directory.ReadWrite.All: Read and write directory data
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Microsoft Entra ID Documentation
+  url: https://learn.microsoft.com/en-us/entra/identity-platform/

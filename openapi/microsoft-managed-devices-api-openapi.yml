@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Managed Devices API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Intune Managed Devices API
+  description: APIs for managing devices, apps, and compliance policies through Microsoft Graph for enterprise mobility and endpoint management.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Microsoft Intune Support
+    url: https://learn.microsoft.com/en-us/graph/intune-concept-overview
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Managed Devices
   description: Manage enrolled devices
@@ -114,11 +110,6 @@ paths:
           description: Unauthorized
 components:
   parameters:
-    orderby:
-      name: $orderby
-      in: query
-      schema:
-        type: string
     top:
       name: $top
       in: query
@@ -126,6 +117,11 @@ components:
         type: integer
     filter:
       name: $filter
+      in: query
+      schema:
+        type: string
+    orderby:
+      name: $orderby
       in: query
       schema:
         type: string
@@ -197,11 +193,17 @@ components:
         jailBroken:
           type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            DeviceManagementManagedDevices.Read.All: Read managed devices
+            DeviceManagementManagedDevices.ReadWrite.All: Read and write managed devices
+            DeviceManagementApps.Read.All: Read mobile apps
+            DeviceManagementConfiguration.Read.All: Read device configurations
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Intune Graph API Overview
+  url: https://learn.microsoft.com/en-us/graph/intune-concept-overview

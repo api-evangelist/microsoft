@@ -1,21 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Messages API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Teams Messages API
+  description: Build apps and bots for Microsoft Teams via Microsoft Graph. Manage teams, channels, messages, members, and tabs programmatically.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Microsoft Teams Developer Support
+    url: https://developer.microsoft.com/en-us/microsoft-teams
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 Production
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Messages
   description: Send and manage channel messages
@@ -68,6 +64,12 @@ paths:
           description: Unauthorized
 components:
   parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
     channelId:
       name: channelId
       in: path
@@ -75,12 +77,6 @@ components:
       description: Channel unique identifier
       schema:
         type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items to return
-      schema:
-        type: integer
     teamId:
       name: teamId
       in: path
@@ -89,39 +85,6 @@ components:
       schema:
         type: string
   schemas:
-    ChatMessageCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatMessage'
-    CreateChatMessageRequest:
-      type: object
-      required:
-      - body
-      properties:
-        body:
-          type: object
-          required:
-          - content
-          properties:
-            contentType:
-              type: string
-              enum:
-              - text
-              - html
-              default: text
-            content:
-              type: string
-        importance:
-          type: string
-          enum:
-          - normal
-          - high
-          - urgent
     ChatMessage:
       type: object
       properties:
@@ -158,12 +121,54 @@ components:
           - normal
           - high
           - urgent
+    ChatMessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+    CreateChatMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: object
+          required:
+          - content
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+              default: text
+            content:
+              type: string
+        importance:
+          type: string
+          enum:
+          - normal
+          - high
+          - urgent
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 via Microsoft identity platform
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Team.ReadBasic.All: Read teams
+            Team.Create: Create teams
+            Channel.ReadBasic.All: Read channels
+            ChannelMessage.Read.All: Read channel messages
+            ChannelMessage.Send: Send channel messages
+            TeamMember.Read.All: Read team members
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Microsoft Teams API Overview
+  url: https://learn.microsoft.com/en-us/graph/teams-concept-overview

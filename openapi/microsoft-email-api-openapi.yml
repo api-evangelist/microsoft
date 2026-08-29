@@ -1,21 +1,21 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Email API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure Communication Services Email API
+  description: Multichannel communication APIs for adding voice, video, chat, SMS, and email capabilities to applications.
+  version: '2024-03-15'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Azure Communication Services Support
+    url: https://learn.microsoft.com/en-us/azure/communication-services/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{resource}.communication.azure.com
+  description: Azure Communication Services Endpoint
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    resource:
+      default: your-resource
+      description: Your Communication Services resource name
 security:
-- apiKey: []
+- accessKey: []
 tags:
 - name: Email
   description: Send email messages
@@ -129,11 +129,11 @@ components:
         type: string
         default: 2024-03-15-preview
   securitySchemes:
-    apiKey:
+    accessKey:
       type: apiKey
-      name: Ocp-Apim-Subscription-Key
+      name: Authorization
       in: header
-      description: Azure Cognitive Services subscription key
+      description: HMAC-SHA256 signature authentication
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure Communication Services REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/communication/

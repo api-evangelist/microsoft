@@ -1,21 +1,18 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Mail API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Mail API
+  version: '1.0'
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  description: 'Operations tagged Mail across 2 of this provider''s published API definitions: microsoft-graph-openapi.yml, microsoft-outlook-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
-  variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph v1.0 (General Availability)
+- url: https://graph.microsoft.com/beta
+  description: Microsoft Graph Beta (Preview)
+- url: https://graph.microsoft.com/v1.0/me
+  description: Microsoft Graph v1.0 (current user context)
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Mail
   description: Access and manage Outlook mail messages and folders
@@ -73,6 +70,11 @@ paths:
                 $ref: '#/components/schemas/Message'
         '400':
           $ref: '#/components/responses/BadRequest'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /me/messages/{message-id}:
     get:
       operationId: getMessage
@@ -126,6 +128,11 @@ paths:
           description: Message deleted successfully
         '404':
           $ref: '#/components/responses/NotFound'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /me/sendMail:
     post:
       operationId: sendMail
@@ -153,6 +160,11 @@ paths:
           description: Mail sent successfully
         '400':
           $ref: '#/components/responses/BadRequest'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /me/mailFolders:
     get:
       operationId: listMailFolders
@@ -176,6 +188,11 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/MailFolder'
+    servers:
+    - url: https://graph.microsoft.com/v1.0
+      description: Microsoft Graph v1.0 (General Availability)
+    - url: https://graph.microsoft.com/beta
+      description: Microsoft Graph Beta (Preview)
   /messages:
     get:
       operationId: listMessages
@@ -199,6 +216,9 @@ paths:
                 $ref: '#/components/schemas/MessageCollection'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0/me
+      description: Microsoft Graph v1.0 (current user context)
   /messages/{messageId}:
     get:
       operationId: getMessage
@@ -269,6 +289,9 @@ paths:
           description: Message deleted
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0/me
+      description: Microsoft Graph v1.0 (current user context)
   /sendMail:
     post:
       operationId: sendMail
@@ -289,6 +312,9 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0/me
+      description: Microsoft Graph v1.0 (current user context)
   /mailFolders:
     get:
       operationId: listMailFolders
@@ -312,8 +338,160 @@ paths:
                       $ref: '#/components/schemas/MailFolder_2'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://graph.microsoft.com/v1.0/me
+      description: Microsoft Graph v1.0 (current user context)
 components:
+  parameters:
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    messageId:
+      name: message-id
+      in: path
+      required: true
+      description: Unique identifier of the message
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    search_2:
+      name: $search
+      in: query
+      schema:
+        type: string
+    messageId_2:
+      name: messageId
+      in: path
+      required: true
+      description: Message unique identifier
+      schema:
+        type: string
+    skip_2:
+      name: $skip
+      in: query
+      schema:
+        type: integer
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
   schemas:
+    MailFolder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name of the mail folder
+        parentFolderId:
+          type: string
+          description: Unique identifier for the parent mail folder
+        childFolderCount:
+          type: integer
+          description: Number of immediate child mail folders
+        unreadItemCount:
+          type: integer
+          description: Number of unread items in the folder
+        totalItemCount:
+          type: integer
+          description: Total number of items in the folder
+        isHidden:
+          type: boolean
+          description: Whether the folder is hidden
+    Recipient:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Display name of the recipient
+            address:
+              type: string
+              format: email
+              description: Email address of the recipient
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
     Message:
       type: object
       properties:
@@ -406,6 +584,72 @@ components:
           items:
             type: string
           description: Categories associated with the message
+    SendMailRequest:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: object
+          properties:
+            subject:
+              type: string
+            body:
+              type: object
+              properties:
+                contentType:
+                  type: string
+                  enum:
+                  - text
+                  - html
+                content:
+                  type: string
+            toRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient_2'
+            ccRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient_2'
+        saveToSentItems:
+          type: boolean
+          default: true
+    MailFolder_2:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        totalItemCount:
+          type: integer
+        unreadItemCount:
+          type: integer
+        parentFolderId:
+          type: string
+    Recipient_2:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+            address:
+              type: string
+              format: email
+    MessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message_2'
     Message_2:
       type: object
       properties:
@@ -457,228 +701,7 @@ components:
           type: array
           items:
             type: string
-    MailFolder:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier
-          readOnly: true
-        displayName:
-          type: string
-          description: Display name of the mail folder
-        parentFolderId:
-          type: string
-          description: Unique identifier for the parent mail folder
-        childFolderCount:
-          type: integer
-          description: Number of immediate child mail folders
-        unreadItemCount:
-          type: integer
-          description: Number of unread items in the folder
-        totalItemCount:
-          type: integer
-          description: Total number of items in the folder
-        isHidden:
-          type: boolean
-          description: Whether the folder is hidden
-    Recipient_2:
-      type: object
-      properties:
-        emailAddress:
-          type: object
-          properties:
-            name:
-              type: string
-            address:
-              type: string
-              format: email
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
-    SendMailRequest:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: object
-          properties:
-            subject:
-              type: string
-            body:
-              type: object
-              properties:
-                contentType:
-                  type: string
-                  enum:
-                  - text
-                  - html
-                content:
-                  type: string
-            toRecipients:
-              type: array
-              items:
-                $ref: '#/components/schemas/Recipient_2'
-            ccRecipients:
-              type: array
-              items:
-                $ref: '#/components/schemas/Recipient_2'
-        saveToSentItems:
-          type: boolean
-          default: true
-    Recipient:
-      type: object
-      properties:
-        emailAddress:
-          type: object
-          properties:
-            name:
-              type: string
-              description: Display name of the recipient
-            address:
-              type: string
-              format: email
-              description: Email address of the recipient
-    MailFolder_2:
-      type: object
-      properties:
-        id:
-          type: string
-        displayName:
-          type: string
-        totalItemCount:
-          type: integer
-        unreadItemCount:
-          type: integer
-        parentFolderId:
-          type: string
-    MessageCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message_2'
-  parameters:
-    messageId:
-      name: message-id
-      in: path
-      required: true
-      description: Unique identifier of the message
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
-    orderby_2:
-      name: $orderby
-      in: query
-      schema:
-        type: string
-    filter_2:
-      name: $filter
-      in: query
-      schema:
-        type: string
-    select_2:
-      name: $select
-      in: query
-      schema:
-        type: string
-    search_2:
-      name: $search
-      in: query
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    skip_2:
-      name: $skip
-      in: query
-      schema:
-        type: integer
-    top_2:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    messageId_2:
-      name: messageId
-      in: path
-      required: true
-      description: Message unique identifier
-      schema:
-        type: string
-    search:
-      name: $search
-      in: query
-      required: false
-      description: Search expression to filter results
-      schema:
-        type: string
   responses:
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
     Unauthorized:
       description: Unauthorized - authentication required or token expired
       content:
@@ -691,12 +714,45 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0 authorization
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            User.Read: Read the signed-in user's profile
+            User.ReadWrite: Read and update the signed-in user's profile
+            User.Read.All: Read all users' full profiles
+            User.ReadWrite.All: Read and write all users' full profiles
+            Group.Read.All: Read all groups
+            Group.ReadWrite.All: Read and write all groups
+            Mail.Read: Read user mail
+            Mail.ReadWrite: Read and write user mail
+            Mail.Send: Send mail as a user
+            Calendars.Read: Read user calendars
+            Calendars.ReadWrite: Read and write user calendars
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+            Files.Read.All: Read all files that user can access
+            Team.ReadBasic.All: Read the names and descriptions of teams
+            Channel.ReadBasic.All: Read channel names and descriptions
+            ChannelMessage.Read.All: Read all channel messages
+            ChannelMessage.Send: Send channel messages
+            Application.Read.All: Read all applications
+            Application.ReadWrite.All: Read and write all applications
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
+          scopes:
+            https://graph.microsoft.com/.default: Default scope for application permissions
+x-refined-from:
+- microsoft-graph-openapi.yml
+- microsoft-outlook-openapi.yml

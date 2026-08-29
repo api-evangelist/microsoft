@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Text Analytics API
+  title: Microsoft Azure Cognitive Services Text Analytics API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
   version: '3.2'
   contact:
@@ -120,20 +120,6 @@ components:
                     type: number
                   negative:
                     type: number
-    KeyPhrasesResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              keyPhrases:
-                type: array
-                items:
-                  type: string
     EntitiesResponse:
       type: object
       properties:
@@ -161,6 +147,20 @@ components:
                       type: integer
                     confidenceScore:
                       type: number
+    KeyPhrasesResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              keyPhrases:
+                type: array
+                items:
+                  type: string
     TextAnalyticsRequest:
       type: object
       required:

@@ -1,21 +1,21 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Lists API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft SharePoint REST Lists API
+  description: REST service for remotely interacting with SharePoint data including sites, lists, list items, and document libraries using standard REST and OData protocols.
+  version: '1.0'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: SharePoint Developer Support
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{tenant}.sharepoint.com/_api
+  description: SharePoint REST API
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    tenant:
+      default: your-tenant
+      description: Your SharePoint Online tenant name
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Lists
   description: Manage SharePoint lists
@@ -101,11 +101,16 @@ components:
         ListItemEntityTypeFullName:
           type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Sites.Read.All: Read items in all site collections
+            Sites.ReadWrite.All: Read and write items in all site collections
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: SharePoint REST API Documentation
+  url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service

@@ -1,21 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Projects API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure DevOps REST Projects API
+  description: REST APIs for managing Azure DevOps Services including projects, Git repositories, pipelines, builds, and work items.
+  version: '7.2'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Azure DevOps Support
+    url: https://learn.microsoft.com/en-us/rest/api/azure/devops/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://dev.azure.com/{organization}
+  description: Azure DevOps Services
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    organization:
+      default: your-org
+      description: Your Azure DevOps organization name
 security:
-- apiKey: []
+- basicAuth: []
+- oauth2: []
 tags:
 - name: Projects
   description: Manage team projects
@@ -108,37 +109,32 @@ paths:
         '404':
           description: Project not found
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
   schemas:
-    CreateProjectRequest:
+    ProjectCollection:
       type: object
-      required:
-      - name
       properties:
-        name:
-          type: string
-        description:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-        capabilities:
-          type: object
-          properties:
-            versioncontrol:
-              type: object
-              properties:
-                sourceControlType:
-                  type: string
-                  enum:
-                  - Git
-                  - Tfvc
-            processTemplate:
-              type: object
-              properties:
-                templateTypeId:
-                  type: string
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -179,37 +175,53 @@ components:
           type: string
         url:
           type: string
-    ProjectCollection:
+    CreateProjectRequest:
       type: object
+      required:
+      - name
       properties:
-        count:
-          type: integer
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Version of the API to use
-      schema:
-        type: string
-        default: 7.2-preview.4
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
+        name:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        capabilities:
+          type: object
+          properties:
+            versioncontrol:
+              type: object
+              properties:
+                sourceControlType:
+                  type: string
+                  enum:
+                  - Git
+                  - Tfvc
+            processTemplate:
+              type: object
+              properties:
+                templateTypeId:
+                  type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Personal Access Token (PAT) as password with empty username
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.vssps.visualstudio.com/oauth2/authorize
+          tokenUrl: https://app.vssps.visualstudio.com/oauth2/token
+          scopes:
+            vso.project: Read projects
+            vso.code: Read source code
+            vso.build_execute: Execute builds
+            vso.work_write: Read and write work items
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure DevOps REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/azure/devops/

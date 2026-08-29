@@ -1,21 +1,21 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts SMS API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
+  title: Microsoft Azure Communication Services SMS API
+  description: Multichannel communication APIs for adding voice, video, chat, SMS, and email capabilities to applications.
+  version: '2024-03-15'
   contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+    name: Azure Communication Services Support
+    url: https://learn.microsoft.com/en-us/azure/communication-services/
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{resource}.communication.azure.com
+  description: Azure Communication Services Endpoint
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    resource:
+      default: your-resource
+      description: Your Communication Services resource name
 security:
-- apiKey: []
+- accessKey: []
 tags:
 - name: SMS
   description: Send SMS messages
@@ -47,7 +47,34 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
   schemas:
+    SmsSendResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              to:
+                type: string
+              messageId:
+                type: string
+              httpStatusCode:
+                type: integer
+              successful:
+                type: boolean
+              errorMessage:
+                type: string
     SendSmsRequest:
       type: object
       required:
@@ -80,39 +107,12 @@ components:
               default: false
             tag:
               type: string
-    SmsSendResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              to:
-                type: string
-              messageId:
-                type: string
-              httpStatusCode:
-                type: integer
-              successful:
-                type: boolean
-              errorMessage:
-                type: string
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: API version
-      schema:
-        type: string
-        default: 2024-03-15-preview
   securitySchemes:
-    apiKey:
+    accessKey:
       type: apiKey
-      name: Ocp-Apim-Subscription-Key
+      name: Authorization
       in: header
-      description: Azure Cognitive Services subscription key
+      description: HMAC-SHA256 signature authentication
 externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+  description: Azure Communication Services REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/communication/

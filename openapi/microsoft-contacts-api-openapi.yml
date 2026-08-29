@@ -1,21 +1,20 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Contacts API
-  description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
-  version: '3.2'
-  contact:
-    name: Microsoft Azure Support
-    url: https://azure.microsoft.com/en-us/support/
+  title: Microsoft Contacts API
   termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  version: '1.0'
+  description: 'Operations tagged Contacts across 2 of this provider''s published API definitions: microsoft-dynamics-365-openapi.yml, microsoft-outlook-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{region}.api.cognitive.microsoft.com
-  description: Azure Cognitive Services Regional Endpoint
+- url: https://{org}.api.crm.dynamics.com/api/data/v9.2
+  description: Dynamics 365 Dataverse Web API
   variables:
-    region:
-      default: eastus
-      description: Azure region for the Cognitive Services resource
+    org:
+      default: your-org
+      description: Your Dynamics 365 organization name
+- url: https://graph.microsoft.com/v1.0/me
+  description: Microsoft Graph v1.0 (current user context)
 security:
-- apiKey: []
+- oauth2: []
 tags:
 - name: Contacts
   description: Manage contacts
@@ -60,14 +59,15 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{org}.api.crm.dynamics.com/api/data/v9.2
+      description: Dynamics 365 Dataverse Web API
+      variables:
+        org:
+          default: your-org
+          description: Your Dynamics 365 organization name
 components:
   parameters:
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
     top:
       name: $top
       in: query
@@ -80,10 +80,36 @@ components:
       description: OData filter expression
       schema:
         type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
     select:
       name: $select
       in: query
       description: Properties to include
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
       schema:
         type: string
   schemas:
@@ -122,12 +148,46 @@ components:
           type: array
           items:
             type: object
+    Contact_2:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        givenName:
+          type: string
+        surname:
+          type: string
+        emailAddresses:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              address:
+                type: string
+        businessPhones:
+          type: array
+          items:
+            type: string
+        mobilePhone:
+          type: string
+        companyName:
+          type: string
+        jobTitle:
+          type: string
   securitySchemes:
-    apiKey:
-      type: apiKey
-      name: Ocp-Apim-Subscription-Key
-      in: header
-      description: Azure Cognitive Services subscription key
-externalDocs:
-  description: Azure AI Services Documentation
-  url: https://learn.microsoft.com/en-us/azure/ai-services/
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://org.api.crm.dynamics.com/.default: Access Dynamics 365
+x-refined-from:
+- microsoft-dynamics-365-openapi.yml
+- microsoft-outlook-openapi.yml

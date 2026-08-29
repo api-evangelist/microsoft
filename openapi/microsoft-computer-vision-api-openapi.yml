@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Azure Cognitive Services Accounts Computer Vision API
+  title: Microsoft Azure Cognitive Services Computer Vision API
   description: APIs for vision, speech, language, and decision-making AI capabilities including Computer Vision, Text Analytics, and Translator services.
   version: '3.2'
   contact:
