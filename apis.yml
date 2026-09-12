@@ -9468,6 +9468,8 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 common:
+- type: Website
+  url: https://www.microsoft.com/
 - type: CapabilityMap
   url: capabilities/microsoft-capability-edges.yml
   name: Microsoft Business Capability Map
