@@ -14,6 +14,7 @@ deliveryModel:
 specificationVersion: '0.23'
 tags:
 - Fortune 100
+- Microsoft
 description: Collection of Microsoft's primary APIs and developer resources.
 accessModel:
   pricing: free
