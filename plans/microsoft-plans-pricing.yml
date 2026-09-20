@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
 published: false
 note: No numeric price is published on the pricing page; Azure pricing overview hub page. It describes
   consumption-based pay-as-you-go pricing, reservations, savings plans and links to per-product pricing
