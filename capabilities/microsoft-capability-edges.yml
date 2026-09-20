@@ -1,0 +1,197 @@
+slug: microsoft
+provider: Microsoft
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 19
+edges:
+- tag: Git
+  spec_file: microsoft-git-api-openapi.yml
+  capability_id: BC-4200.40
+  capability_id_l1: BC-4200
+  capability_name: Software Construction Management
+  confidence: 0.85
+  evidence: GET /{project}/_apis/git/repositories  listRepositories ... POST createRepository
+  reason: Azure DevOps Git repository management — source control, which is explicitly part of software
+    construction practice.
+- tag: Pipelines
+  spec_file: microsoft-pipelines-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.85
+  evidence: 'GET /{project}/_apis/pipelines listPipelines; POST /{project}/_apis/pipelines/{pipelineId}/runs
+    runPipeline; schemas: PipelineRun, Pipeline'
+  reason: Azure DevOps build/release pipeline listing and run triggering — build pipeline execution, i.e.
+    continuous integration management. Title mentioning Cognitive Services is spurious; the paths (_apis/pipelines)
+    are Azure DevOps.
+- tag: Service Principals
+  spec_file: microsoft-service-principals-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.83
+  evidence: GET /servicePrincipals listServicePrincipals; POST /servicePrincipals createServicePrincipal;
+    schema ServicePrincipal
+  reason: Entra ID / Azure AD service principal creation and listing is machine identity provisioning
+    — identity and access management.
+- tag: Resource Groups
+  spec_file: microsoft-resource-groups-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.82
+  evidence: 'PUT /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName} createOrUpdateResourceGroup;
+    schemas: ResourceGroup, ResourceGroupListResult'
+  reason: Azure Resource Manager resource-group lifecycle within a subscription — provisioning and organising
+    cloud infrastructure, which is IT infrastructure management.
+- tag: Groups
+  spec_file: microsoft-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: GET /groups/{group-id}/members  listGroupMembers ... POST addGroupMember
+  reason: Entra ID directory group and membership management — identity and access management (group-based
+    access), evidenced by DirectoryObject schema.
+- tag: Users
+  spec_file: microsoft-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /users  createUser; GET /users/{user-id}/manager  getUserManager; GET /users/{user-id}/memberOf  listUserMemberOf
+  reason: Directory user lifecycle and group membership (Entra ID/Graph) — identity and access management,
+    joiners-movers-leavers, not HR records.
+- tag: Dashboards
+  spec_file: microsoft-dashboards-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.75
+  evidence: GET /dashboards/{dashboardId}/tiles  listTiles  Microsoft List dashboard tiles
+  reason: Power BI dashboards and tiles — business intelligence content delivery, matching Analytics &
+    BI Management.
+- tag: Identity
+  spec_file: microsoft-identity-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /identities/{id}/:issueAccessToken  issueAccessToken; CommunicationIdentityAccessToken
+  reason: Creation/deletion of identities and issuance of access tokens — identity and credential management.
+    This is Azure Communication Services identity, so it is token plumbing for a service, giving moderate
+    confidence.
+- tag: Resources
+  spec_file: microsoft-resources-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: GET /subscriptions/{subscriptionId}/resources listResources "List all resources in a subscription";
+    schema GenericResource
+  reason: Inventory of Azure cloud resources in a subscription — cloud infrastructure estate visibility.
+    Slightly generic (single read operation) so confidence is moderate.
+- tag: Text Analytics
+  spec_file: microsoft-text-analytics-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.75
+  evidence: POST /text/analytics/v3.1/sentiment  analyzeSentiment; POST /text/analytics/v3.1/entities/recognition/general  recognizeEntities
+  reason: AI/NLP inference services (sentiment, NER, key phrases) — an artificial intelligence capability
+    delivered as an API; no more specific business capability applies.
+- tag: Managed Devices
+  spec_file: microsoft-managed-devices-api-openapi.yml
+  capability_id: BC-600
+  capability_id_l1: BC-600
+  capability_name: Information Technology Management
+  confidence: 0.72
+  evidence: POST /deviceManagement/managedDevices/{managedDeviceId}/wipe  wipeManagedDevice; retireManagedDevice
+  reason: Intune endpoint management — inventory, wipe and retire of corporate managed devices, an IT
+    management activity; unclear which L2 (infrastructure vs operations) so L1 only.
+- tag: Opportunities
+  spec_file: microsoft-opportunities-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.72
+  evidence: 'POST /opportunities createOpportunity "Microsoft Create an opportunity"; schemas: EntityCollection,
+    Opportunity'
+  reason: Operations create and list Opportunity records with a Dataverse-style EntityCollection schema,
+    i.e. Dynamics-style CRM sales opportunity objects. That maps to lead/opportunity/deal lifecycle. Some
+    residual doubt because the spec gives no fields beyond the entity name.
+- tag: Audio
+  spec_file: microsoft-audio-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /deployments/{deployment-id}/audio/transcriptions  createTranscription  Microsoft Transcribe
+    audio
+  reason: AI model inference endpoints (speech-to-text, translation) delivered as a service; closest honest
+    mapping is Artificial Intelligence Management under Information & Data Management. Confidence moderate
+    as it is model consumption rather than model lifecycle governance.
+- tag: Computer Vision
+  spec_file: microsoft-computer-vision-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /vision/v3.2/analyze  analyzeImage  Microsoft Analyze image
+  reason: Image analysis and OCR AI services; Artificial Intelligence Management is the closest supported
+    capability.
+- tag: Datasets
+  spec_file: microsoft-datasets-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: POST /datasets/{datasetId}/refreshes  refreshDataset  Microsoft Trigger dataset refresh
+  reason: Power BI dataset management and refresh scheduling supporting BI reporting; maps to Analytics
+    & BI Management.
+- tag: Deployments
+  spec_file: microsoft-deployments-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: PUT /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}  createOrUpdateDeployment
+  reason: Azure Resource Manager deployment of cloud resource groups — cloud infrastructure provisioning,
+    i.e. IT Infrastructure Management.
+- tag: Device Configuration
+  spec_file: microsoft-device-configuration-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /deviceManagement/deviceConfigurations  listDeviceConfigurations
+  reason: Intune-style device management configuration listing — an IT endpoint/infrastructure management
+    surface. Mapped at L1 IT Management; L2 infrastructure is a reasonable but not certain fit.
+- tag: Embeddings
+  spec_file: microsoft-embeddings-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /deployments/{deployment-id}/embeddings  createEmbedding
+  reason: AI model inference endpoint (embeddings from a deployed model) — AI/ML capability delivery.
+    Consumption of an AI service rather than model lifecycle governance, hence moderate confidence.
+- tag: Work Items
+  spec_file: microsoft-work-items-api-openapi.yml
+  capability_id: BC-900.30
+  capability_id_l1: BC-900
+  capability_name: Project Management
+  confidence: 0.7
+  evidence: POST /{project}/_apis/wit/workitems/${type}  createWorkItem; GET /{project}/_apis/wit/workitems/{id}
+  reason: Azure DevOps work item tracking within a project — work planning/tracking. Could also read as
+    software backlog management, hence moderate confidence on the sub-capability.
