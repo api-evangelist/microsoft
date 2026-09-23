@@ -208,18 +208,25 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   parameters:
-    count:
-      name: $count
+    orderby:
+      name: $orderby
       in: query
       required: false
-      description: Include count of items in the response
+      description: OData order by expression
       schema:
-        type: boolean
-    userId:
-      name: user-id
-      in: path
-      required: true
-      description: Unique identifier of the user (GUID or userPrincipalName)
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
       schema:
         type: string
     top:
@@ -230,11 +237,11 @@ components:
       schema:
         type: integer
         minimum: 1
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
+    userId:
+      name: user-id
+      in: path
+      required: true
+      description: Unique identifier of the user (GUID or userPrincipalName)
       schema:
         type: string
     search:
@@ -252,34 +259,61 @@ components:
       schema:
         type: integer
         minimum: 0
-    orderby:
-      name: $orderby
+    count:
+      name: $count
       in: query
       required: false
-      description: OData order by expression
+      description: Include count of items in the response
       schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
+        type: boolean
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   schemas:
-    DirectoryObject:
+    ODataError:
       type: object
       properties:
-        '@odata.type':
-          type: string
-          description: OData type annotation
-        id:
-          type: string
-          description: Unique identifier (GUID)
-        deletedDateTime:
-          type: string
-          format: date-time
-          description: Date and time when object was deleted
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
     UserCreate:
       type: object
       required:
@@ -442,53 +476,19 @@ components:
           type: boolean
           description: Whether the user is synced from on-premises AD
           readOnly: true
-    ODataError:
+    DirectoryObject:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Forbidden:
-      description: Forbidden - insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
+        '@odata.type':
+          type: string
+          description: OData type annotation
+        id:
+          type: string
+          description: Unique identifier (GUID)
+        deletedDateTime:
+          type: string
+          format: date-time
+          description: Date and time when object was deleted
   securitySchemes:
     oauth2:
       type: oauth2

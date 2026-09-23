@@ -169,13 +169,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    CreateChatThreadResult:
-      type: object
-      properties:
-        chatThread:
-          $ref: '#/components/schemas/ChatThread'
-        errors:
-          type: object
     CreateChatThreadRequest:
       type: object
       required:
@@ -215,6 +208,13 @@ components:
         deletedOn:
           type: string
           format: date-time
+    CreateChatThreadResult:
+      type: object
+      properties:
+        chatThread:
+          $ref: '#/components/schemas/ChatThread'
+        errors:
+          type: object
     ChatMessageItem:
       type: object
       properties:

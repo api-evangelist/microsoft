@@ -298,6 +298,20 @@ paths:
       description: Microsoft Graph v1.0 Production
 components:
   parameters:
+    channelId:
+      name: channel-id
+      in: path
+      required: true
+      description: Unique identifier of the channel
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
     top:
       name: $top
       in: query
@@ -306,18 +320,11 @@ components:
       schema:
         type: integer
         minimum: 1
-    filter:
-      name: $filter
+    select:
+      name: $select
       in: query
       required: false
-      description: OData filter expression
-      schema:
-        type: string
-    channelId:
-      name: channel-id
-      in: path
-      required: true
-      description: Unique identifier of the channel
+      description: Comma-separated list of properties to include in the response
       schema:
         type: string
     teamId:
@@ -327,11 +334,10 @@ components:
       description: Unique identifier of the team
       schema:
         type: string
-    select:
-      name: $select
+    filter_2:
+      name: $filter
       in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
+      description: OData filter expression
       schema:
         type: string
     top_2:
@@ -340,10 +346,10 @@ components:
       description: Maximum number of items to return
       schema:
         type: integer
-    filter_2:
-      name: $filter
+    select_2:
+      name: $select
       in: query
-      description: OData filter expression
+      description: Properties to include in the response
       schema:
         type: string
     teamId_2:
@@ -351,12 +357,6 @@ components:
       in: path
       required: true
       description: Team unique identifier
-      schema:
-        type: string
-    select_2:
-      name: $select
-      in: query
-      description: Properties to include in the response
       schema:
         type: string
   schemas:
@@ -422,40 +422,28 @@ components:
           type: string
           format: uri
           readOnly: true
-    Channel:
+    ODataError:
       type: object
       properties:
-        id:
-          type: string
-          description: Channel unique identifier
-          readOnly: true
-        displayName:
-          type: string
-          description: Channel name as it appears in Microsoft Teams
-        description:
-          type: string
-          description: Optional textual description for the channel
-        membershipType:
-          type: string
-          enum:
-          - standard
-          - private
-          - shared
-          description: Type of channel
-        email:
-          type: string
-          format: email
-          description: Email address for sending messages to the channel
-          readOnly: true
-        webUrl:
-          type: string
-          format: uri
-          description: Hyperlink for the channel in Microsoft Teams
-          readOnly: true
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
     Team:
       type: object
       properties:
@@ -536,28 +524,40 @@ components:
               type: boolean
             allowCustomMemes:
               type: boolean
-    ODataError:
+    Channel:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
+        id:
+          type: string
+          description: Channel unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Channel name as it appears in Microsoft Teams
+        description:
+          type: string
+          description: Optional textual description for the channel
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
+          description: Type of channel
+        email:
+          type: string
+          format: email
+          description: Email address for sending messages to the channel
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink for the channel in Microsoft Teams
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
     UpdateTeamRequest:
       type: object
       properties:
@@ -625,14 +625,14 @@ components:
           items:
             $ref: '#/components/schemas/Team_2'
   responses:
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
       content:
         application/json:
           schema:

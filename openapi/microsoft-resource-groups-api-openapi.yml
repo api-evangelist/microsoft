@@ -112,52 +112,7 @@ paths:
         '404':
           description: Resource group not found
 components:
-  parameters:
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      required: true
-      description: The name of the resource group
-      schema:
-        type: string
-    filterParam:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    topParam:
-      name: $top
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use for this operation
-      schema:
-        type: string
-        default: '2024-03-01'
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The ID of the target subscription
-      schema:
-        type: string
-        format: uuid
   schemas:
-    ResourceGroupListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceGroup'
-        nextLink:
-          type: string
     ResourceGroup:
       type: object
       required:
@@ -190,6 +145,51 @@ components:
               type: string
               description: The provisioning state
               readOnly: true
+    ResourceGroupListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceGroup'
+        nextLink:
+          type: string
+  parameters:
+    filterParam:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The name of the resource group
+      schema:
+        type: string
+    topParam:
+      name: $top
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
   securitySchemes:
     oauth2:
       type: oauth2

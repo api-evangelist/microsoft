@@ -62,6 +62,12 @@ paths:
           description: Unauthorized
 components:
   parameters:
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
     top:
       name: $top
       in: query
@@ -74,12 +80,6 @@ components:
       description: OData filter expression
       schema:
         type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
     select:
       name: $select
       in: query
@@ -87,6 +87,17 @@ components:
       schema:
         type: string
   schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
     Opportunity:
       type: object
       properties:
@@ -108,17 +119,6 @@ components:
           type: integer
         statuscode:
           type: integer
-    EntityCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            type: object
   securitySchemes:
     oauth2:
       type: oauth2

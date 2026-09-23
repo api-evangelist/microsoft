@@ -110,6 +110,11 @@ paths:
           description: Unauthorized
 components:
   parameters:
+    orderby:
+      name: $orderby
+      in: query
+      schema:
+        type: string
     top:
       name: $top
       in: query
@@ -117,11 +122,6 @@ components:
         type: integer
     filter:
       name: $filter
-      in: query
-      schema:
-        type: string
-    orderby:
-      name: $orderby
       in: query
       schema:
         type: string

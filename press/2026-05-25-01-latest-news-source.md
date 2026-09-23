@@ -1,7 +1,9 @@
 ---
 title: Latest news - Source
 url: https://news.microsoft.com/source/view-all/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Microsoft" press release artificial intelligence'
 position: 1
 source: serpapi-google

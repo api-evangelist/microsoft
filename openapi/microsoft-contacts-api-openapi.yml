@@ -68,6 +68,12 @@ paths:
           description: Your Dynamics 365 organization name
 components:
   parameters:
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
     top:
       name: $top
       in: query
@@ -80,16 +86,15 @@ components:
       description: OData filter expression
       schema:
         type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
     select:
       name: $select
       in: query
       description: Properties to include
+      schema:
+        type: string
+    orderby_2:
+      name: $orderby
+      in: query
       schema:
         type: string
     top_2:
@@ -99,11 +104,6 @@ components:
         type: integer
     filter_2:
       name: $filter
-      in: query
-      schema:
-        type: string
-    orderby_2:
-      name: $orderby
       in: query
       schema:
         type: string

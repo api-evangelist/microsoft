@@ -72,6 +72,19 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    Dashboard:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        isReadOnly:
+          type: boolean
+        embedUrl:
+          type: string
+        webUrl:
+          type: string
     TileCollection:
       type: object
       properties:
@@ -90,19 +103,6 @@ components:
                 type: string
               datasetId:
                 type: string
-    Dashboard:
-      type: object
-      properties:
-        id:
-          type: string
-        displayName:
-          type: string
-        isReadOnly:
-          type: boolean
-        embedUrl:
-          type: string
-        webUrl:
-          type: string
     DashboardCollection:
       type: object
       properties:

@@ -1,7 +1,9 @@
 ---
 title: The Microsoft Cloud Blog | Build the future of your business ...
 url: https://www.microsoft.com/en-us/microsoft-cloud/blog/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Microsoft" press release artificial intelligence'
 position: 3
 source: serpapi-google

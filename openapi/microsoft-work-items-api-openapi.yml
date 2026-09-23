@@ -107,6 +107,22 @@ paths:
         '404':
           description: Work item not found
 components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
   schemas:
     WorkItem:
       type: object
@@ -141,22 +157,6 @@ components:
               format: date-time
         url:
           type: string
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Version of the API to use
-      schema:
-        type: string
-        default: 7.2-preview.4
-    project:
-      name: project
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
   securitySchemes:
     basicAuth:
       type: http

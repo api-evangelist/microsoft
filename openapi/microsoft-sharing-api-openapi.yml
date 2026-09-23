@@ -60,14 +60,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    itemId:
-      name: itemId
-      in: path
-      required: true
-      description: Drive item unique identifier
-      schema:
-        type: string
   schemas:
     Permission:
       type: object
@@ -90,6 +82,14 @@ components:
         expirationDateTime:
           type: string
           format: date-time
+  parameters:
+    itemId:
+      name: itemId
+      in: path
+      required: true
+      description: Drive item unique identifier
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

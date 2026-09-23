@@ -108,7 +108,8 @@
     "tag 'Groups' spans 2 source specs (microsoft-graph-openapi.yml, microsoft-power-bi-openapi.yml): per-path servers applied",
     "tag 'Mail' spans 2 source specs (microsoft-graph-openapi.yml, microsoft-outlook-openapi.yml): per-path servers applied",
     "tag 'Teams' spans 2 source specs (microsoft-graph-openapi.yml, microsoft-teams-openapi.yml): per-path servers applied",
-    "tag 'Items' spans 2 source specs (microsoft-onedrive-openapi.yml, microsoft-sharepoint-openapi.yml): per-path servers applied"
+    "tag 'Items' spans 2 source specs (microsoft-onedrive-openapi.yml, microsoft-sharepoint-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "microsoft-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",

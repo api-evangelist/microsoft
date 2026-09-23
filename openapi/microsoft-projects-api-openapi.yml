@@ -109,32 +109,7 @@ paths:
         '404':
           description: Project not found
 components:
-  parameters:
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Version of the API to use
-      schema:
-        type: string
-        default: 7.2-preview.4
   schemas:
-    ProjectCollection:
-      type: object
-      properties:
-        count:
-          type: integer
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -205,6 +180,31 @@ components:
               properties:
                 templateTypeId:
                   type: string
+    ProjectCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http

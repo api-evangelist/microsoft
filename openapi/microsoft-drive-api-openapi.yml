@@ -117,112 +117,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    itemId:
-      name: item-id
-      in: path
-      required: true
-      description: Unique identifier of the drive item
-      schema:
-        type: string
-    driveId:
-      name: drive-id
-      in: path
-      required: true
-      description: Unique identifier of the drive
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
   schemas:
-    Drive:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the drive
-          readOnly: true
-        name:
-          type: string
-          description: Name of the drive
-        description:
-          type: string
-          description: Human-readable description of the drive
-        driveType:
-          type: string
-          enum:
-          - personal
-          - business
-          - documentLibrary
-          description: Type of drive
-        owner:
-          type: object
-          properties:
-            user:
-              type: object
-              properties:
-                id:
-                  type: string
-                displayName:
-                  type: string
-        quota:
-          type: object
-          properties:
-            total:
-              type: integer
-              format: int64
-              description: Total allowed storage space in bytes
-            used:
-              type: integer
-              format: int64
-              description: Total space used in bytes
-            remaining:
-              type: integer
-              format: int64
-              description: Total space remaining in bytes
-            deleted:
-              type: integer
-              format: int64
-              description: Total space consumed by items in the recycle bin
-            state:
-              type: string
-              enum:
-              - normal
-              - nearing
-              - critical
-              - exceeded
-        webUrl:
-          type: string
-          format: uri
-          description: URL that displays the drive in a browser
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        lastModifiedDateTime:
-          type: string
-          format: date-time
-          readOnly: true
     DriveItem:
       type: object
       properties:
@@ -295,6 +190,96 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    Drive:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the drive
+          readOnly: true
+        name:
+          type: string
+          description: Name of the drive
+        description:
+          type: string
+          description: Human-readable description of the drive
+        driveType:
+          type: string
+          enum:
+          - personal
+          - business
+          - documentLibrary
+          description: Type of drive
+        owner:
+          type: object
+          properties:
+            user:
+              type: object
+              properties:
+                id:
+                  type: string
+                displayName:
+                  type: string
+        quota:
+          type: object
+          properties:
+            total:
+              type: integer
+              format: int64
+              description: Total allowed storage space in bytes
+            used:
+              type: integer
+              format: int64
+              description: Total space used in bytes
+            remaining:
+              type: integer
+              format: int64
+              description: Total space remaining in bytes
+            deleted:
+              type: integer
+              format: int64
+              description: Total space consumed by items in the recycle bin
+            state:
+              type: string
+              enum:
+              - normal
+              - nearing
+              - critical
+              - exceeded
+        webUrl:
+          type: string
+          format: uri
+          description: URL that displays the drive in a browser
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
     IdentitySet:
       type: object
       properties:
@@ -319,37 +304,52 @@ components:
               type: string
             displayName:
               type: string
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
+  parameters:
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    driveId:
+      name: drive-id
+      in: path
+      required: true
+      description: Unique identifier of the drive
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    itemId:
+      name: item-id
+      in: path
+      required: true
+      description: Unique identifier of the drive item
+      schema:
+        type: string
   responses:
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
       content:
         application/json:
           schema:

@@ -73,25 +73,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items
-      schema:
-        type: integer
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
   schemas:
     ServicePrincipal:
       type: object
@@ -131,6 +112,25 @@ components:
         createdDateTime:
           type: string
           format: date-time
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

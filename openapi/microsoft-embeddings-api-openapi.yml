@@ -51,7 +51,41 @@ paths:
         '429':
           description: Rate limit exceeded
 components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
   schemas:
+    EmbeddingRequest:
+      type: object
+      required:
+      - input
+      properties:
+        input:
+          oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+          description: Input text to embed
+        encoding_format:
+          type: string
+          enum:
+          - float
+          - base64
+          default: float
     EmbeddingResponse:
       type: object
       properties:
@@ -83,40 +117,6 @@ components:
               type: integer
             total_tokens:
               type: integer
-    EmbeddingRequest:
-      type: object
-      required:
-      - input
-      properties:
-        input:
-          oneOf:
-          - type: string
-          - type: array
-            items:
-              type: string
-          description: Input text to embed
-        encoding_format:
-          type: string
-          enum:
-          - float
-          - base64
-          default: float
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use
-      schema:
-        type: string
-        default: '2024-10-21'
-    deploymentId:
-      name: deployment-id
-      in: path
-      required: true
-      description: The deployment name for the model
-      schema:
-        type: string
   securitySchemes:
     apiKey:
       type: apiKey

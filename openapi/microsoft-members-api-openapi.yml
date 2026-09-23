@@ -61,6 +61,23 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    AddMemberRequest:
+      type: object
+      required:
+      - '@odata.type'
+      - roles
+      - user@odata.bind
+      properties:
+        '@odata.type':
+          type: string
+          default: '#microsoft.graph.aadUserConversationMember'
+        roles:
+          type: array
+          items:
+            type: string
+        user@odata.bind:
+          type: string
+          description: URL reference to the user to add
     MemberCollection:
       type: object
       properties:
@@ -85,23 +102,6 @@ components:
           type: string
         email:
           type: string
-    AddMemberRequest:
-      type: object
-      required:
-      - '@odata.type'
-      - roles
-      - user@odata.bind
-      properties:
-        '@odata.type':
-          type: string
-          default: '#microsoft.graph.aadUserConversationMember'
-        roles:
-          type: array
-          items:
-            type: string
-        user@odata.bind:
-          type: string
-          description: URL reference to the user to add
   parameters:
     teamId:
       name: teamId

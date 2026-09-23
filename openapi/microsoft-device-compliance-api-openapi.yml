@@ -42,6 +42,22 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
   schemas:
     DeviceCompliancePolicy:
       type: object
@@ -60,22 +76,6 @@ components:
           format: date-time
         version:
           type: integer
-  parameters:
-    select:
-      name: $select
-      in: query
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    filter:
-      name: $filter
-      in: query
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

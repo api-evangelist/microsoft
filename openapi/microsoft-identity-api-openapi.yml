@@ -120,6 +120,15 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
   schemas:
     CommunicationIdentityAccessTokenResult:
       type: object
@@ -139,15 +148,6 @@ components:
         expiresOn:
           type: string
           format: date-time
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: API version
-      schema:
-        type: string
-        default: 2024-03-15-preview
   securitySchemes:
     accessKey:
       type: apiKey

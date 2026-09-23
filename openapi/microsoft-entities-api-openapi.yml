@@ -163,6 +163,12 @@ paths:
           description: Unauthorized
 components:
   parameters:
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
     top:
       name: $top
       in: query
@@ -175,12 +181,6 @@ components:
       description: OData filter expression
       schema:
         type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
     select:
       name: $select
       in: query
@@ -188,6 +188,17 @@ components:
       schema:
         type: string
   schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
     Account:
       type: object
       properties:
@@ -222,17 +233,6 @@ components:
         statecode:
           type: integer
           description: Status of the account (0=Active, 1=Inactive)
-    EntityCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            type: object
   securitySchemes:
     oauth2:
       type: oauth2

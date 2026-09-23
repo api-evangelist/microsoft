@@ -38,35 +38,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    filterParam:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    topParam:
-      name: $top
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use for this operation
-      schema:
-        type: string
-        default: '2024-03-01'
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The ID of the target subscription
-      schema:
-        type: string
-        format: uuid
   schemas:
     GenericResource:
       type: object
@@ -107,6 +78,35 @@ components:
             $ref: '#/components/schemas/GenericResource'
         nextLink:
           type: string
+  parameters:
+    filterParam:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+    topParam:
+      name: $top
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
   securitySchemes:
     oauth2:
       type: oauth2

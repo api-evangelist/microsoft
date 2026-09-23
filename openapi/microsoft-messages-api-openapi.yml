@@ -64,12 +64,6 @@ paths:
           description: Unauthorized
 components:
   parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items to return
-      schema:
-        type: integer
     channelId:
       name: channelId
       in: path
@@ -77,6 +71,12 @@ components:
       description: Channel unique identifier
       schema:
         type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
     teamId:
       name: teamId
       in: path
@@ -85,6 +85,15 @@ components:
       schema:
         type: string
   schemas:
+    ChatMessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
     ChatMessage:
       type: object
       properties:
@@ -121,15 +130,6 @@ components:
           - normal
           - high
           - urgent
-    ChatMessageCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatMessage'
     CreateChatMessageRequest:
       type: object
       required:
