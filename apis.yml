@@ -62,8 +62,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -234,8 +232,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -404,8 +400,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -574,8 +568,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -744,8 +736,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -914,8 +904,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -1084,8 +1072,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -1254,8 +1240,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -1404,9 +1388,10 @@ apis:
   humanURL: https://developer.microsoft.com/en-us/graph
   baseURL: https://graph.microsoft.com
   tags:
-  - Computer-Vision
+  - Computer Vision
   tags_raw:
   - Computer Vision
+  - Computer-Vision
   properties:
   - type: OpenAPI
     url: openapi/microsoft-computer-vision-api-openapi.yml
@@ -1426,8 +1411,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -1596,8 +1579,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -1766,8 +1747,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -1936,8 +1915,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -2108,8 +2085,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -2278,8 +2253,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -2448,8 +2421,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -2620,8 +2591,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -2790,8 +2759,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -2960,8 +2927,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -3130,8 +3095,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -3300,8 +3263,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -3470,8 +3431,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -3642,8 +3601,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -3812,8 +3769,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -3982,8 +3937,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -4154,8 +4107,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -4326,8 +4277,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -4498,8 +4447,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -4668,8 +4615,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -4840,8 +4785,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -5010,8 +4953,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -5180,8 +5121,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -5350,8 +5289,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -5522,8 +5459,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -5692,8 +5627,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -5864,8 +5797,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -6034,8 +5965,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -6204,8 +6133,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -6374,8 +6301,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -6544,8 +6469,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -6716,8 +6639,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -6886,8 +6807,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -7056,8 +6975,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -7226,8 +7143,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -7396,8 +7311,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -7566,8 +7479,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -7736,8 +7647,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -7906,8 +7815,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -8078,8 +7985,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -8250,8 +8155,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -8420,8 +8323,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -8590,8 +8491,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -8762,8 +8661,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -8932,8 +8829,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -9102,8 +8997,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
@@ -9272,8 +9165,6 @@ apis:
     url: json-schema/microsoft-graph-user-schema.json
   - type: JSONSchema
     url: json-schema/microsoft-graph-group-schema.json
-  - type: GraphQL
-    url: graphql/microsoft-graphql.md
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/azure/
   - type: APIReference
