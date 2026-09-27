@@ -237,7 +237,7 @@ paths:
       description: Microsoft Graph Beta (Preview)
   /teams/{teamId}:
     get:
-      operationId: getTeam
+      operationId: getTeamsByTeamId
       summary: Microsoft Get a team
       description: Retrieve the properties and relationships of the specified team.
       tags:
@@ -255,8 +255,10 @@ paths:
           description: Unauthorized
         '404':
           description: Team not found
+      x-operation-id-source: normalized
+      x-operation-id-original: getTeam
     patch:
-      operationId: updateTeam
+      operationId: patchTeamsByTeamId
       summary: Microsoft Update a team
       description: Update the properties of a team.
       tags:
@@ -278,8 +280,10 @@ paths:
           description: Unauthorized
         '404':
           description: Team not found
+      x-operation-id-source: normalized
+      x-operation-id-original: updateTeam
     delete:
-      operationId: deleteTeam
+      operationId: deleteTeamsByTeamId
       summary: Microsoft Delete a team
       description: Delete a team and its associated group.
       tags:
@@ -293,73 +297,69 @@ paths:
           description: Unauthorized
         '404':
           description: Team not found
+      x-operation-id-source: normalized
+      x-operation-id-original: deleteTeam
     servers:
     - url: https://graph.microsoft.com/v1.0
       description: Microsoft Graph v1.0 Production
 components:
-  parameters:
-    channelId:
-      name: channel-id
-      in: path
-      required: true
-      description: Unique identifier of the channel
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    teamId:
-      name: team-id
-      in: path
-      required: true
-      description: Unique identifier of the team
-      schema:
-        type: string
-    filter_2:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      description: Maximum number of items to return
-      schema:
-        type: integer
-    select_2:
-      name: $select
-      in: query
-      description: Properties to include in the response
-      schema:
-        type: string
-    teamId_2:
-      name: teamId
-      in: path
-      required: true
-      description: Team unique identifier
-      schema:
-        type: string
   schemas:
+    Channel:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Channel unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Channel name as it appears in Microsoft Teams
+        description:
+          type: string
+          description: Optional textual description for the channel
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
+          description: Type of channel
+        email:
+          type: string
+          format: email
+          description: Email address for sending messages to the channel
+          readOnly: true
+        webUrl:
+          type: string
+          format: uri
+          description: Hyperlink for the channel in Microsoft Teams
+          readOnly: true
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
     ChatMessage:
       type: object
       properties:
@@ -422,28 +422,6 @@ components:
           type: string
           format: uri
           readOnly: true
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
     Team:
       type: object
       properties:
@@ -524,49 +502,6 @@ components:
               type: boolean
             allowCustomMemes:
               type: boolean
-    Channel:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Channel unique identifier
-          readOnly: true
-        displayName:
-          type: string
-          description: Channel name as it appears in Microsoft Teams
-        description:
-          type: string
-          description: Optional textual description for the channel
-        membershipType:
-          type: string
-          enum:
-          - standard
-          - private
-          - shared
-          description: Type of channel
-        email:
-          type: string
-          format: email
-          description: Email address for sending messages to the channel
-          readOnly: true
-        webUrl:
-          type: string
-          format: uri
-          description: Hyperlink for the channel in Microsoft Teams
-          readOnly: true
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-    UpdateTeamRequest:
-      type: object
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        visibility:
-          type: string
     CreateTeamRequest:
       type: object
       required:
@@ -581,6 +516,24 @@ components:
           enum:
           - private
           - public
+    TeamCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Team_2'
+    UpdateTeamRequest:
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
     Team_2:
       type: object
       properties:
@@ -615,18 +568,9 @@ components:
               type: boolean
             allowAddRemoveApps:
               type: boolean
-    TeamCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Team_2'
   responses:
-    NotFound:
-      description: Resource not found
+    BadRequest:
+      description: Bad request - invalid input or malformed request
       content:
         application/json:
           schema:
@@ -637,12 +581,74 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Bad request - invalid input or malformed request
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+  parameters:
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    channelId:
+      name: channel-id
+      in: path
+      required: true
+      description: Unique identifier of the channel
+      schema:
+        type: string
+    teamId:
+      name: team-id
+      in: path
+      required: true
+      description: Unique identifier of the team
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+    select_2:
+      name: $select
+      in: query
+      description: Properties to include in the response
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    teamId_2:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

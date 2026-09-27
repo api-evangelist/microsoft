@@ -107,6 +107,28 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    Dataset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        configuredBy:
+          type: string
+        isRefreshable:
+          type: boolean
+        isEffectiveIdentityRequired:
+          type: boolean
+        isOnPremGatewayRequired:
+          type: boolean
+        addRowsAPIEnabled:
+          type: boolean
+        webUrl:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
     DatasetCollection:
       type: object
       properties:
@@ -142,28 +164,6 @@ components:
                 - Failed
                 - Cancelled
                 - Disabled
-    Dataset:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        configuredBy:
-          type: string
-        isRefreshable:
-          type: boolean
-        isEffectiveIdentityRequired:
-          type: boolean
-        isOnPremGatewayRequired:
-          type: boolean
-        addRowsAPIEnabled:
-          type: boolean
-        webUrl:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
   parameters:
     datasetId:
       name: datasetId

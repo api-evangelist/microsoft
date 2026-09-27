@@ -40,6 +40,18 @@ paths:
         '401':
           description: Unauthorized
 components:
+  schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
   parameters:
     select:
       name: $select
@@ -53,18 +65,6 @@ components:
       description: OData filter expression
       schema:
         type: string
-  schemas:
-    EntityCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            type: object
   securitySchemes:
     oauth2:
       type: oauth2

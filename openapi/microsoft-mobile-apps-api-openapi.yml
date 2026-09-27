@@ -42,22 +42,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    select:
-      name: $select
-      in: query
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    filter:
-      name: $filter
-      in: query
-      schema:
-        type: string
   schemas:
     MobileApp:
       type: object
@@ -84,6 +68,22 @@ components:
           - notPublished
           - processing
           - published
+  parameters:
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
   securitySchemes:
     oauth2:
       type: oauth2

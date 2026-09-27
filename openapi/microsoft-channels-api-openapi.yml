@@ -99,49 +99,7 @@ paths:
         '404':
           description: Channel not found
 components:
-  parameters:
-    channelId:
-      name: channelId
-      in: path
-      required: true
-      description: Channel unique identifier
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include in the response
-      schema:
-        type: string
-    teamId:
-      name: teamId
-      in: path
-      required: true
-      description: Team unique identifier
-      schema:
-        type: string
   schemas:
-    CreateChannelRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        membershipType:
-          type: string
-          enum:
-          - standard
-          - private
-          - shared
     Channel:
       type: object
       properties:
@@ -161,6 +119,21 @@ components:
           type: string
         webUrl:
           type: string
+    CreateChannelRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        membershipType:
+          type: string
+          enum:
+          - standard
+          - private
+          - shared
     ChannelCollection:
       type: object
       properties:
@@ -170,6 +143,33 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Channel'
+  parameters:
+    select:
+      name: $select
+      in: query
+      description: Properties to include in the response
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    channelId:
+      name: channelId
+      in: path
+      required: true
+      description: Channel unique identifier
+      schema:
+        type: string
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

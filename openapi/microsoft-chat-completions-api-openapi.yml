@@ -51,59 +51,16 @@ paths:
         '429':
           description: Rate limit exceeded
 components:
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use
-      schema:
-        type: string
-        default: '2024-10-21'
-    deploymentId:
-      name: deployment-id
-      in: path
-      required: true
-      description: The deployment name for the model
-      schema:
-        type: string
   schemas:
-    ChatCompletionResponse:
+    Usage:
       type: object
       properties:
-        id:
-          type: string
-        object:
-          type: string
-          enum:
-          - chat.completion
-        created:
+        prompt_tokens:
           type: integer
-        model:
-          type: string
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-              message:
-                type: object
-                properties:
-                  role:
-                    type: string
-                  content:
-                    type: string
-              finish_reason:
-                type: string
-                enum:
-                - stop
-                - length
-                - content_filter
-                - tool_calls
-        usage:
-          $ref: '#/components/schemas/Usage'
+        completion_tokens:
+          type: integer
+        total_tokens:
+          type: integer
     ChatCompletionRequest:
       type: object
       required:
@@ -192,15 +149,58 @@ components:
               enum:
               - text
               - json_object
-    Usage:
+    ChatCompletionResponse:
       type: object
       properties:
-        prompt_tokens:
+        id:
+          type: string
+        object:
+          type: string
+          enum:
+          - chat.completion
+        created:
           type: integer
-        completion_tokens:
-          type: integer
-        total_tokens:
-          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+                enum:
+                - stop
+                - length
+                - content_filter
+                - tool_calls
+        usage:
+          $ref: '#/components/schemas/Usage'
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
   securitySchemes:
     apiKey:
       type: apiKey

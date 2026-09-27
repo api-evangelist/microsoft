@@ -72,7 +72,44 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
   schemas:
+    Repository:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+        defaultBranch:
+          type: string
+        size:
+          type: integer
+          format: int64
+        remoteUrl:
+          type: string
+        webUrl:
+          type: string
+        project:
+          $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -103,27 +140,6 @@ components:
         lastUpdateTime:
           type: string
           format: date-time
-    Repository:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        url:
-          type: string
-        defaultBranch:
-          type: string
-        size:
-          type: integer
-          format: int64
-        remoteUrl:
-          type: string
-        webUrl:
-          type: string
-        project:
-          $ref: '#/components/schemas/Project'
     RepositoryCollection:
       type: object
       properties:
@@ -133,22 +149,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Repository'
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Version of the API to use
-      schema:
-        type: string
-        default: 7.2-preview.4
-    project:
-      name: project
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
   securitySchemes:
     basicAuth:
       type: http

@@ -169,52 +169,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    CreateChatThreadRequest:
-      type: object
-      required:
-      - topic
-      properties:
-        topic:
-          type: string
-        participants:
-          type: array
-          items:
-            type: object
-            required:
-            - communicationIdentifier
-            properties:
-              communicationIdentifier:
-                type: object
-                properties:
-                  communicationUserId:
-                    type: string
-              displayName:
-                type: string
-    ChatThread:
-      type: object
-      properties:
-        id:
-          type: string
-        topic:
-          type: string
-        createdOn:
-          type: string
-          format: date-time
-        createdByCommunicationIdentifier:
-          type: object
-          properties:
-            communicationUserId:
-              type: string
-        deletedOn:
-          type: string
-          format: date-time
-    CreateChatThreadResult:
-      type: object
-      properties:
-        chatThread:
-          $ref: '#/components/schemas/ChatThread'
-        errors:
-          type: object
     ChatMessageItem:
       type: object
       properties:
@@ -237,6 +191,52 @@ components:
           properties:
             communicationUserId:
               type: string
+    CreateChatThreadResult:
+      type: object
+      properties:
+        chatThread:
+          $ref: '#/components/schemas/ChatThread'
+        errors:
+          type: object
+    ChatThread:
+      type: object
+      properties:
+        id:
+          type: string
+        topic:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        createdByCommunicationIdentifier:
+          type: object
+          properties:
+            communicationUserId:
+              type: string
+        deletedOn:
+          type: string
+          format: date-time
+    CreateChatThreadRequest:
+      type: object
+      required:
+      - topic
+      properties:
+        topic:
+          type: string
+        participants:
+          type: array
+          items:
+            type: object
+            required:
+            - communicationIdentifier
+            properties:
+              communicationIdentifier:
+                type: object
+                properties:
+                  communicationUserId:
+                    type: string
+              displayName:
+                type: string
   parameters:
     apiVersion:
       name: api-version

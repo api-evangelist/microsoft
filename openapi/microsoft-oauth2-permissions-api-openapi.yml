@@ -85,18 +85,18 @@ components:
           type: string
           description: Space-delimited list of scopes
   parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items
-      schema:
-        type: integer
     filter:
       name: $filter
       in: query
       description: OData filter expression
       schema:
         type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
   securitySchemes:
     oauth2:
       type: oauth2

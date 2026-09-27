@@ -130,6 +130,14 @@ components:
         type: string
         default: 2024-03-15-preview
   schemas:
+    CommunicationIdentityAccessToken:
+      type: object
+      properties:
+        token:
+          type: string
+        expiresOn:
+          type: string
+          format: date-time
     CommunicationIdentityAccessTokenResult:
       type: object
       properties:
@@ -140,14 +148,6 @@ components:
               type: string
         accessToken:
           $ref: '#/components/schemas/CommunicationIdentityAccessToken'
-    CommunicationIdentityAccessToken:
-      type: object
-      properties:
-        token:
-          type: string
-        expiresOn:
-          type: string
-          format: date-time
   securitySchemes:
     accessKey:
       type: apiKey

@@ -428,6 +428,17 @@ paths:
           description: Your SharePoint Online tenant name
 components:
   schemas:
+    DriveItemCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DriveItem'
     DriveItem:
       type: object
       properties:
@@ -492,17 +503,6 @@ components:
                   type: string
                 id:
                   type: string
-    DriveItemCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/DriveItem'
     ListItem:
       type: object
       properties:
@@ -526,22 +526,16 @@ components:
         EditorId:
           type: integer
   parameters:
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
     top:
       name: $top
       in: query
       description: Maximum number of items to return
       schema:
         type: integer
-    select:
-      name: $select
+    orderby:
+      name: $orderby
       in: query
-      description: Properties to include
+      description: Sort order
       schema:
         type: string
     itemId:
@@ -549,6 +543,12 @@ components:
       in: path
       required: true
       description: Drive item unique identifier
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
       schema:
         type: string
   securitySchemes:

@@ -175,7 +175,7 @@ paths:
       description: Microsoft Graph Beta (Preview)
   /events:
     get:
-      operationId: listEvents
+      operationId: getEvents
       summary: Microsoft List calendar events
       description: Get events from the user's default calendar.
       tags:
@@ -194,8 +194,10 @@ paths:
                 $ref: '#/components/schemas/EventCollection'
         '401':
           description: Unauthorized
+      x-operation-id-source: normalized
+      x-operation-id-original: listEvents
     post:
-      operationId: createEvent
+      operationId: postEvents
       summary: Microsoft Create a calendar event
       description: Create an event in the user's default calendar.
       tags:
@@ -217,94 +219,12 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
+      x-operation-id-source: normalized
+      x-operation-id-original: createEvent
     servers:
     - url: https://graph.microsoft.com/v1.0/me
       description: Microsoft Graph v1.0 (current user context)
 components:
-  parameters:
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
-    eventId:
-      name: event-id
-      in: path
-      required: true
-      description: Unique identifier of the event
-      schema:
-        type: string
-    orderby_2:
-      name: $orderby
-      in: query
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    filter_2:
-      name: $filter
-      in: query
-      schema:
-        type: string
-    select_2:
-      name: $select
-      in: query
-      schema:
-        type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
   schemas:
     ODataError:
       type: object
@@ -328,6 +248,28 @@ components:
                   type: string
                 client-request-id:
                   type: string
+    Recipient:
+      type: object
+      properties:
+        emailAddress:
+          type: object
+          properties:
+            name:
+              type: string
+              description: Display name of the recipient
+            address:
+              type: string
+              format: email
+              description: Email address of the recipient
+    DateTimeTimeZone:
+      type: object
+      properties:
+        dateTime:
+          type: string
+          description: Date and time in ISO 8601 format
+        timeZone:
+          type: string
+          description: Time zone for the date-time value (Windows or IANA format)
     Event:
       type: object
       properties:
@@ -517,16 +459,58 @@ components:
           items:
             type: string
           description: Categories associated with the event
-    DateTimeTimeZone:
+    CreateEventRequest:
       type: object
+      required:
+      - subject
+      - start
+      - end
       properties:
-        dateTime:
+        subject:
           type: string
-          description: Date and time in ISO 8601 format
-        timeZone:
-          type: string
-          description: Time zone for the date-time value (Windows or IANA format)
-    Recipient:
+        body:
+          type: object
+          properties:
+            contentType:
+              type: string
+            content:
+              type: string
+        start:
+          type: object
+          properties:
+            dateTime:
+              type: string
+            timeZone:
+              type: string
+        end:
+          type: object
+          properties:
+            dateTime:
+              type: string
+            timeZone:
+              type: string
+        location:
+          type: object
+          properties:
+            displayName:
+              type: string
+        attendees:
+          type: array
+          items:
+            type: object
+            properties:
+              emailAddress:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  address:
+                    type: string
+              type:
+                type: string
+        isOnlineMeeting:
+          type: boolean
+    Recipient_2:
       type: object
       properties:
         emailAddress:
@@ -534,11 +518,9 @@ components:
           properties:
             name:
               type: string
-              description: Display name of the recipient
             address:
               type: string
               format: email
-              description: Email address of the recipient
     EventCollection:
       type: object
       properties:
@@ -621,68 +603,90 @@ components:
           - oof
           - workingElsewhere
           - unknown
-    CreateEventRequest:
-      type: object
-      required:
-      - subject
-      - start
-      - end
-      properties:
-        subject:
-          type: string
-        body:
-          type: object
-          properties:
-            contentType:
-              type: string
-            content:
-              type: string
-        start:
-          type: object
-          properties:
-            dateTime:
-              type: string
-            timeZone:
-              type: string
-        end:
-          type: object
-          properties:
-            dateTime:
-              type: string
-            timeZone:
-              type: string
-        location:
-          type: object
-          properties:
-            displayName:
-              type: string
-        attendees:
-          type: array
-          items:
-            type: object
-            properties:
-              emailAddress:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  address:
-                    type: string
-              type:
-                type: string
-        isOnlineMeeting:
-          type: boolean
-    Recipient_2:
-      type: object
-      properties:
-        emailAddress:
-          type: object
-          properties:
-            name:
-              type: string
-            address:
-              type: string
-              format: email
+  responses:
+    BadRequest:
+      description: Bad request - invalid input or malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  parameters:
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    eventId:
+      name: event-id
+      in: path
+      required: true
+      description: Unique identifier of the event
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

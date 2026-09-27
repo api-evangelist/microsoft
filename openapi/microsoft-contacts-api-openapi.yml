@@ -68,22 +68,16 @@ paths:
           description: Your Dynamics 365 organization name
 components:
   parameters:
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
     top:
       name: $top
       in: query
       description: Maximum number of records to return
       schema:
         type: integer
-    filter:
-      name: $filter
+    orderby:
+      name: $orderby
       in: query
-      description: OData filter expression
+      description: Sort order
       schema:
         type: string
     select:
@@ -92,9 +86,10 @@ components:
       description: Properties to include
       schema:
         type: string
-    orderby_2:
-      name: $orderby
+    filter:
+      name: $filter
       in: query
+      description: OData filter expression
       schema:
         type: string
     top_2:
@@ -102,8 +97,8 @@ components:
       in: query
       schema:
         type: integer
-    filter_2:
-      name: $filter
+    orderby_2:
+      name: $orderby
       in: query
       schema:
         type: string
@@ -112,7 +107,23 @@ components:
       in: query
       schema:
         type: string
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
   schemas:
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
     Contact:
       type: object
       properties:
@@ -137,17 +148,6 @@ components:
           type: string
         statecode:
           type: integer
-    EntityCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            type: object
     Contact_2:
       type: object
       properties:

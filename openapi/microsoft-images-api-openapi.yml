@@ -52,13 +52,6 @@ paths:
           description: Rate limit exceeded
 components:
   parameters:
-    deploymentId:
-      name: deployment-id
-      in: path
-      required: true
-      description: The deployment name for the model
-      schema:
-        type: string
     apiVersion:
       name: api-version
       in: query
@@ -67,6 +60,13 @@ components:
       schema:
         type: string
         default: '2024-10-21'
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
   schemas:
     ImageGenerationResponse:
       type: object
