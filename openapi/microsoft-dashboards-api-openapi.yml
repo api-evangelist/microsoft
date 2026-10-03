@@ -72,6 +72,28 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    DashboardCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dashboard'
+    Dashboard:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        isReadOnly:
+          type: boolean
+        embedUrl:
+          type: string
+        webUrl:
+          type: string
     TileCollection:
       type: object
       properties:
@@ -90,28 +112,6 @@ components:
                 type: string
               datasetId:
                 type: string
-    Dashboard:
-      type: object
-      properties:
-        id:
-          type: string
-        displayName:
-          type: string
-        isReadOnly:
-          type: boolean
-        embedUrl:
-          type: string
-        webUrl:
-          type: string
-    DashboardCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dashboard'
   parameters:
     dashboardId:
       name: dashboardId

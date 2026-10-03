@@ -67,51 +67,6 @@ paths:
           default: your-org
           description: Your Dynamics 365 organization name
 components:
-  parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    orderby_2:
-      name: $orderby
-      in: query
-      schema:
-        type: string
-    select_2:
-      name: $select
-      in: query
-      schema:
-        type: string
-    filter_2:
-      name: $filter
-      in: query
-      schema:
-        type: string
   schemas:
     EntityCollection:
       type: object
@@ -178,6 +133,51 @@ components:
           type: string
         jobTitle:
           type: string
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

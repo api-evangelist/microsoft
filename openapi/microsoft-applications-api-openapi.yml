@@ -198,69 +198,29 @@ paths:
     - url: https://graph.microsoft.com/beta
       description: Microsoft Graph Beta (Preview)
 components:
-  parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items
-      schema:
-        type: integer
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    search:
-      name: $search
-      in: query
-      required: false
-      description: Search expression to filter results
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    count:
-      name: $count
-      in: query
-      required: false
-      description: Include count of items in the response
-      schema:
-        type: boolean
-    select_2:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    filter_2:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    applicationId:
-      name: application-id
-      in: path
-      required: true
-      description: Unique identifier of the application
-      schema:
-        type: string
   schemas:
+    CreateApplicationRequest:
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        signInAudience:
+          type: string
+          enum:
+          - AzureADMyOrg
+          - AzureADMultipleOrgs
+          - AzureADandPersonalMicrosoftAccount
+        web:
+          type: object
+          properties:
+            redirectUris:
+              type: array
+              items:
+                type: string
     Application:
       type: object
       properties:
@@ -331,28 +291,6 @@ components:
         createdDateTime:
           type: string
           format: date-time
-    CreateApplicationRequest:
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        signInAudience:
-          type: string
-          enum:
-          - AzureADMyOrg
-          - AzureADMultipleOrgs
-          - AzureADandPersonalMicrosoftAccount
-        web:
-          type: object
-          properties:
-            redirectUris:
-              type: array
-              items:
-                type: string
     ODataError:
       type: object
       properties:
@@ -466,6 +404,68 @@ components:
           items:
             type: string
           description: Custom strings for categorizing the application
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
+    count:
+      name: $count
+      in: query
+      required: false
+      description: Include count of items in the response
+      schema:
+        type: boolean
+    applicationId:
+      name: application-id
+      in: path
+      required: true
+      description: Unique identifier of the application
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    filter_2:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
   responses:
     BadRequest:
       description: Bad request - invalid input or malformed request
@@ -473,14 +473,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
       content:
         application/json:
           schema:

@@ -63,6 +63,21 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    Report:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        datasetId:
+          type: string
+        webUrl:
+          type: string
+        embedUrl:
+          type: string
+        reportType:
+          type: string
     Dataset:
       type: object
       properties:
@@ -85,21 +100,6 @@ components:
         createdDate:
           type: string
           format: date-time
-    Report:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        datasetId:
-          type: string
-        webUrl:
-          type: string
-        embedUrl:
-          type: string
-        reportType:
-          type: string
     Import:
       type: object
       properties:

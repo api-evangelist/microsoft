@@ -144,18 +144,6 @@ components:
           items:
             $ref: '#/components/schemas/Channel'
   parameters:
-    select:
-      name: $select
-      in: query
-      description: Properties to include in the response
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
     channelId:
       name: channelId
       in: path
@@ -168,6 +156,18 @@ components:
       in: path
       required: true
       description: Team unique identifier
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include in the response
       schema:
         type: string
   securitySchemes:

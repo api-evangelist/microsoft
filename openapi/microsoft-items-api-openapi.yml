@@ -427,6 +427,32 @@ paths:
           default: your-tenant
           description: Your SharePoint Online tenant name
 components:
+  parameters:
+    itemId:
+      name: itemId
+      in: path
+      required: true
+      description: Drive item unique identifier
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
   schemas:
     DriveItemCollection:
       type: object
@@ -525,32 +551,6 @@ components:
           type: integer
         EditorId:
           type: integer
-  parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items to return
-      schema:
-        type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
-    itemId:
-      name: itemId
-      in: path
-      required: true
-      description: Drive item unique identifier
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

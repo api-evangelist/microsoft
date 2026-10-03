@@ -67,15 +67,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ReportCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Report'
     Report:
       type: object
       properties:
@@ -91,6 +82,15 @@ components:
           type: string
         reportType:
           type: string
+    ReportCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Report'
   parameters:
     reportId:
       name: reportId

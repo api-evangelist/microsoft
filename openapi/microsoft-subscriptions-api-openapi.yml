@@ -57,14 +57,6 @@ paths:
           description: Subscription not found
 components:
   parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use for this operation
-      schema:
-        type: string
-        default: '2024-03-01'
     subscriptionId:
       name: subscriptionId
       in: path
@@ -73,6 +65,14 @@ components:
       schema:
         type: string
         format: uuid
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
   schemas:
     Subscription:
       type: object

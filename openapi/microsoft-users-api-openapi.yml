@@ -207,79 +207,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    userId:
-      name: user-id
-      in: path
-      required: true
-      description: Unique identifier of the user (GUID or userPrincipalName)
-      schema:
-        type: string
-    search:
-      name: $search
-      in: query
-      required: false
-      description: Search expression to filter results
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    count:
-      name: $count
-      in: query
-      required: false
-      description: Include count of items in the response
-      schema:
-        type: boolean
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
   schemas:
-    DirectoryObject:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
-          description: OData type annotation
-        id:
-          type: string
-          description: Unique identifier (GUID)
-        deletedDateTime:
-          type: string
-          format: date-time
-          description: Date and time when object was deleted
     ODataError:
       type: object
       properties:
@@ -412,6 +340,19 @@ components:
           type: boolean
           description: Whether the user is synced from on-premises AD
           readOnly: true
+    DirectoryObject:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+          description: OData type annotation
+        id:
+          type: string
+          description: Unique identifier (GUID)
+        deletedDateTime:
+          type: string
+          format: date-time
+          description: Date and time when object was deleted
     UserCreate:
       type: object
       required:
@@ -477,18 +418,77 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
     NotFound:
       description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  parameters:
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    count:
+      name: $count
+      in: query
+      required: false
+      description: Include count of items in the response
+      schema:
+        type: boolean
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    userId:
+      name: user-id
+      in: path
+      required: true
+      description: Unique identifier of the user (GUID or userPrincipalName)
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

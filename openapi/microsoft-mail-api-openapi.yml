@@ -355,6 +355,53 @@ paths:
       description: Microsoft Graph v1.0 (current user context)
 components:
   schemas:
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
+    MailFolder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+          readOnly: true
+        displayName:
+          type: string
+          description: Display name of the mail folder
+        parentFolderId:
+          type: string
+          description: Unique identifier for the parent mail folder
+        childFolderCount:
+          type: integer
+          description: Number of immediate child mail folders
+        unreadItemCount:
+          type: integer
+          description: Number of unread items in the folder
+        totalItemCount:
+          type: integer
+          description: Total number of items in the folder
+        isHidden:
+          type: boolean
+          description: Whether the folder is hidden
     Message:
       type: object
       properties:
@@ -447,28 +494,6 @@ components:
           items:
             type: string
           description: Categories associated with the message
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
     Recipient:
       type: object
       properties:
@@ -482,31 +507,61 @@ components:
               type: string
               format: email
               description: Email address of the recipient
-    MailFolder:
+    MessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message_2'
+    SendMailRequest:
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: object
+          properties:
+            subject:
+              type: string
+            body:
+              type: object
+              properties:
+                contentType:
+                  type: string
+                  enum:
+                  - text
+                  - html
+                content:
+                  type: string
+            toRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient_2'
+            ccRecipients:
+              type: array
+              items:
+                $ref: '#/components/schemas/Recipient_2'
+        saveToSentItems:
+          type: boolean
+          default: true
+    MailFolder_2:
       type: object
       properties:
         id:
           type: string
-          description: Unique identifier
-          readOnly: true
         displayName:
           type: string
-          description: Display name of the mail folder
-        parentFolderId:
-          type: string
-          description: Unique identifier for the parent mail folder
-        childFolderCount:
-          type: integer
-          description: Number of immediate child mail folders
-        unreadItemCount:
-          type: integer
-          description: Number of unread items in the folder
         totalItemCount:
           type: integer
-          description: Total number of items in the folder
-        isHidden:
-          type: boolean
-          description: Whether the folder is hidden
+        unreadItemCount:
+          type: integer
+        parentFolderId:
+          type: string
     Message_2:
       type: object
       properties:
@@ -558,48 +613,6 @@ components:
           type: array
           items:
             type: string
-    MessageCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message_2'
-    SendMailRequest:
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: object
-          properties:
-            subject:
-              type: string
-            body:
-              type: object
-              properties:
-                contentType:
-                  type: string
-                  enum:
-                  - text
-                  - html
-                content:
-                  type: string
-            toRecipients:
-              type: array
-              items:
-                $ref: '#/components/schemas/Recipient_2'
-            ccRecipients:
-              type: array
-              items:
-                $ref: '#/components/schemas/Recipient_2'
-        saveToSentItems:
-          type: boolean
-          default: true
     Recipient_2:
       type: object
       properties:
@@ -611,117 +624,9 @@ components:
             address:
               type: string
               format: email
-    MailFolder_2:
-      type: object
-      properties:
-        id:
-          type: string
-        displayName:
-          type: string
-        totalItemCount:
-          type: integer
-        unreadItemCount:
-          type: integer
-        parentFolderId:
-          type: string
-  parameters:
-    search:
-      name: $search
-      in: query
-      required: false
-      description: Search expression to filter results
-      schema:
-        type: string
-    messageId:
-      name: message-id
-      in: path
-      required: true
-      description: Unique identifier of the message
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      required: false
-      description: Number of items to return (page size)
-      schema:
-        type: integer
-        minimum: 1
-    orderby:
-      name: $orderby
-      in: query
-      required: false
-      description: OData order by expression
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      required: false
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      required: false
-      description: Number of items to skip for pagination
-      schema:
-        type: integer
-        minimum: 0
-    messageId_2:
-      name: messageId
-      in: path
-      required: true
-      description: Message unique identifier
-      schema:
-        type: string
-    search_2:
-      name: $search
-      in: query
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    orderby_2:
-      name: $orderby
-      in: query
-      schema:
-        type: string
-    select_2:
-      name: $select
-      in: query
-      schema:
-        type: string
-    filter_2:
-      name: $filter
-      in: query
-      schema:
-        type: string
-    skip_2:
-      name: $skip
-      in: query
-      schema:
-        type: integer
   responses:
     BadRequest:
       description: Bad request - invalid input or malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
       content:
         application/json:
           schema:
@@ -732,6 +637,101 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  parameters:
+    skip:
+      name: $skip
+      in: query
+      required: false
+      description: Number of items to skip for pagination
+      schema:
+        type: integer
+        minimum: 0
+    orderby:
+      name: $orderby
+      in: query
+      required: false
+      description: OData order by expression
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      required: false
+      description: Number of items to return (page size)
+      schema:
+        type: integer
+        minimum: 1
+    messageId:
+      name: message-id
+      in: path
+      required: true
+      description: Unique identifier of the message
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      required: false
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      required: false
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
+    skip_2:
+      name: $skip
+      in: query
+      schema:
+        type: integer
+    orderby_2:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    top_2:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    messageId_2:
+      name: messageId
+      in: path
+      required: true
+      description: Message unique identifier
+      schema:
+        type: string
+    filter_2:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    search_2:
+      name: $search
+      in: query
+      schema:
+        type: string
+    select_2:
+      name: $select
+      in: query
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

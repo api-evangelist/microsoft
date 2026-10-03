@@ -94,51 +94,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    TextAnalyticsRequest:
-      type: object
-      required:
-      - documents
-      properties:
-        documents:
-          type: array
-          items:
-            type: object
-            required:
-            - id
-            - text
-            properties:
-              id:
-                type: string
-              text:
-                type: string
-              language:
-                type: string
-    SentimentResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              sentiment:
-                type: string
-                enum:
-                - positive
-                - neutral
-                - negative
-                - mixed
-              confidenceScores:
-                type: object
-                properties:
-                  positive:
-                    type: number
-                  neutral:
-                    type: number
-                  negative:
-                    type: number
     EntitiesResponse:
       type: object
       properties:
@@ -166,6 +121,25 @@ components:
                       type: integer
                     confidenceScore:
                       type: number
+    TextAnalyticsRequest:
+      type: object
+      required:
+      - documents
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - text
+            properties:
+              id:
+                type: string
+              text:
+                type: string
+              language:
+                type: string
     KeyPhrasesResponse:
       type: object
       properties:
@@ -180,6 +154,32 @@ components:
                 type: array
                 items:
                   type: string
+    SentimentResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              sentiment:
+                type: string
+                enum:
+                - positive
+                - neutral
+                - negative
+                - mixed
+              confidenceScores:
+                type: object
+                properties:
+                  positive:
+                    type: number
+                  neutral:
+                    type: number
+                  negative:
+                    type: number
   securitySchemes:
     apiKey:
       type: apiKey

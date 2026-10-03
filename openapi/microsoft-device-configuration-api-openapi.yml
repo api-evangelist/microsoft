@@ -61,6 +61,11 @@ components:
         version:
           type: integer
   parameters:
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
     select:
       name: $select
       in: query
@@ -71,11 +76,6 @@ components:
       in: query
       schema:
         type: string
-    top:
-      name: $top
-      in: query
-      schema:
-        type: integer
   securitySchemes:
     oauth2:
       type: oauth2

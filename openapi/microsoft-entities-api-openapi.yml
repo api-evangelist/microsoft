@@ -162,31 +162,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Sort order
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Properties to include
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
   schemas:
     EntityCollection:
       type: object
@@ -233,6 +208,31 @@ components:
         statecode:
           type: integer
           description: Status of the account (0=Active, 1=Inactive)
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Sort order
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Properties to include
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

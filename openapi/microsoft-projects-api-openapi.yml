@@ -140,6 +140,25 @@ components:
         lastUpdateTime:
           type: string
           format: date-time
+    ProjectCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    OperationReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        url:
+          type: string
     CreateProjectRequest:
       type: object
       required:
@@ -170,25 +189,6 @@ components:
               properties:
                 templateTypeId:
                   type: string
-    OperationReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        status:
-          type: string
-        url:
-          type: string
-    ProjectCollection:
-      type: object
-      properties:
-        count:
-          type: integer
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
   parameters:
     apiVersion:
       name: api-version

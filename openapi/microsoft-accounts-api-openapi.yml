@@ -138,6 +138,12 @@ paths:
           description: Unauthorized
 components:
   parameters:
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline
+      schema:
+        type: string
     top:
       name: $top
       in: query
@@ -150,22 +156,16 @@ components:
       description: Sort order
       schema:
         type: string
-    expand:
-      name: $expand
+    filter:
+      name: $filter
       in: query
-      description: Related entities to expand inline
+      description: OData filter expression
       schema:
         type: string
     select:
       name: $select
       in: query
       description: Properties to include
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
       schema:
         type: string
   schemas:

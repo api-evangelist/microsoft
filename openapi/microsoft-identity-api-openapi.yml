@@ -120,15 +120,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: API version
-      schema:
-        type: string
-        default: 2024-03-15-preview
   schemas:
     CommunicationIdentityAccessToken:
       type: object
@@ -148,6 +139,15 @@ components:
               type: string
         accessToken:
           $ref: '#/components/schemas/CommunicationIdentityAccessToken'
+  parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: API version
+      schema:
+        type: string
+        default: 2024-03-15-preview
   securitySchemes:
     accessKey:
       type: apiKey

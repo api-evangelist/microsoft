@@ -109,27 +109,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    top:
-      name: $top
-      in: query
-      schema:
-        type: integer
-    orderby:
-      name: $orderby
-      in: query
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      schema:
-        type: string
   schemas:
     ManagedDevice:
       type: object
@@ -192,6 +171,27 @@ components:
           type: boolean
         jailBroken:
           type: string
+  parameters:
+    top:
+      name: $top
+      in: query
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

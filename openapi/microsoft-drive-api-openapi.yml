@@ -118,6 +118,28 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    ODataError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+            message:
+              type: string
+              description: Human-readable error message
+            innerError:
+              type: object
+              properties:
+                date:
+                  type: string
+                  format: date-time
+                request-id:
+                  type: string
+                client-request-id:
+                  type: string
     Drive:
       type: object
       properties:
@@ -186,52 +208,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    ODataError:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-            message:
-              type: string
-              description: Human-readable error message
-            innerError:
-              type: object
-              properties:
-                date:
-                  type: string
-                  format: date-time
-                request-id:
-                  type: string
-                client-request-id:
-                  type: string
-    IdentitySet:
-      type: object
-      properties:
-        application:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
-        device:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
-        user:
-          type: object
-          properties:
-            id:
-              type: string
-            displayName:
-              type: string
     DriveItem:
       type: object
       properties:
@@ -304,12 +280,36 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        device:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
+        user:
+          type: object
+          properties:
+            id:
+              type: string
+            displayName:
+              type: string
   parameters:
-    driveId:
-      name: drive-id
+    itemId:
+      name: item-id
       in: path
       required: true
-      description: Unique identifier of the drive
+      description: Unique identifier of the drive item
       schema:
         type: string
     top:
@@ -320,18 +320,18 @@ components:
       schema:
         type: integer
         minimum: 1
+    driveId:
+      name: drive-id
+      in: path
+      required: true
+      description: Unique identifier of the drive
+      schema:
+        type: string
     orderby:
       name: $orderby
       in: query
       required: false
       description: OData order by expression
-      schema:
-        type: string
-    itemId:
-      name: item-id
-      in: path
-      required: true
-      description: Unique identifier of the drive item
       schema:
         type: string
     select:
