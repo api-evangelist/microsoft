@@ -411,16 +411,16 @@ components:
       description: Maximum number of items
       schema:
         type: integer
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
     select:
       name: $select
       in: query
       description: Properties to include
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
       schema:
         type: string
     count:
@@ -430,6 +430,13 @@ components:
       description: Include count of items in the response
       schema:
         type: boolean
+    search:
+      name: $search
+      in: query
+      required: false
+      description: Search expression to filter results
+      schema:
+        type: string
     applicationId:
       name: application-id
       in: path
@@ -445,13 +452,6 @@ components:
       schema:
         type: integer
         minimum: 1
-    filter_2:
-      name: $filter
-      in: query
-      required: false
-      description: OData filter expression
-      schema:
-        type: string
     select_2:
       name: $select
       in: query
@@ -459,14 +459,20 @@ components:
       description: Comma-separated list of properties to include in the response
       schema:
         type: string
-    search:
-      name: $search
+    filter_2:
+      name: $filter
       in: query
       required: false
-      description: Search expression to filter results
+      description: OData filter expression
       schema:
         type: string
   responses:
+    Unauthorized:
+      description: Unauthorized - authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
     BadRequest:
       description: Bad request - invalid input or malformed request
       content:
@@ -475,12 +481,6 @@ components:
             $ref: '#/components/schemas/ODataError'
     NotFound:
       description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Unauthorized - authentication required or token expired
       content:
         application/json:
           schema:

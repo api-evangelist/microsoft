@@ -1,0 +1,420 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/microsoft-accounts-api-openapi.yml
+- openapi/microsoft-applications-api-openapi.yml
+- openapi/microsoft-audio-api-openapi.yml
+- openapi/microsoft-calendar-api-openapi.yml
+- openapi/microsoft-channels-api-openapi.yml
+vocabulary:
+  name: Microsoft Domain Vocabulary
+  description: 'Terms declared by Microsoft''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-03'
+  terms:
+  - term: Accounts
+    definition: Manage business accounts
+    tags:
+    - Resource Group
+    source: openapi/microsoft-accounts-api-openapi.yml
+  - term: Applications
+    definition: Manage application registrations
+    tags:
+    - Resource Group
+    source: openapi/microsoft-applications-api-openapi.yml
+  - term: Audio
+    definition: Transcribe and translate audio
+    tags:
+    - Resource Group
+    source: openapi/microsoft-audio-api-openapi.yml
+  - term: Calendar
+    definition: Access and manage Outlook calendar events
+    tags:
+    - Resource Group
+    source: openapi/microsoft-calendar-api-openapi.yml
+  - term: Channels
+    definition: Manage channels within teams
+    tags:
+    - Resource Group
+    source: openapi/microsoft-channels-api-openapi.yml
+  - term: Chat
+    definition: Manage chat threads and messages
+    tags:
+    - Resource Group
+    source: openapi/microsoft-chat-api-openapi.yml
+  - term: Chat Completions
+    definition: Create chat completions using conversational models
+    tags:
+    - Resource Group
+    source: openapi/microsoft-chat-completions-api-openapi.yml
+  - term: Completions
+    definition: Create text completions
+    tags:
+    - Resource Group
+    source: openapi/microsoft-completions-api-openapi.yml
+  - term: Computer Vision
+    definition: Analyze images and extract visual features
+    tags:
+    - Resource Group
+    source: openapi/microsoft-computer-vision-api-openapi.yml
+  - term: Contacts
+    definition: Manage contacts
+    tags:
+    - Resource Group
+    source: openapi/microsoft-contacts-api-openapi.yml
+  - term: Dashboards
+    definition: Manage Power BI dashboards
+    tags:
+    - Resource Group
+    source: openapi/microsoft-dashboards-api-openapi.yml
+  - term: Datasets
+    definition: Manage Power BI datasets
+    tags:
+    - Resource Group
+    source: openapi/microsoft-datasets-api-openapi.yml
+  - term: Deployments
+    definition: Manage ARM template deployments
+    tags:
+    - Resource Group
+    source: openapi/microsoft-deployments-api-openapi.yml
+  - term: Device Compliance
+    definition: Manage compliance policies
+    tags:
+    - Resource Group
+    source: openapi/microsoft-device-compliance-api-openapi.yml
+  - term: Device Configuration
+    definition: Manage device configuration profiles
+    tags:
+    - Resource Group
+    source: openapi/microsoft-device-configuration-api-openapi.yml
+  - term: Drive
+    definition: Access OneDrive files and folders
+    tags:
+    - Resource Group
+    source: openapi/microsoft-drive-api-openapi.yml
+  - term: Drives
+    definition: Access drives (OneDrive or document libraries)
+    tags:
+    - Resource Group
+    source: openapi/microsoft-drives-api-openapi.yml
+  - term: Email
+    definition: Send email messages
+    tags:
+    - Resource Group
+    source: openapi/microsoft-email-api-openapi.yml
+  - term: Embeddings
+    definition: Create vector embeddings from text
+    tags:
+    - Resource Group
+    source: openapi/microsoft-embeddings-api-openapi.yml
+  - term: Entities
+    definition: CRUD operations on Dataverse entities
+    tags:
+    - Resource Group
+    source: openapi/microsoft-entities-api-openapi.yml
+  - term: Git
+    definition: Manage Git repositories
+    tags:
+    - Resource Group
+    source: openapi/microsoft-git-api-openapi.yml
+  - term: Groups
+    definition: Manage Microsoft Entra groups including Microsoft 365 groups and security groups
+    tags:
+    - Resource Group
+    source: openapi/microsoft-groups-api-openapi.yml
+  - term: Identity
+    definition: Create and manage communication identities
+    tags:
+    - Resource Group
+    source: openapi/microsoft-identity-api-openapi.yml
+  - term: Image Search
+    definition: Search for images
+    tags:
+    - Resource Group
+    source: openapi/microsoft-image-search-api-openapi.yml
+  - term: Images
+    definition: Generate images from text descriptions
+    tags:
+    - Resource Group
+    source: openapi/microsoft-images-api-openapi.yml
+  - term: Imports
+    definition: Import content into Power BI
+    tags:
+    - Resource Group
+    source: openapi/microsoft-imports-api-openapi.yml
+  - term: Items
+    definition: Manage files and folders
+    tags:
+    - Resource Group
+    source: openapi/microsoft-items-api-openapi.yml
+  - term: Leads
+    definition: Manage leads
+    tags:
+    - Resource Group
+    source: openapi/microsoft-leads-api-openapi.yml
+  - term: Lists
+    definition: Manage SharePoint lists
+    tags:
+    - Resource Group
+    source: openapi/microsoft-lists-api-openapi.yml
+  - term: Mail
+    definition: Access and manage Outlook mail messages and folders
+    tags:
+    - Resource Group
+    source: openapi/microsoft-mail-api-openapi.yml
+  - term: Managed Devices
+    definition: Manage enrolled devices
+    tags:
+    - Resource Group
+    source: openapi/microsoft-managed-devices-api-openapi.yml
+  - term: Marketing
+    definition: LinkedIn Marketing APIs
+    tags:
+    - Resource Group
+    source: openapi/microsoft-marketing-api-openapi.yml
+  - term: Members
+    definition: Manage team membership
+    tags:
+    - Resource Group
+    source: openapi/microsoft-members-api-openapi.yml
+  - term: Messages
+    definition: Send and manage channel messages
+    tags:
+    - Resource Group
+    source: openapi/microsoft-messages-api-openapi.yml
+  - term: Metadata
+    definition: Entity and attribute metadata
+    tags:
+    - Resource Group
+    source: openapi/microsoft-metadata-api-openapi.yml
+  - term: Mobile Apps
+    definition: Manage mobile applications
+    tags:
+    - Resource Group
+    source: openapi/microsoft-mobile-apps-api-openapi.yml
+  - term: News Search
+    definition: Search for news articles
+    tags:
+    - Resource Group
+    source: openapi/microsoft-news-search-api-openapi.yml
+  - term: OAuth2 Permissions
+    definition: Manage OAuth2 permission grants
+    tags:
+    - Resource Group
+    source: openapi/microsoft-oauth2-permissions-api-openapi.yml
+  - term: Opportunities
+    definition: Manage sales opportunities
+    tags:
+    - Resource Group
+    source: openapi/microsoft-opportunities-api-openapi.yml
+  - term: Organizations
+    definition: Manage organization pages
+    tags:
+    - Resource Group
+    source: openapi/microsoft-organizations-api-openapi.yml
+  - term: Pipelines
+    definition: Manage build and release pipelines
+    tags:
+    - Resource Group
+    source: openapi/microsoft-pipelines-api-openapi.yml
+  - term: Posts
+    definition: Create and manage posts
+    tags:
+    - Resource Group
+    source: openapi/microsoft-posts-api-openapi.yml
+  - term: Profile
+    definition: Access member profile information
+    tags:
+    - Resource Group
+    source: openapi/microsoft-profile-api-openapi.yml
+  - term: Projects
+    definition: Manage team projects
+    tags:
+    - Resource Group
+    source: openapi/microsoft-projects-api-openapi.yml
+  - term: Reports
+    definition: Manage Power BI reports
+    tags:
+    - Resource Group
+    source: openapi/microsoft-reports-api-openapi.yml
+  - term: Resource Groups
+    definition: Manage Azure resource groups
+    tags:
+    - Resource Group
+    source: openapi/microsoft-resource-groups-api-openapi.yml
+  - term: Resources
+    definition: Manage Azure resources
+    tags:
+    - Resource Group
+    source: openapi/microsoft-resources-api-openapi.yml
+  - term: Service Principals
+    definition: Manage service principals
+    tags:
+    - Resource Group
+    source: openapi/microsoft-service-principals-api-openapi.yml
+  - term: Sharing
+    definition: Share files and folders
+    tags:
+    - Resource Group
+    source: openapi/microsoft-sharing-api-openapi.yml
+  - term: Sites
+    definition: Access SharePoint sites via Microsoft Graph
+    tags:
+    - Resource Group
+    source: openapi/microsoft-sites-api-openapi.yml
+  - term: SMS
+    definition: Send SMS messages
+    tags:
+    - Resource Group
+    source: openapi/microsoft-sms-api-openapi.yml
+  - term: Subscriptions
+    definition: Manage Azure subscriptions
+    tags:
+    - Resource Group
+    source: openapi/microsoft-subscriptions-api-openapi.yml
+  - term: Teams
+    definition: Manage Microsoft Teams resources
+    tags:
+    - Resource Group
+    source: openapi/microsoft-teams-api-openapi.yml
+  - term: Text Analytics
+    definition: Extract insights from text including sentiment and entities
+    tags:
+    - Resource Group
+    source: openapi/microsoft-text-analytics-api-openapi.yml
+  - term: Translator
+    definition: Translate text between languages
+    tags:
+    - Resource Group
+    source: openapi/microsoft-translator-api-openapi.yml
+  - term: Users
+    definition: Manage Microsoft Entra user accounts and profiles
+    tags:
+    - Resource Group
+    source: openapi/microsoft-users-api-openapi.yml
+  - term: Video Search
+    definition: Search for videos
+    tags:
+    - Resource Group
+    source: openapi/microsoft-video-search-api-openapi.yml
+  - term: Web Search
+    definition: Search the web for relevant results
+    tags:
+    - Resource Group
+    source: openapi/microsoft-web-search-api-openapi.yml
+  - term: Work Items
+    definition: Manage work items and queries
+    tags:
+    - Resource Group
+    source: openapi/microsoft-work-items-api-openapi.yml
+  - term: EntityCollection
+    definition: 'Object declared by the contract with fields: @odata.context, @odata.nextLink, value.'
+    tags:
+    - Object
+    source: openapi/microsoft-accounts-api-openapi.yml#/components/schemas/EntityCollection
+  - term: Account
+    definition: 'Object declared by the contract with fields: accountid, name, accountnumber, revenue, numberofemployees, telephone1, emailaddress1,
+      websiteurl, address1_city, address1_stateorprovince, address1_country, industrycode. (1 more)'
+    tags:
+    - Object
+    source: openapi/microsoft-accounts-api-openapi.yml#/components/schemas/Account
+  - term: CreateApplicationRequest
+    definition: 'Object declared by the contract with fields: displayName, description, signInAudience, web.'
+    tags:
+    - Object
+    source: openapi/microsoft-applications-api-openapi.yml#/components/schemas/CreateApplicationRequest
+  - term: Application
+    definition: 'Object declared by the contract with fields: id, appId, displayName, description, signInAudience, web, api, requiredResourceAccess,
+      createdDateTime.'
+    tags:
+    - Object
+    source: openapi/microsoft-applications-api-openapi.yml#/components/schemas/Application
+  - term: ODataError
+    definition: 'Object declared by the contract with fields: error.'
+    tags:
+    - Object
+    source: openapi/microsoft-applications-api-openapi.yml#/components/schemas/ODataError
+  - term: Application_2
+    definition: 'Object declared by the contract with fields: id, appId, displayName, description, signInAudience, identifierUris, web, api, requiredResourceAccess,
+      createdDateTime, tags.'
+    tags:
+    - Object
+    source: openapi/microsoft-applications-api-openapi.yml#/components/schemas/Application_2
+  - term: TranscriptionResponse
+    definition: 'Object declared by the contract with fields: text, task, language, duration.'
+    tags:
+    - Object
+    source: openapi/microsoft-audio-api-openapi.yml#/components/schemas/TranscriptionResponse
+  - term: DateTimeTimeZone
+    definition: 'Object declared by the contract with fields: dateTime, timeZone.'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/DateTimeTimeZone
+  - term: Event
+    definition: 'Object declared by the contract with fields: id, subject, body, start, end, location, attendees, organizer, isAllDay, isCancelled,
+      isOrganizer, showAs. (10 more)'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/Event
+  - term: Recipient
+    definition: 'Object declared by the contract with fields: emailAddress.'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/Recipient
+  - term: Event_2
+    definition: 'Object declared by the contract with fields: id, subject, start, end, location, organizer, attendees, isAllDay, isCancelled,
+      showAs.'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/Event_2
+  - term: CreateEventRequest
+    definition: 'Object declared by the contract with fields: subject, body, start, end, location, attendees, isOnlineMeeting.'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/CreateEventRequest
+  - term: EventCollection
+    definition: 'Object declared by the contract with fields: @odata.context, value.'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/EventCollection
+  - term: Recipient_2
+    definition: 'Object declared by the contract with fields: emailAddress.'
+    tags:
+    - Object
+    source: openapi/microsoft-calendar-api-openapi.yml#/components/schemas/Recipient_2
+  - term: Channel
+    definition: 'Object declared by the contract with fields: id, displayName, description, membershipType, email, webUrl.'
+    tags:
+    - Object
+    source: openapi/microsoft-channels-api-openapi.yml#/components/schemas/Channel
+  - term: CreateChannelRequest
+    definition: 'Object declared by the contract with fields: displayName, description, membershipType.'
+    tags:
+    - Object
+    source: openapi/microsoft-channels-api-openapi.yml#/components/schemas/CreateChannelRequest
+  - term: ChannelCollection
+    definition: 'Object declared by the contract with fields: @odata.context, value.'
+    tags:
+    - Object
+    source: openapi/microsoft-channels-api-openapi.yml#/components/schemas/ChannelCollection
+  - term: ChatMessageItem
+    definition: 'Object declared by the contract with fields: id, type, content, senderDisplayName, createdOn, senderCommunicationIdentifier.'
+    tags:
+    - Object
+    source: openapi/microsoft-chat-api-openapi.yml#/components/schemas/ChatMessageItem
+  - term: CreateChatThreadResult
+    definition: 'Object declared by the contract with fields: chatThread, errors.'
+    tags:
+    - Object
+    source: openapi/microsoft-chat-api-openapi.yml#/components/schemas/CreateChatThreadResult
+  - term: ChatThread
+    definition: 'Object declared by the contract with fields: id, topic, createdOn, createdByCommunicationIdentifier, deletedOn.'
+    tags:
+    - Object
+    source: openapi/microsoft-chat-api-openapi.yml#/components/schemas/ChatThread
+  - term: CreateChatThreadRequest
+    definition: 'Object declared by the contract with fields: topic, participants.'
+    tags:
+    - Object
+    source: openapi/microsoft-chat-api-openapi.yml#/components/schemas/CreateChatThreadRequest

@@ -48,6 +48,24 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    SmsSendResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              to:
+                type: string
+              messageId:
+                type: string
+              httpStatusCode:
+                type: integer
+              successful:
+                type: boolean
+              errorMessage:
+                type: string
     SendSmsRequest:
       type: object
       required:
@@ -80,24 +98,6 @@ components:
               default: false
             tag:
               type: string
-    SmsSendResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              to:
-                type: string
-              messageId:
-                type: string
-              httpStatusCode:
-                type: integer
-              successful:
-                type: boolean
-              errorMessage:
-                type: string
   parameters:
     apiVersion:
       name: api-version

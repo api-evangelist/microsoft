@@ -121,14 +121,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    CommunicationIdentityAccessToken:
-      type: object
-      properties:
-        token:
-          type: string
-        expiresOn:
-          type: string
-          format: date-time
     CommunicationIdentityAccessTokenResult:
       type: object
       properties:
@@ -139,6 +131,14 @@ components:
               type: string
         accessToken:
           $ref: '#/components/schemas/CommunicationIdentityAccessToken'
+    CommunicationIdentityAccessToken:
+      type: object
+      properties:
+        token:
+          type: string
+        expiresOn:
+          type: string
+          format: date-time
   parameters:
     apiVersion:
       name: api-version

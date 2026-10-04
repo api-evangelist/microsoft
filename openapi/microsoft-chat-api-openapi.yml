@@ -169,6 +169,27 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    CreateChatThreadRequest:
+      type: object
+      required:
+      - topic
+      properties:
+        topic:
+          type: string
+        participants:
+          type: array
+          items:
+            type: object
+            required:
+            - communicationIdentifier
+            properties:
+              communicationIdentifier:
+                type: object
+                properties:
+                  communicationUserId:
+                    type: string
+              displayName:
+                type: string
     ChatMessageItem:
       type: object
       properties:
@@ -216,27 +237,6 @@ components:
         deletedOn:
           type: string
           format: date-time
-    CreateChatThreadRequest:
-      type: object
-      required:
-      - topic
-      properties:
-        topic:
-          type: string
-        participants:
-          type: array
-          items:
-            type: object
-            required:
-            - communicationIdentifier
-            properties:
-              communicationIdentifier:
-                type: object
-                properties:
-                  communicationUserId:
-                    type: string
-              displayName:
-                type: string
   parameters:
     apiVersion:
       name: api-version

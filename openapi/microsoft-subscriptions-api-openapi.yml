@@ -56,23 +56,6 @@ paths:
         '404':
           description: Subscription not found
 components:
-  parameters:
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The ID of the target subscription
-      schema:
-        type: string
-        format: uuid
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use for this operation
-      schema:
-        type: string
-        default: '2024-03-01'
   schemas:
     Subscription:
       type: object
@@ -121,6 +104,23 @@ components:
         nextLink:
           type: string
           description: URL to get the next set of results
+  parameters:
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The ID of the target subscription
+      schema:
+        type: string
+        format: uuid
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
   securitySchemes:
     oauth2:
       type: oauth2

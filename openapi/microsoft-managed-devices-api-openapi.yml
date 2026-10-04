@@ -182,13 +182,13 @@ components:
       in: query
       schema:
         type: string
-    filter:
-      name: $filter
+    select:
+      name: $select
       in: query
       schema:
         type: string
-    select:
-      name: $select
+    filter:
+      name: $filter
       in: query
       schema:
         type: string

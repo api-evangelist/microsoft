@@ -62,17 +62,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    EntityCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        '@odata.nextLink':
-          type: string
-        value:
-          type: array
-          items:
-            type: object
     Opportunity:
       type: object
       properties:
@@ -94,6 +83,17 @@ components:
           type: integer
         statuscode:
           type: integer
+    EntityCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        '@odata.nextLink':
+          type: string
+        value:
+          type: array
+          items:
+            type: object
   parameters:
     top:
       name: $top

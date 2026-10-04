@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft/main/json-schema/microsoft-member-profile-schema.json",
+  "title": "MemberProfile",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/microsoft-profile-api-openapi.yml#/components/schemas/MemberProfile",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "localizedFirstName": {
+      "type": "string"
+    },
+    "localizedLastName": {
+      "type": "string"
+    },
+    "localizedHeadline": {
+      "type": "string"
+    },
+    "vanityName": {
+      "type": "string"
+    },
+    "profilePicture": {
+      "type": "object",
+      "properties": {
+        "displayImage": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

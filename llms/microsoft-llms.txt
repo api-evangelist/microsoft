@@ -1,0 +1,111 @@
+# about.ads.microsoft.com 
+
+> Microsoft Advertising is building a new world of advertising possibilities to empower growth for all.
+
+## English Content 
+
+- [Homepage](https://about.ads.microsoft.com/en): Microsoft Advertising is building a new world of advertising possibilities to empower growth for all.
+
+- [Microsoft Search ads](https://about.ads.microsoft.com/en/solutions/ad-products-formats/search): Consult with a specialized expert who will help you optimize your existing account with Microsoft Advertising.
+
+- [Free consultation](https://about.ads.microsoft.com/en/resources/learn/free-consultation): Reach new customers with Microsoft Search ads. With a wealth of search advertising features like extensions, and multimedia ads, you can achieve.
+
+- [Blog](https://about.ads.microsoft.com/en/blog): Read the scoop from marketing experts on the latest industry trends from Microsoft Advertising. Discover tips and trainings for your small or medium business.
+
+- [Case studies](https://about.ads.microsoft.com/en/resources/discover/case-studies): View marketing case studies of how business use Microsoft Advertising products to achieve their business goals.
+
+- [Insights](https://about.ads.microsoft.com/en/resources/discover/insights): Get a Microsoft Advertising overview. Read the latest articles, explore presentations and more — and find out how ads work to help you meet your business goals.
+
+- [Webcasts](https://about.ads.microsoft.com/en/resources/discover/webcasts): Explore the latest insights, learn cutting-edge search engine marketing strategies, and discover new ways to grow your business.
+
+- [Advertising goals](https://about.ads.microsoft.com/en/get-started/achieve-your-advertising-goals): Achieve your performance goals and grow your business. 
+
+- [Support](https://about.ads.microsoft.com/en/support): Get support for Microsoft Advertising. 
+
+
+
+## Spanish Content   
+
+- [Página principal](https://about.ads.microsoft.com/es): Microsoft Advertising está abriendo un nuevo mundo de posibilidades publicitarias para fomentar el crecimiento de todos.
+
+- [Anuncios en buscadores de Microsoft](https://about.ads.microsoft.com/es/soluciones/productos-formatos-anuncios/busqueda): Consigue nuevos clientes con tu mensaje en el momento adecuado mientras buscan información relacionada con tus productos o servicios con los anuncios en buscadores.
+
+- [Consulta gratuita](https://about.ads.microsoft.com/es/recursos/aprendizaje/consulta-gratuita): Consulta con un experto especializado que te ayudará a optimizar tu cuenta existente con Microsoft Advertising.
+
+- [Blog](https://about.ads.microsoft.com/es/blog): Lee la primicia de mano de los expertos en marketing sobre las últimas tendencias de Microsoft Advertising. Descubre algunos trucos para tu pequeña o mediana empresa.
+
+- [Casos prácticos](https://about.ads.microsoft.com/es/recursos/descubrir/casos-practicos): Consulta casos prácticos de marketing sobre cómo las empresas usan productos de Microsoft Advertising para lograr sus objetivos empresariales.
+
+- [Insights](https://about.ads.microsoft.com/es/recursos/descubrir/insights): Obtén una descripción general sobre Microsoft Advertising. Lee los artículos más recientes, explora las presentaciones y más opciones, y descubre cómo los anuncios te ayudan a alcanzar tus objetivos empresariales.
+
+- [Webcasts](https://about.ads.microsoft.com/es/recursos/descubrir/webcasts): Explora la información útil más reciente, aprende estrategias innovadoras de marketing en buscadores y descubre nuevas formas de hacer crecer tu negocio.
+
+- [Objetivos publicitarios](https://about.ads.microsoft.com/es/empezar/alcanza-tus-objetivos-publicitarios): Alcanza tus objetivos de rendimiento y haz crecer tu negocio mediante los eficaces productos y las capacidades de IA de Microsoft Advertising. 
+
+- [Soporte técnico](https://about.ads.microsoft.com/es/soporte-tecnico): Obtén soporte técnico para Microsoft Advertising. 
+
+
+
+## Japanese Content 
+
+- [ホームページ](https://about.ads.microsoft.com/ja): Microsoft 広告は、すべての人の成長を推し進める広告の可能性に満ちた新たな世界を築いています。
+
+- [Microsoft 検索広告](https://about.ads.microsoft.com/ja/solutions/ad-products-formats/search): 新規顧客が検索広告を使って製品やサービスに関連する情報を検索しているとき、適切なタイミングでメッセージを使ってそれらの新規顧客にリーチできます。
+
+- [無料コンサルティング](https://about.ads.microsoft.com/ja/resources/learn/free-consultation): 専門知識を持ったエキスパートによるコンサルティングは、Microsoft 広告で開設済みのアカウントの最適化に役立ちます。
+
+- [ブログ](https://about.ads.microsoft.com/ja/blog): Microsoft 広告のマーケティング エキスパートがスクープした業界の最新トレンドをご覧ください。中小企業向けのヒントやトレーニング コンテンツを公開中です。
+
+- [ケース スタディ](https://about.ads.microsoft.com/ja/resources/discover/case-studies): View marketing case studies of how business use Microsoft Advertising products to achieve their business goals.
+
+- [インサイト](https://about.ads.microsoft.com/ja/resources/discover/insights): Microsoft 広告の概要はこちら。最新の記事やプレゼンテーション資料をご覧ください。広告がビジネスの目標達成に役立つ仕組みを確認できます。
+
+- [Web キャスティング](https://about.ads.microsoft.com/ja/resources/discover/webcasts): 最新のインサイトや最先端の検索エンジン マーケティング戦略をお届けしています。ビジネスを成長させる新たな手法を見つけましょう。
+
+- [広告の目標](https://about.ads.microsoft.com/ja/get-started/achieve-your-advertising-goals): Microsoft 広告の強力な製品と AI 機能を活用して、パフォーマンス目標を達成し、ビジネスを成長させましょう。
+
+- [サポート](https://about.ads.microsoft.com/ja/support): Microsoft 広告のサポートをご利用ください。
+
+ 
+
+ ## French Content 
+
+- [Page d'accueil](https://about.ads.microsoft.com/fr): Microsoft Advertising crée un tout nouvel univers de possibilités publicitaires afin de favoriser la croissance pour tous.
+
+- [Liens sponsorisés Microsoft](https://about.ads.microsoft.com/fr/solutions/produits-formats-publicitaires/recherche): Atteignez de nouveaux clients avec votre message au bon moment pendant qu'ils recherchent des informations liées à vos produits ou services, grâce aux liens sponsorisés.
+
+- [Consultation gratuite](https://about.ads.microsoft.com/fr/ressources/formation/consultation-gratuite): Consultez un expert dédié qui vous aidera à optimiser votre compte existant avec Microsoft Advertising.
+
+- [Blog](https://about.ads.microsoft.com/fr/blog): Lisez les opinions des experts en marketing sur les dernières tendances du secteur avec Microsoft Advertising. Profitez de conseils et de formations pour votre petite ou moyenne entreprise.
+
+- [Études de cas](https://about.ads.microsoft.com/fr/ressources/decouverte/etudes-de-cas): Consultez des études de cas marketing illustrant la manière dont les entreprises utilisent les produits Microsoft Advertising pour atteindre leurs objectifs commerciaux.
+
+- [Insights](https://about.ads.microsoft.com/fr/ressources/decouverte/insights): Obtenez une vue d'ensemble de Microsoft Advertising. Lisez des articles récents, explorez des présentations et bien plus encore, pour découvrir comment la diffusion d'annonces peut vous aider à atteindre vos objectifs commerciaux.
+
+- [Webcasts](https://about.ads.microsoft.com/fr/ressources/decouverte/webcasts): Consultez les derniers insights, familiarisez-vous avec les stratégies de pointe en matière de marketing sur les moteurs de recherche et découvrez de nouvelles façons de développer votre entreprise.
+
+- [Objectifs publicitaires](https://about.ads.microsoft.com/fr/commencer/atteindre-vos-objectifs-publicitaires): Atteignez vos objectifs de performance et développez votre activité grâce aux puissants produits et aux fonctionnalités d'IA de Microsoft Advertising. 
+
+- [Support](https://about.ads.microsoft.com/fr/support): Obtenir de d'aide pour Microsoft Advertising 
+
+
+
+## German Content 
+
+- [Startseite](https://about.ads.microsoft.com/de): Microsoft Advertising eröffnet eine neue Welt von Werbemöglichkeiten und ermöglicht auf diese Weise Wachstum für alle.
+
+- [Microsoft-Suchanzeigen](https://about.ads.microsoft.com/de/loesungen/anzeigenprodukte-und-formate/suche): Erreichen Sie mit Ihrer Botschaft neue Kund*innen zum richtigen Zeitpunkt, während diese mit Suchanzeigen nach Informationen zu Ihren Produkten oder Dienstleistungen suchen.
+
+- [Kostenlose Beratung](https://about.ads.microsoft.com/de/ressourcen/lernen/kostenlose-beratung): Lassen Sie sich von Fachexpert*innen beraten, wie Sie Ihr vorhandenes Konto bei Microsoft Advertising optimieren können.
+
+- [Blog](https://about.ads.microsoft.com/de/blog): Lesen Sie die Informationen von Marketingexpert*innen zu den neuesten Branchentrends von Microsoft Advertising. Entdecken Sie Tipps und Schulungen für Ihr kleines oder mittleres Unternehmen.
+
+- [Fallstudien](https://about.ads.microsoft.com/de/ressourcen/entdecken/fallstudien): Fallstudien zum Marketing zeigen, wie Unternehmen mit den Produkten von Microsoft Advertising ihre Unternehmensziele erreichen.
+
+- [Insights](https://about.ads.microsoft.com/de/ressourcen/entdecken/insights): Verschaffen Sie sich einen Überblick über Microsoft Advertising. Lesen Sie die neuesten Artikel, entdecken Sie Präsentationen und mehr. Erfahren Sie außerdem, wie Sie mit Anzeigen Ihre Unternehmensziele unterstützen können.
+
+- [Webcasts](https://about.ads.microsoft.com/de/ressourcen/entdecken/webcasts): Erkunden Sie die neuesten Insights, lernen Sie innovative Strategien für das Suchmaschinenmarketing kennen, und entdecken Sie neue Möglichkeiten zum Ausbau Ihrer Geschäftstätigkeit.
+
+- [Werbeziele](https://about.ads.microsoft.com/de/erste-schritte/erreichen-sie-Ihre-werbeziele): Mit leistungsstarken Produkten und KI-Funktionen von Microsoft Advertising erreichen Sie Ihre Performance-Ziele und sorgen für Unternehmenswachstum. 
+
+- [Support](https://about.ads.microsoft.com/de/support): Support für Microsoft Advertising erhalten. 

@@ -146,16 +146,16 @@ components:
       description: Sort order
       schema:
         type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
     select:
       name: $select
       in: query
       description: Properties to include
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression
       schema:
         type: string
     top_2:
@@ -168,13 +168,13 @@ components:
       in: query
       schema:
         type: string
-    filter_2:
-      name: $filter
+    select_2:
+      name: $select
       in: query
       schema:
         type: string
-    select_2:
-      name: $select
+    filter_2:
+      name: $filter
       in: query
       schema:
         type: string

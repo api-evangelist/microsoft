@@ -52,42 +52,6 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
-    ChatCompletionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-        object:
-          type: string
-          enum:
-          - chat.completion
-        created:
-          type: integer
-        model:
-          type: string
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-              message:
-                type: object
-                properties:
-                  role:
-                    type: string
-                  content:
-                    type: string
-              finish_reason:
-                type: string
-                enum:
-                - stop
-                - length
-                - content_filter
-                - tool_calls
-        usage:
-          $ref: '#/components/schemas/Usage'
     ChatCompletionRequest:
       type: object
       required:
@@ -185,6 +149,42 @@ components:
           type: integer
         total_tokens:
           type: integer
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          enum:
+          - chat.completion
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+                enum:
+                - stop
+                - length
+                - content_filter
+                - tool_calls
+        usage:
+          $ref: '#/components/schemas/Usage'
   parameters:
     deploymentId:
       name: deployment-id

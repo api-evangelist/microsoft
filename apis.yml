@@ -1,4 +1,5 @@
 name: Microsoft
+
 deliveryModel:
   model: saas
   license_evidence:
@@ -15,11 +16,17 @@ deliveryModel:
   - repository-not-product
   generated: '2026-09-25'
   method: derived
+
 specificationVersion: '0.23'
+
 tags:
 - Fortune 100
 - Microsoft
+- Software
+- Cloud
+
 description: Collection of Microsoft's primary APIs and developer resources.
+
 accessModel:
   pricing: free
   onboarding: self-serve
@@ -33,10 +40,178 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
+
 image: https://www.microsoft.com/favicon.ico
+
 url: https://www.microsoft.com
+
 created: '2024'
+
 modified: '2026-05-19'
+
+maintainers:
+- name: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
+
+common:
+- type: FinOps
+  url: finops/microsoft-finops.yml
+- type: RateLimits
+  url: rate-limits/microsoft-rate-limits.yml
+- type: Spectral
+  url: rules/microsoft-rules.yml
+- type: Spectral
+  url: rules/microsoft-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/microsoft-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/microsoft-data-model.yml
+- type: Compliance
+  url: https://www.microsoft.com/en-us/trust-center
+- type: ErrorCatalog
+  url: errors/microsoft-problem-types.yml
+- type: Conformance
+  url: conformance/microsoft-conformance.yml
+- type: LLMsTxt
+  url: llms/microsoft-llms.txt
+- type: SecurityTxt
+  url: well-known/microsoft-security.txt
+- type: WellKnown
+  url: well-known/microsoft-well-known.yml
+- type: Hosts
+  url: hosts/microsoft-hosts.yml
+- type: Vendors
+  url: vendors/microsoft-vendors.yml
+- type: Packages
+  url: packages/microsoft-packages.yml
+- type: Security
+  url: https://www.microsoft.com/security
+- type: Leadership
+  url: https://news.microsoft.com/leadership
+- type: ChangeLog
+  url: https://developer.microsoft.com/en-us/changelog
+- type: GettingStarted
+  url: https://learn.microsoft.com/en-us/adaptive-cards/sdk/rendering-cards/android/getting-started
+- type: Documentation
+  url: https://docs.microsoft.com/
+- type: TrustCenter
+  url: security/microsoft-trust-center.yml
+- type: Plans
+  url: plans/microsoft-plans-pricing.yml
+- type: Website
+  url: https://www.microsoft.com/
+- type: CapabilityMap
+  url: capabilities/microsoft-capability-edges.yml
+  name: Microsoft Business Capability Map
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/microsoft/overview
+- type: AgenticAccess
+  url: agentic-access/microsoft-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/microsoft-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/microsoft-domain-security.yml
+- type: Authentication
+  url: authentication/microsoft-authentication.yml
+- type: OAuthScopes
+  url: scopes/microsoft-scopes.yml
+- type: MCPServer
+  url: https://learn.microsoft.com/en-us/graph/mcp-server/overview
+  name: MCP Server for Enterprise
+  description: Microsoft's remote MCP Server for Enterprise turns natural language into read-only Microsoft Graph queries over an Entra tenant,
+    using delegated Entra permissions.
+- type: DeveloperPortal
+  url: https://developer.microsoft.com/
+- type: Azure Portal
+  url: https://portal.azure.com
+- type: StatusPage
+  url: https://status.azure.com/
+- type: Support
+  url: https://support.microsoft.com/
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/
+- type: TermsOfService
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: Blog
+  url: https://devblogs.microsoft.com/
+- type: Authentication
+  url: https://learn.microsoft.com/en-us/entra/identity-platform/
+- type: Signup
+  url: https://developer.microsoft.com/en-us/microsoft-365/dev-program
+- type: Forums
+  url: https://learn.microsoft.com/en-us/answers/
+- type: Pricing
+  url: https://azure.microsoft.com/en-us/pricing/calculator/
+- type: GitHub
+  url: https://github.com/microsoft
+- type: JSONLD
+  url: json-ld/microsoft-context.jsonld
+- type: JSONLD
+  url: json-ld/microsoft-graph-context.jsonld
+- type: JSONSchema
+  url: json-schema/microsoft-graph-user-schema.json
+- type: JSONSchema
+  url: json-schema/microsoft-graph-group-schema.json
+- type: JSONSchema
+  url: json-schema/microsoft-azure-resource-group-schema.json
+- type: JSONSchema
+  url: json-schema/microsoft-teams-team-schema.json
+- type: JSONSchema
+  url: json-schema/microsoft-drive-item-schema.json
+- type: JSONSchema
+  url: json-schema/microsoft-managed-device-schema.json
+- type: Features
+  data:
+  - 'Microsoft (Azure + 365 + Foundry + Graph): hundreds of services across Cloud + Productivity + AI'
+  - 'Detailed pricing: see https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans'
+  - 'Service: Virtual Machines'
+  - 'Service: Blob Storage'
+  - 'Service: SQL Database'
+  - 'Service: Cosmos DB'
+  - 'Service: Functions'
+  - 'Service: API Management'
+  - 'Service: Front Door (CDN)'
+  - 'Service: DNS'
+  - 'Service: Virtual Network'
+  - 'Service: Entra ID (formerly AD)'
+  - 'Service: Key Vault'
+  - 'Service: Monitor'
+  - 'Service: Log Analytics'
+  - 'Service: AKS (Kubernetes)'
+  - 'Service: Container Apps'
+  - 'Service: Container Registry'
+  - 'Service: Service Bus'
+  - 'Service: Event Grid'
+  - 'Service: Event Hubs'
+  - 'Service: Microsoft Foundry / OpenAI Service'
+  - 'Service: Cognitive Services (Speech, Vision, Language, Translator)'
+  - 'Service: Synapse Analytics'
+  - 'Service: Data Factory'
+  - 'Service: Stream Analytics'
+  - 'Service: Databricks (Azure)'
+  - 'Service: Power BI'
+  - 'Service: Bot Service'
+  - 'Service: Communication Services'
+  - 'Service: Microsoft 365 (Business / Enterprise)'
+  - 'Service: Microsoft Graph API'
+  - 'Service: Bing Search API'
+  - 'Service: Microsoft Foundry (OpenAI + Mistral + others)'
+  - 'Service: Power Platform APIs'
+  - 'Service: Dynamics 365 APIs'
+  - 'Service: Microsoft Defender APIs'
+  - 'Service: Intune'
+  - 'Service: Teams'
+  - 'Service: GitHub (separate billing)'
+  sources:
+  - https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans
+  - https://focus.finops.org/
+  updated: '2026-05-04'
+- type: Integrations
+  url: https://www.microsoft.com/en-us/marketplace
+
 apis:
 - aid: microsoft:microsoft-accounts-api
   name: Microsoft Accounts API
@@ -95,8 +270,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -104,8 +278,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -129,11 +302,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -151,15 +322,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -265,8 +434,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -274,8 +442,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -299,11 +466,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -321,15 +486,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -433,8 +596,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -442,8 +604,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -467,11 +628,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -489,15 +648,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -601,8 +758,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -610,8 +766,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -635,11 +790,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -657,15 +810,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -769,8 +920,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -778,8 +928,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -803,11 +952,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -825,15 +972,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -937,8 +1082,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -946,8 +1090,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -971,11 +1114,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -993,15 +1134,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -1105,8 +1244,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -1114,8 +1252,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -1139,11 +1276,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -1161,15 +1296,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -1273,8 +1406,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -1282,8 +1414,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -1307,11 +1438,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -1329,15 +1458,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -1444,8 +1571,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -1453,8 +1579,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -1478,11 +1603,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -1500,15 +1623,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -1612,8 +1733,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -1621,8 +1741,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -1646,11 +1765,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -1668,15 +1785,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -1780,8 +1895,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -1789,8 +1903,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -1814,11 +1927,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -1836,15 +1947,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -1948,8 +2057,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -1957,8 +2065,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -1982,11 +2089,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -2004,15 +2109,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -2118,8 +2221,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -2127,8 +2229,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -2152,11 +2253,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -2174,15 +2273,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -2286,8 +2383,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -2295,8 +2391,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -2320,11 +2415,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -2342,15 +2435,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -2454,8 +2545,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -2463,8 +2553,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -2488,11 +2577,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -2510,15 +2597,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -2624,8 +2709,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -2633,8 +2717,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -2658,11 +2741,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -2680,15 +2761,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -2792,8 +2871,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -2801,8 +2879,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -2826,11 +2903,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -2848,15 +2923,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -2960,8 +3033,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -2969,8 +3041,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -2994,11 +3065,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -3016,15 +3085,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -3128,8 +3195,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -3137,8 +3203,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -3162,11 +3227,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -3184,15 +3247,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -3296,8 +3357,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -3305,8 +3365,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -3330,11 +3389,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -3352,15 +3409,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -3464,8 +3519,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -3473,8 +3527,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -3498,11 +3551,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -3520,15 +3571,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -3634,8 +3683,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -3643,8 +3691,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -3668,11 +3715,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -3690,15 +3735,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -3802,8 +3845,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -3811,8 +3853,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -3836,11 +3877,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -3858,15 +3897,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -3970,8 +4007,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -3979,8 +4015,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -4004,11 +4039,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -4026,15 +4059,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -4140,8 +4171,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -4149,8 +4179,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -4174,11 +4203,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -4196,15 +4223,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -4310,8 +4335,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -4319,8 +4343,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -4344,11 +4367,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -4366,15 +4387,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -4480,8 +4499,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -4489,8 +4507,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -4514,11 +4531,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -4536,15 +4551,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -4648,8 +4661,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -4657,8 +4669,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -4682,11 +4693,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -4704,15 +4713,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -4818,8 +4825,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -4827,8 +4833,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -4852,11 +4857,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -4874,15 +4877,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -4986,8 +4987,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -4995,8 +4995,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -5020,11 +5019,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -5042,15 +5039,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -5154,8 +5149,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -5163,8 +5157,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -5188,11 +5181,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -5210,15 +5201,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -5322,8 +5311,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -5331,8 +5319,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -5356,11 +5343,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -5378,15 +5363,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -5492,8 +5475,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -5501,8 +5483,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -5526,11 +5507,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -5548,15 +5527,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -5660,8 +5637,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -5669,8 +5645,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -5694,11 +5669,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -5716,15 +5689,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -5830,8 +5801,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -5839,8 +5809,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -5864,11 +5833,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -5886,15 +5853,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -5998,8 +5963,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -6007,8 +5971,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -6032,11 +5995,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -6054,15 +6015,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -6166,8 +6125,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -6175,8 +6133,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -6200,11 +6157,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -6222,15 +6177,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -6334,8 +6287,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -6343,8 +6295,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -6368,11 +6319,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -6390,15 +6339,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -6502,8 +6449,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -6511,8 +6457,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -6536,11 +6481,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -6558,15 +6501,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -6672,8 +6613,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -6681,8 +6621,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -6706,11 +6645,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -6728,15 +6665,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -6840,8 +6775,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -6849,8 +6783,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -6874,11 +6807,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -6896,15 +6827,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -7008,8 +6937,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -7017,8 +6945,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -7042,11 +6969,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -7064,15 +6989,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -7176,8 +7099,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -7185,8 +7107,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -7210,11 +7131,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -7232,15 +7151,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -7344,8 +7261,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -7353,8 +7269,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -7378,11 +7293,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -7400,15 +7313,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -7512,8 +7423,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -7521,8 +7431,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -7546,11 +7455,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -7568,15 +7475,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -7680,8 +7585,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -7689,8 +7593,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -7714,11 +7617,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -7736,15 +7637,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -7848,8 +7747,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -7857,8 +7755,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -7882,11 +7779,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -7904,15 +7799,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -8018,8 +7911,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -8027,8 +7919,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -8052,11 +7943,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -8074,15 +7963,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -8188,8 +8075,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -8197,8 +8083,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -8222,11 +8107,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -8244,15 +8127,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -8356,8 +8237,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -8365,8 +8245,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -8390,11 +8269,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -8412,15 +8289,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -8524,8 +8399,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -8533,8 +8407,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -8558,11 +8431,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -8580,15 +8451,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -8694,8 +8563,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -8703,8 +8571,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -8728,11 +8595,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -8750,15 +8615,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -8862,8 +8725,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -8871,8 +8733,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -8896,11 +8757,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -8918,15 +8777,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -9030,8 +8887,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -9039,8 +8895,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -9064,11 +8919,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -9086,15 +8939,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -9198,8 +9049,7 @@ apis:
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
+    url: https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library
   - type: Documentation
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/
   - type: APIReference
@@ -9207,8 +9057,7 @@ apis:
   - type: App Templates
     url: https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates
   - type: SDKs
-    url: >-
-      https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview
   - type: JSONSchema
     url: json-schema/microsoft-teams-team-schema.json
   - type: Documentation
@@ -9232,11 +9081,9 @@ apis:
   - type: Pricing
     url: https://www.microsoft.com/en-us/bing/apis/pricing
   - type: Documentation
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
+    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph
   - type: Microsoft Graph Integration
@@ -9254,15 +9101,13 @@ apis:
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
+    url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance
   - type: Examples
     url: https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/dynamics365/
   - type: APIReference
-    url: >-
-      https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   - type: Authentication
@@ -9321,6 +9166,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/microsoft-marketing-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/microsoft-ad-account-schema.json
 - aid: microsoft:microsoft-organizations-api
   name: Microsoft Organizations API
   description: Manage organization pages
@@ -9333,6 +9180,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/microsoft-organizations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/microsoft-organization-schema.json
 - aid: microsoft:microsoft-posts-api
   name: Microsoft Posts API
   description: Create and manage posts
@@ -9343,6 +9192,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/microsoft-posts-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/microsoft-create-post-request-schema.json
 - aid: microsoft:microsoft-profile-api
   name: Microsoft Profile API
   description: Access member profile information
@@ -9355,6 +9206,9 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/microsoft-profile-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/microsoft-member-profile-schema.json
+
 integrations:
 - name: Microsoft
 - name: Two people looking at a computer.
@@ -9365,120 +9219,9 @@ integrations:
 - name: Teleperformance
 - name: A woman smiling at a laptop
 - name: A man holding a laptop.
-maintainers:
-- name: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
-common:
-- type: Plans
-  url: plans/microsoft-plans-pricing.yml
-- type: Website
-  url: https://www.microsoft.com/
-- type: CapabilityMap
-  url: capabilities/microsoft-capability-edges.yml
-  name: Microsoft Business Capability Map
-- type: PostmanWorkspace
-  url: https://www.postman.com/kinlaneapi/microsoft/overview
-- type: AgenticAccess
-  url: agentic-access/microsoft-agentic-access.yml
-- type: VulnerabilityDisclosure
-  url: security/microsoft-vulnerability-disclosure.yml
-- type: DomainSecurity
-  url: security/microsoft-domain-security.yml
-- type: Authentication
-  url: authentication/microsoft-authentication.yml
-- type: OAuthScopes
-  url: scopes/microsoft-scopes.yml
-- type: MCPServer
-  url: https://learn.microsoft.com/en-us/graph/mcp-server/overview
-  name: MCP Server for Enterprise
-  description: Microsoft's remote MCP Server for Enterprise turns natural language into read-only Microsoft Graph queries over an Entra tenant, using delegated Entra permissions.
-- type: DeveloperPortal
-  url: https://developer.microsoft.com/
-- type: Azure Portal
-  url: https://portal.azure.com
-- type: StatusPage
-  url: https://status.azure.com/
-- type: Support
-  url: https://support.microsoft.com/
-- type: PrivacyPolicy
-  url: https://privacy.microsoft.com/
-- type: TermsOfService
-  url: https://www.microsoft.com/en-us/legal/terms-of-use
-- type: Blog
-  url: https://devblogs.microsoft.com/
-- type: Authentication
-  url: https://learn.microsoft.com/en-us/entra/identity-platform/
-- type: Signup
-  url: https://developer.microsoft.com/en-us/microsoft-365/dev-program
-- type: Forums
-  url: https://learn.microsoft.com/en-us/answers/
-- type: Pricing
-  url: https://azure.microsoft.com/en-us/pricing/calculator/
-- type: GitHub
-  url: https://github.com/microsoft
-- type: JSONLD
-  url: json-ld/microsoft-context.jsonld
-- type: JSONLD
-  url: json-ld/microsoft-graph-context.jsonld
-- type: JSONSchema
-  url: json-schema/microsoft-graph-user-schema.json
-- type: JSONSchema
-  url: json-schema/microsoft-graph-group-schema.json
-- type: JSONSchema
-  url: json-schema/microsoft-azure-resource-group-schema.json
-- type: JSONSchema
-  url: json-schema/microsoft-teams-team-schema.json
-- type: JSONSchema
-  url: json-schema/microsoft-drive-item-schema.json
-- type: JSONSchema
-  url: json-schema/microsoft-managed-device-schema.json
-- type: Features
-  data:
-  - 'Microsoft (Azure + 365 + Foundry + Graph): hundreds of services across Cloud
-    + Productivity + AI'
-  - 'Detailed pricing: see https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans'
-  - 'Service: Virtual Machines'
-  - 'Service: Blob Storage'
-  - 'Service: SQL Database'
-  - 'Service: Cosmos DB'
-  - 'Service: Functions'
-  - 'Service: API Management'
-  - 'Service: Front Door (CDN)'
-  - 'Service: DNS'
-  - 'Service: Virtual Network'
-  - 'Service: Entra ID (formerly AD)'
-  - 'Service: Key Vault'
-  - 'Service: Monitor'
-  - 'Service: Log Analytics'
-  - 'Service: AKS (Kubernetes)'
-  - 'Service: Container Apps'
-  - 'Service: Container Registry'
-  - 'Service: Service Bus'
-  - 'Service: Event Grid'
-  - 'Service: Event Hubs'
-  - 'Service: Microsoft Foundry / OpenAI Service'
-  - 'Service: Cognitive Services (Speech, Vision, Language, Translator)'
-  - 'Service: Synapse Analytics'
-  - 'Service: Data Factory'
-  - 'Service: Stream Analytics'
-  - 'Service: Databricks (Azure)'
-  - 'Service: Power BI'
-  - 'Service: Bot Service'
-  - 'Service: Communication Services'
-  - 'Service: Microsoft 365 (Business / Enterprise)'
-  - 'Service: Microsoft Graph API'
-  - 'Service: Bing Search API'
-  - 'Service: Microsoft Foundry (OpenAI + Mistral + others)'
-  - 'Service: Power Platform APIs'
-  - 'Service: Dynamics 365 APIs'
-  - 'Service: Microsoft Defender APIs'
-  - 'Service: Intune'
-  - 'Service: Teams'
-  - 'Service: GitHub (separate billing)'
-  sources:
-  - https://www.microsoft.com/en-us/microsoft-365/business/compare-all-plans
-  - https://focus.finops.org/
-  updated: '2026-05-04'
-- type: Integrations
-  url: https://www.microsoft.com/en-us/marketplace
+x-enrichment:
+  date: '2026-10-03'
+  status: enriched
+  artifacts_added: 22
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

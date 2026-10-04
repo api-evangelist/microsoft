@@ -87,7 +87,45 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    project:
+      name: project
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: Version of the API to use
+      schema:
+        type: string
+        default: 7.2-preview.4
   schemas:
+    PipelineCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pipeline'
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string
+        folder:
+          type: string
+        revision:
+          type: integer
     PipelineRun:
       type: object
       properties:
@@ -119,44 +157,6 @@ components:
           type: string
         pipeline:
           $ref: '#/components/schemas/Pipeline'
-    PipelineCollection:
-      type: object
-      properties:
-        count:
-          type: integer
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Pipeline'
-    Pipeline:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        url:
-          type: string
-        folder:
-          type: string
-        revision:
-          type: integer
-  parameters:
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: Version of the API to use
-      schema:
-        type: string
-        default: 7.2-preview.4
-    project:
-      name: project
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
   securitySchemes:
     basicAuth:
       type: http

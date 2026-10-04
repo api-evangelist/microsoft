@@ -72,6 +72,24 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    TileCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              embedUrl:
+                type: string
+              reportId:
+                type: string
+              datasetId:
+                type: string
     DashboardCollection:
       type: object
       properties:
@@ -94,24 +112,6 @@ components:
           type: string
         webUrl:
           type: string
-    TileCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              title:
-                type: string
-              embedUrl:
-                type: string
-              reportId:
-                type: string
-              datasetId:
-                type: string
   parameters:
     dashboardId:
       name: dashboardId

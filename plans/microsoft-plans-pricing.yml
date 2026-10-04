@@ -2,6 +2,7 @@
 generated: '2026-09-20'
 method: searched
 source: https://azure.microsoft.com/en-us/pricing/
+name: Microsoft API Plans
 sources:
 - https://azure.microsoft.com/en-us/pricing/
 provenance:

@@ -39,15 +39,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ResourceListResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/GenericResource'
-        nextLink:
-          type: string
     GenericResource:
       type: object
       properties:
@@ -78,27 +69,16 @@ components:
               type: string
         kind:
           type: string
+    ResourceListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/GenericResource'
+        nextLink:
+          type: string
   parameters:
-    filterParam:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use for this operation
-      schema:
-        type: string
-        default: '2024-03-01'
-    topParam:
-      name: $top
-      in: query
-      description: Maximum number of results to return
-      schema:
-        type: integer
     subscriptionId:
       name: subscriptionId
       in: path
@@ -107,6 +87,26 @@ components:
       schema:
         type: string
         format: uuid
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use for this operation
+      schema:
+        type: string
+        default: '2024-03-01'
+    filterParam:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    topParam:
+      name: $top
+      in: query
+      description: Maximum number of results to return
+      schema:
+        type: integer
   securitySchemes:
     oauth2:
       type: oauth2

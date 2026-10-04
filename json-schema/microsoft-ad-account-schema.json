@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft/main/json-schema/microsoft-ad-account-schema.json",
+  "title": "AdAccount",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/microsoft-marketing-api-openapi.yml#/components/schemas/AdAccount",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "CANCELED",
+        "DRAFT",
+        "REMOVED"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "BUSINESS",
+        "ENTERPRISE"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "servingStatuses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

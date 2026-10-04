@@ -60,15 +60,31 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    teamId:
-      name: teamId
-      in: path
-      required: true
-      description: Team unique identifier
-      schema:
-        type: string
   schemas:
+    MemberCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+    Member:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        userId:
+          type: string
+        email:
+          type: string
     AddMemberRequest:
       type: object
       required:
@@ -86,30 +102,14 @@ components:
         user@odata.bind:
           type: string
           description: URL reference to the user to add
-    Member:
-      type: object
-      properties:
-        id:
-          type: string
-        displayName:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        userId:
-          type: string
-        email:
-          type: string
-    MemberCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
+  parameters:
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

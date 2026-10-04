@@ -1,0 +1,29 @@
+generated: '2026-10-03'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/microsoft-accounts-api-openapi.yml
+skills:
+- file: skills/microsoft-manage-list-items.md
+  name: microsoft-manage-list-items
+  api: openapi/microsoft-items-api-openapi.yml
+  operations:
+  - listItems
+  - createListItem
+  - getListItem
+  - updateListItem
+  - deleteListItem
+- file: skills/microsoft-leads-list-and-create.md
+  name: microsoft-leads-list-and-create
+  api: openapi/microsoft-leads-api-openapi.yml
+  operations:
+  - listLeads
+  - createLead
+- file: skills/microsoft-entity-crud.md
+  name: microsoft-entity-crud
+  api: openapi/microsoft-entities-api-openapi.yml
+  operations:
+  - listAccounts
+  - createAccount
+  - getAccount
+  - updateAccount
+  - deleteAccount

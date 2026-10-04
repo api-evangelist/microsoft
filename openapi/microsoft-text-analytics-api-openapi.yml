@@ -121,39 +121,6 @@ components:
                       type: integer
                     confidenceScore:
                       type: number
-    TextAnalyticsRequest:
-      type: object
-      required:
-      - documents
-      properties:
-        documents:
-          type: array
-          items:
-            type: object
-            required:
-            - id
-            - text
-            properties:
-              id:
-                type: string
-              text:
-                type: string
-              language:
-                type: string
-    KeyPhrasesResponse:
-      type: object
-      properties:
-        documents:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              keyPhrases:
-                type: array
-                items:
-                  type: string
     SentimentResponse:
       type: object
       properties:
@@ -180,6 +147,39 @@ components:
                     type: number
                   negative:
                     type: number
+    KeyPhrasesResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              keyPhrases:
+                type: array
+                items:
+                  type: string
+    TextAnalyticsRequest:
+      type: object
+      required:
+      - documents
+      properties:
+        documents:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - text
+            properties:
+              id:
+                type: string
+              text:
+                type: string
+              language:
+                type: string
   securitySchemes:
     apiKey:
       type: apiKey

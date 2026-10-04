@@ -51,22 +51,6 @@ paths:
         '429':
           description: Rate limit exceeded
 components:
-  parameters:
-    deploymentId:
-      name: deployment-id
-      in: path
-      required: true
-      description: The deployment name for the model
-      schema:
-        type: string
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version to use
-      schema:
-        type: string
-        default: '2024-10-21'
   schemas:
     ImageGenerationRequest:
       type: object
@@ -125,6 +109,22 @@ components:
                 type: string
               revised_prompt:
                 type: string
+  parameters:
+    deploymentId:
+      name: deployment-id
+      in: path
+      required: true
+      description: The deployment name for the model
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version to use
+      schema:
+        type: string
+        default: '2024-10-21'
   securitySchemes:
     apiKey:
       type: apiKey

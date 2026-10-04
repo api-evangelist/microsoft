@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft/main/json-schema/microsoft-create-post-request-schema.json",
+  "title": "CreatePostRequest",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/microsoft-posts-api-openapi.yml#/components/schemas/CreatePostRequest",
+  "type": "object",
+  "required": [
+    "author",
+    "lifecycleState",
+    "visibility",
+    "commentary"
+  ],
+  "properties": {
+    "author": {
+      "type": "string",
+      "description": "URN of the author (person or organization)"
+    },
+    "lifecycleState": {
+      "type": "string",
+      "enum": [
+        "PUBLISHED",
+        "DRAFT"
+      ]
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "PUBLIC",
+        "CONNECTIONS"
+      ]
+    },
+    "commentary": {
+      "type": "string",
+      "description": "Post text content"
+    },
+    "distribution": {
+      "type": "object",
+      "properties": {
+        "feedDistribution": {
+          "type": "string",
+          "enum": [
+            "MAIN_FEED",
+            "NONE"
+          ]
+        }
+      }
+    }
+  }
+}

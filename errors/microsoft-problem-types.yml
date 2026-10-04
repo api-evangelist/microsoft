@@ -1,0 +1,58 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/microsoft-accounts-api-openapi.yml
+- openapi/microsoft-applications-api-openapi.yml
+- openapi/microsoft-audio-api-openapi.yml
+- openapi/microsoft-calendar-api-openapi.yml
+- openapi/microsoft-channels-api-openapi.yml
+- openapi/microsoft-chat-api-openapi.yml
+- openapi/microsoft-chat-completions-api-openapi.yml
+- openapi/microsoft-completions-api-openapi.yml
+- openapi/microsoft-computer-vision-api-openapi.yml
+- openapi/microsoft-contacts-api-openapi.yml
+- openapi/microsoft-dashboards-api-openapi.yml
+- openapi/microsoft-datasets-api-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: ODataError
+coverage:
+  operations: 178
+  statuses_declared: 5
+problems:
+- status: 400
+  title: Bad Request
+  description: Invalid request
+  operations: 49
+  media_types:
+  - application/json
+  schema: ODataError
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 144
+  media_types:
+  - application/json
+  schema: ODataError
+- status: 403
+  title: Forbidden
+  description: Forbidden - insufficient permissions
+  operations: 1
+  media_types:
+  - application/json
+  schema: ODataError
+- status: 404
+  title: Not Found
+  description: Resource not found
+  operations: 60
+  media_types:
+  - application/json
+  schema: ODataError
+- status: 429
+  title: Too Many Requests
+  description: Rate limit exceeded
+  operations: 5
+  media_types: []
+  schema: null

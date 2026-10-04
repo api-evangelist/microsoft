@@ -63,28 +63,40 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    channelId:
-      name: channelId
-      in: path
-      required: true
-      description: Channel unique identifier
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of items to return
-      schema:
-        type: integer
-    teamId:
-      name: teamId
-      in: path
-      required: true
-      description: Team unique identifier
-      schema:
-        type: string
   schemas:
+    ChatMessageCollection:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+    CreateChatMessageRequest:
+      type: object
+      required:
+      - body
+      properties:
+        body:
+          type: object
+          required:
+          - content
+          properties:
+            contentType:
+              type: string
+              enum:
+              - text
+              - html
+              default: text
+            content:
+              type: string
+        importance:
+          type: string
+          enum:
+          - normal
+          - high
+          - urgent
     ChatMessage:
       type: object
       properties:
@@ -121,39 +133,27 @@ components:
           - normal
           - high
           - urgent
-    ChatMessageCollection:
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatMessage'
-    CreateChatMessageRequest:
-      type: object
-      required:
-      - body
-      properties:
-        body:
-          type: object
-          required:
-          - content
-          properties:
-            contentType:
-              type: string
-              enum:
-              - text
-              - html
-              default: text
-            content:
-              type: string
-        importance:
-          type: string
-          enum:
-          - normal
-          - high
-          - urgent
+  parameters:
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      description: Team unique identifier
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of items to return
+      schema:
+        type: integer
+    channelId:
+      name: channelId
+      in: path
+      required: true
+      description: Channel unique identifier
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

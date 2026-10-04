@@ -1,0 +1,35 @@
+generated: '2026-10-03'
+method: probed
+generator: harvest-packages.py
+source: registry metadata endpoints (registry.npmjs.org, pypi.org, rubygems.org, api.nuget.org, packagist.org, crates.io)
+ownership_rule: 'official: true only when the registry metadata (homepage, repository, author, URLs) names the provider''s domain (agentic-access/microsoft-agentic-access.yml,
+  authentication/microsoft-authentication.yml, azure.com, capabilities/microsoft-capability-edges.yml, json-ld/microsoft-context.jsonld, json-ld/microsoft-graph-context.jsonld,
+  json-schema/microsoft-azure-resource-group-schema.json, json-schema/microsoft-drive-item-schema.json, json-schema/microsoft-graph-group-schema.json,
+  json-schema/microsoft-graph-user-schema.json, json-schema/microsoft-managed-device-schema.json, json-schema/microsoft-teams-team-schema.json,
+  microsoft.com, plans/microsoft-plans-pricing.yml, postman.com, scopes/microsoft-scopes.yml, security/microsoft-domain-security.yml, security/microsoft-trust-center.yml,
+  security/microsoft-vulnerability-disclosure.yml) or its accepted GitHub org.'
+packages:
+- name: microsoft
+  registry: pypi
+  url: https://pypi.org/project/microsoft/
+  language: Python
+  official: true
+  version: 0.1.2
+  published: '2021-07-27'
+  evidence: metadata names microsoft.com
+- name: microsoft
+  registry: crates
+  url: https://crates.io/crates/microsoft
+  language: Rust
+  official: true
+  version: 0.1.0
+  published: '2024-09-24'
+  evidence: metadata names microsoft.com
+- name: microsoft
+  registry: npm
+  url: https://www.npmjs.com/package/microsoft
+  language: JavaScript
+  official: false
+  version: 0.0.0
+  published: '2014-07-30'
+  evidence: 'name match only: the metadata names neither the provider''s domain nor its GitHub org'

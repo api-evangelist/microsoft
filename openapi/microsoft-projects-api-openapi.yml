@@ -110,55 +110,6 @@ paths:
           description: Project not found
 components:
   schemas:
-    Project:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        description:
-          type: string
-        url:
-          type: string
-        state:
-          type: string
-          enum:
-          - all
-          - createPending
-          - deleted
-          - deleting
-          - new
-          - unchanged
-          - wellFormed
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-        lastUpdateTime:
-          type: string
-          format: date-time
-    ProjectCollection:
-      type: object
-      properties:
-        count:
-          type: integer
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-    OperationReference:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        status:
-          type: string
-        url:
-          type: string
     CreateProjectRequest:
       type: object
       required:
@@ -189,7 +140,63 @@ components:
               properties:
                 templateTypeId:
                   type: string
+    OperationReference:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        url:
+          type: string
+    ProjectCollection:
+      type: object
+      properties:
+        count:
+          type: integer
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        state:
+          type: string
+          enum:
+          - all
+          - createPending
+          - deleted
+          - deleting
+          - new
+          - unchanged
+          - wellFormed
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        lastUpdateTime:
+          type: string
+          format: date-time
   parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: Project ID or name
+      schema:
+        type: string
     apiVersion:
       name: api-version
       in: query
@@ -198,13 +205,6 @@ components:
       schema:
         type: string
         default: 7.2-preview.4
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: Project ID or name
-      schema:
-        type: string
   securitySchemes:
     basicAuth:
       type: http
