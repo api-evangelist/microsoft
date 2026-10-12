@@ -1,0 +1,106 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/microsoft/integrations
+- https://n8n.io/integrations/microsoft/
+- https://composio.dev/toolkits/microsoft
+- https://monid.ai/tools/microsoft
+checked:
+- https://composio.dev/toolkits/microsoft
+- https://monid.ai/tools/microsoft
+- https://n8n.io/integrations/microsoft/
+- https://zapier.com/apps/microsoft/integrations
+summary: null
+marketplace_apps: []
+edges:
+- partner_name: bonjoro
+  partner: bonjoro
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/bonjoro/blob/main/openapi/bonjoro-integrations-api-openapi.yml
+  contract_reference:
+    repo: bonjoro
+    spec_file: bonjoro-integrations-api-openapi.yml
+    value: microsoft
+    property: schemas.integration.provider
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: cacheflow
+  partner: cacheflow
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/cacheflow/blob/main/openapi/cacheflow-slack-api-openapi.yml
+  contract_reference:
+    repo: cacheflow
+    spec_file: cacheflow-slack-api-openapi.yml
+    value: microsoft
+    property: schemas.IdentityToken.source
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: close
+  partner: close
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/close/blob/main/openapi/close-activities-meetings-api-openapi.yml
+  contract_reference:
+    repo: close
+    spec_file: close-activities-meetings-api-openapi.yml
+    value: microsoft
+    property: components.schemas.ProviderCalendarType
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: lemlist
+  partner: lemlist
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/lemlist/blob/main/openapi/lemlist-users-api-openapi.yml
+  contract_reference:
+    repo: lemlist
+    spec_file: lemlist-users-api-openapi.yml
+    value: microsoft
+    property: email.accounts.provider
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: zoho
+  partner: zoho
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/zoho/blob/main/openapi/zoho-timeline-api-openapi.yml
+  contract_reference:
+    repo: zoho
+    spec_file: zoho-timeline-api-openapi.yml
+    value: microsoft
+    property: __timeline.source
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+- partner_name: zoho-crm
+  partner: zoho-crm
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/zoho-crm/blob/main/openapi/zoho-crm-timeline-api-openapi.yml
+  contract_reference:
+    repo: zoho-crm
+    spec_file: zoho-crm-timeline-api-openapi.yml
+    value: microsoft
+    property: __timeline.source
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+templates: []
