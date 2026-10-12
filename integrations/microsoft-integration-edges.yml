@@ -7,6 +7,8 @@ source:
 - https://monid.ai/tools/microsoft
 checked:
 - https://composio.dev/toolkits/microsoft
+- https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
+- https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
 - https://monid.ai/tools/microsoft
 - https://n8n.io/integrations/microsoft/
 - https://zapier.com/apps/microsoft/integrations
@@ -103,4 +105,32 @@ edges:
     property: __timeline.source
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+- partner_name: OpenTelemetry
+  partner: null
+  type: contract
+  channel: network-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/exporter-dotnet-azure.yml
+  contract_reference:
+    register: OpenTelemetry ecosystem + registry (opentelemetry.io data/)
+    spec_file: null
+    role: participant
+    registered_name: Microsoft Authors
+    matched_domain: microsoft.com
+    partner_match: domain+name-among-holders
+    api_families:
+    - registry:exporter
+    - registry:instrumentation
+    records:
+    - registry: exporter-dotnet-azure.yml
+    - registry: exporter-js-azure.yml
+    - registry: exporter-python-azure.yml
+    - registry: instrumentation-java-azure-sdk.yml
+    - registry: instrumentation-js-azure-sdk.yml
+    - registry: instrumentation-python-azure-sdk.yml
+    detected_by: sweep-observability.py
+    detected: '2026-10-13'
+  detected_by: sweep-observability.py
+  detected: '2026-10-13'
 templates: []
