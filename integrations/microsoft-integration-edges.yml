@@ -17,6 +17,7 @@ checked:
 - https://monid.ai/tools/microsoft
 - https://n8n.io/integrations/microsoft/
 - https://plugins.jetbrains.com/
+- https://registry.modelcontextprotocol.io/v0/servers
 - https://site.imsglobal.org/certifications
 - https://zapier.com/apps/microsoft/integrations
 summary: null
@@ -277,6 +278,54 @@ edges:
       - update only
       - update or create
   detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: MCP Registry
+  partner: mcp
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=com.microsoft.esrp
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: com.microsoft.esrp/esrp-oss-mcp-test
+    register_id: com.microsoft.esrp/esrp-oss-mcp-test
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-14'
+  mcp_registry:
+    servers:
+    - com.microsoft.esrp/esrp-oss-mcp-test
+    - com.microsoft/azure
+    - com.microsoft/esrp-oss-mcp-test
+    - com.microsoft/microsoft-fabric
+    - com.microsoft/microsoft-learn-mcp
+    - com.microsoft/nuget
+    - com.microsoft/powerbi-modeling-mcp
+    - com.microsoft/sentinel-data-exploration
+    - com.microsoft/template-server-name
+    - com.microsoft/workiq-admintools
+    - com.microsoft/workiq-calendartools
+    - com.microsoft/workiq-m365copilot
+    - com.microsoft/workiq-meserver
+    - com.microsoft/workiq-odspremoteserver
+    - com.microsoft/workiq-sharepointliststools
+    - com.microsoft/workiq-teamsserver
+    - com.microsoft/workiq-wordserver
+    hosted_remote: 12
+    local_package: 7
+    transports:
+      stdio: 32
+      streamable-http: 12
+    auth_declared: 0
+    catalog_declared: false
+    namespace_domains:
+    - microsoft.com
+  matched_by:
+  - namespace-domain+label
+  detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
 - partner_name: Duck Creek (own)
   partner: duck-creek

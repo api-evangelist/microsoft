@@ -339,6 +339,25 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
+- slug: microsoft-mcp-registry
+  label: MCP Registry
+  partner: mcp
+  partner_name: MCP Registry
+  type: register
+  channel: standard-directory
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=com.microsoft.esrp
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: com.microsoft.esrp/esrp-oss-mcp-test
+    register_id: com.microsoft.esrp/esrp-oss-mcp-test
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-14'
+  status: not-a-workflow
+  arazzo: null
 - slug: microsoft-duck-creek-own
   label: Duck Creek (own)
   partner: duck-creek
