@@ -250,30 +250,6 @@
     detected: '2026-10-13'
   status: not-a-workflow
   arazzo: null
-- slug: microsoft-mparticle
-  label: mParticle
-  partner: mparticle
-  partner_name: mParticle
-  type: coverage
-  marketplace: coverage
-  channel: partner-built
-  evidence: https://docs.mparticle.com/integrations/microsoft/audience/
-  source: edge
-  relationship: connector-coverage
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-census
-  label: Census
-  partner: getcensus
-  partner_name: Census
-  type: coverage
-  marketplace: coverage
-  channel: partner-built
-  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
-  source: edge
-  relationship: connector-coverage
-  status: not-a-workflow
-  arazzo: null
 - slug: microsoft-1edtech
   label: 1EdTech
   partner_name: 1EdTech
@@ -335,6 +311,43 @@
   marketplace: jetbrains
   channel: partner-built
   evidence: https://plugins.jetbrains.com/vendor/Microsoft
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-mparticle
+  label: mParticle
+  partner: mparticle
+  partner_name: mParticle
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://docs.mparticle.com/integrations/microsoft/audience/
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-census
+  label: Census
+  partner: getcensus
+  partner_name: Census
+  type: coverage
+  marketplace: coverage
+  channel: partner-built
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-duck-creek-own
+  label: Duck Creek (own)
+  partner: duck-creek
+  partner_name: Duck Creek (own)
+  category: Solution
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.duckcreek.com/partner/microsoft/
   source: edge
   relationship: platform-app
   status: not-a-workflow

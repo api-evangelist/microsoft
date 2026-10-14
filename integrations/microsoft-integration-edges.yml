@@ -6,6 +6,7 @@ source:
 - https://composio.dev/toolkits/microsoft
 - https://monid.ai/tools/microsoft
 checked:
+- duck-creek/integrations/duck-creek-integration-edges.yml
 - https://composio.dev/toolkits/microsoft
 - https://docs.mparticle.com/integrations/microsoft/audience/
 - https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
@@ -139,45 +140,6 @@ edges:
     detected: '2026-10-13'
   detected_by: sweep-observability.py
   detected: '2026-10-13'
-- partner_name: mParticle
-  partner: mparticle
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://docs.mparticle.com/integrations/microsoft/audience/
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - microsoft
-      integration_types:
-      - audience
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: Census
-  partner: getcensus
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - microsoft-dynamics
-      sync_behaviours:
-      - update only
-      - update or create
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
 - partner_name: 1EdTech
   partner: null
   type: contract
@@ -277,4 +239,60 @@ edges:
   - Verified vendor
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: mParticle
+  partner: mparticle
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://docs.mparticle.com/integrations/microsoft/audience/
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - microsoft
+      integration_types:
+      - audience
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Census
+  partner: getcensus
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - microsoft-dynamics
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Duck Creek (own)
+  partner: duck-creek
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.duckcreek.com/partner/microsoft/
+  mirror_of: duck-creek/integrations/duck-creek-integration-edges.yml
+  apps:
+  - Microsoft
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Solution
 templates: []
