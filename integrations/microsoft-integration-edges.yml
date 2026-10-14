@@ -9,10 +9,13 @@ checked:
 - https://composio.dev/toolkits/microsoft
 - https://docs.mparticle.com/integrations/microsoft/audience/
 - https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
+- https://github.com/marketplace?type=actions
+- https://github.com/marketplace?type=apps
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
 - https://monid.ai/tools/microsoft
 - https://n8n.io/integrations/microsoft/
+- https://plugins.jetbrains.com/
 - https://site.imsglobal.org/certifications
 - https://zapier.com/apps/microsoft/integrations
 summary: null
@@ -213,4 +216,65 @@ edges:
       url: https://site.imsglobal.org/certifications/microsoft/microsoft-365-lti/v10
     detected_by: sweep-edtech.py
     detected: '2026-10-14'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-apps
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/azure-pipelines
+  listing_count: 10
+  apps:
+  - Azure Pipelines
+  - Azure Boards
+  - Azure Pipelines (OAuth)
+  - ' Azure Boards OAuth'
+  - Microsoft Security DevOps Read-Write
+  publisher_name: Microsoft
+  badges:
+  - Verified creator
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: GitHub Marketplace (actions)
+  partner: github-actions
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-actions
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/actions/setup-msbuild
+  listing_count: 32
+  apps:
+  - setup-msbuild
+  - Run Playwright tests
+  - powerplatform-actions
+  - gpt-review
+  - security-devops-action
+  publisher_name: Microsoft
+  badges:
+  - Verified creator
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: JetBrains Marketplace
+  partner: jetbrains
+  partner_match: aggregator
+  type: marketplace
+  marketplace: jetbrains
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://plugins.jetbrains.com/vendor/Microsoft
+  listing_count: 2
+  apps:
+  - GitHub Copilot modernization
+  - Azure Toolkit for IntelliJ
+  publisher_name: Microsoft Corporation
+  badges:
+  - Verified vendor
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 templates: []
