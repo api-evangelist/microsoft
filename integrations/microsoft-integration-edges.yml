@@ -14,10 +14,16 @@ checked:
 - https://github.com/marketplace?type=apps
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
+- https://marketplace.odva.org/organizations
 - https://monid.ai/tools/microsoft
 - https://n8n.io/integrations/microsoft/
+- https://opcfoundation.org/products/
 - https://plugins.jetbrains.com/
 - https://registry.modelcontextprotocol.io/v0/servers
+- https://repo.ros2.org/rosdistro_cache/humble-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/jazzy-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/kilted-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/rolling-cache.yaml.gz
 - https://site.imsglobal.org/certifications
 - https://zapier.com/apps/microsoft/integrations
 summary: null
@@ -344,4 +350,36 @@ edges:
   detected: '2026-10-14'
   detected_by: mirror-platform-listings.py
   category: Solution
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/opc-publisher/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA product listed
+    registered_name: Microsoft Corporation
+    member_id: '255'
+    website: http://www.microsoft.com
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    listed_products: 2
+    certified_products: []
+    listed_categories:
+    - Gateway
+    sample_products:
+    - Microsoft Corporation Azure IoT Operations Show details
+    - Microsoft Corporation OPC Publisher Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-15'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
 templates: []

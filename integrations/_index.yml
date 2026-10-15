@@ -371,3 +371,35 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: microsoft-opc-foundation-opc-ua
+  label: OPC Foundation (OPC UA)
+  partner_name: OPC Foundation (OPC UA)
+  category: OPC UA products
+  type: register
+  channel: standard-directory
+  evidence: https://opcfoundation.org/products/view/opc-publisher/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA product listed
+    registered_name: Microsoft Corporation
+    member_id: '255'
+    website: http://www.microsoft.com
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    listed_products: 2
+    certified_products: []
+    listed_categories:
+    - Gateway
+    sample_products:
+    - Microsoft Corporation Azure IoT Operations Show details
+    - Microsoft Corporation OPC Publisher Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
