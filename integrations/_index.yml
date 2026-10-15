@@ -64,7 +64,9 @@
   use_case: For each Stripe payout, append a row to a designated worksheet in an Excel workbook stored in OneDrive
     for ops to reconcile.
   source: curated
-  status: pending-generation
+  status: not-a-workflow
+  evidence: https://marketplace.stripe.com/apps/microsoft-power-pages-payments
+  type: marketplace
   arazzo: null
 - slug: microsoft-snowflake
   label: Push Microsoft Power BI dataset rows to Snowflake
@@ -358,19 +360,6 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
-- slug: microsoft-duck-creek-own
-  label: Duck Creek (own)
-  partner: duck-creek
-  partner_name: Duck Creek (own)
-  category: Solution
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.duckcreek.com/partner/microsoft/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: microsoft-opc-foundation-opc-ua
   label: OPC Foundation (OPC UA)
   partner_name: OPC Foundation (OPC UA)
@@ -401,5 +390,30 @@
       per product; listed_products is context, never read
     detected_by: sweep-industrial-robotics.py
     detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-duck-creek-own
+  label: Duck Creek (own)
+  partner: duck-creek
+  partner_name: Duck Creek (own)
+  category: Solution
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.duckcreek.com/partner/microsoft/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-shopify-own
+  label: Shopify (own)
+  partner: shopify
+  partner_name: Shopify (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://apps.shopify.com/microsoft-advertising
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

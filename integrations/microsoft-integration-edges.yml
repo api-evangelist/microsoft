@@ -26,6 +26,8 @@ checked:
 - https://repo.ros2.org/rosdistro_cache/rolling-cache.yaml.gz
 - https://site.imsglobal.org/certifications
 - https://zapier.com/apps/microsoft/integrations
+- shopify/integrations/shopify-integration-edges.yml
+- stripe/integrations/stripe-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -333,23 +335,6 @@ edges:
   - namespace-domain+label
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
-- partner_name: Duck Creek (own)
-  partner: duck-creek
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.duckcreek.com/partner/microsoft/
-  mirror_of: duck-creek/integrations/duck-creek-integration-edges.yml
-  apps:
-  - Microsoft
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Solution
 - partner_name: OPC Foundation (OPC UA)
   partner: null
   partner_match: register
@@ -382,4 +367,54 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-industrial-robotics.py
   first_seen: '2026-10-15'
+- partner_name: Duck Creek (own)
+  partner: duck-creek
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.duckcreek.com/partner/microsoft/
+  mirror_of: duck-creek/integrations/duck-creek-integration-edges.yml
+  apps:
+  - Microsoft
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Solution
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/microsoft-advertising
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - Microsoft Channel
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/microsoft-power-pages-payments
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - Microsoft Power Pages Payments
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: commerce
 templates: []
