@@ -16,6 +16,7 @@ checked:
 - https://fivetran.com/docs/connectors/partner-built-program
 - https://focus.finops.org/data-generators/
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
 - https://github.com/kubeflow/website
@@ -25,6 +26,7 @@ checked:
 - https://github.com/meltano/hub
 - https://github.com/mlcommons
 - https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/
+- https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
 - https://govramp.org/program-participants
@@ -167,176 +169,6 @@ edges:
     detected: '2026-10-13'
   detected_by: sweep-observability.py
   detected: '2026-10-13'
-- partner_name: 1EdTech
-  partner: null
-  type: contract
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://site.imsglobal.org/certifications
-  category: 1EdTech certified products
-  contract_reference:
-    register: 1EdTech certified product directory (TrustEd Apps)
-    spec_file: null
-    standard: 1EdTech
-    role: Contributing Member
-    registered_name: Microsoft
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    standards:
-    - LTI Advantage
-    - LTI Advantage Complete
-    - Learning Tools Interoperability (LTI) v1.3
-    certified_products:
-    - product: Microsoft 365 LTI
-      version: v1.0
-      standards:
-      - LTI Advantage
-      - LTI Advantage Complete
-      - Learning Tools Interoperability (LTI) v1.3
-      implementation:
-      - 'Extension: LTI Assignment & Grade Services 2.0'
-      - 'Extension: LTI Deep Linking 2.0'
-      - 'Extension: LTI Names and Role Provisioning Services 2.0'
-      - 'Type: Tool'
-      attributes:
-      - Certified Product
-      lapsed: false
-      url: https://site.imsglobal.org/certifications/microsoft/microsoft-365-lti/v10
-    detected_by: sweep-edtech.py
-    detected: '2026-10-14'
-- partner_name: GitHub Marketplace (apps)
-  partner: github
-  partner_match: aggregator
-  type: marketplace
-  marketplace: github-apps
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://github.com/marketplace/azure-pipelines
-  listing_count: 10
-  apps:
-  - Azure Pipelines
-  - Azure Boards
-  - Azure Pipelines (OAuth)
-  - ' Azure Boards OAuth'
-  - Microsoft Security DevOps Read-Write
-  publisher_name: Microsoft
-  badges:
-  - Verified creator
-  - Verified domain
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
-- partner_name: GitHub Marketplace (actions)
-  partner: github-actions
-  partner_match: aggregator
-  type: marketplace
-  marketplace: github-actions
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://github.com/marketplace/actions/setup-msbuild
-  listing_count: 32
-  apps:
-  - setup-msbuild
-  - Run Playwright tests
-  - powerplatform-actions
-  - gpt-review
-  - security-devops-action
-  publisher_name: Microsoft
-  badges:
-  - Verified creator
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
-- partner_name: JetBrains Marketplace
-  partner: jetbrains
-  partner_match: aggregator
-  type: marketplace
-  marketplace: jetbrains
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://plugins.jetbrains.com/vendor/Microsoft
-  listing_count: 2
-  apps:
-  - GitHub Copilot modernization
-  - Azure Toolkit for IntelliJ
-  publisher_name: Microsoft Corporation
-  badges:
-  - Verified vendor
-  detected_by: sweep-devtools.py
-  detected: '2026-10-14'
-- partner_name: mParticle
-  partner: mparticle
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://docs.mparticle.com/integrations/microsoft/audience/
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - microsoft
-      integration_types:
-      - audience
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: Census
-  partner: getcensus
-  partner_match: aggregator
-  marketplace: coverage
-  channel: partner-built
-  direction: partner-built
-  type: coverage
-  relationship: connector-coverage
-  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
-  coverage_role:
-  - destination
-  cdp_signals:
-    destination:
-      catalog_entries:
-      - microsoft-dynamics
-      sync_behaviours:
-      - update only
-      - update or create
-  detected_by: sweep-cdp.py
-  first_seen: '2026-10-14'
-- partner_name: OPC Foundation (OPC UA)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://opcfoundation.org/products/view/opc-publisher/
-  category: OPC UA products
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: OPC Foundation product marketplace (opcfoundation.org/products)
-    spec_file: null
-    standard: OPC UA
-    role: OPC UA product listed
-    registered_name: Microsoft Corporation
-    member_id: '255'
-    website: http://www.microsoft.com
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    listed_products: 2
-    certified_products: []
-    listed_categories:
-    - Gateway
-    sample_products:
-    - Microsoft Corporation Azure IoT Operations Show details
-    - Microsoft Corporation OPC Publisher Show details
-    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
-      per product; listed_products is context, never read
-    detected_by: sweep-industrial-robotics.py
-    detected: '2026-10-15'
-  detected_by: sweep-industrial-robotics.py
-  first_seen: '2026-10-15'
 - partner_name: Duck Creek (own)
   partner: duck-creek
   partner_match: mirror
@@ -387,6 +219,23 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: commerce
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/microsoft-clarity/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Microsoft Clarity
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
 - partner_name: MCP Registry
   partner: mcp
   partner_match: register
@@ -402,11 +251,12 @@ edges:
     registered_name: com.microsoft.esrp/esrp-oss-mcp-test
     register_id: com.microsoft.esrp/esrp-oss-mcp-test
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   mcp_registry:
     servers:
     - com.microsoft.esrp/esrp-oss-mcp-test
     - com.microsoft/azure
+    - com.microsoft/copilot-studio
     - com.microsoft/esrp-oss-mcp-test
     - com.microsoft/microsoft-fabric
     - com.microsoft/microsoft-learn-mcp
@@ -423,9 +273,9 @@ edges:
     - com.microsoft/workiq-teamsserver
     - com.microsoft/workiq-wordserver
     hosted_remote: 12
-    local_package: 7
+    local_package: 8
     transports:
-      stdio: 32
+      stdio: 33
       streamable-http: 12
     auth_declared: 0
     catalog_declared: false
@@ -435,271 +285,176 @@ edges:
   - namespace-domain+label
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
-- partner_name: CNCF (Cloud Native Landscape)
-  partner: cncf
-  partner_match: register
-  type: register
+- partner_name: mParticle
+  partner: mparticle
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
   direction: partner-built
-  category: Cloud native landscape
-  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
-  channel: standard-directory
-  relationship: standard-participant
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://docs.mparticle.com/integrations/microsoft/audience/
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - microsoft
+      integration_types:
+      - audience
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Census
+  partner: getcensus
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - microsoft-dynamics
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Airbyte
+  partner: airbyte
+  partner_match: aggregator
+  type: marketplace
+  marketplace: airbyte-registry
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://docs.airbyte.com/integrations/sources/microsoft-dataverse
+  category: null
   contract_reference:
-    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
+    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
     spec_file: null
-    standard: Cloud Native (CNCF)
-    role: cncf-member (Platinum)
-    registered_name: Microsoft
-    registered_names:
-    - AKS Engine for Azure Stack
-    - Azure Disk Storage
-    - Azure Kubernetes Service (AKS)
-    - Azure Kubernetes Service (AKS) (Wasm)
-    - Azure Registry
-    - Microsoft
-    website: https://azure.microsoft.com/en-us/products/kubernetes-service/
+    role: elt-connector:airbyte-community
+    registered_name: Microsoft Dataverse
     matched_domain: microsoft.com
     matched_by: domain+name-among-holders
-    member_tier: Platinum
-    joined: '2017-08-01'
-    end_user: false
-    cncf_projects: []
-    landscape_categories:
-    - Platform / Certified Kubernetes - Hosted
-    - Provisioning / Container Registry
-    - Runtime / Cloud Native Storage
-    - Wasm / Hosted Platforms
-    landscape_entries: 5
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  detected_by: sweep-cloud-native.py
-  first_seen: '2026-10-15'
-- partner_name: CNCF (Kubernetes Certified Service Provider)
-  partner: cncf
-  partner_match: register
-  type: register
-  direction: partner-built
-  category: Kubernetes services
-  evidence: https://landscape.cncf.io/?group=special&view-mode=grid
-  channel: standard-directory
-  relationship: standard-participant
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connectors:
+    - airbyte/source-microsoft-dataverse
+    - airbyte/source-microsoft-lists
+    support_level:
+    - community
+    release_stage:
+    - alpha
+    in_cloud: true
+    builder: unknown (community connector; contributor not in the record)
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
+  type: marketplace
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://fivetran.com/docs/connectors/applications/microsoft-dynamics
+  category: null
   contract_reference:
-    register: CNCF Kubernetes Certified Service Provider (github.com/cncf/landscape landscape.yml Special / Kubernetes
-      Certified Service Provider @3a7d378b18)
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
     spec_file: null
-    standard: Kubernetes (KCSP)
-    role: kcsp
-    registered_name: Microsoft
-    website: https://azure.microsoft.com/en-us/products/kubernetes-service/
+    role: elt-connector:fivetran
+    registered_name: Microsoft Dynamics
     matched_domain: microsoft.com
     matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/applications/microsoft-dynamics
+    - connectors/applications/microsoft-lists
+    vendor_link: https://dynamics.microsoft.com/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Meltano
+  partner: meltano
+  partner_match: aggregator
+  type: marketplace
+  marketplace: meltano-hub
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://hub.meltano.com/extractors/tap-dataverse--airbyte
+  category: null
+  contract_reference:
+    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    spec_file: null
+    role: elt-connector:meltano-hub
+    registered_name: Microsoft Dataverse
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    plugins:
+    - tap-dataverse--airbyte
+    - tap-dataverse--mjsqu
+    - tap-dynamics-bc--hotgluexyz
+    - tap-msaccess-azure--matatika
+    maintenance_status:
+    - active
+    - beta
+    quality:
+    - bronze
+    - gold
+    - silver
+    builder: 'community (Meltano Hub variant maintainers: airbyte, hotgluexyz, matatika, mjsqu)'
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: 1EdTech
+  partner: null
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://site.imsglobal.org/certifications
+  category: 1EdTech certified products
+  contract_reference:
+    register: 1EdTech certified product directory (TrustEd Apps)
+    spec_file: null
+    standard: 1EdTech
+    role: Contributing Member
+    registered_name: Microsoft
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    standards:
+    - LTI Advantage
+    - LTI Advantage Complete
+    - Learning Tools Interoperability (LTI) v1.3
     certified_products:
-    - product: Kubernetes Certified Service Provider
+    - product: Microsoft 365 LTI
+      version: v1.0
+      standards:
+      - LTI Advantage
+      - LTI Advantage Complete
+      - Learning Tools Interoperability (LTI) v1.3
+      implementation:
+      - 'Extension: LTI Assignment & Grade Services 2.0'
+      - 'Extension: LTI Deep Linking 2.0'
+      - 'Extension: LTI Names and Role Provisioning Services 2.0'
+      - 'Type: Tool'
+      attributes:
+      - Certified Product
       lapsed: false
-    signal_note: certified_products = ONE entry (the KCSP vetting itself), never a count
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  detected_by: sweep-cloud-native.py
-  first_seen: '2026-10-15'
-- partner_name: CNCF Certified Kubernetes
-  partner: cncf
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.37/aks
-  category: Certified Kubernetes
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
-    spec_file: null
-    standard: Kubernetes conformance
-    role: certified-kubernetes
-    registered_name: Microsoft
-    website: https://docs.microsoft.com/en-us/azure/aks/
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    certified_products:
-    - product: distribution
-      newest_version: v1.24
-      lapsed: true
-    - product: hosted platform
-      newest_version: v1.37
-      lapsed: false
-    versions_certified:
-    - v1.24
-    - v1.25
-    - v1.26
-    - v1.27
-    - v1.28
-    - v1.29
-    - v1.30
-    - v1.31
-    - v1.32
-    - v1.33
-    - v1.34
-    - v1.35
-    - v1.36
-    - v1.37
-    products:
-    - AKS Engine for Azure Stack
-    - Azure Kubernetes Service AKS
-    - Azure aks-engine
-    current_window: v1.34+ (newest 4 minors in the register)
-    signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
-      newest certified minor is outside the current window; products and versions are context, never read
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  detected_by: sweep-cloud-native.py
-  first_seen: '2026-10-15'
-- partner_name: CNCF Certified Kubernetes
-  partner: cncf
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.37/aks
-  category: Certified Kubernetes
-  channel: standard-directory
-  relationship: compatible
-  shape: kubernetes-api
-  evidence_kind: conformance-register
-  degree: certified
-  report_only: true
-  note: the Kubernetes conformance suite was run against this product and the result merged into the CNCF register
-    (anchor kubernetes)
-  contract_reference:
-    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
-    spec_file: null
-    standard: Kubernetes API
-    role: kubernetes-conformance
-    registered_name: Microsoft
-    matched_domain: microsoft.com
-    newest_version: v1.37
-    detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
-  detected_by: sweep-cloud-native.py
-  first_seen: '2026-10-15'
-- partner_name: LF AI & Data (Landscape)
-  partner: lf-ai-data
-  partner_match: register
-  type: register
-  direction: partner-built
-  category: AI & data landscape
-  evidence: https://github.com/lfai/landscape/blob/95d361b8abfdd04a8c76bf38a012778d13621b5e/landscape.yml
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @95d361b8ab)
-    spec_file: null
-    standard: LF AI & Data
-    role: lfai-project-host
-    registered_name: ML.net
-    registered_names:
-    - CNTK
-    - ML.net
-    - Microsoft (hosting)
-    - SEAL
-    - Semantic Kernel
-    website: https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    member_tier: null
-    hosting_company: true
-    lfai_projects: []
-    landscape_categories:
-    - Deep Learning / Framework
-    - Hosting Companies / Hosting Companies
-    - Machine Learning / Framework
-    - Model / Format & Interface
-    - Security & Privacy / Security & Privacy
-    landscape_entries: 5
-    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
-      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
-    detected_by: sweep-mlops.py
-    detected: '2026-10-15'
-  detected_by: sweep-mlops.py
-  first_seen: '2026-10-15'
-- partner_name: Zapier
-  partner: zapier
-  partner_match: aggregator
-  type: marketplace
-  marketplace: zapier-directory
-  channel: ipaas-listing
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://zapier.com/apps/microsoft-dynamics365-business-c/integrations
-  category: null
-  contract_reference:
-    register: Zapier app directory (zapier.com/api/v4/apps)
-    spec_file: null
-    role: ipaas-connector:zapier
-    registered_name: Microsoft Dynamics365 Business Central
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: microsoft-dynamics365-business-c
-    beta: false
-    builder: unknown (not in the directory record)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: n8n
-  partner: n8n
-  partner_match: aggregator
-  type: marketplace
-  marketplace: n8n-nodes-base
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Microsoft/Dynamics
-  category: null
-  contract_reference:
-    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
-    spec_file: null
-    role: ipaas-connector:n8n-nodes-base
-    registered_name: Microsoft Dynamics CRM
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    node_path: Microsoft/Dynamics
-    trigger: false
-    builder: n8n (built-in node)
-    other_nodes:
-    - Microsoft/Excel
-    - Microsoft/Excel/v1
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: Pipedream
-  partner: pipedream
-  partner_match: aggregator
-  type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/microsoft_365_planner
-  category: null
-  contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
-    spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: microsoft 365 planner
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: microsoft_365_planner
-    actions: true
-    sources: true
-    builder: Pipedream repo (component)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
+      url: https://site.imsglobal.org/certifications/microsoft/microsoft-365-lti/v10
+    detected_by: sweep-edtech.py
+    detected: '2026-10-19'
 - partner_name: FedRAMP
   partner: null
   partner_match: register
@@ -814,114 +569,362 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-gov-cloud.py
   first_seen: '2026-10-15'
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/opc-publisher/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA product listed
+    registered_name: Microsoft Corporation
+    member_id: '255'
+    website: http://www.microsoft.com
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    listed_products: 2
+    certified_products: []
+    listed_categories:
+    - Gateway
+    sample_products:
+    - Microsoft Corporation Azure IoT Operations Show details
+    - Microsoft Corporation OPC Publisher Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-19'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
+- partner_name: LF AI & Data (Landscape)
+  partner: lf-ai-data
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: AI & data landscape
+  evidence: https://github.com/lfai/landscape/blob/3893e0631e1d12921a9b0ac25ffc78a2ac26239d/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: LF AI & Data Landscape (github.com/lfai/landscape landscape.yml @3893e0631e)
+    spec_file: null
+    standard: LF AI & Data
+    role: lfai-project-host
+    registered_name: ML.net
+    registered_names:
+    - CNTK
+    - ML.net
+    - Microsoft (hosting)
+    - SEAL
+    - Semantic Kernel
+    website: https://dotnet.microsoft.com/en-us/apps/machinelearning-ai/ml-dotnet
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    member_tier: null
+    hosting_company: true
+    lfai_projects: []
+    landscape_categories:
+    - Deep Learning / Framework
+    - Hosting Companies / Hosting Companies
+    - Machine Learning / Framework
+    - Model / Format & Interface
+    - Security & Privacy / Security & Privacy
+    landscape_entries: 5
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-mlops.py
+    detected: '2026-10-19'
+  detected_by: sweep-mlops.py
+  first_seen: '2026-10-15'
+- partner_name: GitHub Marketplace (apps)
+  partner: github
+  partner_match: aggregator
   type: marketplace
+  marketplace: github-apps
+  channel: partner-built
   relationship: platform-app
   direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/microsoft-clarity/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  evidence: https://github.com/marketplace/azure-pipelines
+  listing_count: 9
   apps:
-  - Microsoft Clarity
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
-- partner_name: Airbyte
-  partner: airbyte
+  - Azure Pipelines
+  - Azure Boards
+  - Azure Pipelines (OAuth)
+  - ' Azure Boards OAuth'
+  - Microsoft Security DevOps Read-Write
+  publisher_name: Microsoft
+  badges:
+  - Verified creator
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: GitHub Marketplace (actions)
+  partner: github-actions
   partner_match: aggregator
   type: marketplace
-  marketplace: airbyte-registry
-  channel: elt-connector
-  relationship: ipaas-bridge
+  marketplace: github-actions
+  channel: partner-built
+  relationship: platform-app
   direction: third-party
-  evidence: https://docs.airbyte.com/integrations/sources/microsoft-dataverse
-  category: null
-  contract_reference:
-    register: Airbyte connector registry (connectors.airbyte.com cloud_registry.json + oss_registry.json)
-    spec_file: null
-    role: elt-connector:airbyte-community
-    registered_name: Microsoft Dataverse
-    matched_domain: microsoft.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connectors:
-    - airbyte/source-microsoft-dataverse
-    - airbyte/source-microsoft-lists
-    support_level:
-    - community
-    release_stage:
-    - alpha
-    in_cloud: true
-    builder: unknown (community connector; contributor not in the record)
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Fivetran
-  partner: fivetran
+  evidence: https://github.com/marketplace/actions/setup-msbuild
+  listing_count: 32
+  apps:
+  - setup-msbuild
+  - Run Playwright tests
+  - powerplatform-actions
+  - gpt-review
+  - security-devops-action
+  publisher_name: Microsoft
+  badges:
+  - Verified creator
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: JetBrains Marketplace
+  partner: jetbrains
   partner_match: aggregator
   type: marketplace
-  marketplace: fivetran-connectors
-  channel: elt-connector
-  relationship: ipaas-bridge
+  marketplace: jetbrains
+  channel: partner-built
+  relationship: platform-app
   direction: third-party
-  evidence: https://fivetran.com/docs/connectors/applications/microsoft-dynamics
-  category: null
+  evidence: https://plugins.jetbrains.com/vendor/Microsoft
+  listing_count: 2
+  apps:
+  - GitHub Copilot modernization
+  - Azure Toolkit for IntelliJ
+  publisher_name: Microsoft Corporation
+  badges:
+  - Verified vendor
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: CNCF (Cloud Native Landscape)
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Cloud native landscape
+  evidence: https://github.com/cncf/landscape/blob/42dd4cd91dad8ec8558ac02467a43f0805b9957a/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
   contract_reference:
-    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @42dd4cd91d)
     spec_file: null
-    role: elt-connector:fivetran
-    registered_name: Microsoft Dynamics
+    standard: Cloud Native (CNCF)
+    role: cncf-member (Platinum)
+    registered_name: Microsoft
+    registered_names:
+    - AKS Engine for Azure Stack
+    - Azure Disk Storage
+    - Azure Kubernetes Service (AKS)
+    - Azure Kubernetes Service (AKS) (Wasm)
+    - Azure Registry
+    - Microsoft
+    website: https://azure.microsoft.com/en-us/products/kubernetes-service/
     matched_domain: microsoft.com
     matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connector_paths:
-    - connectors/applications/microsoft-dynamics
-    - connectors/applications/microsoft-lists
-    vendor_link: https://dynamics.microsoft.com/
-    builder: Fivetran
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Meltano
-  partner: meltano
+    member_tier: Platinum
+    joined: '2017-08-01'
+    end_user: false
+    cncf_projects: []
+    landscape_categories:
+    - Platform / Certified Kubernetes - Hosted
+    - Provisioning / Container Registry
+    - Runtime / Cloud Native Storage
+    - Wasm / Hosted Platforms
+    landscape_entries: 5
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: CNCF (Kubernetes Certified Service Provider)
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Kubernetes services
+  evidence: https://landscape.cncf.io/?group=special&view-mode=grid
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Kubernetes Certified Service Provider (github.com/cncf/landscape landscape.yml Special / Kubernetes
+      Certified Service Provider @42dd4cd91d)
+    spec_file: null
+    standard: Kubernetes (KCSP)
+    role: kcsp
+    registered_name: Microsoft
+    website: https://azure.microsoft.com/en-us/products/kubernetes-service/
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    certified_products:
+    - product: Kubernetes Certified Service Provider
+      lapsed: false
+    signal_note: certified_products = ONE entry (the KCSP vetting itself), never a count
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: CNCF Certified Kubernetes
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://github.com/cncf/k8s-conformance/tree/621a55d41c23eab137118626e941b72fb8d32f89/v1.37/aks
+  category: Certified Kubernetes
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @621a55d41c)
+    spec_file: null
+    standard: Kubernetes conformance
+    role: certified-kubernetes
+    registered_name: Microsoft
+    website: https://docs.microsoft.com/en-us/azure/aks/
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    certified_products:
+    - product: distribution
+      newest_version: v1.24
+      lapsed: true
+    - product: hosted platform
+      newest_version: v1.37
+      lapsed: false
+    versions_certified:
+    - v1.24
+    - v1.25
+    - v1.26
+    - v1.27
+    - v1.28
+    - v1.29
+    - v1.30
+    - v1.31
+    - v1.32
+    - v1.33
+    - v1.34
+    - v1.35
+    - v1.36
+    - v1.37
+    products:
+    - AKS Engine for Azure Stack
+    - Azure Kubernetes Service AKS
+    - Azure aks-engine
+    current_window: v1.34+ (newest 4 minors in the register)
+    signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
+      newest certified minor is outside the current window; products and versions are context, never read
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: CNCF Certified Kubernetes
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://github.com/cncf/k8s-conformance/tree/621a55d41c23eab137118626e941b72fb8d32f89/v1.37/aks
+  category: Certified Kubernetes
+  channel: standard-directory
+  relationship: compatible
+  shape: kubernetes-api
+  evidence_kind: conformance-register
+  degree: certified
+  report_only: true
+  note: the Kubernetes conformance suite was run against this product and the result merged into the CNCF register
+    (anchor kubernetes)
+  contract_reference:
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @621a55d41c)
+    spec_file: null
+    standard: Kubernetes API
+    role: kubernetes-conformance
+    registered_name: Microsoft
+    matched_domain: microsoft.com
+    newest_version: v1.37
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-19'
+  detected_by: sweep-cloud-native.py
+  first_seen: '2026-10-15'
+- partner_name: Zapier
+  partner: zapier
   partner_match: aggregator
   type: marketplace
-  marketplace: meltano-hub
-  channel: elt-connector
+  marketplace: zapier-directory
+  channel: ipaas-listing
   relationship: ipaas-bridge
   direction: third-party
-  evidence: https://hub.meltano.com/extractors/tap-dataverse--airbyte
+  evidence: https://zapier.com/apps/microsoft-dynamics365-business-c/integrations
   category: null
   contract_reference:
-    register: Meltano Hub (github.com/meltano/hub _data/meltano extractors + loaders)
+    register: Zapier app directory (zapier.com/api/v4/apps)
     spec_file: null
-    role: elt-connector:meltano-hub
-    registered_name: Microsoft Dataverse
+    role: ipaas-connector:zapier
+    registered_name: Microsoft Dynamics365 Business Central
     matched_domain: microsoft.com
     matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    plugins:
-    - tap-dataverse--airbyte
-    - tap-dataverse--mjsqu
-    - tap-dynamics-bc--hotgluexyz
-    - tap-msaccess-azure--matatika
-    maintenance_status:
-    - active
-    - beta
-    quality:
-    - bronze
-    - gold
-    - silver
-    builder: 'community (Meltano Hub variant maintainers: airbyte, hotgluexyz, matatika, mjsqu)'
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: microsoft-dynamics365-business-c
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: n8n
+  partner: n8n
+  partner_match: aggregator
+  type: marketplace
+  marketplace: n8n-nodes-base
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Microsoft/Dynamics
+  category: null
+  contract_reference:
+    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
+    spec_file: null
+    role: ipaas-connector:n8n-nodes-base
+    registered_name: Microsoft Dynamics CRM
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    node_path: Microsoft/Dynamics
+    trigger: false
+    builder: n8n (built-in node)
+    other_nodes:
+    - Microsoft/Excel
+    - Microsoft/Excel/v1
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
+  type: marketplace
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/microsoft_365_planner
+  category: null
+  contract_reference:
+    register: Pipedream components (PipedreamHQ/pipedream components/)
+    spec_file: null
+    role: ipaas-connector:pipedream
+    registered_name: microsoft 365 planner
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: microsoft_365_planner
+    actions: true
+    sources: true
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates: []
