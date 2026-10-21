@@ -252,44 +252,6 @@
     detected: '2026-10-13'
   status: not-a-workflow
   arazzo: null
-- slug: microsoft-duck-creek-own
-  label: Duck Creek (own)
-  partner: duck-creek
-  partner_name: Duck Creek (own)
-  category: Solution
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.duckcreek.com/partner/microsoft/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-shopify-own
-  label: Shopify (own)
-  partner: shopify
-  partner_name: Shopify (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://apps.shopify.com/microsoft-advertising
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/microsoft-clarity/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: microsoft-mcp-registry
   label: MCP Registry
   partner: mcp
@@ -946,5 +908,136 @@
       accepted on Kin's instruction 2026-10-20
     detected_by: sweep-compliance-assurance.py
     detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-winget-windows-package-manager
+  label: winget (Windows Package Manager)
+  partner_name: winget (Windows Package Manager)
+  category: official CLI (winget (Windows Package Manager))
+  type: register
+  channel: package-registry
+  evidence: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/OfficeDeploymentTool
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: winget (Windows Package Manager) (public package index)
+    spec_file: null
+    packages:
+    - name: Microsoft.OfficeDeploymentTool
+      kind: manifest
+      version: 16.0.20430.20146
+      released: '2026-10-19'
+      lapsed: false
+      page: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/OfficeDeploymentTool
+      cli: 'winget: A command-line tool that you can use to download and deploy Click-to-Run version'
+      repo_leg: domain:microsoft.com
+      publisher_leg: artifact-domain:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: Microsoft.PrintMetadataTroubleshooter
+      kind: manifest
+      version: 1.0.0.1
+      released: null
+      lapsed: false
+      page: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/PrintMetadataTroubleshooter
+      cli: 'winget: Fixes a bug in affected units that have falsely detected non-HP printers as HP a'
+      repo_leg: domain:microsoft.com
+      publisher_leg: artifact-domain:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: Microsoft.VisualStudio.2019.BuildTools
+      kind: manifest
+      version: 16.11.60
+      released: null
+      lapsed: false
+      page: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/VisualStudio/2019/BuildTools
+      cli: 'winget: These Build Tools allow you to build Visual Studio projects from a command-line '
+      repo_leg: domain:microsoft.com
+      publisher_leg: artifact-domain:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: Microsoft.VisualStudio.2022.BuildTools
+      kind: manifest
+      version: 17.14.42
+      released: null
+      lapsed: false
+      page: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/VisualStudio/2022/BuildTools
+      cli: 'winget: These Build Tools allow you to build Visual Studio projects from a command-line '
+      repo_leg: domain:microsoft.com
+      publisher_leg: artifact-domain:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: Microsoft.VisualStudio.BuildTools
+      kind: manifest
+      version: 18.11.0
+      released: null
+      lapsed: false
+      page: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/VisualStudio/BuildTools
+      cli: 'winget: These Build Tools allow you to build Visual Studio projects from a command-line '
+      repo_leg: domain:microsoft.com
+      publisher_leg: artifact-domain:microsoft.com
+      matched_by: domain+name-among-holders
+    - name: Microsoft.err
+      kind: manifest
+      version: 6.4.5
+      released: null
+      lapsed: false
+      page: https://github.com/microsoft/winget-pkgs/tree/master/manifests/m/Microsoft/err
+      cli: 'winget: The Error Lookup Tool, also known as "ERR", is a command-line tool to decode man'
+      repo_leg: domain:microsoft.com
+      publisher_leg: artifact-domain:microsoft.com
+      matched_by: domain+name-among-holders
+    current: true
+    signal_note: 'the provider''s own command-line tool on a package manager: distribution, not an integration;
+      lapsed = no release in 24 months or deprecated / disabled by the manager'
+    detected_by: sweep-official-clis.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-duck-creek-own
+  label: Duck Creek (own)
+  partner: duck-creek
+  partner_name: Duck Creek (own)
+  category: Solution
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.duckcreek.com/partner/microsoft/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-shopify-own
+  label: Shopify (own)
+  partner: shopify
+  partner_name: Shopify (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://apps.shopify.com/microsoft-advertising
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/microsoft-clarity/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-docker-hub-docker-verified-publisher
+  label: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_name: Docker Hub (docker-verified-publisher)
+  category: Docker Verified Publisher
+  type: marketplace
+  marketplace: docker-verified-publisher
+  channel: partner-built
+  evidence: https://hub.docker.com/u/microsoft
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
