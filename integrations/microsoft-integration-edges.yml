@@ -59,6 +59,7 @@ checked:
 - https://pypi.org/pypi
 - https://registry.npmjs.org
 - docker-hub/integrations/docker-hub-integration-edges.yml
+- terraform/integrations/terraform-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -1120,4 +1121,27 @@ edges:
   category: Docker Verified Publisher
   badges:
   - Docker Verified Publisher
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/microsoft/azuredevops
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - microsoft/azuredevops
+  - microsoft/msgraph
+  - microsoft/fabric
+  - microsoft/power-platform
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (Terraform partner tier)
+  - Verified publisher (GitHub domain-verified organization)
 templates: []
