@@ -72,6 +72,12 @@ checked:
 - https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions
 - https://www.raycast.com/api/v1/store_listings
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
+- https://catalog.redhat.com/api/containers/v1/operators/bundles?filter=organization==certified-operators
+- https://catalog.redhat.com/api/containers/v1/repositories?page_size=100
+- https://catalog.redhat.com/api/containers/v1/vendors/label/
+- https://catalog.redhat.com/software/partners
 summary: null
 marketplace_apps: []
 edges:
@@ -1356,4 +1362,195 @@ edges:
   detected_by: sweep-raycast-store-extensions.py
   first_seen: '2026-10-22'
   direction: partner-built
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: microsoft.com
+    matched_domain: microsoft.com
+    matched_by: domain+local-verified
+    apis_listed: 17
+    version_count: 27
+    first_added: '2017-12-04'
+    last_updated: '2023-02-17'
+    origin_publisher_hosted: false
+    origin_hosts:
+    - raw.githubusercontent.com
+    categories:
+    - cloud
+    - developer_tools
+    own_openapi_files: 59
+    listings:
+    - key: microsoft.com:cognitiveservices-AutoSuggest
+      title: AutoSuggest Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-AutoSuggest/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/AutoSuggest/stable/v1.0/AutoSuggest.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-ComputerVision
+      title: Computer Vision Client
+      preferred: '2.1'
+      versions: 2
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-ComputerVision/2.1/openapi.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/ComputerVision/stable/v2.1/ComputerVision.json
+      openapi_version: 3.0.0
+    - key: microsoft.com:cognitiveservices-CustomImageSearch
+      title: Custom Image Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-CustomImageSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomImageSearch/stable/v1.0/CustomImageSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-CustomSearch
+      title: Custom Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-CustomSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomWebSearch/stable/v1.0/CustomSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-EntitySearch
+      title: Entity Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-EntitySearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/EntitySearch/stable/v1.0/EntitySearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-ImageSearch
+      title: Image Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-ImageSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/ImageSearch/stable/v1.0/ImageSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-LocalSearch
+      title: Local Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-LocalSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/LocalSearch/stable/v1.0/LocalSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-NewsSearch
+      title: News Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-NewsSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/NewsSearch/stable/v1.0/NewsSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-Ocr
+      title: Computer Vision Client
+      preferred: '2.1'
+      versions: 2
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-Ocr/2.1/openapi.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/ComputerVision/stable/v2.1/Ocr.json
+      openapi_version: 3.0.0
+    - key: microsoft.com:cognitiveservices-Prediction
+      title: Custom Vision Prediction Client
+      preferred: '3.0'
+      versions: 3
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-Prediction/3.0/openapi.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomVision/Prediction/stable/v3.0/Prediction.json
+      openapi_version: 3.0.0
+    - key: microsoft.com:cognitiveservices-SpellCheck
+      title: Spell Check Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-SpellCheck/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/SpellCheck/stable/v1.0/SpellCheck.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-Training
+      title: Custom Vision Training Client
+      preferred: '3.2'
+      versions: 7
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-Training/3.2/openapi.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/CustomVision/Training/stable/v3.2/Training.json
+      openapi_version: 3.0.0
+    - key: microsoft.com:cognitiveservices-VideoSearch
+      title: Video Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-VideoSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/VideoSearch/stable/v1.0/VideoSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-VisualSearch
+      title: Visual Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-VisualSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/VisualSearch/preview/v1.0/VisualSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:cognitiveservices-WebSearch
+      title: Web Search Client
+      preferred: '1.0'
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-WebSearch/1.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/WebSearch/stable/v1.0/WebSearch.json
+      openapi_version: '2.0'
+    - key: microsoft.com:graph
+      title: OData Service for namespace microsoft.graph
+      preferred: 1.0.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/graph/1.0.1/openapi.json
+      origin_url: https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml
+      openapi_version: 3.0.1
+    - key: microsoft.com:graph-beta
+      title: OData Service for namespace microsoft.graph
+      preferred: 1.0.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/microsoft.com/graph-beta/1.0.1/openapi.json
+      origin_url: https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/beta/openapi.yaml
+      openapi_version: 3.0.1
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+    verified_note: x-providerName microsoft.com (Graph, Cognitive Services...) = Microsoft
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
+- partner_name: Red Hat Ecosystem Catalog (certified partners)
+  partner: red-hat
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://catalog.redhat.com/software/containers/search?p=1&vendor_name=Microsoft%20Corp.
+  category: Red Hat OpenShift / RHEL software certification
+  contract_reference:
+    register: 'Red Hat Ecosystem Catalog (catalog.redhat.com/api/containers/v1: repositories, vendors, certified
+      operator bundles)'
+    standard: Red Hat Container Certification (Red Hat Ecosystem Catalog, registry.connect.redhat.com)
+    spec_file: null
+    role: red-hat-certified-partner
+    registered_name: Microsoft Corp.
+    register_id: microsoft
+    matched_domain: microsoft.com
+    matched_by: domain+name-among-holders
+    identity_source: the register's own company_url for the vendor (no lookup)
+    certified_products:
+    - product: Red Hat certified container image
+      product_type: container-image
+      standard: Red Hat Container Certification (Red Hat Ecosystem Catalog, registry.connect.redhat.com)
+      lapsed: false
+      repositories_listed: 1
+      products_sample:
+      - mssql/rhel/server
+    signal_note: 'certified_products = one entry per certified product TYPE (container image, OpenShift operator),
+      standard named on each; lapsed: true when no certified item of that type is current (containers: all Deprecated
+      / past EOL / unpublished; operators: absent from the three newest certified-operator indexes); repository
+      and package counts are context, never counted'
+    detected_by: sweep-red-hat-certified-ecosystem.py
+    detected: '2026-10-22'
+  detected_by: sweep-red-hat-certified-ecosystem.py
+  first_seen: '2026-10-22'
 templates: []
