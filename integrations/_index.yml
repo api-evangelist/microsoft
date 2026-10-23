@@ -1440,3 +1440,115 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: microsoft-tx-ramp
+  label: TX-RAMP
+  partner_name: TX-RAMP
+  category: Texas state cloud security certification (TX-RAMP)
+  type: contract
+  channel: regulator-register
+  evidence: https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: TX-RAMP Certified Cloud Products (Texas DIR)
+    standard: TX-RAMP
+    spec_file: null
+    role: tx-ramp-certified
+    register_file: https://dir.texas.gov/sites/default/files/2026-10/Copy%20of%20TX-RAMP%20Certified%20Cloud%20Products_1.xlsx
+    registrations:
+    - certification_id: TX1009299
+      product: Microsoft Office 365 GCC High
+      registered_vendor: Microsoft
+      certification_level: Provisional
+      cloud_categories:
+      - SaaS
+      certification_path: Certification Due to Existing Other RAMP-Certification
+      expires: null
+      lapsed: false
+      matched_domain: microsoft.com
+      matched_by: domain+name-among-holders
+    - certification_id: TX1843898
+      product: Microsoft 365 Commercial
+      registered_vendor: Microsoft
+      certification_level: Level 2
+      cloud_categories:
+      - SaaS
+      certification_path: Certification Due to Existing Other RAMP-Certification
+      expires: null
+      lapsed: false
+      matched_domain: microsoft.com
+      matched_by: domain+name-among-holders
+    - certification_id: TX1880954
+      product: Azure DevOps
+      registered_vendor: Microsoft
+      certification_level: Level 2
+      cloud_categories:
+      - SaaS
+      certification_path: TX-RAMP Fast Track
+      expires: '2029-04-16'
+      lapsed: false
+      matched_domain: microsoft.com
+      matched_by: domain+name-among-holders
+    - certification_id: TX985488
+      product: Microsoft Azure Commercial Cloud (includes Dynamics 365)
+      registered_vendor: Microsoft
+      certification_level: Level 2
+      cloud_categories:
+      - SaaS
+      - PaaS
+      - IaaS
+      certification_path: Certification Due to Existing Other RAMP-Certification
+      expires: null
+      lapsed: false
+      matched_domain: microsoft.com
+      matched_by: domain+name-among-holders
+    - certification_id: TX985489
+      product: Microsoft Azure Government (includes Dynamics 365 US Government)
+      registered_vendor: Microsoft
+      certification_level: Level 2
+      cloud_categories:
+      - SaaS
+      - PaaS
+      - IaaS
+      certification_path: Certification Due to Existing Other RAMP-Certification
+      expires: null
+      lapsed: false
+      matched_domain: microsoft.com
+      matched_by: domain+name-among-holders
+    - certification_id: TX985490
+      product: Microsoft 365 Government Community Cloud & Supporting Services
+      registered_vendor: Microsoft
+      certification_level: Level 2
+      cloud_categories:
+      - SaaS
+      certification_path: Certification Due to Existing Other RAMP-Certification
+      expires: null
+      lapsed: false
+      matched_domain: microsoft.com
+      matched_by: domain+name-among-holders
+    identity: wikidata Q2283 'Microsoft' P856 https://www.microsoft.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+    signal_note: 'certified_products = one entry per cloud category (SaaS / PaaS / IaaS) the vendor holds a TX-RAMP
+      certification in, never per product; products are context, never counted. certification_level = the highest
+      level in that category; lapsed: true when every product in the category is past its expiry date. partner_tier
+      = the highest CURRENT level'
+    certified_products:
+    - product: IaaS
+      product_type: IaaS
+      standard: TX-RAMP
+      certification_level: Level 2
+      lapsed: false
+    - product: PaaS
+      product_type: PaaS
+      standard: TX-RAMP
+      certification_level: Level 2
+      lapsed: false
+    - product: SaaS
+      product_type: SaaS
+      standard: TX-RAMP
+      certification_level: Level 2
+      lapsed: false
+    detected_by: sweep-tx-ramp-certified-cloud.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
