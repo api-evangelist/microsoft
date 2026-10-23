@@ -990,70 +990,6 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
-- slug: microsoft-duck-creek-own
-  label: Duck Creek (own)
-  partner: duck-creek
-  partner_name: Duck Creek (own)
-  category: Solution
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.duckcreek.com/partner/microsoft/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-shopify-own
-  label: Shopify (own)
-  partner: shopify
-  partner_name: Shopify (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://apps.shopify.com/microsoft-advertising
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/microsoft-clarity/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-docker-hub-docker-verified-publisher
-  label: Docker Hub (docker-verified-publisher)
-  partner: docker-hub
-  partner_name: Docker Hub (docker-verified-publisher)
-  category: Docker Verified Publisher
-  type: marketplace
-  marketplace: docker-verified-publisher
-  channel: partner-built
-  evidence: https://hub.docker.com/u/microsoft
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-terraform-terraform-registry
-  label: Terraform (terraform-registry)
-  partner: terraform
-  partner_name: Terraform (terraform-registry)
-  category: infrastructure-as-code provider registry listing
-  type: marketplace
-  marketplace: terraform-registry
-  channel: partner-built
-  evidence: https://registry.terraform.io/providers/microsoft/azuredevops
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: microsoft-uk-g-cloud-14-digital-marketplace
   label: UK G-Cloud 14 (Digital Marketplace)
   partner_name: UK G-Cloud 14 (Digital Marketplace)
@@ -1077,19 +1013,6 @@
       of position shares
     detected_by: sweep-uk-g-cloud-suppliers.py
     detected: '2026-10-21'
-  status: not-a-workflow
-  arazzo: null
-- slug: microsoft-miro-own
-  label: Miro (own)
-  partner: miro
-  partner_name: Miro (own)
-  category: Miro app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://miro.com/marketplace/microsoft-sentinel/
-  source: edge
-  relationship: platform-app
   status: not-a-workflow
   arazzo: null
 - slug: microsoft-ismap
@@ -1550,5 +1473,95 @@
       lapsed: false
     detected_by: sweep-tx-ramp-certified-cloud.py
     detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-duck-creek-own
+  label: Duck Creek (own)
+  partner: duck-creek
+  partner_name: Duck Creek (own)
+  category: Solution
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.duckcreek.com/partner/microsoft/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-shopify-own
+  label: Shopify (own)
+  partner: shopify
+  partner_name: Shopify (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://apps.shopify.com/microsoft-advertising
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/microsoft-clarity/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-docker-hub-docker-verified-publisher
+  label: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_name: Docker Hub (docker-verified-publisher)
+  category: Docker Verified Publisher
+  type: marketplace
+  marketplace: docker-verified-publisher
+  channel: partner-built
+  evidence: https://hub.docker.com/u/microsoft
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-terraform-terraform-registry
+  label: Terraform (terraform-registry)
+  partner: terraform
+  partner_name: Terraform (terraform-registry)
+  category: infrastructure-as-code provider registry listing
+  type: marketplace
+  marketplace: terraform-registry
+  channel: partner-built
+  evidence: https://registry.terraform.io/providers/microsoft/azuredevops
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-miro-own
+  label: Miro (own)
+  partner: miro
+  partner_name: Miro (own)
+  category: Miro app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://miro.com/marketplace/microsoft-sentinel/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: microsoft-chef-software-chef-supermarket
+  label: Chef Software (chef-supermarket)
+  partner: chef-software
+  partner_name: Chef Software (chef-supermarket)
+  category: configuration-management content listing (Chef cookbook)
+  type: marketplace
+  marketplace: chef-supermarket
+  channel: partner-built
+  evidence: https://supermarket.chef.io/cookbooks/azure_pipelines_agent_macos
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

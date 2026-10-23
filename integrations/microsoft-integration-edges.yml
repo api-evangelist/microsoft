@@ -79,6 +79,7 @@ checked:
 - https://catalog.redhat.com/api/containers/v1/vendors/label/
 - https://catalog.redhat.com/software/partners
 - https://dir.texas.gov/resource-library-item/tx-ramp-certified-cloud-products
+- chef-software/integrations/chef-software-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -1040,129 +1041,6 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
-- partner_name: Duck Creek (own)
-  partner: duck-creek
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.duckcreek.com/partner/microsoft/
-  mirror_of: duck-creek/integrations/duck-creek-integration-edges.yml
-  apps:
-  - Microsoft
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Solution
-- partner_name: Shopify (own)
-  partner: shopify
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://apps.shopify.com/microsoft-advertising
-  mirror_of: shopify/integrations/shopify-integration-edges.yml
-  apps:
-  - Microsoft Channel
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-- partner_name: Stripe (own)
-  partner: stripe
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.stripe.com/apps/microsoft-power-pages-payments
-  mirror_of: stripe/integrations/stripe-integration-edges.yml
-  apps:
-  - Microsoft Power Pages Payments
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: commerce
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/microsoft-clarity/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
-  apps:
-  - Microsoft Clarity
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
-- partner_name: Docker Hub (docker-verified-publisher)
-  partner: docker-hub
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: docker-verified-publisher
-  evidence: https://hub.docker.com/u/microsoft
-  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
-  apps:
-  - microsoft/azureml-polymer-ubuntu20-04-py39-cpu-inference
-  - microsoft/azure-messaging-servicebus-emulator
-  - microsoft/playwright-mcp
-  - microsoft/windows-ml-insider
-  - microsoft/azure-devops-vsts-cli
-  - microsoft/oryx-images
-  - microsoft/restapifuzztesting-orchestrator
-  - microsoft/iot-industrial-iot-services-all
-  - microsoft/windows-servercore-iis-insider
-  - microsoft/azure-cognitive-services-custom-form-labeltool
-  - microsoft/windows-servercore
-  - microsoft/mssql-server
-  - microsoft/azure-cognitive-services-form-recognizer-custom-supervised
-  - microsoft/dotnet-framework-sdk
-  - microsoft/azure-cognitive-services-form-recognizer-layout
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: Docker Verified Publisher
-  badges:
-  - Docker Verified Publisher
-- partner_name: Terraform (terraform-registry)
-  partner: terraform
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: terraform-registry
-  evidence: https://registry.terraform.io/providers/microsoft/azuredevops
-  mirror_of: terraform/integrations/terraform-integration-edges.yml
-  apps:
-  - microsoft/azuredevops
-  - microsoft/msgraph
-  - microsoft/fabric
-  - microsoft/power-platform
-  listing_count: 1
-  detected: '2026-10-21'
-  detected_by: mirror-platform-listings.py
-  category: infrastructure-as-code provider registry listing
-  badges:
-  - Verified publisher (Terraform partner tier)
-  - Verified publisher (GitHub domain-verified organization)
 - partner_name: UK G-Cloud 14 (Digital Marketplace)
   partner: null
   partner_match: register
@@ -1188,23 +1066,6 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-uk-g-cloud-suppliers.py
   first_seen: '2026-10-21'
-- partner_name: Miro (own)
-  partner: miro
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://miro.com/marketplace/microsoft-sentinel/
-  mirror_of: miro/integrations/miro-integration-edges.yml
-  apps:
-  - Microsoft Defender for Cloud Apps
-  listing_count: 1
-  detected: '2026-10-22'
-  detected_by: mirror-platform-listings.py
-  category: Miro app
 - partner_name: ISMAP
   partner: null
   partner_match: register
@@ -1667,4 +1528,168 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-tx-ramp-certified-cloud.py
   first_seen: '2026-10-22'
+- partner_name: Duck Creek (own)
+  partner: duck-creek
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.duckcreek.com/partner/microsoft/
+  mirror_of: duck-creek/integrations/duck-creek-integration-edges.yml
+  apps:
+  - Microsoft
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Solution
+- partner_name: Shopify (own)
+  partner: shopify
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://apps.shopify.com/microsoft-advertising
+  mirror_of: shopify/integrations/shopify-integration-edges.yml
+  apps:
+  - Microsoft Channel
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/microsoft-power-pages-payments
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - Microsoft Power Pages Payments
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: commerce
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/microsoft-clarity/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Microsoft Clarity
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/microsoft
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - microsoft/azureml-polymer-ubuntu20-04-py39-cpu-inference
+  - microsoft/azure-messaging-servicebus-emulator
+  - microsoft/playwright-mcp
+  - microsoft/windows-ml-insider
+  - microsoft/azure-devops-vsts-cli
+  - microsoft/oryx-images
+  - microsoft/restapifuzztesting-orchestrator
+  - microsoft/iot-industrial-iot-services-all
+  - microsoft/windows-servercore-iis-insider
+  - microsoft/azure-cognitive-services-custom-form-labeltool
+  - microsoft/windows-servercore
+  - microsoft/mssql-server
+  - microsoft/azure-cognitive-services-form-recognizer-custom-supervised
+  - microsoft/dotnet-framework-sdk
+  - microsoft/azure-cognitive-services-form-recognizer-layout
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/microsoft/azuredevops
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - microsoft/azuredevops
+  - microsoft/msgraph
+  - microsoft/fabric
+  - microsoft/power-platform
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (Terraform partner tier)
+  - Verified publisher (GitHub domain-verified organization)
+- partner_name: Miro (own)
+  partner: miro
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://miro.com/marketplace/microsoft-sentinel/
+  mirror_of: miro/integrations/miro-integration-edges.yml
+  apps:
+  - Microsoft Defender for Cloud Apps
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Miro app
+- partner_name: Chef Software (chef-supermarket)
+  partner: chef-software
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: chef-supermarket
+  evidence: https://supermarket.chef.io/cookbooks/azure_pipelines_agent_macos
+  mirror_of: chef-software/integrations/chef-software-integration-edges.yml
+  apps:
+  - azure_pipelines_agent_macos
+  - macos
+  - snipe-it
+  - snipeit_api
+  - vsts_agent
+  - vsts_build_agent
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Chef cookbook)
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
 templates: []
