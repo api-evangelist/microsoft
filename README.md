@@ -1,4 +1,4 @@
-# Microsoft (microsoft)
+# Microsoft
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,462 +66,257 @@
 
 Collection of Microsoft's primary APIs and developer resources.
 
-**APIs.json:** [https://www.microsoft.com](https://www.microsoft.com)
+**Areas:** Fortune 100 · Microsoft · Software · Cloud
+
+## Microsoft on APIs.io
+
+Everything profiled for Microsoft is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/microsoft/](https://apis.io/providers/microsoft/)** — or go straight to one of the APIs or properties below.
+
+### APIs (59)
+
+- [Microsoft Accounts API](https://apis.io/apis/microsoft/microsoft-accounts-api/) — Manage business accounts
+- [Microsoft Applications API](https://apis.io/apis/microsoft/microsoft-applications-api/) — Manage application registrations
+- [Microsoft Audio API](https://apis.io/apis/microsoft/microsoft-audio-api/) — Transcribe and translate audio
+- [Microsoft Calendar API](https://apis.io/apis/microsoft/microsoft-calendar-api/) — Access and manage Outlook calendar events
+- [Microsoft Channels API](https://apis.io/apis/microsoft/microsoft-channels-api/) — Manage channels within teams
+- [Microsoft Chat API](https://apis.io/apis/microsoft/microsoft-chat-api/) — Manage chat threads and messages
+- [Microsoft Chat Completions API](https://apis.io/apis/microsoft/microsoft-chat-completions-api/) — Create chat completions using conversational models
+- [Microsoft Completions API](https://apis.io/apis/microsoft/microsoft-completions-api/) — Create text completions
+- [Microsoft Computer Vision API](https://apis.io/apis/microsoft/microsoft-computer-vision-api/) — Analyze images and extract visual features
+- [Microsoft Contacts API](https://apis.io/apis/microsoft/microsoft-contacts-api/) — Manage contacts
+- [Microsoft Dashboards API](https://apis.io/apis/microsoft/microsoft-dashboards-api/) — Manage Power BI dashboards
+- [Microsoft Datasets API](https://apis.io/apis/microsoft/microsoft-datasets-api/) — Manage Power BI datasets
+- [Microsoft Deployments API](https://apis.io/apis/microsoft/microsoft-deployments-api/) — Manage ARM template deployments
+- [Microsoft Device Compliance API](https://apis.io/apis/microsoft/microsoft-device-compliance-api/) — Manage compliance policies
+- [Microsoft Device Configuration API](https://apis.io/apis/microsoft/microsoft-device-configuration-api/) — Manage device configuration profiles
+- [Microsoft Drive API](https://apis.io/apis/microsoft/microsoft-drive-api/) — Access OneDrive files and folders
+- [Microsoft Drives API](https://apis.io/apis/microsoft/microsoft-drives-api/) — Access drives (OneDrive or document libraries)
+- [Microsoft Email API](https://apis.io/apis/microsoft/microsoft-email-api/) — Send email messages
+- [Microsoft Embeddings API](https://apis.io/apis/microsoft/microsoft-embeddings-api/) — Create vector embeddings from text
+- [Microsoft Entities API](https://apis.io/apis/microsoft/microsoft-entities-api/) — CRUD operations on Dataverse entities
+- [Microsoft Git API](https://apis.io/apis/microsoft/microsoft-git-api/) — Manage Git repositories
+- [Microsoft Groups API](https://apis.io/apis/microsoft/microsoft-groups-api/) — Manage Microsoft Entra groups including Microsoft 365 groups and security groups
+- [Microsoft Identity API](https://apis.io/apis/microsoft/microsoft-identity-api/) — Create and manage communication identities
+- [Microsoft Image Search API](https://apis.io/apis/microsoft/microsoft-image-search-api/) — Search for images
+- [Microsoft Images API](https://apis.io/apis/microsoft/microsoft-images-api/) — Generate images from text descriptions
+- [Microsoft Imports API](https://apis.io/apis/microsoft/microsoft-imports-api/) — Import content into Power BI
+- [Microsoft Items API](https://apis.io/apis/microsoft/microsoft-items-api/) — Manage files and folders
+- [Microsoft Leads API](https://apis.io/apis/microsoft/microsoft-leads-api/) — Manage leads
+- [Microsoft Lists API](https://apis.io/apis/microsoft/microsoft-lists-api/) — Manage SharePoint lists
+- [Microsoft Mail API](https://apis.io/apis/microsoft/microsoft-mail-api/) — Access and manage Outlook mail messages and folders
+- [Microsoft Managed Devices API](https://apis.io/apis/microsoft/microsoft-managed-devices-api/) — Manage enrolled devices
+- [Microsoft Members API](https://apis.io/apis/microsoft/microsoft-members-api/) — Manage team membership
+- [Microsoft Messages API](https://apis.io/apis/microsoft/microsoft-messages-api/) — Send and manage channel messages
+- [Microsoft Metadata API](https://apis.io/apis/microsoft/microsoft-metadata-api/) — Entity and attribute metadata
+- [Microsoft Mobile Apps API](https://apis.io/apis/microsoft/microsoft-mobile-apps-api/) — Manage mobile applications
+- [Microsoft News Search API](https://apis.io/apis/microsoft/microsoft-news-search-api/) — Search for news articles
+- [Microsoft OAuth2 Permissions API](https://apis.io/apis/microsoft/microsoft-oauth2-permissions-api/) — Manage OAuth2 permission grants
+- [Microsoft Opportunities API](https://apis.io/apis/microsoft/microsoft-opportunities-api/) — Manage sales opportunities
+- [Microsoft Pipelines API](https://apis.io/apis/microsoft/microsoft-pipelines-api/) — Manage build and release pipelines
+- [Microsoft Projects API](https://apis.io/apis/microsoft/microsoft-projects-api/) — Manage team projects
+- [Microsoft Reports API](https://apis.io/apis/microsoft/microsoft-reports-api/) — Manage Power BI reports
+- [Microsoft Resource Groups API](https://apis.io/apis/microsoft/microsoft-resource-groups-api/) — Manage Azure resource groups
+- [Microsoft Resources API](https://apis.io/apis/microsoft/microsoft-resources-api/) — Manage Azure resources
+- [Microsoft Service Principals API](https://apis.io/apis/microsoft/microsoft-service-principals-api/) — Manage service principals
+- [Microsoft Sharing API](https://apis.io/apis/microsoft/microsoft-sharing-api/) — Share files and folders
+- [Microsoft Sites API](https://apis.io/apis/microsoft/microsoft-sites-api/) — Access SharePoint sites via Microsoft Graph
+- [Microsoft SMS API](https://apis.io/apis/microsoft/microsoft-sms-api/) — Send SMS messages
+- [Microsoft Subscriptions API](https://apis.io/apis/microsoft/microsoft-subscriptions-api/) — Manage Azure subscriptions
+- [Microsoft Teams API](https://apis.io/apis/microsoft/microsoft-teams-api/) — Manage Microsoft Teams resources
+- [Microsoft Text Analytics API](https://apis.io/apis/microsoft/microsoft-text-analytics-api/) — Extract insights from text including sentiment and entities
+- [Microsoft Translator API](https://apis.io/apis/microsoft/microsoft-translator-api/) — Translate text between languages
+- [Microsoft Users API](https://apis.io/apis/microsoft/microsoft-users-api/) — Manage Microsoft Entra user accounts and profiles
+- [Microsoft Video Search API](https://apis.io/apis/microsoft/microsoft-video-search-api/) — Search for videos
+- [Microsoft Web Search API](https://apis.io/apis/microsoft/microsoft-web-search-api/) — Search the web for relevant results
+- [Microsoft Work Items API](https://apis.io/apis/microsoft/microsoft-work-items-api/) — Manage work items and queries
+- [Microsoft Marketing API](https://apis.io/apis/microsoft/microsoft-marketing-api/) — LinkedIn Marketing APIs
+- [Microsoft Organizations API](https://apis.io/apis/microsoft/microsoft-organizations-api/) — Manage organization pages
+- [Microsoft Posts API](https://apis.io/apis/microsoft/microsoft-posts-api/) — Create and manage posts
+- [Microsoft Profile API](https://apis.io/apis/microsoft/microsoft-profile-api/) — Access member profile information
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Moved to /providers/microsoft/](https://apis.io/graphqls/microsoft/microsoft-graphql/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [MCP Server for Enterprise](https://apis.io/servers/microsoft/mcp-server-for-enterprise/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Microsoft Agentic Access](https://apis.io/agentic-access/microsoft/microsoft-agentic-access/)
+
+#### JSON Schema (10)
+
+The data models the API reads and writes.
+
+- [AdAccount](https://apis.io/schemas/microsoft/microsoft-ad-account/)
+- [Azure Resource Group](https://apis.io/schemas/microsoft/microsoft-azure-resource-group/)
+- [CreatePostRequest](https://apis.io/schemas/microsoft/microsoft-create-post-request/)
+- [Microsoft OneDrive DriveItem](https://apis.io/schemas/microsoft/microsoft-drive-item/)
+- [Microsoft Graph Group](https://apis.io/schemas/microsoft/microsoft-graph-group/)
+- [Microsoft Graph User](https://apis.io/schemas/microsoft/microsoft-graph-user/)
+- [Microsoft Intune Managed Device](https://apis.io/schemas/microsoft/microsoft-managed-device/)
+- [MemberProfile](https://apis.io/schemas/microsoft/microsoft-member-profile/)
+- [Organization](https://apis.io/schemas/microsoft/microsoft-organization/)
+- [Microsoft Teams Team](https://apis.io/schemas/microsoft/microsoft-teams-team/)
 
-## Timestamps
+#### JSON-LD (2)
 
-- **Created:** 2024
-- **Modified:** 2026-05-19
+Linked-data contexts for the provider's vocabulary.
 
-## APIs
+- [Microsoft Context](https://apis.io/jsonld/microsoft/microsoft-context/)
+- [Microsoft Graph Context](https://apis.io/jsonld/microsoft/microsoft-graph-context/)
 
-### Microsoft Graph API
+#### Collections (130)
 
-Unified API endpoint for accessing Microsoft 365, Windows, and Enterprise Mobility + Security services.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.microsoft.com/en-us/graph](https://developer.microsoft.com/en-us/graph)
-- **Base URL:** `https://graph.microsoft.com`
+- [Microsoft Azure Cognitive Services Accounts API](https://apis.io/collections/microsoft/open-microsoft-accounts-api/)
+- [Microsoft Azure Cognitive Services Accounts Applications API](https://apis.io/collections/microsoft/open-microsoft-applications-api/)
+- [Microsoft Azure Cognitive Services Accounts Audio API](https://apis.io/collections/microsoft/open-microsoft-audio-api/)
+- [Microsoft Azure Cognitive Services API](https://apis.io/collections/microsoft/open-microsoft-azure-cognitive-services/)
+- [Microsoft Azure Communication Services API](https://apis.io/collections/microsoft/open-microsoft-azure-communication-services/)
+- [Microsoft Azure DevOps REST API](https://apis.io/collections/microsoft/open-microsoft-azure-devops/)
+- [Microsoft Azure OpenAI Service API](https://apis.io/collections/microsoft/open-microsoft-azure-openai/)
+- [Microsoft Azure REST API](https://apis.io/collections/microsoft/open-microsoft-azure-rest/)
+- [Microsoft Bing Search APIs](https://apis.io/collections/microsoft/open-microsoft-bing-search/)
+- [Microsoft Azure Cognitive Services Accounts Calendar API](https://apis.io/collections/microsoft/open-microsoft-calendar-api/)
+- [Microsoft Azure Cognitive Services Accounts Channels API](https://apis.io/collections/microsoft/open-microsoft-channels-api/)
+- [Microsoft Azure Cognitive Services Accounts Chat API](https://apis.io/collections/microsoft/open-microsoft-chat-api/)
+- [Microsoft Azure Cognitive Services Accounts Chat Completions API](https://apis.io/collections/microsoft/open-microsoft-chat-completions-api/)
+- [Microsoft Azure Cognitive Services Accounts Completions API](https://apis.io/collections/microsoft/open-microsoft-completions-api/)
+- [Microsoft Azure Cognitive Services Accounts Computer Vision API](https://apis.io/collections/microsoft/open-microsoft-computer-vision-api/)
+- [Microsoft Azure Cognitive Services Accounts Contacts API](https://apis.io/collections/microsoft/open-microsoft-contacts-api/)
+- [Microsoft Azure Cognitive Services Accounts Dashboards API](https://apis.io/collections/microsoft/open-microsoft-dashboards-api/)
+- [Microsoft Azure Cognitive Services Accounts Datasets API](https://apis.io/collections/microsoft/open-microsoft-datasets-api/)
+- [Microsoft Azure Cognitive Services Accounts Deployments API](https://apis.io/collections/microsoft/open-microsoft-deployments-api/)
+- [Microsoft Azure Cognitive Services Accounts Device Compliance API](https://apis.io/collections/microsoft/open-microsoft-device-compliance-api/)
+- [Microsoft Azure Cognitive Services Accounts Device Configuration API](https://apis.io/collections/microsoft/open-microsoft-device-configuration-api/)
+- [Microsoft Azure Cognitive Services Accounts Drive API](https://apis.io/collections/microsoft/open-microsoft-drive-api/)
+- [Microsoft Azure Cognitive Services Accounts Drives API](https://apis.io/collections/microsoft/open-microsoft-drives-api/)
+- [Microsoft Dynamics 365 REST API](https://apis.io/collections/microsoft/open-microsoft-dynamics-365/)
+- [Microsoft Azure Cognitive Services Accounts Email API](https://apis.io/collections/microsoft/open-microsoft-email-api/)
+- …and 105 more published on APIs.io
 
-#### Tags
+#### Governance rules (2)
 
-- Azure AD
-- Office 365
-- OneDrive
-- Outlook
-- Teams
+Spectral rulesets for the provider's contracts.
 
-#### Properties
+- [Microsoft — jsonschema rules](https://apis.io/rules/microsoft/microsoft-jsonschema-spectral-rules/)
+- [Microsoft API Rules](https://apis.io/rules/microsoft/microsoft-rules/)
 
-- [Documentation](https://learn.microsoft.com/en-us/graph/overview)
-- [OpenAPI](https://learn.microsoft.com/en-us/graph/api/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://learn.microsoft.com/en-us/graph/auth/)
-- [S D Ks](https://learn.microsoft.com/en-us/graph/sdks/sdks-overview)
-- [Graph  Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)
-- [Changelog](https://learn.microsoft.com/en-us/graph/whats-new-overview)
-- [Getting Started](https://learn.microsoft.com/en-us/graph/use-the-api)
-- [OpenAPI](openapi/microsoft-graph-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-graph.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-graph.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/microsoft-graph-user-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/microsoft-graph-group-schema.json) — [JSON Schema](https://json-schema.org/specification)
+#### Security (4)
 
-### Azure REST API
+Authentication, trust centre, and vulnerability disclosure.
 
-REST APIs for managing Azure resources and services.
+- [Microsoft Authentication](https://apis.io/security/microsoft/microsoft-authentication/)
+- [Microsoft Domain Security](https://apis.io/security/microsoft/microsoft-domain-security/)
+- [Microsoft Trust Center](https://apis.io/security/microsoft/microsoft-trust-center/)
+- [Microsoft Vulnerability Disclosure](https://apis.io/security/microsoft/microsoft-vulnerability-disclosure/)
 
-- **Human URL:** [https://learn.microsoft.com/en-us/rest/api/azure/](https://learn.microsoft.com/en-us/rest/api/azure/)
-- **Base URL:** `https://management.azure.com`
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Azure
-- Cloud
-- Infrastructure
-- Resources
+- [Microsoft Scopes](https://apis.io/scopes/microsoft/microsoft-scopes/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://learn.microsoft.com/en-us/rest/api/azure/)
-- [API Reference](https://learn.microsoft.com/en-us/rest/api/?view=Azure)
-- [Authentication](https://learn.microsoft.com/en-us/azure/active-directory/develop/)
-- [S D Ks](https://azure.microsoft.com/en-us/downloads/)
-- [Pricing](https://azure.microsoft.com/en-us/pricing/)
-- [OpenAPI](openapi/microsoft-azure-rest-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-azure-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-azure-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/microsoft-azure-resource-group-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Published plans, tiers and prices.
 
-### Azure OpenAI Service API
+- [Microsoft Plans Pricing](https://apis.io/plans/microsoft/microsoft-plans-pricing/)
 
-Access to OpenAI's powerful language models through Azure.
+#### Rate limits (1)
 
-- **Human URL:** [https://azure.microsoft.com/en-us/products/ai-services/openai-service](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
-- **Base URL:** `https://{resource-name}.openai.azure.com`
+Published request limits.
 
-#### Tags
+- [Microsoft Rate Limits](https://apis.io/rate-limits/microsoft/microsoft-rate-limits/)
 
-- AI
-- GPT
-- Machine Learning
-- OpenAI
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
-- [API Reference](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
-- [Quickstart](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart)
-- [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
-- [Authentication](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/managed-identity)
-- [OpenAPI](openapi/microsoft-azure-openai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-azure-openai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-azure-openai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Microsoft Finops](https://apis.io/finops/microsoft/microsoft-finops/)
 
-### Azure Cognitive Services API
+## Where to find this API
 
-APIs for vision, speech, language, and decision-making AI capabilities.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://azure.microsoft.com/en-us/products/ai-services/](https://azure.microsoft.com/en-us/products/ai-services/)
-- **Base URL:** `https://{region}.api.cognitive.microsoft.com`
-
-#### Tags
-
-- AI
-- Computer Vision
-- Language
-- Machine Learning
-- Speech
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/azure/ai-services/)
-- [API Reference](https://learn.microsoft.com/en-us/rest/api/cognitiveservices/)
-- [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/)
-- [S D Ks](https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-apis-create-account-client-library)
-- [OpenAPI](openapi/microsoft-azure-cognitive-services-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-azure-cognitive-services.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-azure-cognitive-services.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Microsoft Teams API
-
-Build apps and bots for Microsoft Teams.
-
-- **Human URL:** [https://developer.microsoft.com/en-us/microsoft-teams](https://developer.microsoft.com/en-us/microsoft-teams)
-- **Base URL:** `https://graph.microsoft.com/v1.0/teams`
-
-#### Tags
-
-- Chat
-- Collaboration
-- Messaging
-- Teams
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/)
-- [API Reference](https://learn.microsoft.com/en-us/graph/teams-concept-overview)
-- [App  Templates](https://learn.microsoft.com/en-us/microsoftteams/platform/samples/app-templates)
-- [S D Ks](https://learn.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-overview)
-- [OpenAPI](openapi/microsoft-teams-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-teams.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-teams.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/microsoft-teams-team-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### OneDrive API
-
-Access and manage files stored in OneDrive and SharePoint.
-
-- **Human URL:** [https://developer.microsoft.com/en-us/onedrive](https://developer.microsoft.com/en-us/onedrive)
-- **Base URL:** `https://graph.microsoft.com/v1.0/me/drive`
-
-#### Tags
-
-- Files
-- OneDrive
-- SharePoint
-- Storage
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/onedrive/developer/)
-- [API Reference](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/)
-- [Samples](https://github.com/OneDrive/samples)
-- [OpenAPI](openapi/microsoft-onedrive-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-onedrive.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-onedrive.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/microsoft-drive-item-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### Power Platform API
-
-APIs for Power Apps, Power Automate, and Power BI.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/power-platform/](https://learn.microsoft.com/en-us/power-platform/)
-- **Base URL:** `https://api.powerplatform.com`
-
-#### Tags
-
-- Automation
-- Business Intelligence
-- Low Code
-- Power Apps
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/power-platform/admin/programmability-overview)
-- [Power  Apps  A P I](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview)
-- [Power  Automate  A P I](https://learn.microsoft.com/en-us/power-automate/web-api)
-- [OpenAPI](openapi/microsoft-power-platform-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-power-platform.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-power-platform.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bing Search APIs
-
-Integrate Bing search capabilities into applications.
-
-- **Human URL:** [https://www.microsoft.com/en-us/bing/apis/bing-web-search-api](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api)
-- **Base URL:** `https://api.bing.microsoft.com/v7.0`
-
-#### Tags
-
-- Bing
-- Image Search
-- Search
-- Web Search
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/bing/search-apis/)
-- [API Reference](https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/endpoints)
-- [Pricing](https://www.microsoft.com/en-us/bing/apis/pricing)
-- [OpenAPI](openapi/microsoft-bing-search-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-bing-search.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-bing-search.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SharePoint REST API
-
-REST service for remotely interacting with SharePoint data using standard REST and OData web protocol standards.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service)
-- **Base URL:** `https://{tenant}.sharepoint.com/_api`
-
-#### Tags
-
-- Collaboration
-- Content Management
-- Documents
-- SharePoint
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/get-to-know-the-sharepoint-rest-service)
-- [API Reference](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/complete-basic-operations-using-sharepoint-rest-endpoints)
-- [Getting Started](https://learn.microsoft.com/en-us/sharepoint/dev/apis/sharepoint-rest-graph)
-- [Microsoft  Graph  Integration](https://learn.microsoft.com/en-us/graph/sharepoint-concept-overview)
-- [OpenAPI](openapi/microsoft-sharepoint-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-sharepoint.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-sharepoint.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Power BI REST API
-
-REST APIs for embedded analytics, administration, governance, and content management in Power BI.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/power-bi/developer/](https://learn.microsoft.com/en-us/power-bi/developer/)
-- **Base URL:** `https://api.powerbi.com/v1.0/myorg`
-
-#### Tags
-
-- Analytics
-- Business Intelligence
-- Dashboards
-- Reports
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/power-bi/developer/)
-- [API Reference](https://learn.microsoft.com/en-us/rest/api/power-bi/)
-- [S D Ks](https://learn.microsoft.com/en-us/power-bi/developer/embedded/)
-- [Authentication](https://learn.microsoft.com/en-us/power-bi/developer/embedded/register-app)
-- [OpenAPI](openapi/microsoft-power-bi-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-power-bi.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-power-bi.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Azure DevOps REST API
-
-REST APIs for managing Azure DevOps Services including projects, pipelines, repositories, and work items.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/rest/api/azure/devops/](https://learn.microsoft.com/en-us/rest/api/azure/devops/)
-- **Base URL:** `https://dev.azure.com/{organization}/_apis`
-
-#### Tags
-
-- CI/CD
-- DevOps
-- Git
-- Pipelines
-- Work Items
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/rest/api/azure/devops/)
-- [Getting Started](https://learn.microsoft.com/en-us/azure/devops/integrate/how-to/call-rest-api)
-- [Authentication](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/authentication-guidance)
-- [Samples](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/rest/samples)
-- [OpenAPI](openapi/microsoft-azure-devops-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-azure-devops.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-azure-devops.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Dynamics 365 REST API
-
-REST APIs for Dynamics 365 business applications including Customer Engagement, Business Central, and Dataverse.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/rest/dynamics365/](https://learn.microsoft.com/en-us/rest/dynamics365/)
-- **Base URL:** `https://{org}.api.crm.dynamics.com/api/data/v9.2`
-
-#### Tags
-
-- Business Applications
-- CRM
-- Dynamics
-- ERP
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/rest/dynamics365/)
-- [API Reference](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/about)
-- [Getting Started](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview)
-- [Authentication](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authenticate-oauth)
-- [OpenAPI](openapi/microsoft-dynamics-365-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-dynamics-365.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-dynamics-365.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### LinkedIn API
-
-APIs for LinkedIn integrations covering consumer, marketing, sales, talent, learning, and compliance solutions.
-
-- **Human URL:** [https://developer.linkedin.com/](https://developer.linkedin.com/)
-- **Base URL:** `https://api.linkedin.com/v2`
-
-#### Tags
-
-- Marketing
-- Professional Network
-- Recruiting
-- Social
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/linkedin/)
-- [Authentication](https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access)
-- [API Reference](https://learn.microsoft.com/en-us/linkedin/shared/api-guide/concepts)
-- [S D Ks](https://learn.microsoft.com/en-us/linkedin/shared/development-resources/api-clients)
-- [OpenAPI](openapi/microsoft-linkedin-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Azure Communication Services API
-
-Multichannel communication APIs for adding voice, video, chat, SMS, and email to applications.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/azure/communication-services/](https://learn.microsoft.com/en-us/azure/communication-services/)
-- **Base URL:** `https://{resource}.communication.azure.com`
-
-#### Tags
-
-- Chat
-- Communication
-- Email
-- SMS
-- Video
-- Voice
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/azure/communication-services/)
-- [API Reference](https://learn.microsoft.com/en-us/rest/api/communication/)
-- [S D Ks](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options)
-- [Pricing](https://azure.microsoft.com/en-us/products/communication-services/#pricing)
-- [Git Hub](https://github.com/Azure/Communication)
-- [OpenAPI](openapi/microsoft-azure-communication-services-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-azure-communication-services.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-azure-communication-services.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Microsoft Entra ID API
-
-APIs for identity and access management including user authentication, authorization, and directory services via Microsoft Graph.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/entra/identity-platform/](https://learn.microsoft.com/en-us/entra/identity-platform/)
-- **Base URL:** `https://graph.microsoft.com/v1.0`
-
-#### Tags
-
-- Authentication
-- Authorization
-- Directory
-- Identity
-- Security
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/entra/identity-platform/)
-- [API Reference](https://learn.microsoft.com/en-us/graph/identity-network-access-overview)
-- [Getting Started](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
-- [Authentication](https://learn.microsoft.com/en-us/entra/identity-platform/v2-overview)
-- [OpenAPI](openapi/microsoft-entra-id-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-entra-id.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-entra-id.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Microsoft Outlook API
-
-APIs for integrating with Outlook mail, calendar, and contacts through Microsoft Graph.
-
-- **Human URL:** [https://developer.microsoft.com/en-us/outlook](https://developer.microsoft.com/en-us/outlook)
-- **Base URL:** `https://graph.microsoft.com/v1.0/me`
-
-#### Tags
-
-- Calendar
-- Contacts
-- Email
-- Outlook
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/outlook/)
-- [Mail  A P I  Reference](https://learn.microsoft.com/en-us/graph/outlook-mail-concept-overview)
-- [Calendar  A P I  Reference](https://learn.microsoft.com/en-us/graph/outlook-calendar-concept-overview)
-- [Getting Started](https://learn.microsoft.com/en-us/outlook/rest/get-started)
-- [OpenAPI](openapi/microsoft-outlook-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-outlook.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-outlook.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Microsoft Intune API
-
-APIs for managing devices, apps, and compliance policies through Microsoft Graph for enterprise mobility management.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/intune-concept-overview](https://learn.microsoft.com/en-us/graph/intune-concept-overview)
-- **Base URL:** `https://graph.microsoft.com/v1.0`
-
-#### Tags
-
-- Compliance
-- Device Management
-- Endpoint Management
-- Mobile
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/graph/intune-concept-overview)
-- [API Reference](https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview)
-- [Authentication](https://learn.microsoft.com/en-us/intune/intune-service/developer/intune-graph-apis)
-- [S D Ks](https://learn.microsoft.com/en-us/intune/intune-service/developer/app-sdk-get-started)
-- [OpenAPI](openapi/microsoft-intune-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-intune.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-intune.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/microsoft-managed-device-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-## Common Properties
-
-- [Developer  Portal](https://developer.microsoft.com/)
-- [Azure  Portal](https://portal.azure.com)
-- [Status Page](https://status.azure.com/)
-- [Support](https://support.microsoft.com/)
-- [Privacy Policy](https://privacy.microsoft.com/)
-- [Terms of Service](https://www.microsoft.com/en-us/legal/terms-of-use)
-- [Blog](https://devblogs.microsoft.com/)
-- [Authentication](https://learn.microsoft.com/en-us/entra/identity-platform/)
-- [Sign Up](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
-- [Forum](https://learn.microsoft.com/en-us/answers/)
+- [Website](https://www.microsoft.com/)
+- [Documentation](https://docs.microsoft.com/)
+- [Getting started](https://learn.microsoft.com/en-us/adaptive-cards/sdk/rendering-cards/android/getting-started)
 - [Pricing](https://azure.microsoft.com/en-us/pricing/calculator/)
-- [Git Hub](https://github.com/microsoft)
-- [JSON-LD](json-ld/microsoft-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON-LD](json-ld/microsoft-graph-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/microsoft-graph-user-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/microsoft-graph-group-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/microsoft-azure-resource-group-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/microsoft-teams-team-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/microsoft-drive-item-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/microsoft-managed-device-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Features](undefined)
-- [Integrations](https://www.microsoft.com/en-us/marketplace)
+- [Support](https://support.microsoft.com/)
+- [Changelog](https://developer.microsoft.com/en-us/changelog)
+- [Blog](https://devblogs.microsoft.com/)
+- [Security](https://www.microsoft.com/security)
+- [Compliance](https://www.microsoft.com/en-us/trust-center)
+- [Terms of service](https://www.microsoft.com/en-us/legal/terms-of-use)
+- [Privacy policy](https://privacy.microsoft.com/)
+- [Status](https://status.azure.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 67.7** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 71.1 |
+| Contract governance | 22.0 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 76.8 |
+| Access clarity | 60.5 |
+
+**Agent readiness 25.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/microsoft/](https://apis.io/providers/microsoft/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/microsoft/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
